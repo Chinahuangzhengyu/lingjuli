@@ -3,13 +3,22 @@ package com.zhjl.qihao.systemsetting.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.zhjl.qihao.R;
 import com.zhjl.qihao.abcommon.VolleyBaseActivity;
+import com.zhjl.qihao.abrefactor.view.GridViewForScrollView;
+import com.zhjl.qihao.abrefactor.view.RoundImageView;
+import com.zhjl.qihao.abutil.PictureHelper;
+import com.zhjl.qihao.image.ShowNetWorkImageActivity;
 import com.zhjl.qihao.integration.utils.PopWindowUtils;
 import com.zhjl.qihao.propertyservicepay.bean.UserRoomListBean;
 import com.zhjl.qihao.systemsetting.api.SettingInterface;
@@ -46,7 +55,12 @@ public class MyHomeAddressActivity extends VolleyBaseActivity {
     TextView tvRight;
     @BindView(R.id.btn_update_home)
     Button btnUpdateHome;
+    @BindView(R.id.gv_img_upload)
+    GridViewForScrollView gvImgUpload;
+    @BindView(R.id.ll_type)
+    LinearLayout llType;
     private String residentId = ""; //入住id
+    private MyUpLoadAdapter imgAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,9 +103,91 @@ public class MyHomeAddressActivity extends VolleyBaseActivity {
             tvHomeNumber.setText(room);
             tvHomeType.setText(userType);
         }
+
+        imgAdapter = new MyUpLoadAdapter();
+        gvImgUpload.setAdapter(imgAdapter);
+        gvImgUpload.setOnItemClickListener((arg0, arg1, arg2, arg3) -> {
+            if (arg2 == 0) {
+                showImage();
+            } else {
+                showImage(arg2);
+            }
+
+        });
+
     }
 
-    @OnClick({R.id.tv_number_update, R.id.iv_back, R.id.tv_right,R.id.btn_update_home})
+
+    /**
+     * 查看本地图片
+     */
+    public void showImage() {
+        Intent it = new Intent(mContext, ShowNetWorkImageActivity.class);
+        it.putExtra("urls", new String[1]);
+        it.putExtra("localPic",R.drawable.img_contract);
+        it.putExtra("isLocal", true);
+        it.putExtra("index", 0);
+        startActivity(it);
+    }
+
+    public void showImage(int index) {
+//        Intent it = new Intent(mContext, ShowNetWorkImageActivity.class);
+//        String[] strings = new String[imgList.size()];
+//        for (int i = 0; i < imgList.size(); i++) {
+//            strings[i] = imgList.get(i);
+//        }
+//        it.putExtra("urls", strings);
+//        it.putExtra("index", index);
+//        it.putExtra("nowImage", imgList.get(index));
+//        startActivity(it);
+    }
+
+    public class MyUpLoadAdapter extends BaseAdapter {
+        private LayoutInflater inflater = LayoutInflater.from(mContext);
+
+        @Override
+        public int getCount() {
+//            if (imgList.size() < 5 && imgList.size() > 0) {
+//                return imgList.size() + 2;
+//            } else if (imgList.size() <= 0) {
+//                return 2;
+//            } else {
+//                return imgList.size();
+//            }
+            return 2;
+        }
+
+        @Override
+        public Object getItem(int arg0) {
+            // TODO 自动生成的方法存根
+            return null;
+        }
+
+        @Override
+        public long getItemId(int arg0) {
+            // TODO 自动生成的方法存根
+            return 0;
+        }
+
+        @Override
+        public View getView(final int position, View convertView, ViewGroup arg2) {
+            if (convertView == null) {
+                if (position == 0) {
+                    convertView = inflater.inflate(R.layout.home_item_one, null);
+                } else {
+                    convertView = inflater.inflate(R.layout.home_item_imgview, null);
+                    RoundImageView img_pic = (RoundImageView) convertView
+                            .findViewById(R.id.img_pic);
+
+                }
+
+            }
+            return convertView;
+        }
+
+    }
+
+    @OnClick({R.id.tv_number_update, R.id.iv_back, R.id.tv_right, R.id.btn_update_home})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.tv_number_update:
@@ -106,7 +202,7 @@ public class MyHomeAddressActivity extends VolleyBaseActivity {
                 PopWindowUtils.getInstance().setSetYesOnClickListener(() -> requestUnBuilding());
                 break;
             case R.id.btn_update_home:
-                Intent intent1 = new Intent(mContext,AddHomeAddressBindingActivity.class);
+                Intent intent1 = new Intent(mContext, AddHomeAddressBindingActivity.class);
                 startActivity(intent1);
                 break;
         }

@@ -46,15 +46,12 @@ public class HomeAddressBindingActivity extends VolleyBaseActivity {
         homeAddressBindingAdapter = new HomeAddressBindingAdapter(mContext,data);
         xrvHomeAddressBinding.setAdapter(homeAddressBindingAdapter);
         xrvHomeAddressBinding.setPullRefreshEnabled(false);
-        homeAddressBindingAdapter.setSetOnItemClickListener(new HomeAddressBindingAdapter.SetOnItemClickListener() {
-            @Override
-            public void OnItemClick(View view, int position) {
-                Intent intent = new Intent(mContext,MyHomeAddressActivity.class);
-                intent.putExtra("residentId",data.get(position).getResidentId());
-                intent.putExtra("data",data.get(position));
-                intent.putExtra("isHomeList",true);
-                startActivity(intent);
-            }
+        homeAddressBindingAdapter.setSetOnItemClickListener((view, position) -> {
+            Intent intent = new Intent(mContext,MyHomeAddressActivity.class);
+            intent.putExtra("residentId",data.get(position).getResidentId());
+            intent.putExtra("data",data.get(position));
+            intent.putExtra("isHomeList",true);
+            startActivity(intent);
         });
 
     }

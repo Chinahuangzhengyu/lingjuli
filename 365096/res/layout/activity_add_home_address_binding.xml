@@ -10,6 +10,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:scrollbars="none"
         android:layout_weight="1">
 
         <LinearLayout
@@ -272,6 +273,47 @@
                 android:layout_height="1dp"
                 android:background="@color/view_line"></View>
 
+            <LinearLayout
+                android:id="@+id/ll_type"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="14dp"
+                android:layout_marginRight="14dp"
+                android:orientation="vertical"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:textColor="@color/text_color_f1"
+                    android:layout_marginTop="16dp"
+                    android:text="上传购房合同（选填）"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="房屋备案表、房本照片、房屋合同（房屋信息页、盖章页）三者选其一即可"
+                    android:textColor="@color/ff999999"
+                    android:layout_marginTop="6dp"
+                    android:textSize="14sp"
+                    />
+
+                <com.zhjl.qihao.abrefactor.view.GridViewForScrollView
+                    android:layout_width="match_parent"
+                    android:id="@+id/gv_img_upload"
+                    android:listSelector="@color/transparent"
+                    android:scrollbars="none"
+                    android:verticalSpacing="16dp"
+                    android:layout_marginTop="16dp"
+                    android:horizontalSpacing="70dp"
+                    android:layout_marginLeft="34dp"
+                    android:layout_marginRight="34dp"
+                    android:layout_marginBottom="4dp"
+                    android:numColumns="2"
+                    android:layout_height="wrap_content"></com.zhjl.qihao.abrefactor.view.GridViewForScrollView>
+
+            </LinearLayout>
+
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:visibility="gone"
@@ -297,14 +339,15 @@
             </RelativeLayout>
 
             <TextView
+                android:id="@+id/tv_message"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="注：请填写真实信息，以便后期门禁使用。绑定提交后平台客服专员会在24小时内以短信告知您申请结果，请注意查收！"
+                android:text="注：业主增加住所提交后平台客服专员会在24小时内以短信告知您增加结果，请注意查收。家人或租户增加住所请提醒业主审核"
                 android:textColor="#ffb126"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginLeft="14dp"
                 android:layout_marginRight="14dp"
-                android:layout_marginTop="26dp"
+                android:layout_marginTop="20dp"
                 android:textSize="14sp" />
         </LinearLayout>
     </ScrollView>

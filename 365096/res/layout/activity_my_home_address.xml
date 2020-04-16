@@ -223,10 +223,52 @@
             android:paddingBottom="16dp"
             android:layout_height="wrap_content" />
     </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_type"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="14dp"
+                android:layout_marginRight="14dp"
+                android:orientation="vertical"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:textColor="@color/text_color_f1"
+                    android:layout_marginTop="16dp"
+                    android:text="上传购房合同（选填）"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="房屋备案表、房本照片、房屋合同（房屋信息页、盖章页）三者选其一即可"
+                    android:textColor="@color/ff999999"
+                    android:layout_marginTop="6dp"
+                    android:textSize="14sp"
+                    />
+
+                <com.zhjl.qihao.abrefactor.view.GridViewForScrollView
+                    android:layout_width="match_parent"
+                    android:id="@+id/gv_img_upload"
+                    android:listSelector="@color/transparent"
+                    android:scrollbars="none"
+                    android:verticalSpacing="16dp"
+                    android:layout_marginTop="16dp"
+                    android:horizontalSpacing="70dp"
+                    android:layout_marginLeft="34dp"
+                    android:layout_marginRight="34dp"
+                    android:layout_marginBottom="4dp"
+                    android:numColumns="2"
+                    android:layout_height="wrap_content"></com.zhjl.qihao.abrefactor.view.GridViewForScrollView>
+
+            </LinearLayout>
             <Button
                 android:id="@+id/btn_update_home"
                 android:layout_marginTop="80dp"
                 android:layout_width="match_parent"
+                android:visibility="gone"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="14dp"

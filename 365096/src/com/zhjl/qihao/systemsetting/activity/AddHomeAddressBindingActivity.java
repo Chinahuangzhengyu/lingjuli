@@ -5,8 +5,10 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -23,9 +25,17 @@ import com.bigkoo.pickerview.view.OptionsPickerView;
 import com.michoi.unlock.UnlockManager;
 import com.zhjl.qihao.R;
 import com.zhjl.qihao.abcommon.VolleyBaseActivity;
+import com.zhjl.qihao.abcommon.VolleyBaseFragment;
 import com.zhjl.qihao.ablogin.activity.ChooseSmallCity;
 import com.zhjl.qihao.ablogin.bean.LoginBean;
 import com.zhjl.qihao.abrefactor.RefactorMainActivity;
+import com.zhjl.qihao.abrefactor.view.GridViewForScrollView;
+import com.zhjl.qihao.abrefactor.view.RoundImageView;
+import com.zhjl.qihao.abutil.PictureHelper;
+import com.zhjl.qihao.activity.NewPhotoMultipleActivity;
+import com.zhjl.qihao.image.ShowNetWorkImageActivity;
+import com.zhjl.qihao.nearbyinteraction.api.NearByInterfaces;
+import com.zhjl.qihao.nearbyinteraction.bean.FileUploadBean;
 import com.zhjl.qihao.propertyservicepay.api.PropertyPayInterface;
 import com.zhjl.qihao.propertyservicepay.bean.UserRoomListBean;
 import com.zhjl.qihao.systemsetting.api.SettingInterface;
@@ -84,6 +94,12 @@ public class AddHomeAddressBindingActivity extends VolleyBaseActivity {
     TextView tvUserType;
     @BindView(R.id.rl_user_type)
     RelativeLayout rlUserType;
+    @BindView(R.id.gv_img_upload)
+    GridViewForScrollView gvImgUpload;
+    @BindView(R.id.ll_type)
+    LinearLayout llType;
+    @BindView(R.id.tv_message)
+    TextView tvMessage;
     private SettingInterface settingInterface;
     private List<String> smallCommunityList = new ArrayList<>();    //小区数据
     private List<String> buildingList = new ArrayList<>();    //楼栋数据
@@ -104,7 +120,13 @@ public class AddHomeAddressBindingActivity extends VolleyBaseActivity {
     private boolean isRegister;
     private boolean isPopAddress;
     public static final int BINDING_ADDRESS_SUCCESS = 0x167;
+    public static final int REQUEST_ADD_PHOTO = 2;
     private ProgressDialog dialog;
+    private List<String> imgIdList = new ArrayList<String>();
+    List<String> imgList = new ArrayList<String>();
+    List<Boolean> imgDeleteShow = new ArrayList<>();
+    private FileUploadBean.DataBean resultData;
+    private MyUpLoadAdapter imgAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -119,6 +141,7 @@ public class AddHomeAddressBindingActivity extends VolleyBaseActivity {
         list.put(2, "家庭成员");
         list.put(3, "租户");
         initData();
+        initUploadData();
         requestRoomList();
         userTypeAdapter = new UserTypeAdapter();
         lvAddressType.setAdapter(userTypeAdapter);
@@ -132,6 +155,13 @@ public class AddHomeAddressBindingActivity extends VolleyBaseActivity {
                     tvItem.setTextColor(Color.parseColor("#ffffff"));
                     tvUserType.setText(list.get(i + 1));
                     userType = i + 1;
+                    if (userType == 1) {
+                        llType.setVisibility(View.VISIBLE);
+                        tvMessage.setText("注：业主增加住所提交后平台客服专员会在24小时内以短信告知您增加结果，请注意查收。家人或租户增加住所请提醒业主审核");
+                    } else {
+                        llType.setVisibility(View.GONE);
+                        tvMessage.setText("注：请填写真实信息，以便后期门禁使用。绑定提交后平台客服专员会在24小时内以短信告知您申请结果，请注意查收！");
+                    }
                 } else {
                     LinearLayout llItem = (LinearLayout) lvAddressType.getChildAt(i);
                     LinearLayout llItemContent = (LinearLayout) llItem.getChildAt(0);
@@ -142,6 +172,122 @@ public class AddHomeAddressBindingActivity extends VolleyBaseActivity {
             }
         });
 
+
+        imgAdapter = new MyUpLoadAdapter();
+        gvImgUpload.setAdapter(imgAdapter);
+        gvImgUpload.setOnItemClickListener((arg0, arg1, arg2, arg3) -> {
+            int imgsize = imgAdapter.getCount();
+            if (arg2 == 0) {
+                showImage();
+            } else if (imgList.size() < 5 && arg2 + 1 == imgsize) {
+                tokephote();
+            } else {
+                showImage(arg2 - 1);
+
+            }
+
+        });
+
+    }
+
+    public void tokephote() {
+        if (resultData == null) {
+            Toast.makeText(mContext, "签名获取失败！", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        Intent takePictureIntent = new Intent(mContext,
+                NewPhotoMultipleActivity.class);
+        takePictureIntent.putExtra("photonums", 5);
+        takePictureIntent.putExtra("type", imgList.size());
+        takePictureIntent.putExtra("size", imgList.size());
+        takePictureIntent.putExtra("fileSign", resultData);
+        startActivityForResult(takePictureIntent, REQUEST_ADD_PHOTO);
+    }
+
+    /**
+     * 查看本地图片
+     */
+    public void showImage() {
+        Intent it = new Intent(mContext, ShowNetWorkImageActivity.class);
+        it.putExtra("urls", new String[1]);
+        it.putExtra("localPic", R.drawable.img_contract);
+        it.putExtra("isLocal", true);
+        it.putExtra("index", 0);
+        startActivity(it);
+    }
+
+    public void showImage(int index) {
+        Intent it = new Intent(mContext, ShowNetWorkImageActivity.class);
+        String[] strings = new String[imgList.size()];
+        for (int i = 0; i < imgList.size(); i++) {
+            strings[i] = imgList.get(i);
+        }
+        it.putExtra("urls", strings);
+        it.putExtra("index", index);
+        it.putExtra("nowImage", imgList.get(index));
+        startActivity(it);
+    }
+
+
+    public class MyUpLoadAdapter extends BaseAdapter {
+        private LayoutInflater inflater = LayoutInflater.from(mContext);
+
+        @Override
+        public int getCount() {
+            if (imgList.size() < 5 && imgList.size() > 0) {
+                return imgList.size() + 2;
+            } else if (imgList.size() <= 0) {
+                return 2;
+            } else {
+                return imgList.size() + 1;
+            }
+        }
+
+        @Override
+        public Object getItem(int arg0) {
+            // TODO 自动生成的方法存根
+            return null;
+        }
+
+
+        @Override
+        public long getItemId(int arg0) {
+            // TODO 自动生成的方法存根
+            return 0;
+        }
+
+        @Override
+        public View getView(final int position, View convertView, ViewGroup arg2) {
+            if (position == 0) {
+                if (convertView == null) {
+                    convertView = inflater.inflate(R.layout.home_item_one, null);
+                }
+                return convertView;
+            } else {
+                convertView = inflater.inflate(R.layout.home_item_imgview, null);
+                RoundImageView img_pic = (RoundImageView) convertView
+                        .findViewById(R.id.img_pic);
+                ImageView iv_add = (ImageView) convertView.findViewById(R.id.iv_add);
+                ImageView iv_delete = (ImageView) convertView.findViewById(R.id.iv_delete);
+
+                iv_add.setVisibility(View.VISIBLE);
+                if (imgList.size() >= 1 && position < imgList.size() + 1) {
+                    iv_delete.setVisibility(View.VISIBLE);
+                    img_pic.setVisibility(View.VISIBLE);
+                    PictureHelper.showPictureWithSquare(mContext, img_pic,
+                            imgList.get(position - 1));
+                    iv_add.setVisibility(View.GONE);
+                }
+
+                iv_delete.setOnClickListener(v -> {
+                    imgList.remove(position - 1);
+                    imgIdList.remove(position - 1);
+                    imgDeleteShow.remove(position - 1);
+                    imgAdapter.notifyDataSetChanged();
+                });
+                return convertView;
+            }
+        }
 
     }
 
@@ -180,6 +326,28 @@ public class AddHomeAddressBindingActivity extends VolleyBaseActivity {
                 for (int i = 0; i < result.getData().size(); i++) {
                     smallCommunityList.add(result.getData().get(i).getSmallCommunityName());
                 }
+            }
+
+            @Override
+            public void fail() {
+
+            }
+        });
+    }
+
+    /**
+     * 获取上传文件签名
+     */
+    private void initUploadData() {
+        NearByInterfaces nearByInterfaces = ApiHelper.getInstance().buildRetrofit(mContext).createService(NearByInterfaces.class);
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("directory", "resident-apply");
+        map.put("type", 1);
+        Call<ResponseBody> call = nearByInterfaces.getFileSign(map);
+        activityRequestData(call, FileUploadBean.class, new RequestResult<FileUploadBean>() {
+            @Override
+            public void success(FileUploadBean result, String message) throws Exception {
+                resultData = result.getData();
             }
 
             @Override
@@ -263,7 +431,7 @@ public class AddHomeAddressBindingActivity extends VolleyBaseActivity {
         map.put("roomId", roomId);
         map.put("smallCommunityCode", smallCommunityCode);
         map.put("type", userType);
-        RequestBody body = ParamForNet.put(map);
+        RequestBody body = ParamForNet.putContainsArray(map, "pictures", imgIdList);
         Call<ResponseBody> call = settingInterface.userResident(body);
         activityRequestData(call, null, new RequestResult<Object>() {
             @Override
@@ -485,5 +653,27 @@ public class AddHomeAddressBindingActivity extends VolleyBaseActivity {
                 ButterKnife.bind(this, view);
             }
         }
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        // TODO 自动生成的方法存根
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == 1 && data != null) {
+            List<String> mSamllPathList = (List<String>) data.getExtras()
+                    .getSerializable("samllPath");
+            for (int i = 0; i < mSamllPathList.size(); i++) {
+                String url = mSamllPathList.get(i);
+                if (url != null) {
+
+                    imgList.add(url);
+                    imgDeleteShow.add(false);
+                }
+            }
+            imgIdList.addAll((List<String>) data.getExtras().getSerializable(
+                    ("imageId")));
+            imgAdapter.notifyDataSetChanged();
+        }
+
     }
 }
