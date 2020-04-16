@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_complaint_detail_item"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <View
+        android:layout_width="20dp"
+        android:layout_height="match_parent"></View>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:background="@drawable/round_gray_bg"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/img_child_head"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_margin="10dp"
+            android:src="@drawable/img_head" />
+
+        <TextView
+            android:id="@+id/tv_child_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_toRightOf="@+id/img_child_head"
+            android:text=""
+            android:textColor="@color/green"
+            android:textSize="12sp" />
+
+        <com.zhjl.qihao.view.CustomGridView
+            android:id="@+id/gv_child_comment_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_child_name"
+            android:layout_marginLeft="54dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginBottom="34dp"
+            android:horizontalSpacing="12dp"
+            android:listSelector="@android:color/transparent"
+            android:numColumns="3"
+            android:visibility="gone"></com.zhjl.qihao.view.CustomGridView>
+
+        <TextView
+            android:id="@+id/tv_child_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_child_name"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@+id/img_child_head"
+            android:paddingBottom="10dp"
+            android:text=""
+            android:textColor="@color/color_gray"
+            android:textSize="12sp" />
+
+        <ImageView
+            android:id="@+id/tv_child_more"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginRight="9dp"
+            android:padding="10dp"
+            android:src="@drawable/right_arrow" />
+
+        <TextView
+            android:id="@+id/img_child_sure_agree"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_toLeftOf="@+id/tv_child_more"
+            android:drawableLeft="@drawable/sweet_cicle_great_normal"
+            android:drawablePadding="5dp"
+            android:padding="10dp"
+            android:text="0"
+            android:textColor="@color/color_gray"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tv_child_reply"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_toLeftOf="@+id/img_child_sure_agree"
+            android:padding="10dp"
+            android:text="回复"
+            android:textColor="@color/color_gray"
+            android:textSize="12sp" />
+    </RelativeLayout>
+
+</LinearLayout>

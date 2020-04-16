@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/ref_root_layout_style"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_color"
+    android:orientation="vertical"
+    tools:context="com.zhjl.qihao.find.activitys.DpxqActivity">
+
+    <include layout="@layout/header_bar" />
+
+    <include layout="@layout/ab_layout_space" />
+
+    <include layout="@layout/layout_dpxq_header" />
+
+    <com.handmark.pulltorefresh.library.PullToRefreshGridView
+        android:id="@+id/gridView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:horizontalSpacing="11dp"
+        android:numColumns="2"
+        android:padding="12dp"
+        android:scrollbars="none"
+        android:verticalSpacing="12dp" />
+
+    <include layout="@layout/data_no" />
+
+</LinearLayout>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/activity_bg"
+    android:orientation="vertical">
+
+    <!--<TextView-->
+        <!--android:id="@+id/tv_status_color"-->
+        <!--android:background="@color/white"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content" />-->
+
+    <RelativeLayout
+        android:id="@+id/rl_vp"
+        android:layout_width="match_parent"
+        android:layout_height="216dp">
+
+        <com.zhjl.qihao.view.CannotScrollViewpager
+            android:id="@+id/vp_shop"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/circle_bottom_left_right_20"></com.zhjl.qihao.view.CannotScrollViewpager>
+
+        <ImageView
+            android:id="@+id/img_back"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginLeft="14dp"
+            android:layout_marginTop="28dp"
+            android:src="@drawable/shop_back" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="14dp"
+            android:layout_marginRight="14dp"
+            android:layout_marginBottom="12dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/ll_search"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:background="@drawable/circle_white_18"
+                android:layout_weight="1">
+                <ImageView
+                    android:id="@+id/img_search"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:src="@drawable/img_serach"
+                    />
+                <TextView
+                    android:id="@+id/tv_search"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:hint="搜索商品/品牌"
+                    android:gravity="center_vertical"
+                    android:textSize="14sp"
+                    android:textColor="#DCDCDC"
+                    android:layout_weight="1"
+                    android:background="@null" />
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="6dp"
+                    android:background="#f2f2f2"
+                    android:layout_marginBottom="6dp"
+                    ></View>
+                <ImageView
+                    android:id="@+id/img_call_person"
+                    android:layout_width="wrap_content"
+                    android:padding="10dp"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/img_kefu"
+                    />
+            </LinearLayout>
+
+            <RadioGroup
+                android:id="@+id/rg_vp_item"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="16dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+            </RadioGroup>
+
+        </LinearLayout>
+    </RelativeLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_below="@+id/rl_vp"
+        android:id="@+id/rv_shop_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="14dp"
+        android:layout_marginRight="14dp"
+        android:layout_marginTop="16dp"
+        ></android.support.v7.widget.RecyclerView>
+
+    <include layout="@layout/loading_framelayout"></include>
+</RelativeLayout>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="16dp"
+    android:background="@drawable/circle_white_6"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_shop_address_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:drawableRight="@drawable/img_right"
+        android:drawablePadding="6dp"
+        android:textStyle="bold"
+        android:textColor="@color/text_color_f1"
+        android:textSize="18sp" />
+
+    <ListView
+        android:id="@+id/lv_shop_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:scrollbars="none"
+        android:listSelector="@color/transparent"></ListView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="16dp">
+
+        <TextView
+            android:id="@+id/tv_see_detail"
+            android:layout_width="84dp"
+            android:layout_height="28dp"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/stroke_circle_green_20"
+            android:gravity="center"
+            android:text="查看详情"
+            android:textColor="@color/new_theme_color"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_service_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="仅退款，退款成功"
+            android:textColor="@color/text_color_f1"
+            android:textSize="14sp" />
+    </RelativeLayout>
+</LinearLayout>

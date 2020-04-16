@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_item"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/view_line"></View>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.zhjl.qihao.view.CircleImageView
+                android:id="@+id/img_head"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_marginLeft="14dp"
+                android:layout_marginTop="20dp" />
+            <LinearLayout
+                android:id="@+id/ll_title"
+                android:layout_width="match_parent"
+                android:layout_marginTop="16dp"
+                android:layout_toRightOf="@+id/img_head"
+                android:layout_toLeftOf="@+id/img_complaint"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:maxWidth="300dp"
+                android:text=""
+                android:textColor="@color/text_color_f1"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tv_tag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/circle_gradient_green_2"
+                android:paddingLeft="4dp"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"
+                android:paddingRight="4dp"
+                android:text="作者"
+                android:textColor="@color/white"
+                android:textSize="10sp"
+                android:visibility="gone" />
+            </LinearLayout>
+            <TextView
+                android:id="@+id/tv_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ll_title"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginRight="10dp"
+                android:layout_toLeftOf="@+id/img_complaint"
+                android:layout_toRightOf="@+id/img_head"
+                android:text=""
+                android:textColor="@color/bbbbbb"
+                android:textSize="12sp" />
+
+            <ImageView
+                android:id="@+id/img_complaint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="22dp"
+                android:paddingRight="14dp"
+                android:src="@drawable/img_complaint" />
+
+            <TextView
+                android:id="@+id/tv_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_time"
+                android:layout_marginRight="14dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
+                android:layout_toRightOf="@+id/img_head"
+                android:ellipsize="end"
+                android:maxLines="4"
+                android:textColor="@color/text_color_f1"
+                android:textSize="16sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="8dp"
+                android:layout_below="@+id/tv_content"
+                android:background="@color/view_line"></View>
+        </RelativeLayout>
+    </LinearLayout>
+</RelativeLayout>

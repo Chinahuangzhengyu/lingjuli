@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <include layout="@layout/ab_header_bar"></include>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="14dp"
+                android:layout_marginRight="14dp">
+
+                <TextView
+                    android:id="@+id/tv_small_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="小区"
+                    android:textColor="@color/text_color_f1"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tv_choose_small_community"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@+id/tv_small_name"
+                    android:drawableRight="@drawable/img_right"
+                    android:drawablePadding="16dp"
+                    android:gravity="right"
+                    android:paddingTop="16dp"
+                    android:paddingBottom="16dp"
+                    android:text="请选择小区"
+                    android:textColor="@color/ff999999"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/view_line"></View>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="14dp"
+                android:layout_marginRight="14dp">
+
+                <TextView
+                    android:id="@+id/tv_building_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="楼栋"
+                    android:textColor="@color/text_color_f1"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tv_choose_building"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@+id/tv_building_name"
+                    android:drawableRight="@drawable/img_right"
+                    android:drawablePadding="16dp"
+                    android:gravity="right"
+                    android:paddingTop="16dp"
+                    android:paddingBottom="16dp"
+                    android:text="请选择楼栋"
+                    android:textColor="@color/ff999999"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/view_line"></View>
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="14dp"
+                android:layout_marginRight="14dp">
+
+                <TextView
+                    android:id="@+id/tv_room_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="房间"
+                    android:textColor="@color/text_color_f1"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tv_choose_room"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@+id/tv_room_name"
+                    android:drawableRight="@drawable/img_right"
+                    android:drawablePadding="16dp"
+                    android:gravity="right"
+                    android:paddingTop="16dp"
+                    android:paddingBottom="16dp"
+                    android:text="请选择房间"
+                    android:textColor="@color/ff999999"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/view_line"></View>
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="14dp"
+                android:layout_marginRight="14dp">
+
+                <TextView
+                    android:id="@+id/tv_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="住户姓名"
+                    android:textColor="@color/text_color_f1"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/et_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@+id/tv_name"
+                    android:background="@null"
+                    android:drawablePadding="16dp"
+                    android:lines="1"
+                    android:inputType="text"
+                    android:gravity="right"
+                    android:hint="请填写真实姓名"
+                    android:paddingTop="16dp"
+                    android:paddingBottom="16dp"
+                    android:textColor="@color/text_color_f1"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/view_line"></View>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:layout_marginLeft="14dp"
+                android:layout_marginRight="14dp">
+
+                <TextView
+                    android:id="@+id/tv_phone_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="手机号码"
+                    android:textColor="@color/text_color_f1"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/et_phone_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@+id/tv_phone_number"
+                    android:background="@null"
+                    android:drawablePadding="16dp"
+                    android:gravity="right"
+                    android:hint="请填手机号码"
+                    android:paddingTop="16dp"
+                    android:paddingBottom="16dp"
+                    android:textColor="@color/text_color_f1"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/view_line"></View>
+
+            <RelativeLayout
+                android:id="@+id/rl_user_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="14dp"
+                android:layout_marginRight="14dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="住户类型"
+                    android:textColor="@color/text_color_f1"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:id="@+id/img_user_type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/img_bottom_gray" />
+
+                <TextView
+                    android:id="@+id/tv_user_type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="业主"
+                    android:layout_toLeftOf="@+id/img_user_type"
+                    android:layout_centerVertical="true"
+                    android:textColor="@color/text_color_f1"
+                    android:layout_marginRight="10dp"
+                    android:textSize="16sp"
+                    />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/view_line"></View>
+            <com.zhjl.qihao.view.ListViewForScrollView
+                android:id="@+id/lv_address_type"
+                android:layout_width="match_parent"
+                android:divider="@null"
+                android:listSelector="@color/transparent"
+                android:dividerHeight="8dp"
+                android:paddingTop="16dp"
+                android:visibility="gone"
+                android:paddingBottom="16dp"
+                android:layout_height="wrap_content"
+                android:background="@color/activity_bg"
+                ></com.zhjl.qihao.view.ListViewForScrollView>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/view_line"></View>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:visibility="gone"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="14dp"
+                    android:text="设为默认房间"
+                    android:textColor="@color/text_color_f1"
+                    android:textSize="16sp" />
+
+                <com.kyleduo.switchbutton.SwitchButton
+                    android:id="@+id/sb_default_room"
+                    android:layout_width="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="14dp"
+                    android:paddingTop="16dp"
+                    android:paddingBottom="16dp"
+                    android:layout_height="wrap_content" />
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="注：请填写真实信息，以便后期门禁使用。绑定提交后平台客服专员会在24小时内以短信告知您申请结果，请注意查收！"
+                android:textColor="#ffb126"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="14dp"
+                android:layout_marginRight="14dp"
+                android:layout_marginTop="26dp"
+                android:textSize="14sp" />
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_binding"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="14dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginRight="14dp"
+            android:layout_marginBottom="4dp"
+            android:background="@drawable/circle_green_22"
+            android:maxLength="200"
+            android:text="立即绑定"
+            android:textColor="@color/color_white"
+            android:textSize="18sp" />
+    </LinearLayout>
+</LinearLayout>

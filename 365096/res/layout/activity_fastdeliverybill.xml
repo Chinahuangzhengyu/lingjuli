@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    style="@style/root_layout_style" >
+
+    <include layout="@layout/header_bar"/>
+    
+
+    <LinearLayout
+        android:id="@+id/ll_hasgood"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical" >
+
+        <ListView
+            android:id="@+id/pulltorefresh_fastdeliverybill"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_margin="4dp"
+            android:scrollbars="none"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:cacheColorHint="@null"
+            android:divider="@null" >
+        </ListView>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1px"
+            android:background="@color/color_e2e2e2" />
+        <LinearLayout
+            android:id="@+id/ll_settlement"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <CheckBox
+                android:id="@+id/check_shopcart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="10dp"
+                android:button="@drawable/shop_checkbox_button"
+                android:gravity="center" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="@string/str_choosall" />
+
+            <TextView
+                android:id="@+id/tx_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="总计:" />
+
+            <TextView
+                android:id="@+id/tx_allprice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLength="15"
+                android:gravity="center_vertical"
+                android:textColor="@color/color_f78071"
+                android:text="¥0.00" />
+
+            <Button
+                android:id="@+id/btn_settlement"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/btn_settlement_gray"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="结算"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_donthasgood"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_margin="4dp"
+        android:background="@color/white"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone" >
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:src="@drawable/img_fastdelivery_shopcart" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:text="@string/tip_cart_emperty"
+            android:textColor="#bdbdbd"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/btn_gotodeliverylist"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/btn_round_blue"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:text="@string/tip_goto_shop"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+</LinearLayout>

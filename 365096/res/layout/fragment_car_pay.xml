@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <android.support.v4.widget.NestedScrollView
+            android:id="@+id/sv_car_pay"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:id="@+id/rl_car_choose_room"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="54dp">
+
+
+                    <ImageView
+                        android:id="@+id/img_choose"
+                        android:layout_width="8dp"
+                        android:layout_height="16dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="14dp"
+                        android:src="@drawable/img_right" />
+
+                    <TextView
+                        android:id="@+id/tv_choose"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="14dp"
+                        android:layout_toLeftOf="@+id/img_choose"
+                        android:ellipsize="end"
+                        android:lines="1"
+                        android:text="小区名字和房间号"
+                        android:textColor="@color/text_color_f1"
+                        android:textSize="16sp" />
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/view_line"></View>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="54dp"
+                    android:layout_below="@+id/view_1">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="14dp"
+                        android:text="缴费截至时间"
+                        android:textColor="@color/ff999999"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/tv_pay_last_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="14dp"
+                        android:text="2019-10-22"
+                        android:textColor="@color/text_color_f1"
+                        android:textSize="16sp" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/view_line"></View>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RadioGroup
+                        android:id="@+id/rg_car_choose"
+                        android:layout_width="match_parent"
+                        android:layout_height="54dp"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/rb_car_number"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="58dp"
+                            android:background="@color/transparent"
+                            android:button="@null"
+                            android:checked="true"
+                            android:drawableRight="@drawable/car_choose_status"
+                            android:drawablePadding="10dp"
+                            android:gravity="center"
+                            android:text="车牌号"
+                            android:textColor="@color/text_color_f1"
+                            android:textSize="16sp" />
+
+                        <RadioButton
+                            android:id="@+id/rb_car_number2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@color/transparent"
+                            android:button="@null"
+                            android:drawableRight="@drawable/car_choose_status"
+                            android:drawablePadding="10dp"
+                            android:gravity="center"
+                            android:text="车位号"
+                            android:textColor="@color/text_color_f1"
+                            android:textSize="16sp" />
+                    </RadioGroup>
+
+                    <EditText
+                        android:id="@+id/et_car_number"
+                        android:layout_width="match_parent"
+                        android:layout_height="54dp"
+                        android:layout_marginLeft="14dp"
+                        android:layout_marginRight="14dp"
+                        android:lines="1"
+                        android:inputType="text"
+                        android:background="@drawable/circle_viewline_6"
+                        android:gravity="center"
+                        android:hint="点击输入车牌号"
+                        android:textSize="16sp"></EditText>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_pay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"></LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_pay_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="14dp"
+                        android:layout_marginTop="16dp"
+                        android:text="缴费时间"
+                        android:textColor="@color/text_color_f1"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_weight="1"
+                        ></View>
+                    <TextView
+                        android:id="@+id/tv_pay_detail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="14dp"
+                        android:drawableLeft="@drawable/yhq"
+                        android:drawablePadding="12dp"
+                        android:text="可额外赠送30%的N币"
+                        android:textColor="#FF1616"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rv_car_pay_time"
+                    android:layout_width="match_parent"
+                    android:layout_marginLeft="14dp"
+                    android:layout_marginRight="14dp"
+                    android:layout_marginTop="16dp"
+                    android:nestedScrollingEnabled="false"
+                    android:layout_height="wrap_content"
+                    ></android.support.v7.widget.RecyclerView>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/view_line"></View>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="54dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="14dp"
+                        android:text="合计缴费"
+                        android:textColor="@color/ff999999"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/tv_sum_money"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="14dp"
+                        android:text="¥13.00"
+                        android:textColor="@color/text_color_f1"
+                        android:textSize="16sp" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/view_line"></View>
+
+
+            </LinearLayout>
+        </android.support.v4.widget.NestedScrollView>
+
+        <Button
+            android:id="@+id/btn_car_pay"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_marginLeft="14dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginRight="14dp"
+            android:layout_marginBottom="4dp"
+            android:background="@drawable/circle_green_22"
+            android:text="立即缴费¥37.00"
+            android:textColor="@color/color_white"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <include layout="@layout/loading_framelayout"></include>
+</RelativeLayout>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/ab_header_bar"></include>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="14dp"
+        android:layout_marginRight="14dp"
+        android:lineHeight="28dp"
+        android:text="\u3000\u3000贵州栖好网络科技有限公司是一家致力于运用网络科技服务社区人群的互联网企业，公司秉承科技改变生活的理念，用互联网思维和模式服务物业公司、提升业主的社群生活体验。公司将物业管理做成类免费的模式，解决物业公司收费难，业主交费不情愿的难题；用自主开发的软件，解决业主投诉无门，物业公司无处申冤等痛点；用合作开发的智能门禁系统，实现人脸识别、二维码、远程等开门方式，提升小区品质。公司秉承“利他、正己”的经营理念，始终坚持“以客户的需求和满意”为核心，不断改进和创新，为客户提供更大的价值回报和服务，充分满足各类社区生活需求，打造专业的智慧社区生活服务平台。"
+        android:textColor="@color/text_color_f1"
+        android:textSize="16sp" />
+
+</LinearLayout>

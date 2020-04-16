@@ -1,0 +1,849 @@
+<resources>
+
+   <string name="app_name">零距离智慧社区</string>
+   <string name="cloud_city"></string>
+   <!--   <string name="app_name">翼看</string> -->
+     <string name="hello_blank_fragment">Hello blank fragment</string>
+     <string name="title_activity_my_property_activity2">MyPropertyActivity2</string>
+     <string name="title_activity_sweet_circle_main_activity2">SweetCircleMainActivity2</string>
+     <string name="activity">活动</string>
+     <string name="hot_topic">热门话题</string>
+     <string name="mutual">互助</string>
+     <string name="doorstep">家门口</string>
+     <string name="opendoor">开门</string>
+     <string name="smarthome">智慧家庭</string>
+     <string name="property">物业</string>
+     <string name="lingli">邻里</string>
+     <string name="consume">消费</string>
+     <string name="health">健康</string>
+
+
+     <string name="hello_world">Hello world!</string>
+     <string name="menu_settings">Settings</string>
+     <string name="title_activity_main">MainActivity</string>
+     <string name="permlab_useSip">Use sip</string>
+     <string name="permdesc_useSip">Place SIP calls, send SIP messages and control SIP communications</string>
+     <string name="permlab_configureSip">Use sip</string>
+     <string name="permdesc_configureSip">Place SIP calls, send SIP messages and control SIP communications</string>
+     <string name="resend">重新发送</string>
+     <string name="getsecuritycode">获取验证码</string>
+     <string name="finish">完成</string>
+      <string name="next">下一步</string>
+
+      <!-- 我的消息 -->
+    <string name="my_info">我的消息</string>
+    <string name="all_info">全部消息</string>
+    <string name="official_push">官方推送</string>
+    <string name="property_news">物业消息</string>
+    <string name="legal_news">法律消息</string>
+    <string name="orders_news">订单消息</string>
+    <string name="info_state">消息状态</string>
+    <string name="no_read">未读</string>
+    <string name="all">全部</string>
+    <string name="have_read">已读</string>
+    <string name="no_data">暂无数据</string>
+    <!-- 主页 -->
+    <string name="money_maker">摇钱树</string>
+    <string name="money_maker_des">易理财</string>
+    
+    <!-- 摇钱树 -->
+    <string name="investment_account">投资帐户</string>
+    <string name="recharge">转入</string>
+    <string name="withdraw">转出</string>
+    <string name="investment">已投项目</string>
+    <string name="annual_income">年收益</string>
+    <string name="total_loans">贷款总额</string>
+    <string name="loan_period">借款期限</string>
+    <string name="the_number_has_invested">已投%s人</string>
+    <string name="going">进行中</string>
+    <string name="revoked">已撤销</string>
+    
+    <string name="repayment_of">还款中</string>
+    <string name="it_has_also_finished">已还完</string>
+    
+    <string name="account_amount">帐户金额：  </string>
+    <string name="to_be_Amount">待收金额：  </string>
+    <string name="amount_freeze">冻结金额：</string>
+    
+    <string name="my_want_investment">我要投资</string>
+    
+    <string name="homepage">个人主页</string>
+    <string name="finanical_records">资金记录</string>
+    <string name="password_settings">交易密码设置</string>
+    <string name="reset_password">重置密码</string>
+    <string name="station_letter">站内信</string>
+    <string name="income_calculation">收益计算</string>
+    <string name="feedback">意见反馈</string>
+    
+    <string name="investment_projects">投资项目</string>
+    
+    <string name="projects_list">项目列表</string>
+    <string name="prject_details">项目详情</string>
+    <string name="calculation_result">计算结果</string>
+     
+    <!-- 我的房 -->
+    <string name="myhome">我的房</string>
+    <string name="bill">帐单</string>
+    <string name="repair">维修</string>
+    <string name="rental">租售</string>
+    <string name="publish">发布</string>
+    <string name="tip_choose_province">请选择省份</string> 
+    <string name="tip_choose_city">请选择城市</string>
+    <string name="tip_choose_area">请选择区</string>
+    <!-- 便利店 -->
+    <string name="sort">分类</string>
+    
+    <string name="please_input_goods">请输入商品关键字</string>
+    <!-- 辅助功能 -->
+    <string name="item_smartlife">智能生活</string>
+    <string name="item_elevator">电梯联动</string>
+    
+    <!-- Label -->
+    <string name="tab_sip">可视对讲</string>
+    <string name="tab_community">社区服务</string>
+    <string name="tab_information">社区资讯</string>
+    <string name="tab_smartlife">智能生活</string>
+    <string name="tab_auxiliary">智能控制</string>
+    <string name="tab_webnav">网页导航</string>
+    <string name="label_smartlife_package">智能家居包名:</string>
+    <string name="label_smartlife_class">智能家居类名:</string>
+    <string name="koti_notinstalled_smartlife">请安装智能控制</string>
+    <string name="label_sip_display">显示名称:</string>
+    <string name="label_sip_username">SIP帐号:</string>
+    <string name="label_sip_password">密码:</string>
+    <string name="label_sip_server">服务器地址:</string>
+    <string name="label_sip_file_path">配置文件路径:</string>
+    <!-- 社区服务 -->
+    <string name="service_no_support">该服务暂不可用！</string>
+    <string name="community_phonedialog_offline">设备不在线，\n请稍后再拨。</string>
+    <string name="koti_customer_service">物业客户中心</string>
+    <string name="koti_living_services">生活服务</string>
+    <!-- 社区资讯 -->
+    <string name="koti_information_weather">天气预报</string>
+    <string name="koti_information_community">社区动态</string>
+    <string name="koti_information_news">最新资讯</string>
+    <string name="koti_information_notification">社区通知</string>
+    <string name="have_read_messages">已读</string>
+    <string name="have_not_read_messages">未读</string>
+    <string name="menu_return">返回</string>
+    <string name="all_messages"><b><![CDATA[全部]]></b></string>
+    <string name="delete_message">删除资讯信息</string>
+    <string name="del_dialog_message">确定要删除此资讯信息？</string>
+    <string name="koti_information_unread_count" formatted="false">%s条未读%s</string>
+    <string name="koti_information_count" formatted="false">%s条%s</string>
+    <!-- weather -->
+    <string name="koti_weather_city">广州</string>
+    <string name="koti_weather_detail">每小时天气预报</string>
+    <string name="koti_weather_home">HOME</string>
+    <string name="koti_weather_img">图标</string>
+    <string name="realtime_temperature">27</string>
+    <string name="koti_forecast">暴雨</string>
+    <string name="koti_temperature_range">25 - 33</string>
+    <string name="koti_wind_direction">风力2-3级  东南风</string>
+    <string name="koti_humidity">湿度  80%</string>
+    <string name="koti_pm_value">PM2.5:23</string>
+    <string name="koti_date">07/23 六月初五</string>
+    <string name="koti_update_time">更新于  12-7-24 14:01</string>
+    <!-- contact -->
+    <string name="advanced_display_name_empty">名称或号码不能为空！</string>
+    <string name="koti_indoor_no">户内通</string>
+    <string name="koti_gate_no">门口机</string>
+    <string name="koti_small_gate_no">小门口机</string>
+    <string name="koti_management_no">管理机</string>
+    <string name="koti_sip_no">SIP帐号</string>
+    <string name="no_contacts">无联系人</string>
+    <string name="koti_contacts">通讯录</string>
+    <string name="koti_config_no">配置号码</string>
+    <string name="koti_add_contact">添加联系人</string>
+    <string name="koti_name_and_no_exist">联系人已经存在</string>
+    <string name="koti_contact_name">名称</string>
+    <string name="koti_contact_no">联系人号码</string>
+    <string name="contact_name">名称:</string>
+    <string name="contact_no">号码:</string>
+    <string name="koti_edit_contact">编辑联系人</string>
+    <string name="koti_add_contacts_detail">添加到联系列表</string>
+    <string name="koti_add_bt">添加</string>
+    <string name="koti_cancel_bt">清空</string>
+    <string name="koti_edit_bt">编辑</string>
+    <string name="koti_no_calllog">无通话记录</string>
+    <string name="koti_sendmsg_bt">发送信息</string>
+    <string name="koti_call_bt">拨打电话</string>
+    <string name="koti_mobile_number" formatted="false">移动电话    %s</string>
+    <string name="koti_fixed_number" formatted="false">宅电    %s</string>
+    <string name="koti_indoor_number" formatted="false">户内通    %s</string>
+    <string name="koti_group_bt">群组</string>
+    <string name="koti_all_contacts">所有联系人</string>
+    <string name="koti_search_text">搜索</string>
+    <string name="koti_contact_delete">删除通讯录</string>
+    <!-- 提示信息 -->
+    <string name="tip_message_no_item">无信息</string>
+    <string name="label_confirm">确定</string>
+    <string name="label_back">返回</string>
+    <string name="loading">Loading</string>
+    <string name="tip_package">智能家居包名</string>
+    <string name="tip_class">智能家居类名</string>
+    <string name="tip_edit_no_empty">输入选择不能为空</string>
+    <string name="tip_smartlife_no_cfg">该应用没有配置智能家居</string>
+    <string name="tip_smartlife_cfg_error">没有找到配置的智能家居应用</string>
+    <string name="tip_update_cfg_success">KOTI SIP帐户配置文件更新成功</string>
+    <string name="tip_p2p_model">KOTI SIP 点对点模式切换成功!</string>
+    <string name="tip_message_send">消息已发送</string>
+    <string name="tip_smartlife_cfg_item">例如: jhsys.kotisuper/jhsys.kotisuper.LoadingPage;\ncom.easymobiz.aycontrol/com.easymobiz.droidcontrol.activity.MainActivity</string>
+    <string name="tip_exit_app">确定要退出KOTI应用?</string>
+    <string name="app_exit">退出</string>
+    <string name="tip_sip_no_config">KOTI SIP帐户不可用</string>
+    <string name="tip_no_external_storage">外存储不可用</string>
+    <string name="tip_export_path">导出路径:</string>
+    <string name="tip_file_no_exsit">文件不存在</string>
+    <string name="tip_export_file_fail">导入文件失败</string>
+    <string name="tip_export_file_success">导入文件成功</string>
+
+    <!-- 菜单选项 -->
+    <string name="menu_theme">主题</string>
+    <string name="menu_sip_info">本机信息</string>
+    <string name="menu_base_setting">基本设置</string>
+    <string name="menu_sip_restart">重新登录</string>
+    <string name="menu_cfg_download">更新配置</string>
+    <string name="menu_advanced_setting">高级设置</string>
+    <string name="menu_setting">设置</string>
+    <string name="menu_locale_en">English</string>
+    <string name="menu_locale_zh">更新数据</string>
+
+    <!-- SIP message -->
+    <string name="sip_message_unlock">开锁指令已发送</string>
+
+    <!-- 设置选项 -->
+    <string name="setting_echo_cancelled">语音通话回声消除</string>
+    <string name="setting_dial_voice">拨号提示音</string>
+    <string name="setting_voice_volumn">通话音量</string>
+    <string name="setting_ad_p2p">点对点模式(无SIP服务器)</string>
+    <string name="setting_ad_compatibility">版本兼容</string>
+    <string name="setting_ad_community">访问社区(本地)</string>
+    <string name="setting_language">语言</string>
+
+    <!-- 按钮 -->
+
+    <string name="btn_export_file">导出默认配置</string>
+    <string name="btn_update">更新</string>
+    <string name="btn_change">更改</string>
+
+    <!--  -->
+    <string name="hardware_version_name">hardware_version_tv</string>
+    <string name="software_version_name">software_version_tv</string>
+    <string name="manufacturer_name">manufacturer</string>
+    <string name="product_class_name">product_class</string>
+    <string name="sn_no">SN序列号:</string>
+    <string name="sipaccount">SIP帐号:</string>
+    <string name="username">用户名:</string>
+    <string name="password">密码:</string>
+    <string name="sn_url">URL:</string>
+    <string name="input_url">地址以http开始</string>
+    <string name="sn_oui">OUI:</string>
+    <string name="tr069register">注册</string>
+    <string name="register_error_param">填写信息不能为空！</string>
+    <string name="clear_all">清空</string>
+    <string name="rebind">重新注册:</string>
+    <string name="hint_sip_account">位置编码</string>
+    <string name="hint_sip_account_end">分机编码</string>
+    <string name="hint_date">日期</string>
+    <string name="hint_5_end">后5位</string>
+    <string name="hint_old_sip_sn_5_end">旧机ID(后5位)</string>
+    <string name="btn_modify">修改</string>
+    <string name="btn_ok">确定</string>
+    <string name="btn_cancel">取消</string>
+    <string name="btn_back">返回</string>
+    <string name="progress_loading_tip">数据加载中…</string>
+
+    <!-- 版本更新 -->
+    <string name="confirm_install_hint">版本更新</string>
+    <string name="confirm_install">有新功能更新, 请安装最新版本, 谢谢.</string>
+    <string name="VERSION_INSTALL">安装</string>
+    <string name="VERSION_INSTALL_CANCEL">放弃</string>
+
+    <!-- 默认文本 -->
+    <string name="tr069_default_sn_date">B7F</string>
+    <string name="tr069_default_sn_num">21321</string>
+    <string name="tr069_default_url">http://121.8.100.54:8081/bms/terminalAccess</string>
+    <string name="tr069_default_model">001E10</string>
+    <!-- 网页导航 -->
+    <string name="webnav_delete">是否删除</string>
+    <string name="webnav_delete_faild">删除失败</string>
+    <string name="webnav_delete_msg">是否删除当前网址?</string>
+    <string name="net_error_tip">当前网络不可用，请检查你的网络设置。</string>
+
+   
+    
+    
+ 	<!-- 主页 -->
+ 	<string name="home">主页</string>
+ 	<string name="main_shared_des">呼啦圈</string>
+    <!-- 智能安防 -->
+    <string name="smart_security">智能安防</string>
+    <string name="lstClickToAddCamera">请按此新增摄像机</string>
+    <string name="ctxReconnect">重新连接</string>
+    <string name="ctxEditCamera">修改摄像机</string>
+    <string name="ctxViewEvent">查看事件</string>
+    <string name="ctxViewSnapshot">查看快照</string>
+    <string name="ctxRemoveCamera">删除摄像机</string>
+    <string name="optAddCamera">增加</string>
+    <string name="optAbout">关于</string>
+    <string name="optExplain">说明</string>
+    <string name="optExit">退出</string>
+    <string name="btnExit">退出</string>
+    <string name="btnCancel">取消</string>
+    <string name="btnRunInBackground">背景执行</string>
+    <string name="ntfAppRunning">%s 正在执行中&#8230;</string>
+    <string name="ntfCameraRunning">摄影机联机中 (%d)</string>
+    <string name="dialog_AddCamera">增加摄像机</string>
+    <string name="tips_warning">警告</string>
+    <string name="txtDeviceSetting">设备设置</string>
+    <string name="txtUID">UID:</string>
+    <string name="btnScan">扫描二维码</string>
+    <string name="btnSearch">搜索</string>
+    <string name="txtSecurityCode">密码:</string>
+    <string name="txtName">名称:</string>
+    <string name="tips_no_barcode_scanner">您的手机未安装条形码扫描软件，是否现在下载?</string>
+    <string name="tips_no_sdcard">您的手机未安装SD卡。</string>
+    <string name="dialog_LanSearch">内网搜索</string>
+    <string name="btnRefresh">刷新</string>
+    <string name="tips_camera_name">请输入[摄像机名称]。</string>
+    <string name="tips_dev_uid">请输入 [UID]。</string>
+    <string name="tips_dev_uid_character">[UID] 必须输入20个字符。</string>
+    <string name="tips_dev_security_code">请输入[密码].</string>
+    <string name="tips_add_camera_duplicated">该摄影机已存在，请输入另一个[UID]。</string>
+    <string name="tips_add_camera_ok">成功添加摄像机。</string>
+    <string name="txtFPS">FPS:</string>
+    <string name="txtBPS">bps:</string>
+    <string name="txtOnlineNumber">在线人数:</string>
+    <string name="txtFrameRatio">掉包率:</string>
+
+    <!-- Connection Mode -->
+    <string name="connmode_p2p">P2P</string>
+    <string name="connmode_relay">Relay</string>
+    <string name="connmode_lan">局域網</string>
+    <string name="connmode_none">无</string>
+    <string name="txtMute">静音</string>
+    <string name="txtListening">监听中</string>
+    <string name="txtSpeaking">通话中</string>
+    <string name="tips_no_snapshot_found">查无快照</string>
+    <string name="tips_snapshot_failed">拍照失败</string>
+    <string name="txtListen">监听</string>
+    <string name="txtSpeak">通话</string>
+    <string name="connstus_connecting">连接中&#8230;</string>
+    <string name="connstus_connected">在线</string>
+    <string name="connstus_disconnect">离线</string>
+    <string name="connstus_unknown_device">未知设备</string>
+    <string name="connstus_connection_failed">连接失败</string>
+    <string name="connstus_wrong_password">错误密码</string>
+    <string name="tips_snapshot_ok">成功拍照</string>
+    <string name="dlgAreYouSureToDeleteThisSnapshot">要删除此图片吗？</string>
+    <string name="dlgDeleteSnapshotYes">确定</string>
+    <string name="dlgDeleteSnapshotNo">取消</string>
+    <string name="tips_format_sdcard_success">格式化成功</string>
+    <string name="tips_format_sdcard_failed">格式化失败</string>
+    <string name="ntfIncomingEvent">从 %s 接收事件警示</string>
+    <string name="ntfLastEventIs">新进事件: %s</string>
+    <string name="btnFormat">格式化</string>
+    <string name="dialog_FormatSDCard">格式化 SDCard</string>
+    <string name="txtFormatSDCardTitle">侦测无法识别SDCard</string>
+    <string name="txtFormatSDCardDesc">必须进行格式化后方得继续使用录像功能，格式化指令将会清除SDCard内所有数据。</string>
+    <string name="chbShowTipsFormatSDCard">当侦测到无法识别SDCard时显示此讯息</string>
+
+    <!-- Event type -->
+    <string name="evttype_all">全部</string>
+    <string name="evttype_motion_detection">移动侦测</string>
+    <string name="evttype_video_lost">视频中断</string>
+    <string name="evttype_io_alarm">IO 报警</string>
+    <string name="evttype_motion_pass">移动侦测</string>
+    <string name="evttype_video_resume">视频恢复</string>
+    <string name="evttype_io_alarm_pass">IO 报警</string>
+    <string name="evttype_expt_reboot">系统异常重启</string>
+    <string name="evttype_sd_fault">SD卡错误</string>
+    <string name="evttype_fulltime_recording">全时录像</string>
+
+    <!-- Event list page -->
+    <string name="txtSearchEventDuration">搜索事件区间:</string>
+
+    <!-- No connection page -->
+    <string name="txtNoNetworkConnection">未连上网络</string>
+    <string name="txtCameraOffline">装置脱机</string>
+    <string name="btnRetry">重试</string>
+    <string name="txtLoadEventList">读取&#8230;</string>
+    <string name="txtNoResultFound">未找到任何记录</string>
+    <string name="tips_search_event_no_result">未找到任何记录。</string>
+    <string name="imgDesc_EventDetail">View Event Detail</string>
+    <string name="tips_play_record_timeout">无法获取远程录像档。</string>
+    <string name="tips_play_record_failed">播放录像失败。</string>
+    <string name="tips_play_record_end">该录像已播放完毕。</string>
+    <string name="tips_search_within_an_hour">一小时内</string>
+    <string name="tips_search_within_half_a_day">半天内</string>
+    <string name="tips_search_within_a_day">一天内</string>
+	<string name="tips_search_within_a_week">一周内</string>
+	<string name="tips_search_custom">自定义</string>
+	
+	 <string name="dialog_EventSearch">事件搜索</string>
+	 
+	 <!-- Event search page -->
+	<string name="txtSearchEventFrom">从</string>
+	<string name="txtSearchEventTo">到</string>
+	<string name="txtSearchEventType">事件</string>
+	
+	<string name="monitor">监控</string>
+	
+	<string name="album">快照</string>
+	<string name="tips_remove_camera_confirm">是否删除该摄像机?</string>
+	<string name="dialog_EditCamera">修改摄像机</string>
+	<string name="txtAdvancedSetting">高级设置</string>
+	<string name="btnAdvanced">设置</string>
+	<string name="tips_edit_camera_ok">成功修改摄像机。</string>
+	<string name="dialog_AdvancedSetting">高级设置</string>
+	<string name="tips_wifi_retrieving">获取中&#8230;</string>   
+	<string name="tips_wifi_connecting">连接中&#8230;</string>
+	<string name="tips_format_sdcard_confirm">格式化命令将于清除SDCard内所有数据，继续?</string>
+	
+	<string name="txtOldPassword">旧密码:</string>
+	<string name="txtNewPassword">新密码:</string>
+	<string name="txtConfirmPassword">新密码确认:</string>
+	<string name="tips_old_password_is_wrong">旧密码输入错误。</string>    
+	<string name="tips_new_passwords_do_not_match">两次输入的新密码不一致。</string> 
+	<string name="tips_all_field_can_not_empty">请输入所有选项。</string>
+	<string name="tips_modify_security_code_ok">成功修改密码.该摄像机稍后会重新连接。</string>
+	<string name="none">无</string>
+	<string name="tips_wifi_disconnect">未连接</string>
+	<string name="tips_wifi_weak_signal">已连接 (讯号微弱)</string>   
+	<string name="tips_wifi_connected">已连接</string>
+	<string name="tips_wifi_ready">已准备</string>
+ 	<string name="tips_wifi_wrongpassword">密码错误</string>
+ 	 <string name="dialog_Playback">录像回放</string>
+ 	<string name="back">返回</string>
+
+    <string name="random_number">99</string>
+    <string name="main_my_room">我的房</string>
+    <string name="main_my_room_des">物管 买卖</string>
+
+    <string name="main_wisdom_wizard">智慧精灵</string>
+    <string name="main_wisdom_wizard_des">实时 控制 监控</string>
+
+    <string name="main_convenience_store">便利店</string>
+    <string name="main_convenience_store_des">订单 快送</string>
+    <string name="main_service">服务</string>
+    <string name="main_service_des">周边 团购</string>
+
+    <string name="main_ciscovery">发现</string>
+    <string name="main_ciscovery_des">公共 休闲 必备</string>
+
+    <string name="main_shared">分享</string>
+
+    <string name="main_personal_center">我</string>
+    <string name="main_personal_center_des">账单 积分 消息</string>
+
+    <string name="unknown">Unknown</string>
+
+    <string name="no_installation_apk">你未安装此应用程序.</string>
+
+    <string name="StrKey">RNf8rcZvrXNOfH2QrrK529sk</string>
+
+    <string name="button_cancel">取消</string>
+    <string name="button_ok">确定</string>
+    <string name="str_isexite">是否退出？</string>
+    <string name="str_isdelete">确定删除？</string>
+    <string name="str_inputusername">请输入用户名:</string>
+    <string name="str_inputpass">请输入密码:</string>
+    <string name="str_reputpass">确 认  密 码:</string>
+    <string name="str_savepass">保存密码</string>
+    <string name="str_newpass">输入新密码:</string>
+    <string name="str_resetpass">修改密码</string>
+    <string name="password_sucess">密码修改成功</string>
+    <string name="str_sett8">设置安防关联</string>
+    <string name="btn_save">保存</string>
+    <string name="load_first">请先登录</string>
+    <string name="str_serviceType_name">选择服务类型:</string>
+    <string name="str_online_ordertime">预约服务时间:</string>
+
+    <!-- 申请授权 -->
+    <string name="my_apply">我的申请</string>
+    <string name="authorization_appl">申请授权</string>
+    <string name="input_your_info">请如实填写你的信息:</string>
+    <string name="apply_name">申请人姓名:</string>
+    <string name="ower_name">业主姓名:</string>
+    <string name="mobile">手机号码:</string>
+    <string name="owner_phone">业主手机号码:</string>
+    <string name="phone">电话号码:</string>
+    <string name="author_name">授权人姓名:</string>
+    <string name="apply_property">申请授权的物业:</string>
+    <string name="apply_autho_remark">申请授权说明:</string>
+    <string name="apply_remark">你可以输入100个字</string>
+    <string name="submit">提交</string>
+    <string name="input_name">请输入申请人姓名</string>
+    <string name="input_property_name">请输入申请授权的物业</string>
+    <string name="input_ower_name">请输入业主姓名</string>
+    <string name="input_phone">输入电话号码</string>
+    <string name="input_owner_phone">请输入业主手机号码</string>
+    <string name="input_apply_remark">请输入申请授权说明</string>
+    <string name="apply_success">申请成功</string>
+    <string name="apply_failue">申请失败</string>
+    <string name="ower">业主:</string>
+    <string name="apply_time">申请时间:</string>
+    <string name="ower_text">陈小海</string>
+    <string name="mobile_text">15814568236</string>
+    <string name="apply_property_addr">镜湖花园一期一单0101</string>
+    <string name="apply_time_test">2015&#8211;01&#8211;02 05:06</string>
+
+    <!-- 修改支付密码 -->
+    <string name="update_pwd_input">预约服务时间:</string>
+    <string name="input_user_info">请输入验证身份信息</string>
+    <string name="update_pay_pwd">修改支付密码</string>
+    <string name="update_pwd_first">第一步：身份验证</string>
+    <string name="select_property">预约服务时间:</string>
+    <string name="input_card_name">请输入您身份证上的姓名</string>
+    <string name="input_card_id">请输入您的身份证号码</string>
+    <string name="next_step">下一步</string>
+    <string name="verify_failue">验证失败，请输入正确的姓名或身份证号</string>
+
+    <!-- 物业服务 -->
+    <string name="commit_success">您的信息已提交成功！ 小区物业人员即将处理，请耐心等待...</string>
+    <string name="add_img">添加图片</string>
+    <string name="max_pic_num">最多只能上传6张图片</string>
+    <string name="type">类型</string>
+    <string name="add_voice">添加录音</string>
+    <string name="radio">录音</string>
+    <string name="stop">完成</string>
+    <string name="close">关闭</string>
+
+    <!-- 物业账单 -->
+    <string name="str_this_month_no_property_bill">该月暂无缴费项目</string>
+    <string name="str_property_bill_be_overdue">嗨，预存功能要下个月才能使用哦，下个月再来吧！</string>
+    <string name="str_property_bill_stride_across_month">抱歉，不能跨月预存费用</string>
+    <string name="str_property_bill_already_store">已预存</string>
+    <string name="str_property_bill_has_expired">您当前月物业管理费已过缴费期限，请前往物业管理处缴纳!</string>
+    <string name="str_property_bill_non_payment_of_fees">未缴费</string>
+    <string name="str_property_bill_have_to_pay">已缴费</string>
+    <string name="str_property_bill_is_overdue">已欠费</string>
+    <string name="str_property_bill_choose">选择缴费</string>
+    <string name="str_property_bill">帐单缴费</string>
+
+    <!-- 小区快送 -->
+    <string name="str_fastdelivery_not_have_goods">暂无商品</string>
+
+    <!-- 我的积分 -->
+    <string name="str_integral_no_changed_record">暂无兑换的商品</string>
+    <string name="str_integral_no_hot_changed_goods">暂无热门兑换商品</string>
+    <string name="str_integral_welcome_1">欢迎您!</string>
+    <string name="str_integral_welcome_2">欢迎您,</string>
+    <string name="str_integral_chang_success">兑换成功</string>
+
+    <!-- 业主认证 -添加房间 -->
+
+    <string name="add_room">添加房间</string>
+    <string name="city">城\u3000\u3000市:</string>
+    <string name="communit">小\u3000\u3000区:</string>
+    <string name="room">房\u3000\u3000间:</string>
+    <string name="older_phone">旧手机号:</string>
+    <string name="remark_info">请尽量多提供您的信息，以便工作人员审核！</string>
+    <string name="auth_info">认证说明:</string>
+    <string name="input_city_msg">请选择城市</string>
+    <string name="input_community_msg">请选择小区</string>
+    <string name="input_room">请输入房间</string>
+    <string name="input_mobile_msg">请输入手机号码</string>
+    <string name="input_remark_msg">请输入认证说明</string>
+    <string name="auth_failure_msg">认证失败</string>
+    <string name="str_open">展开全文</string>
+    <string name="str_cloce">收起</string>
+    <string name="button_toke_phote">拍照</string>
+    <string name="string_take_photo">拍照</string>
+    <string name="str_select_from_album">从相册中选择</string>
+    <string name="str_take_photo">拍照</string>
+    <string name="please_click_on_the_photo_took_photos_button">请先点击拍照按钮拍摄照片</string>
+    <string name="image_upload">图片上传</string>
+    <string name="image_upload_fail">图片上传失败！</string>
+    <string name="tautology">重试</string>
+
+    <!-- 物业服务 -->
+    <string name="property_services">物业理财</string>
+    <string name="contact_property">联系物业</string>
+    <string name="repair_services">维修服务</string>
+    <string name="content">事件内容&#8230;</string>
+    <string name="select_services_type">请选择服务类型</string>
+    <string name="contact">联系人</string>
+    <string name="input_contact">请输入联系人</string>
+    <string name="contact_phone">联系电话</string>
+    <string name="order_time">预约时间</string>
+    <string name="content_error">不允许输入特殊字符和表情</string>
+    <string name="radio_list">录音列表</string>
+    <string name="no_property_type">暂无服务类型</string>
+    <string name="submit_success">提交成功</string>
+    <string name="converting_data">正在转换数据&#8230;</string>
+    <string name="wait_moment">请稍后&#8230;</string>
+    <string name="input_radio">请填写您的投诉意见或者录制语音</string>
+    <string name="delete">删除</string>
+    <string name="input_property_error">事件内容、图片、声音至少输入一个</string>
+    <string name="input_error">事件内容不能为空</string>
+    <string name="view_big_img">查看大图</string>
+    <string name="address">联系地址</string>
+    <string name="radio_url_error">返回音频路径有误</string>
+    <string name="unknower_error">未知错误</string>
+    <string name="the_max_radio">最多只能上传4条录音</string>
+
+    <!-- 上拉刷新 下拉加载更多相关 -->
+    <string name="listview_header_hint_normal">下拉刷新</string>
+    <string name="listview_header_hint_ready">释放立即刷新</string>
+    <string name="listview_header_hint_loading">正在加载&#8230;</string>
+    <string name="xlistview_header_hint_loading">正在加载&#8230;</string>
+    <string name="xlistview_footer_hint_ready">松开载入更多</string>
+
+    <!-- 代码中提示的中文字 -->
+    <string name="request_error">网络不给力，请稍后再试！</string>
+    <string name="tips_cannot_use">您没有选择小区，不能使用</string>
+
+    <string name="tips_please_login">您还未登录，请登录后使用</string>
+    <string name="tips_not_owner_1">您不是该小区的业主，不能使用</string>
+    <string name="tips_not_owner_2">模块的功能</string>
+    <string name="tips_success">成功</string>
+
+    <!-- grid中八个按钮的中文字 -->
+    <string name="string_kuaisong">快送服务</string>
+    <string name="ttq">呼啦圈</string>
+    <string name="string_fuwu">服务预约</string>
+    <string name="string_weixiu">维修服务</string>
+    <string name="string_tousu">联系物业</string>
+    <string name="string_wuye">帐单缴费</string>
+    <string name="string_fangwu">房屋出租</string>
+    <string name="string_falv">法律咨询</string>
+
+    <!-- 新版grid 8个按钮的文字 -->
+    <string name="str_wuyezhangdan">帐单缴费</string>
+    <string name="str_wuyefuwu">物业理财</string>
+    <string name="str_tiantianquan">呼啦圈</string>
+    <string name="str_jiazhengfuwu">家政服务</string>
+    <string name="str_tongxingzheng">通行证</string>
+    <string name="str_falvzixun">法律咨询</string>
+    <string name="str_fangwuchuzu">房屋租售</string>
+    <string name="str_zhinenganfang">智能安防</string>
+
+    <!-- 判断是否为html版本 -->
+    <string name="ishtml">false</string>
+
+
+    <!-- 个人用户 -->
+    <string name="register">注册</string>
+    <string name="un_register">您的手机号尚未注册</string>
+    <string name="register_success">注册成功</string>
+    <string name="register_please_load">已注册，请直接登录</string>
+    <string name="resourceLoading">资源加载中</string>
+    <string name="please_update">发现新版本，请更新来体验吧！</string>
+    <string name="register_tv_province">省区选择：</string>
+    <string name="register_tv_city">城市选择：</string>
+    <string name="register_tv_community">小区选择：</string>
+    <string name="register_btn_next">下一步</string>
+    <string name="password_input">输入初始密码</string>
+    <string name="password_again">再次输入密码</string>
+    <string name="activity_tv_verification_1">验证码</string>
+    <string name="edt_verification">请输入获得的验证码</string>
+    <string name="activity_btn_verification">获取验证码</string>
+    <string name="actovoty_tv_verification_2">验证码将发送至业主绑定的手机</string>
+    <string name="verification_to_phone">短信验证码已发送到您的手机，请注意查收</string>
+    <string name="verification_time_out"> 短信验证码超过一小时，请重新获取短信验证码</string>
+    <string name="verificationCode_can_not_null">验证码不能为空</string>
+    <string name="verificationCode_length_only_6">验证码只能为6位</string>
+    <string name="no_verificationCode">验证码不存在</string>
+    <string name="verificationCode_wrong">验证码不正确</string>
+    <string name="verificationCode_time_out">验证码超时</string>
+    <string name="phoneload_tv_num">业主登记的手机号码</string>
+    <string name="phoneload_edt_num">请输入您的手机号码</string>
+    <string name="phoneload_tv_msg_1">验证码将发送至业主绑定的手机</string>
+    <string name="phoneload_btn_next">下一步</string>
+    <string name="update">有新版本是否更新?</string>
+    <string name="load">登录</string>
+    <string name="load_sucess">登录成功</string>
+    <string name="str_tip">提示</string>
+    <string name="str_yes">是</string>
+    <string name="str_no">否</string>
+    <string name="record_sound_tips">是否开始录音？</string>
+    <string name="record_sound">开始录音</string>
+    <string name="record_ok">录音完成</string>
+    <string name="record_cancle">取消录音</string>
+    <string name="recording_sound">正在录音</string>
+    <string name="playing_sound">正在播放</string>
+    <string name="play_over">播放完成</string>
+    <string name="play_start">开始播放</string>
+    <string name="play_close">关闭</string>
+    <string name="play_again">再次播放</string>
+    <string name="play_pause">暂停</string>
+    <string name="phonenumber_can_not_null">手机号不能为空</string>
+    <string name="phonenumber_wrong">手机号不正确</string>
+    <string name="phonenumber_length_only_11">手机号长度只能为11位</string>
+    <string name="password_can_not_null">密码不能为空</string>
+    <string name="password_length_only_6_16">密码长度只能为6位至16位</string>
+    <string name="different_password">两次输入的密码不相同，请重新输入</string>
+    <string name="send_verificationCode">获取验证码</string>
+  <!--  <string name="confirm_install_hint">安装提示</string>
+    <string name="confirm_install">保证您的交易安全，需要您安装支付宝安全支付服务，才能进行付款。\n\n点击确定，立即安装。</string>
+    -->
+    <string name="generic_server_down">网络不给力，请稍后再试！</string>
+    <string name="no_internet">网络异常，请设置网络</string>
+    <string name="generic_error">服务器繁忙或其他原因，暂时连接失败</string>
+    <string name="evaluate_details">写点评价吧，对其他用户帮助很大的哦！</string>
+
+    <item name="voice_info" type="id"></item>
+
+    <string name="share_by_qq">QQ分享</string>
+    <string name="login_qq">登录（QQ）</string>
+    <string name="logout_qq">注销登录（QQ）</string>
+    <string name="login_sina">登录（新浪微博）</string>
+    <string name="logout_sina">注销登录（新浪微博）</string>
+
+    <!-- 快送模块 -->
+    <string name="rb_all_text">全部(%s)</string>
+    <string name="rb_good_text">好评(%s)</string>
+    <string name="rb_middle_text">中评(%s)</string>
+    <string name="rb_bad_text">差评(%s)</string>
+    <string name="tv_goods_eval_num">宝贝评价 (%s)</string>
+    <string name="tv_importability_num">你还可以输入%s个字</string>
+
+    <!-- 我的订单 -->
+    <string name="tx_edt_search">搜索我的订单</string>
+    <string name="tx_detail_explain">卖家还有***来对本次退款进行处理，如果卖家还未在该期限处理，系统将自动完成本次退货退款。</string>
+    <string name="tx_detail_1">如果您对本次退款处理不满意，您还可以</string>
+    <string name="no_data_for_order">暂无订单信息</string>
+    <string name="no_data_for_sale">暂无退款/售后记录</string>
+    <string name="transaction_amount">交易金额：</string>
+    <string name="refund_amount">退款金额：</string>
+    <string name="max_refund">最多退还</string>
+    <string name="yuan">元</string>
+    <string name="yuan_postage_delivery">元，含发货邮费</string>
+    <string name="product_quality_has_a_problem">商品质量有问题</string>
+    <string name="please_select_a_return_reason">请选择退货原因</string>
+    <string name="please_enter_a_refund_amount">请输入退款金额</string>
+    <string name="the_refund_amount_up_to">退款金额最多</string>
+    <string name="goods_received">收到货</string>
+    <string name="not_yet_received_the_goods">未收到货</string>
+    <string name="please_select_the_goods_status">请选择货物状态</string>
+    <string name="please_select_a_refund">请选择退款原因</string>
+    <string name="waybill_number">运单编号：</string>
+    <string name="deliverStatus">物流状态：</string>
+    <string name="on_the_way">在途中</string>
+    <string name="has_received">已揽收</string>
+    <string name="difficult">疑难</string>
+    <string name="has_qianshou">已签收</string>
+    <string name="sign_out">退签</string>
+    <string name="in_the_city_to_send">同城派送中</string>
+    <string name="send_back">退回</string>
+    <string name="turn_logistics">转单</string>
+    <string name="waiting_process">等待处理</string>
+    <string name="good_reputation">好评</string>
+    <string name="middle_reputation">中评</string>
+    <string name="bad_reputation">差评</string>
+    <string name="reputation_order">评价订单</string>
+    <string name="has_reputation">已评价</string>
+    <string name="please_select_a_product_evaluation">请选择产品评价</string>
+    <string name="please_fill_out_the_evaluation_content">请填写评价内容</string>
+    <string name="please_give_the_store">请给店铺评价</string>
+    <string name="Please_select_a_logistics_company">请选择物流公司</string>
+    <string name="please_fill_out_the_logistics_single_number">请选择物流公司</string>
+    <string name="total_order">全部订单</string>
+    <string name="after_sale">退款/售后</string>
+    <string name="pattern_of_payment">支付方式：</string>
+    <string name="order_number">订单编号：</string>
+    <string name="date_of_the_quotation">下单时间：</string>
+    <string name="delivery_time">配送时间：</string>
+    <string name="turnover_time">成交时间：</string>
+    <string name="consignee">收货人：</string>
+    <string name="delivery_address">收货地址：</string>
+    <string name="invoices_content">发票内容：</string>
+    <string name="invoices_title">发票抬头：</string>
+    <string name="consignee_number">联系电话：</string>
+    <string name="contact_seller">联系卖家</string>
+    <string name="make_sure_the_sim_card_is_inserted">请确认sim卡是否插入或者sim卡暂时不可用！</string>
+
+    <string name="jian_shang_ping">件商品</string>
+    <string name="apply_after_sales">申请售后</string>
+    <string name="refund_str">退款</string>
+    <string name="refund_success">退款成功</string>
+    <string name="refund_of">退款中</string>
+    <string name="cancel_order">取消订单</string>
+    <string name="immediate_payment">去付款</string>
+    <string name="check_logistics">查看物流</string>
+    <string name="confirm_receipt">确认收货</string>
+    <string name="are_you_sure_you_want_to_accept_the_goods">您确定要收货吗？</string>
+    <string name="are_you_sure_you_want_to_cancel_the_goods">您确定要取消订单吗？</string>
+    <string name="goods_can_not_buy">抱歉，该商品不在当前切换的小区，不能购买</string>
+    <string name="shop_can_not_buy">抱歉，该店铺不在当前切换的小区，不能购买</string>
+
+    <!-- 我的钱包 -->
+    <string name="auto_pay_text">是否开启自动缴费功能</string>
+    <!-- 微信支付 -->
+    <!-- PayActivity -->
+    <string name="pay_by_wx">通过微信支付</string>
+    <string name="check_pay">检查微信版本是否支持支付</string>
+    <string name="input_reqkey">输入reqkey</string>
+    <string name="input_package_value">输入package value</string>
+    <string name="input_sign">输入sign</string>
+    <!-- <string name="getting_access_token">正在获取access token&#8230;</string> -->
+    <!-- <string name="get_access_token_succ">获取access token成功</string> -->
+    <!-- <string name="get_access_token_fail" formatted="false">获取access token失败，原因%s</string> -->
+    <string name="getting_prepayid">正在获取预支付订单&#8230;</string>
+    <string name="paying">支付中</string>
+    <!-- <string name="get_prepayid_succ">获取prepayid成功</string> -->
+    <!-- <string name="get_prepayid_fail" formatted="false">获取prepayid失败，原因%s</string> -->
+
+
+    <!-- WXPayEntryActivity -->
+    <string name="pay_result_tip">这个界面用于显示第三方app通过微信支付的结果</string>
+    <string name="pay_result_callback_msg" formatted="false">微信支付结果：%s</string>
+    <string name="address_manager">地址管理</string>
+    <string name="new_address">新建地址</string>
+    <string name="no_enter_data">输入的信息为空，请输入正确的信息</string>
+    <string name="error_phone_number">请输入正确的电话号码</string>
+    <string name="no_owner_prompt">您不是该小区业主，不能使用快送服务模块功能</string>
+    <string name="no_accord_data">抱歉，未找到符合条件的内容</string>
+    <string name="no_set_nickname">抱歉，您还没设置昵称，是否前往个人资料设置昵称？</string>
+    <string name="publish_success">发起成功</string>
+    <string name="edit_success">修改成功</string>
+    <!-- 呼啦圈 -->
+    <string name="cannot_publish">对不起！您目前是游客身份，不能发帖</string>
+    <string name="to_update_nickName">您没有昵称，立即前往个人资料修改？</string>
+    <string name="to_update_headpic">您没有呼啦圈头像，立即前往个人资料修改？</string>
+    <string name="copy">复制全部内容？</string>
+    <string name="ttq_title">呼啦圈</string>
+    <string name="myttq_title">我的呼啦圈</string>
+    <string name="delet_pinglun">确认删除这条评论？</string>
+    <string name="delet_disguss">确认删除这条信息？</string>
+    <string name="fail_getlocation">定位失败</string>
+
+    <string name="tip_fail">抱歉，未找到符合条件的内容！</string>
+    <!-- 购物车 -->
+    <string name="tip_cart_emperty">您的购物车空空如也</string>
+    <string name="tip_goto_shop">去店铺首页看看</string>
+    <string name="str_choosall">全选</string>
+
+    <string name="tip_external_file">external config file path</string>
+
+    <!-- 进度 -->
+    <string name="action_refresh">Refresh</string>
+    <string name="action_settings">Settings</string>
+    <string name="progressBar_pref_key">progressBar_pref_key</string>
+    <string name="progressBar_pref_defValue">0</string>
+    <string name="pref_colors_header_title">ProgressBar colors</string>
+    <string name="firstcolor_pref_key">firstcolor_pref_key</string>
+    <string name="secondcolor_pref_key">secondcolor_pref_key</string>
+    <string name="thirdcolor_pref_key">thirdcolor_pref_key</string>
+    <string name="fourthcolor_pref_key">fourthcolor_pref_key</string>
+
+    <string name="textOn">"    "</string>
+    <string name="textOff">"    "</string>
+
+    <string name="scan_text">将二维码放入框内, 即可自动扫描</string>
+
+    <string name="ok">OK</string>
+
+    <string name="zushou">租售</string>
+    <string name="hlq">呼啦圈</string>
+    <string name="wizard_security">智能安防</string>
+    <string name="wizard_household">智能家居</string>
+    <string name="wizard_yun">云对讲</string>
+    <string name="title_activity_zushou">ZushouActivity</string>
+ <string name="not_support_ble">设备不支持蓝牙4.0</string>
+ <string name="unknown_device" >未知设备</string>
+ <string name="title_activity_sleep">SleepActivity</string>
+ <string name="title_activity_smart_home_list_ativity">SmartHomeListAtivity</string>
+</resources>

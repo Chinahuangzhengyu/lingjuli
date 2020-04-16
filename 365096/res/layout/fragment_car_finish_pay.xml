@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/rl_car_choose_room"
+            android:layout_width="match_parent"
+            android:minHeight="54dp"
+            android:layout_height="wrap_content">
+
+
+            <ImageView
+                android:id="@+id/img_choose"
+                android:layout_width="8dp"
+                android:layout_height="16dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="14dp"
+                android:src="@drawable/img_right" />
+
+            <TextView
+                android:id="@+id/tv_choose"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="14dp"
+                android:layout_toLeftOf="@+id/img_choose"
+                android:ellipsize="end"
+                android:lines="1"
+                android:text="小区名字和房间号"
+                android:textColor="@color/text_color_f1"
+                android:textSize="16sp" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/view_line"></View>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="54dp">
+
+            <TextView
+                android:id="@+id/tv_car_pay_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="14dp"
+                android:text="缴费时间："
+                android:textColor="@color/text_color_f1"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_car_choose_time"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="16dp"
+                android:layout_toRightOf="@+id/tv_car_pay_time"
+                android:gravity="center_vertical"
+                android:text="请选择时间"
+                android:textColor="@color/ff999999"
+                android:textSize="14sp" />
+
+            <View
+                android:id="@+id/v_line"
+                android:layout_width="26dp"
+                android:layout_height="2dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="16dp"
+                android:layout_toRightOf="@+id/tv_car_choose_time"
+                android:background="#f2f2f2">
+
+            </View>
+
+            <TextView
+                android:id="@+id/tv_car_choose_finish_time"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="24dp"
+                android:layout_toRightOf="@+id/v_line"
+                android:gravity="center"
+                android:text="请选择结束时间"
+                android:textColor="@color/ff999999"
+                android:textSize="14sp" />
+        </RelativeLayout>
+
+        <com.jcodecraeer.xrecyclerview.XRecyclerView
+            android:id="@+id/xrv_car_pay_detail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/view_line"></com.jcodecraeer.xrecyclerview.XRecyclerView>
+    </LinearLayout>
+
+    <include layout="@layout/loading_framelayout"></include>
+</RelativeLayout>

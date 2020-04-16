@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="N币收支明细"
+        android:textStyle="bold"
+        android:textColor="@color/text_color_f1"
+        android:textSize="18sp"
+        android:drawablePadding="8dp"
+        android:layout_marginLeft="14dp"
+        android:drawableLeft="@drawable/circle_green_22_vertical"
+        />
+    <TextView
+        android:id="@+id/tv_help_notice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="帮助说明"
+        android:layout_marginRight="14dp"
+        android:textSize="14sp"
+        android:textColor="@color/new_theme_color2"
+        android:layout_alignParentRight="true"
+        android:drawableRight="@drawable/img_help_notice"
+        />
+    </RelativeLayout>
+    <com.jcodecraeer.xrecyclerview.XRecyclerView
+        android:id="@+id/xrv_integral"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></com.jcodecraeer.xrecyclerview.XRecyclerView>
+
+</LinearLayout>

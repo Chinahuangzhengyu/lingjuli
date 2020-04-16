@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+    <com.zhjl.qihao.abrefactor.view.RoundImageView
+        android:id="@+id/img_evaluate"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        app:round="6"
+        />
+
+</LinearLayout>

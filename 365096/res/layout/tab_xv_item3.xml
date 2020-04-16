@@ -1,0 +1,63 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context="com.zhjl.qihao.sweetcircle.fragment.ActivityFragment">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/background_color"
+        >
+        <com.zhjl.qihao.abrefactor.view.GridViewForScrollView
+            android:id="@+id/gridView3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:horizontalSpacing="10dp"
+            android:numColumns="2"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            android:verticalSpacing="10dp">
+
+        </com.zhjl.qihao.abrefactor.view.GridViewForScrollView>
+        <TextView
+            android:id="@+id/bottom_line3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="30dp"
+            android:gravity="center"
+            android:text="我是没有底线的，敬请期待"
+            />
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/not_data"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:visibility="gone">
+
+        <include layout="@layout/ab_layout_space" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="50dp"
+            android:src="@drawable/not_data" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="60dp"
+            android:gravity="center"
+            android:text="主人，暂时没有商品信息"
+            android:textColor="#cccccc"
+            android:textSize="14sp" />
+    </FrameLayout>
+
+</FrameLayout>

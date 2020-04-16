@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    >
+
+
+    <com.zhjl.qihao.view.CircleImageView
+        android:id="@+id/img_evaluate"
+        android:layout_width="26dp"
+        android:layout_height="26dp"
+        android:src="@drawable/bg_cs" />
+
+    <TextView
+        android:id="@+id/tv_evaluate_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_toRightOf="@+id/img_evaluate"
+        android:layout_toLeftOf="@+id/tv_evaluate_date"
+        android:text="沙建行"
+        android:textColor="@color/text_color_f1"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/tv_evaluate_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:text="2019-10-22"
+        android:textColor="@color/ff999999"/>
+        <TextView
+            android:id="@+id/tv_evaluate_content"
+            android:layout_below="@+id/img_evaluate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="16dp"
+            android:textSize="14sp"
+            android:textColor="@color/text_color_f1"
+            />
+</RelativeLayout>

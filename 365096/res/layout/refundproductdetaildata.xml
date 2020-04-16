@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/list_line" />
+
+    <RelativeLayout
+        android:id="@+id/rl_refund_detail"
+        android:layout_width="match_parent"
+        android:layout_height="88dp" >
+
+        <ImageView
+            android:id="@+id/iv_goods_picture"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_margin="8dp"
+            android:layout_toRightOf="@+id/cbox_choice"
+            android:contentDescription="@null"
+            android:scaleType="centerCrop"
+            android:padding="1dp" />
+
+        <CheckBox
+            android:id="@+id/cbox_choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/iv_goods_picture"
+            android:layout_alignParentLeft="true"
+            android:layout_alignTop="@+id/iv_goods_picture"
+            android:checked="false"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tv_goods_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/iv_goods_picture"
+            android:layout_marginRight="8dp"
+            android:layout_toRightOf="@+id/iv_goods_picture"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="法兰亚特哈萨尔化妆品牌极致美容套"
+            android:textColor="@color/color_333333"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_goods_intr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/tv_goods_title"
+            android:layout_alignRight="@+id/tv_goods_title"
+            android:layout_below="@+id/tv_goods_title"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="颜色分类:单色款:土豪金;分类：优惠套餐"
+            android:textColor="@color/color_888888"
+            android:textSize="14sp" />
+    </RelativeLayout>
+</LinearLayout>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    style="@style/root_layout_style" >
+    <include layout="@layout/header_bar"/>
+    
+    <GridView
+            android:id="@+id/gv_wizard"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fadingEdge="none"
+            android:focusable="false"
+            android:horizontalSpacing="10dp"
+            android:verticalSpacing="10dp"
+            android:listSelector="@android:color/transparent"
+            android:numColumns="2"
+            android:padding="12dp"
+            android:scrollbars="none"
+            android:stretchMode="columnWidth" />
+
+</LinearLayout>

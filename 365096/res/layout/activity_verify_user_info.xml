@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    style="@style/root_layout_style" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+
+		<include layout="@layout/header_bar"/>
+		
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_margin="4dp"
+            android:background="@color/white" >
+
+            <TextView
+                android:id="@+id/info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="48dp"
+                android:contentDescription="@string/app_name"
+                android:gravity="center"
+                android:text="@string/update_pwd_first"
+                android:textColor="@color/font_blak"
+                android:textSize="20sp"
+                android:typeface="monospace" />
+
+            <TextView
+                android:id="@+id/input_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/info"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="24dp"
+                android:contentDescription="@string/app_name"
+                android:gravity="center"
+                android:text="@string/input_user_info"
+                android:textColor="@color/font_blak"
+                android:textSize="20sp"
+                android:typeface="monospace" />
+
+            <EditText
+                android:id="@+id/card_name"
+                android:layout_width="fill_parent"
+                android:layout_height="36dp"
+                android:layout_below="@+id/input_info"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:layout_marginTop="16dp"
+                android:paddingLeft="4dp"
+                android:paddingRight="4dp"
+                android:background="@drawable/background_black_frame"
+                android:hint="@string/input_card_name" >
+            </EditText>
+
+            <EditText
+                android:id="@+id/card_id"
+                android:layout_width="fill_parent"
+                android:layout_height="36dp"
+                android:layout_below="@+id/card_name"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:layout_marginTop="24dp"
+                android:paddingLeft="4dp"
+                android:paddingRight="4dp"
+                android:background="@drawable/background_black_frame"
+                android:hint="@string/input_card_id" >
+            </EditText>
+
+            <Button
+                android:id="@+id/submit_btn"
+                android:layout_width="fill_parent"
+                android:layout_height="36dp"
+                android:layout_below="@+id/card_id"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:layout_marginTop="48dp"
+                android:background="@drawable/roundbg_fca764"
+                android:text="@string/next_step"
+                android:textColor="@color/white" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</RelativeLayout>

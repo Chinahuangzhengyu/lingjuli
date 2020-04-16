@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+
+        android:layout_height="85dp"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="10dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <com.zhjl.qihao.view.CircleImageView
+                android:id="@+id/img_repair"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:scaleType="centerCrop"
+                android:src="@drawable/logo" />
+
+            <TextView
+                android:id="@+id/tx_store_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/img_repair"
+                android:layout_marginLeft="8dp"
+                android:layout_toRightOf="@+id/img_repair"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="111111"
+                android:textColor="#333333"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tx_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@id/tx_store_name"
+                android:layout_alignParentBottom="true"
+                android:layout_marginRight="12dp"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="123"
+                android:textColor="#cccccc"
+                android:textSize="12sp" />
+
+
+            <TextView
+                android:id="@+id/tx_mian_sell"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/tx_time"
+                android:layout_alignLeft="@id/tx_store_name"
+                android:layout_marginEnd="10dp"
+                android:layout_toLeftOf="@+id/ll"
+                android:ellipsize="end"
+                android:lines="1"
+                android:text=""
+                android:textColor="#333333"
+                android:textSize="14sp" />
+
+
+            <RelativeLayout
+                android:id="@+id/rl_zan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/tx_time"
+                android:layout_alignLeft="@id/tx_store_name">
+
+                <TextView
+                    android:id="@+id/tv_zan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="赞了我"
+                    android:textColor="#333333"
+                    android:textSize="14sp" />
+
+                <ImageView
+                    android:layout_width="11dp"
+                    android:layout_height="11dp"
+                    android:layout_alignTop="@id/tv_zan"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_toRightOf="@id/tv_zan"
+                    android:src="@drawable/sweet_cicle_great" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@id/ll"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true">
+
+                <ImageView
+                    android:id="@+id/img_firstimg"
+                    android:layout_width="66dp"
+                    android:layout_height="66dp"
+                    android:layout_centerInParent="true"
+                    android:scaleType="centerCrop" />
+
+                <TextView
+                    android:id="@+id/note_title"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_centerInParent="true"
+                    android:background="#e2e2e2"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:singleLine="true"
+                    android:textColor="#555555"
+                    android:textSize="12sp"
+                    android:visibility="gone" />
+            </RelativeLayout>
+        </RelativeLayout>
+    </LinearLayout>
+
+    <include layout="@layout/ab_layout_line" />
+
+</LinearLayout>

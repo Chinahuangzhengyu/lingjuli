@@ -1,0 +1,85 @@
+<resources>
+
+    <!--
+         Customize dimensions originally defined in res/values/dimens.xml (such as
+         screen margins) for sw600dp devices (e.g. 7" tablets) here.
+    -->
+    <!-- 下面导航高度 -->
+	<dimen name="main_radio_group_height">43dp</dimen>
+
+
+	<!-- xhdpi头部高度 -->
+	<dimen name="header_height">48dp</dimen>
+
+	<!-- 广告高度 -->
+	<dimen name="main_viewpager_height">159dp</dimen>
+	
+	
+	
+	<!-- 主界面项功能的高度 
+	<dimen name="home_item_height">150dp</dimen>-->
+    <dimen name="big_title_size">40sp</dimen>
+    <dimen name="title_size">20sp</dimen>
+    <dimen name="sub_title">16sp</dimen>
+    <dimen name="content">12sp</dimen>
+    <dimen name="default_size">12sp</dimen>
+	<!--  功能模块的内边距-->
+	<dimen name="main_item_rl_padding">10dp</dimen>
+	
+	<!-- 功能项标题大小 名称-描述 -->
+	<dimen name="main_title">15sp</dimen>
+	<dimen name="main_title_des">10sp</dimen>
+	<!-- 主页图标大小 xhdpi -->
+	<dimen name="main_item_iv_width">25dp</dimen>
+    <dimen name="main_item_iv_height">25dp</dimen> 
+    <!-- 智能安防图标大小 -->
+    <dimen name="zhjl_icon">50dp</dimen>
+    
+    <dimen name="main_item_margin_top">10dp</dimen>
+    <dimen name="main_item_margin_bottom">0dp</dimen>
+    <dimen name="main_item_margin_left">30dp</dimen>
+    
+    <dimen name="main_msg_tips_height">30dp</dimen>
+
+    
+    <!-- //////////////////////发现/////////////////////////////////// -->
+
+
+   
+    
+   
+    <!-- /////////////////////////发现/////////////////////////////////////// -->
+    
+    <!-- /////////////////////////摇钱树///////////////////////// -->
+    <!-- banner高度 -->
+    <dimen name="money_tree_banner_height">159dp</dimen>
+    <!-- 功能项高度 -->
+    <dimen name="money_tree_features">55dp</dimen>
+    <!-- 字与图标边距 -->
+    <dimen name="money_tree_features_item_text_margin">4dp</dimen>
+    <!-- 功能项图标大小 -->
+    <!-- 图标 -->
+    <dimen name="money_tree_features_item_icon_size">20dp</dimen>
+    <!-- 标题 -->
+    <dimen name="money_tree_features_item_text_size">13sp</dimen>
+    <!-- 摇钱树投资项 -->
+    
+     <!-- 投资项目  -->
+    <!-- 高度  -->
+    <dimen name="money_tree_project_height">170dp</dimen>
+    
+    <dimen name="money_tree_project_title">18sp</dimen>
+    <dimen name="money_tree_project_subtitle">18sp</dimen>
+    <dimen name="money_tree_project_orange_1">18sp</dimen>
+    <dimen name="money_tree_project_gray">16sp</dimen>
+    <dimen name="money_tree_project_gray_2">14sp</dimen>
+    
+    <dimen name="money_tree_title_text_size">20sp</dimen>
+    
+    <dimen name="money_tree_title_item_text_size">12sp</dimen>
+    
+    <dimen name="money_tree_project_title_2">20sp</dimen>
+    
+     <!-- /////////////////////////摇钱树///////////////////////// -->
+    
+</resources>

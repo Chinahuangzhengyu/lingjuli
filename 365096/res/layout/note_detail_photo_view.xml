@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhjl.qihao.abrefactor.view.RoundImageView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:round="6"
+    android:id="@+id/img_photo"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+</com.zhjl.qihao.abrefactor.view.RoundImageView>

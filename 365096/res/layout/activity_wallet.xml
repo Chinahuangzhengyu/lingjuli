@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    style="@style/root_layout_style"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical" >
+
+        <include layout="@layout/header_bar" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="5dip" >
+
+            <RadioGroup
+                android:id="@+id/rg_wallet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="gone" >
+
+                <RadioButton
+                    android:id="@+id/rb_account_balance"
+                    android:layout_width="0dip"
+                    android:layout_height="36dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/btn_login_mode"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:text="账户余额"
+                    android:textColor="@color/text_login_mode_color"
+                    android:textSize="18sp" />
+
+                <RadioButton
+                    android:id="@+id/rb_property_prestore"
+                    android:layout_width="0dip"
+                    android:layout_height="36dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/btn_login_mode"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:text="预存物业管理费"
+                    android:textColor="@color/text_login_mode_color"
+                    android:textSize="18sp" />
+            </RadioGroup>
+
+            <LinearLayout
+                android:id="@+id/ll_wallet_area"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:orientation="vertical" >
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

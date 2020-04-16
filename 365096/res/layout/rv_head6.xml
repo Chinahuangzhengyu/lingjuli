@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <!-- 推荐商品 -->
+        <RelativeLayout
+            android:id="@+id/l_tj"
+            android:visibility="visible"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="11dp"
+            android:background="@drawable/tj_bg">
+
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/tj_title"
+                android:layout_marginTop="5dp"
+                android:layout_toLeftOf="@+id/tj_title"
+                android:src="@drawable/tj_left" />
+
+            <TextView
+                android:id="@+id/tj_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="11dp"
+                android:text="adff"
+                android:textColor="#fd9e44"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/tj_title"
+                android:layout_marginTop="5dp"
+                android:layout_toRightOf="@+id/tj_title"
+                android:src="@drawable/tj_right" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tj_title"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:src="@drawable/tj_zan" />
+        </RelativeLayout>
+
+
+</LinearLayout>

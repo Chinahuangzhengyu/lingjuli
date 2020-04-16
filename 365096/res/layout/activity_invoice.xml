@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    style="@style/root_layout_style" >
+
+    <RelativeLayout
+        android:id="@+id/relative_title"
+        android:layout_width="fill_parent"
+        android:layout_height="48dp"
+        android:background="@color/top_color" >
+
+        <ImageView
+            android:id="@+id/img_back"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:paddingBottom="8dp"
+            android:paddingTop="8dp"
+            android:src="@drawable/btn_back_style" />
+
+        <TextView
+            android:id="@+id/tx_type"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_centerInParent="true"
+            android:contentDescription="@string/app_name"
+            android:gravity="center"
+            android:text="发票信息"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:typeface="monospace" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/gray"
+        android:padding="5dp" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="88dp"
+                android:background="@color/white"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="16dp"
+                    android:text="发票抬头"
+                    android:textColor="@color/color_333333"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/et_invoice_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginRight="24dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/btn_count_bg"
+                    android:hint="可输入个人或单位名称"
+                    android:maxLength="32"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@color/white"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="16dp"
+                    android:text="发票内容"
+                    android:textColor="@color/color_333333"
+                    android:textSize="16sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/list_line" />
+
+                <RadioGroup
+                    android:id="@+id/rg_invoice_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginTop="16dp"
+                    android:orientation="vertical" >
+
+                    <RadioButton
+                        android:id="@+id/rb_daily_necessities"
+                        android:layout_width="match_parent"
+                        android:layout_height="24dp"
+                        android:background="@null"
+                        android:button="@null"
+                        android:checked="true"
+                        android:drawableLeft="@drawable/radio_invoice"
+                        android:drawablePadding="8dp"
+                        android:paddingLeft="24dp"
+                        android:text="日用品"
+                        android:textSize="14sp" />
+
+                    <RadioButton
+                        android:id="@+id/rb_consumable"
+                        android:layout_width="match_parent"
+                        android:layout_height="24dp"
+                        android:background="@null"
+                        android:button="@null"
+                        android:drawableLeft="@drawable/radio_invoice"
+                        android:drawablePadding="8dp"
+                        android:paddingLeft="24dp"
+                        android:text="耗材"
+                        android:textColor="@color/color_333333"
+                        android:textSize="14sp" />
+
+                    <RadioButton
+                        android:id="@+id/rb_office_supplies"
+                        android:layout_width="match_parent"
+                        android:layout_height="24dp"
+                        android:background="@null"
+                        android:button="@null"
+                        android:drawableLeft="@drawable/radio_invoice"
+                        android:drawablePadding="8dp"
+                        android:paddingLeft="24dp"
+                        android:text="办公用品(付购物清单)"
+                        android:textSize="14sp" />
+
+                    <RadioButton
+                        android:id="@+id/rb_detail"
+                        android:layout_width="match_parent"
+                        android:layout_height="24dp"
+                        android:background="@null"
+                        android:button="@null"
+                        android:drawableLeft="@drawable/radio_invoice"
+                        android:drawablePadding="8dp"
+                        android:paddingLeft="24dp"
+                        android:text="明细"
+                        android:textSize="14sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_confirm"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_margin="24dp"
+                android:background="@drawable/btn_round_red"
+                android:text="发票抬头"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

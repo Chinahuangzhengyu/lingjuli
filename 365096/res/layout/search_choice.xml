@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/all_search"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="223dp"
+        android:orientation="horizontal" >
+
+        <RadioGroup
+            android:id="@+id/status_order"
+            android:layout_width="0dp"
+            android:layout_height="223dp"
+            android:layout_weight="1"
+            android:orientation="vertical" >
+            
+            <RadioButton
+                android:id="@+id/total_order"
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:button="@null"
+                android:gravity="center"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="全    部"
+                android:textSize="16sp"
+                android:background="@drawable/order_gray_style"
+                android:textColor="@color/color_555555" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/color_e2e2e2" />
+
+            <RadioButton
+                android:id="@+id/obligation_order"
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:button="@null"
+                android:gravity="center"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="待付款" 
+                android:textSize="16sp"
+                android:background="@drawable/order_gray_style"
+                android:textColor="@color/color_555555"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/color_e2e2e2" />
+
+            <RadioButton
+                android:id="@+id/wait_delivery_order"
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:button="@null"
+                android:gravity="center"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="待发货"
+                android:textSize="16sp"
+                android:background="@drawable/order_gray_style"
+                android:textColor="@color/color_555555" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/color_e2e2e2" />
+
+            <RadioButton
+                android:id="@+id/wait_receipts_order"
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:button="@null"
+                android:gravity="center"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="待收货"
+                android:textSize="16sp"
+                android:background="@drawable/order_gray_style"
+                android:textColor="@color/color_555555" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/color_e2e2e2" />
+
+            <RadioButton
+                android:id="@+id/had_down"
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:button="@null"
+                android:gravity="center"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="已完成"
+                android:textSize="16sp"
+                android:background="@drawable/order_gray_style"
+                android:textColor="@color/color_555555" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/color_e2e2e2" />
+
+            <RadioButton
+                android:id="@+id/has_cancel"
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:button="@null"
+                android:gravity="center"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="已取消"
+                android:textSize="16sp"
+                android:background="@drawable/order_gray_style"
+                android:textColor="@color/color_555555" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/color_e2e2e2" />
+        </RadioGroup>
+
+        <View
+            android:id="@+id/view_1"
+            android:layout_width="0.5dp"
+            android:layout_height="219dp"
+            android:background="@color/color_e2e2e2" />
+        <View
+            android:id="@+id/view_2"
+            android:layout_width="0.5dp"
+            android:layout_height="147dp"
+            android:background="@color/color_e2e2e2" />
+        <RadioGroup
+            android:id="@+id/status_refund"
+            android:layout_width="0dp"
+            android:layout_height="147dp"
+            android:layout_weight="1"
+            android:orientation="vertical" >
+
+            <RadioButton
+                android:id="@+id/sale_total_order"
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:button="@null"
+                android:gravity="center"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="全    部"
+                android:textSize="16sp"
+                android:background="@drawable/order_gray_style"
+                android:textColor="@color/color_555555" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/color_e2e2e2" />
+        
+            <RadioButton
+                android:id="@+id/sale_refund"
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:button="@null"
+                android:gravity="center"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="退款中"
+                android:textSize="16sp"
+                android:background="@drawable/order_gray_style"
+                android:textColor="@color/color_555555" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/color_e2e2e2" />
+            <RadioButton
+                android:id="@+id/refund_sucess"
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:button="@null"
+                android:gravity="center"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="退款成功"
+                android:textSize="16sp"
+                android:background="@drawable/order_gray_style"
+                android:textColor="@color/color_555555" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/color_e2e2e2" />
+            <RadioButton
+                android:id="@+id/refund_cancel"
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:button="@null"
+                android:gravity="center"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="售后已撤销"
+                android:textSize="16sp"
+                android:background="@drawable/order_gray_style"
+                android:textColor="@color/color_555555" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/color_e2e2e2" />
+        </RadioGroup>
+    </LinearLayout>
+
+</LinearLayout>

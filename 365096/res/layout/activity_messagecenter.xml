@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    style="@style/root_layout_style" >
+
+    <include layout="@layout/header_bar" />
+
+    <LinearLayout
+        android:id="@+id/group_message"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginTop="4dp"
+        android:background="@color/top_color"
+        android:orientation="horizontal"
+        android:padding="1dp" >
+
+        <RelativeLayout
+            android:id="@+id/re_allmessage"
+            android:layout_width="fill_parent"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/tx_allmessage"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_centerInParent="true"
+                android:button="@null"
+                android:checked="true"
+                android:gravity="center"
+                android:text="@string/all_info"
+                android:textColor="@color/top_color"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tx_notreadnums_allmessage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@id/tx_allmessage"
+                android:layout_marginLeft="12dp"
+                android:layout_toRightOf="@id/tx_allmessage"
+                android:background="@drawable/circle_red_bg2"
+                android:gravity="center"
+                android:text="@string/random_number"
+                android:textColor="@color/white"
+                android:textSize="12sp" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="fill_parent"
+            android:background="@color/top_color" />
+
+        <RelativeLayout
+            android:id="@+id/re_messagestate"
+            android:layout_width="fill_parent"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:background="@color/white" >
+
+            <TextView
+                android:id="@+id/tx_messagestate"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_centerInParent="true"
+                android:background="@color/white"
+                android:button="@null"
+                android:gravity="center"
+                android:text="@string/info_state"
+                android:textColor="@color/top_color"
+                android:textSize="14sp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:background="@color/color_e2e2e2" />
+
+    <com.handmark.pulltorefresh.library.PullToRefreshListView
+        android:id="@+id/pull_message"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:divider="@null"
+        android:scrollbars="none" >
+    </com.handmark.pulltorefresh.library.PullToRefreshListView>
+
+    <TextView
+        android:id="@+id/tx_message"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingBottom="10dp" 
+        android:paddingTop="10dp"
+        android:text="@string/no_data"
+        android:textColor="#1a1a1a"
+        android:textSize="14sp"
+        android:visibility="gone" />
+
+</LinearLayout>

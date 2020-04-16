@@ -1,0 +1,1218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.zhjl.qihao">
+
+
+    <uses-feature
+        android:name="android.hardware.bluetooth_le"
+        android:required="false" />
+
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:resizeable="true"
+        android:smallScreens="true" />
+
+
+    <!-- Required -->
+    <permission
+        android:name="com.zhjl.qihao.permission.JPUSH_MESSAGE"
+        android:protectionLevel="signature" />
+
+    <!-- Required  一些系统要求的权限，如访问网络等-->
+    <uses-permission android:name="com.zhjl.qihao.permission.JPUSH_MESSAGE" />
+    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
+    <!--<uses-permission android:name="android.permission.INTERNET" />-->
+    <!--<uses-permission android:name="android.permission.READ_PHONE_STATE" />-->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <!--<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />-->
+    <!--<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />-->
+
+
+    <!-- Optional for location -->
+    <!--<uses-permission android:name="android.permission.VIBRATE" />-->
+    <!--<uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" /> &lt;!&ndash; 用于开启 debug 版本的应用在6.0 系统上 层叠窗口权限 &ndash;&gt;-->
+    <!--<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />-->
+    <!--<uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />-->
+    <!--<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />-->
+    <!--<uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />-->
+    <!--<uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />-->
+    <!--<uses-permission android:name="android.permission.GET_TASKS" />-->
+
+
+    <!-- 允许应用程序联网 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- 检测联网方式, 区分用户设备使用的是2G、3G或是WiFi -->
+    <!--<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />-->
+    <!-- 外部存储写入权限 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <!-- 为了更好的体验需要获取地理信息的权限 (以下非必须权限) -->
+    <uses-permission android:name="android.permission.ACCESS_GPS" />
+    <uses-permission android:name="android.permission.ACCESS_ASSISTED_GPS" />
+    <uses-permission android:name="android.permission.ACCESS_LOCATION" />
+    <!--<uses-permission android:name="android.permission.NFC" />-->
+    <!--<uses-permission android:name="android.permission.READ_PHONE_STATE" />-->
+    <!--<uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />-->
+    <!--<uses-permission android:name="android.permission.RECORD_AUDIO" />-->
+    <!--<uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />-->
+    <!--<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />-->
+    <!--<uses-permission android:name="android.permission.SEND_SMS" />-->
+    <!--<uses-permission android:name="com.android.voicemail.permission.ADD_VOICEMAIL" />-->
+    <!--<uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />-->
+    <!--<uses-permission android:name="android.permission.GET_ACCOUNTS" />-->
+    <!--<uses-permission android:name="android.permission.USE_CREDENTIALS" />-->
+    <!--<uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />-->
+    <!--<uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />-->
+    <!--<uses-permission android:name="android.permission.BAIDU_LOCATION_SERVICE" />-->
+    <!--<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />-->
+    <!-- <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" /> -->
+    <!--<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />-->
+    <!--<uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />-->
+    <!--<uses-permission android:name="android.permission.WAKE_LOCK" />-->
+    <!--<uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />-->
+    <!--<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />-->
+    <!--<uses-permission android:name="android.permission.READ_CONTACTS" />-->
+    <!--<uses-permission android:name="android.permission.CALL_PHONE" />-->
+    <!--<uses-permission android:name="android.permission.READ_SMS" />-->
+    <!-- SDK1.5需要android.permission.GET_TASKS权限判断本程序是否为当前运行的应用? -->
+    <!--<uses-permission android:name="android.permission.GET_TASKS" />-->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <!--<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />-->
+    <!--<uses-permission android:name="android.permission.BROADCAST_STICKY" />-->
+    <!--&lt;!&ndash; 来电消音 &ndash;&gt;-->
+    <!--<uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />-->
+    <!--<uses-permission android:name="android.permission.WRITE_CONTACTS" />-->
+    <!--&lt;!&ndash; 二维码扫描 &ndash;&gt;-->
+    <!--<uses-permission android:name="android.permission.VIBRATE" />-->
+    <!--<uses-permission android:name="com.android.browser.permission.READ_HISTORY_BOOKMARKS" />-->
+    <!--<uses-permission android:name="android.permission.FLASHLIGHT" />-->
+    <!--<uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />-->
+    <!--<uses-permission android:name="android.permission.DISABLE_KEYGUARD" />-->
+    <!--<uses-permission-->
+        <!--android:name="android.permission.BLUETOOTH"-->
+        <!--android:required="false" />-->
+    <!--<uses-permission android:name="android.permission.USE_SIP" />-->
+    <!--<uses-permission android:name="android.permission.CONFIGURE_SIP" />-->
+    <!--<uses-permission android:name="android.permission.READ_PROFILE" />-->
+    <!--<uses-permission android:name="android.permission.RESTART_PACKAGES" />-->
+    <!--<uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />-->
+    <!-- android.permission.READ_CALL_LOG -->
+    <!--<uses-permission android:name="android.permission.READ_CALL_LOG" />-->
+    <!--<uses-permission android:name="android.permission.WRITE_CALL_LOG" />-->
+
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+    <!-- 云对讲需要的权限 -->
+    <!-- <uses-permission android:name="android.permission.WRITE_APN_SETTINGS"/> -->
+
+
+    <!-- 手环需要权限 主要蓝牙 -->
+    <!--<uses-permission-->
+        <!--android:name="android.permission.BLUETOOTH_ADMIN"-->
+        <!--android:required="false" />-->
+
+    <application
+        android:name="com.zhjl.qihao.ZHJLApplication"
+        android:icon="@drawable/new_logo"
+        android:label="@string/app_name12"
+        android:largeHeap="true"
+        android:launchMode="singleInstance"
+        android:resizeableActivity="true"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:theme="@style/AppTheme">
+        <!--&lt;!&ndash;今日头条适配&ndash;&gt;-->
+        <!--<meta-data-->
+        <!--android:name="design_width_in_dp"-->
+        <!--android:value="375" />-->
+        <!--<meta-data-->
+        <!--android:name="design_height_in_dp"-->
+        <!--android:value="812" />-->
+
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
+        <!-- 该条参数可以增加内存的申请量 -->
+        <!-- android:debuggable="false" -->
+        <!-- debug -->
+        <!-- 若您的业务中有使用极光富媒体功能，或者极光早上好功能，需要把此 Activity 的 exported 修改成 true 覆盖 jcenter 上的组件。 -->
+        <activity
+            android:name="cn.jpush.android.ui.PopWinActivity"
+            android:exported="true"
+            android:theme="@style/MyDialogStyle"
+            tools:node="replace">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+                <action android:name="cn.jpush.android.ui.PopWinActivity" />
+                <category android:name="${applicationId}" />
+            </intent-filter>
+        </activity>
+
+        <!-- 若您的业务中有使用极光富媒体功能，或者极光早上好功能，需要把此 Activity 的 exported 修改成 true 覆盖 jcenter 上的组件。 -->
+        <activity
+            android:name="cn.jpush.android.ui.PushActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:exported="true"
+            android:theme="@android:style/Theme.NoTitleBar"
+            tools:node="replace">
+            <intent-filter>
+                <action android:name="cn.jpush.android.ui.PushActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="${applicationId}" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="android.max_aspect"
+            android:value="2.5" />
+        <meta-data
+            android:name="android.notch_support"
+            android:value="true" />
+        <!--适配小米（xiaomi）刘海屏-->
+        <meta-data
+            android:name="notch.config"
+            android:value="portrait|landscape" />
+
+        <!-- 涂鸦 appkey -->
+        <meta-data
+            android:name="TUYA_SMART_APPKEY"
+            android:value="ejsk7r5evmn7adma7j9d" />
+        <meta-data
+            android:name="TUYA_SMART_SECRET"
+            android:value="7wy37rkust5atpphedcxx78jfgs9pgtf" />
+
+        <!-- debug -->
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="PqbBxtEOGcwGUPYNAmuKEvtnfse5T8Ze" />
+
+        <activity
+            android:name="com.zhjl.qihao.abguide.SplashActivity"
+            android:launchMode="standard"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden|stateAlwaysHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!--
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote" />
+        -->
+
+        <service android:name="com.michoi.unlock.core.StartScRoot">
+            <intent-filter android:priority="1000">
+                <action android:name="com.michoi.m.viper.System.StartScRoot" />
+            </intent-filter>
+        </service>
+
+        <!-- 重构后的主界面 -->
+        <activity
+            android:name="com.zhjl.qihao.abrefactor.RefactorMainActivity"
+            android:exported="true"
+            android:hardwareAccelerated="true"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden|stateAlwaysHidden|adjustResize">
+            <intent-filter>
+                <action android:name="com.zhjl.qihao.SHORTCUT" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <!--<provider-->
+        <!--android:name="android.support.v4.content.FileProvider"-->
+        <!--android:authorities="com.zhjl.qihao.fileprovider"-->
+        <!--android:exported="false"-->
+        <!--android:grantUriPermissions="true">-->
+        <!--<meta-data-->
+        <!--android:name="android.support.FILE_PROVIDER_PATHS"-->
+        <!--android:resource="@xml/file_paths" />-->
+        <!--</provider>-->
+
+        <!-- 重构后的导航界面 -->
+        <activity
+            android:name="com.zhjl.qihao.abguide.WelcomeGuideActivity"
+            android:hardwareAccelerated="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden|stateAlwaysHidden" />
+
+        <!-- 重构后的报修，联系物业界面 -->
+
+        <!-- 重构后的缴费物业界面 -->
+
+        <!-- 重构后的消息界面 -->
+        <activity
+            android:name="com.zhjl.qihao.mymessage.activity.AllMessageCenterActivity"
+            android:hardwareAccelerated="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden|stateAlwaysHidden" />
+
+        <!-- 重构后的搜索界面 -->
+
+
+        <!-- 到家中的周边店铺 -->
+
+
+        <!-- 我的关于我们 -->
+        <activity
+            android:name="com.zhjl.qihao.abmine.AboutUSActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme" />
+        <!--友盟分享-->
+        <activity
+            android:name=".wxapi.WXEntryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <activity
+            android:name="com.tencent.tauth.AuthActivity"
+            android:launchMode="singleTask"
+            android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="tencent100424468" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.tencent.connect.common.AssistActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <!--
+            <activity
+            android:name=".pay.PayDemoActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/StyledIndicators_fastdelivery"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden|stateAlwaysHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        -->
+
+        <!-- For test only 测试状态通知栏，需要打开的Activity -->
+        <!--<activity android:name="com.example.jpushdemo.TestActivity" android:exported="false">-->
+        <!--<intent-filter>-->
+        <!--<action android:name="jpush.testAction" />-->
+        <!--<category android:name="jpush.testCategory" />-->
+        <!--</intent-filter>-->
+        <!--</activity>-->
+
+        <!-- Required SDK 核心功能-->
+        <!-- 可配置android:process参数将PushService放在其他进程中 -->
+        <service
+            android:name="cn.jpush.android.service.PushService"
+            android:exported="false"
+            android:process=":pushcore">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.REGISTER" />
+                <action android:name="cn.jpush.android.intent.REPORT" />
+                <action android:name="cn.jpush.android.intent.PushService" />
+                <action android:name="cn.jpush.android.intent.PUSH_TIME" />
+            </intent-filter>
+        </service>
+        <!-- since 3.0.9 Required SDK 核心功能-->
+        <provider
+            android:name="cn.jpush.android.service.DataProvider"
+            android:authorities="com.zhjl.qihao.DataProvider"
+            android:exported="false"
+            android:process=":pushcore" />
+
+        <!-- since 1.8.0 option 可选项。用于同一设备中不同应用的JPush服务相互拉起的功能。 -->
+        <!-- 若不启用该功能可删除该组件，将不拉起其他应用也不能被其他应用拉起 -->
+        <service
+            android:name="cn.jpush.android.service.DaemonService"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.DaemonService" />
+                <category android:name="com.zhjl.qihao" />
+            </intent-filter>
+
+        </service>
+        <!-- since 3.1.0 Required SDK 核心功能-->
+        <provider
+            android:name="cn.jpush.android.service.DownloadProvider"
+            android:authorities="com.zhjl.qihao.DownloadProvider"
+            android:exported="true" />
+        <!-- Required SDK核心功能-->
+        <receiver
+            android:name="cn.jpush.android.service.PushReceiver"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter android:priority="1000">
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED_PROXY" />   <!--Required  显示通知栏 -->
+                <category android:name="com.zhjl.qihao" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.USER_PRESENT" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+            <!-- Optional -->
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
+
+        <!-- Required SDK核心功能-->
+        <receiver
+            android:name="cn.jpush.android.service.AlarmReceiver"
+            android:exported="false" />
+
+        <!--since 3.3.0 Required SDK核心功能-->
+        <activity
+            android:name="cn.jpush.android.service.JNotifyActivity"
+            android:exported="true"
+            android:taskAffinity="jpush.custom"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.JNotifyActivity" />
+                <category android:name="com.zhjl.qihao" />
+            </intent-filter>
+        </activity>
+
+        <!-- Since JCore2.0.0 Required SDK核心功能-->
+        <!-- 这个Service要继承JCommonService -->
+        <service
+            android:name=".push.PushService"
+            android:process=":pushcore">
+            <intent-filter>
+                <action android:name="cn.jiguang.user.service.action" />
+            </intent-filter>
+        </service>
+
+
+        <!-- User defined.  For test only  用户自定义接收消息器,3.0.7开始支持,目前新tag/alias接口设置结果会在该广播接收器对应的方法中回调-->
+        <receiver android:name="com.zhjl.qihao.push.MyJPushMessageReceiver">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.RECEIVE_MESSAGE" />
+                <category android:name="com.zhjl.qihao"></category>
+            </intent-filter>
+        </receiver>
+        <!-- Required  . Enable it you can get statistics data with channel -->
+        <meta-data
+            android:name="JPUSH_CHANNEL"
+            android:value="developer-default" />
+        <meta-data
+            android:name="JPUSH_APPKEY"
+            android:value="73193d7f2ac477be7914a54f" /> <!--  </>值来自开发者平台取得的AppKey-->
+
+        <!--Required since 3.0.7-->
+        <!--新的 tag/alias 接口结果返回需要开发者配置一个自定的广播-->
+        <!--3.3.0开始所有事件将通过该类回调-->
+        <!--该广播需要继承 JPush 提供的 JPushMessageReceiver 类, 并如下新增一个 Intent-Filter-->
+        <receiver
+            android:name=".push.PushReceiver"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.REGISTRATION" />
+                <action android:name="cn.jpush.android.intent.MESSAGE_RECEIVED" />
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED" />
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_OPENED" />
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_CLICK_ACTION" />
+                <action android:name="cn.jpush.android.intent.CONNECTION" />
+
+                <category android:name="com.zhjl.qihao" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name="com.zhjl.qihao.ablogin.activity.UserLoginActivity"
+            android:exported="true"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme"
+            android:windowSoftInputMode="stateHidden|stateAlwaysHidden|adjustResize" />
+        <!--android:windowSoftInputMode="stateHidden|stateAlwaysHidden|adjustResize" -->
+        <!-- 导航界面 -->
+        <activity
+            android:name="com.zhjl.qihao.activity.ViewFlipperActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden|stateAlwaysHidden" />
+        <!-- 主界面android:screenOrientation="portrait" -->
+
+
+        <!--
+            <activity
+            android:name="com.zhjl.qihao.invitation.activity.InvitationPersonActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden|stateAlwaysHidden" >
+        </activity>
+        -->
+
+        <activity
+            android:name="com.zhjl.qihao.localphotos.SelectPhotoActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden|stateAlwaysHidden" />
+
+
+        <!-- 系统设置相关activity -->
+        <activity
+            android:name="com.zhjl.qihao.systemsetting.activity.UserAgreement"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden|stateAlwaysHidden" />
+        <activity
+            android:name="com.zhjl.qihao.systemsetting.activity.MyEditorActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme"
+            android:windowSoftInputMode="adjustUnspecified|adjustResize|stateAlwaysHidden" />
+
+        <!-- 我的物业相关activity -->
+        <activity
+            android:name="com.zhjl.qihao.image.ShowNetWorkImageActivity"
+            android:theme="@style/ActivityTheme"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden|stateAlwaysHidden" />
+        <activity
+            android:name="com.zhjl.qihao.activity.PhotoMultipleActivity"
+            android:theme="@style/SelectDialog"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden|stateAlwaysHidden" />
+        <activity
+            android:name="com.zhjl.qihao.activity.PhotoMultipleUploadActivity"
+            android:theme="@style/Theme.Transparent"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden|stateAlwaysHidden" />
+        <activity
+            android:name="com.zhjl.qihao.activity.PhotoSingleActivity"
+            android:theme="@style/SelectDialog"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden|stateAlwaysHidden" />
+        <activity
+            android:name="com.zhjl.qihao.activity.PhotoSingleUploadActivity"
+            android:theme="@style/Theme.Transparent"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden|stateAlwaysHidden" />
+        <activity
+            android:name="com.zhjl.qihao.systemsetting.activity.WatchTutorialActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden|stateAlwaysHidden" />
+
+
+        <!-- 订单 -->
+
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote" />
+        <service
+            android:name="com.zhjl.qihao.service.InformationService"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="com.zhjl.qihao.service.InformationService" />
+            </intent-filter>
+        </service>
+        <!-- 登陆 -->
+        <activity
+            android:name="com.zhjl.qihao.activity.userlogin.UserLoadParent"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme"
+            android:windowSoftInputMode="stateHidden|stateAlwaysHidden|adjustResize" />
+        <activity
+            android:name=".chooseCity.activty.ChooseCityActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme" />
+        <activity
+            android:name=".chooseCity.activty.ChoosePropertyActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme" />
+
+        <!-- 账单 BILL -->
+        <activity
+            android:name="com.zhjl.qihao.wxapi.PayActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme" />
+        <activity
+            android:name="com.zhjl.qihao.common.activity.InvoiceActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden|stateAlwaysHidden" />
+        <!--
+            <activity
+            android:name="com.zhjl.qihao.sweetcircle.activity.MySweetCircleMainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme" >
+        </activity>
+        -->
+
+        <!-- 友盟分享 start -->
+        <!-- ###################添加UmengAppkey###################### -->
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="5d6e34a94ca3579f69000371" />
+        <!--
+            <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="yyb_qihaojuli" />
+        -->
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="${UMENG_CHANNEL_VALUE}" />
+        <!-- 友盟分享 end -->
+        <!-- *************************    分享相关的注册 START **************************** -->
+        <!-- 分享内容编辑页 -->
+
+
+        <!-- *************************    分享相关的注册 END **************************** -->
+
+
+        <provider
+            android:name="com.zhjl.qihao.util.LocalFileContentProvider"
+            android:authorities="com.zhjl.qihao.activity" />
+
+
+        <activity
+            android:name="com.zhjl.qihao.systemsetting.activity.PersonSettingsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme" />
+
+        <service
+            android:name="com.zhjl.qihao.service.StepService"
+            android:enabled="true"
+            android:exported="true" />
+
+
+        <!-- 云对讲 -->
+
+        <meta-data
+            android:name="config_version"
+            android:value="true" />
+        <meta-data
+            android:name="manufacturer"
+            android:value="KOTI" />
+        <meta-data
+            android:name="product_class"
+            android:value="TIK01" />
+        <meta-data
+            android:name="hardware_version_tv"
+            android:value="TIK01" />
+        <!--
+        <meta-data android:name="hardware_version_tv" android:value="I0002"/>
+        I0002-SIP2-MFC_V1.0.0_Alpha20121217
+        -->
+        <meta-data
+            android:name="software_version_tv"
+            android:value="V1.0.6_Alpha20130808" />
+
+        <!-- <activity -->
+        <!-- android:name="com.sourceforge.simcpux.wxapi.WXPayEntryActivity" -->
+        <!-- android:exported="true" -->
+        <!-- android:launchMode="singleTop"> -->
+        <!-- WXPayEntryActivity -->
+        <!-- </activity> -->
+        <activity
+            android:name="com.zhjl.qihao.wxapi.WXPayEntryActivity"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:theme="@style/MyDialogStyle">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:scheme="wxa4e9585d0fea33b9" />
+            </intent-filter>
+
+        </activity>
+
+        <!-- 天天手环 -->
+        <service
+            android:name="com.yc.peddemo.sdk.BluetoothLeService"
+            android:enabled="true" />
+
+        <meta-data
+            android:name="YCAPPKEY"
+            android:value="f0b520cdb42c7103f6683977793ae81c" />
+
+        <service
+            android:name="com.zhjl.qihao.service.OpendoorBleService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <!-- <receiver -->
+        <!-- android:name=".BluetoothBroadcast" -->
+        <!-- android:enabled="true" -->
+        <!-- android:exported="true"></receiver> -->
+
+        <!-- ֧支付宝� -->
+        <activity
+            android:name="com.alipay.sdk.app.H5PayActivity"
+            android:configChanges="orientation|keyboardHidden|navigation|screenSize"
+            android:exported="false"
+            android:screenOrientation="behind"
+            android:windowSoftInputMode="adjustResize|stateHidden"
+            tools:replace="android:configChanges" />
+        <activity
+            android:name="com.alipay.sdk.app.H5AuthActivity"
+            android:configChanges="orientation|keyboardHidden|navigation|screenSize"
+            android:exported="false"
+            android:screenOrientation="behind"
+            tools:replace="android:configChanges" />
+
+
+        <!-- app更新服务 -->
+        <service
+            android:name="com.zhjl.qihao.abupapp.DownloadService"
+            android:enabled="true" />
+
+        <!-- 申请授权页面 -->
+
+        <receiver
+            android:name="com.zhjl.qihao.abupapp.AUpdataBroadcastReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.DOWNLOAD_COMPLETE" />
+                <!-- <action android:name="android.intent.action.PACKAGE_INSTALL" /> -->
+            </intent-filter>
+        </receiver>
+        <!-- 查看订单类型 -->
+        <activity
+            android:name="com.zhjl.qihao.order.activity.NewOrderTypeActivity"
+            android:hardwareAccelerated="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme" />
+
+
+        <activity
+            android:name="com.zhjl.qihao.order.activity.OrderDetailActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden|stateAlwaysHidden" />
+
+
+        <activity
+            android:name="com.zhjl.qihao.wallet.ExtractActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ThemeActivity" />
+
+        <!-- 首页跳转的webView页面 -->
+        <activity
+            android:name="com.zhjl.qihao.abrefactor.NewWebViewActivity"
+            android:hardwareAccelerated="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden|stateAlwaysHidden" />
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.zhjl.qihao.FileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+
+        <activity
+            android:name="com.zhjl.qihao.pay.ZPayActivity"
+            android:screenOrientation="portrait" />
+
+        <!--发表投诉-->
+        <activity
+            android:name=".complaint.activity.EditComplaintActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden|stateAlwaysHidden" />
+        <!--投诉详情-->
+        <activity
+            android:name=".complaint.activity.ComplaintDetailActivity"
+            android:hardwareAccelerated="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <!--物业处理进度-->
+        <activity
+            android:name=".complaint.activity.ProcessinProgressActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden|stateAlwaysHidden" />
+        <!--邻里互动-->
+        <activity
+            android:name=".nearbyinteraction.activity.NearByInteractionActivity"
+            android:hardwareAccelerated="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden|stateAlwaysHidden" />
+        <!--邻里互动内容-->
+        <activity
+            android:name=".nearbyinteraction.activity.NearByInteractionContentActivity"
+            android:hardwareAccelerated="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden|stateAlwaysHidden" />
+        <!--搜索帖子内容-->
+        <activity
+            android:name=".searchcontent.SearchContentActivity"
+            android:hardwareAccelerated="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden|stateAlwaysHidden" />
+        <!--物业服务-->
+        <activity
+            android:name=".propertyservicepay.activity.PropertyMainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme" />
+        <!--物业缴费-->
+        <activity
+            android:name=".propertyservicepay.activity.PropertyPayActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme" />
+        <!--物业缴费详情-->
+        <activity
+            android:name=".propertyservicepay.activity.PropertyPayDetailActivity"
+            android:hardwareAccelerated="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme" />
+        <!--停车费详情-->
+        <activity
+            android:name=".propertyservicepay.activity.CarPayDetailActivity"
+            android:hardwareAccelerated="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <!--物业停车费确认订单-->
+        <activity
+            android:name=".propertyservicepay.activity.ConfirmOrderActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme" />
+        <!--确认支付-->
+        <activity
+            android:name=".propertyservicepay.activity.ConfirmPayActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme" />
+        <!--物业报修-->
+        <activity
+            android:name=".propertyservicerepair.activity.PropertyRepairActivity"
+            android:hardwareAccelerated="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <!--报修记录详情-->
+        <activity
+            android:name=".propertyservicerepair.activity.RepairDetailActivity"
+            android:hardwareAccelerated="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme" />
+        <!--物业投诉-->
+        <activity
+            android:name=".propertyservicecomplaint.activity.PropertyComplaintActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <!--消息详情-->
+        <activity
+            android:name=".mymessage.activity.MessageDetailActivity"
+            android:hardwareAccelerated="true"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme" />
+        <!--7好鲜生-->
+        <activity
+            android:name=".freshshop.activity.FreshShopActivity"
+            android:hardwareAccelerated="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme"
+            android:windowSoftInputMode="adjustPan|stateAlwaysHidden" />
+        <!--商品分类详情-->
+        <activity
+            android:name=".freshshop.activity.ShopTypeListDetailActivity"
+            android:hardwareAccelerated="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme"
+            android:windowSoftInputMode="adjustPan|stateAlwaysHidden" />
+        <!--部门更多分类-->
+        <activity
+            android:name=".freshshop.activity.ShopTypeMoreActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme" />
+        <!--商品详情-->
+        <activity
+            android:name=".freshshop.activity.ShopDetailActivity"
+            android:hardwareAccelerated="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme" />
+        <!--商品详情-->
+        <activity
+            android:name=".freshshop.activity.ShopDetailActivity2"
+            android:hardwareAccelerated="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme" />
+        <!--确认订单-->
+        <activity
+            android:name=".freshshop.activity.ShopConfirmOrderActivity"
+            android:hardwareAccelerated="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <!--代金券-->
+        <activity
+            android:name=".freshshop.activity.CashCouponActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme" />
+        <!--地址列表-->
+        <activity
+            android:name=".address.activity.AddressListActivity"
+            android:hardwareAccelerated="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme" />
+        <!--添加地址-->
+        <activity
+            android:name=".address.activity.AddAddressActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <!--家地址-->
+        <activity
+            android:name=".address.activity.HomeAddressListActivity"
+            android:hardwareAccelerated="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme" />
+        <!--时间选择-->
+        <activity
+            android:name=".freshshop.activity.ChooseDateActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme" />
+        <!--商品详情-->
+        <activity
+            android:name=".freshshop.activity.ShopEvaluateActivity"
+            android:hardwareAccelerated="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme" />
+        <!--商品支付-->
+        <activity
+            android:name=".freshshop.activity.ShopPayActivity"
+            android:hardwareAccelerated="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme" />
+
+        <!--我的住所-->
+        <activity
+            android:name=".systemsetting.activity.HomeAddressBindingActivity"
+            android:hardwareAccelerated="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme" />
+        <!--新增房屋绑定-->
+        <activity
+            android:name=".systemsetting.activity.AddHomeAddressBindingActivity"
+            android:hardwareAccelerated="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <!--我的住所绑定成功-->
+        <activity
+            android:name=".systemsetting.activity.MyHomeAddressActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme" />
+        <!--修改手机号-->
+        <activity
+            android:name=".systemsetting.activity.UpdateNumberActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <!--修改密码-->
+        <activity
+            android:name=".systemsetting.activity.UpdatePasswordActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <!--修改成功页面-->
+        <activity
+            android:name=".systemsetting.activity.SuccessActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme" />
+        <!--住所认证-->
+        <activity
+            android:name=".systemsetting.activity.AddressSureActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme" />
+        <!--我要申诉-->
+        <activity
+            android:name=".systemsetting.activity.AppealAgainstActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme" />
+        <!--在线申诉-->
+        <activity
+            android:name=".systemsetting.activity.OnLineAgainstActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <!--售后-->
+        <activity
+            android:name=".order.activity.NewOrderServiceActivity"
+            android:hardwareAccelerated="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme" />
+        <!--售后订单详情-->
+        <activity
+            android:name=".order.activity.ReturnOrderDetailActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme" />
+        <!--商品完成评价-->
+        <activity
+            android:name=".order.activity.ShopFinishEvaluateActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <!--申请退款-->
+        <activity
+            android:name=".order.activity.RequestReplacementActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme" />
+        <!--申请退款详情-->
+        <activity
+            android:name=".order.activity.ReplacementDetailActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <!--退款详情-->
+        <activity
+            android:name=".order.activity.ReturnMoneyDetailActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme" />
+        <!--住所选择-->
+        <activity
+            android:name=".ablogin.activity.ChooseSmallCity"
+            android:hardwareAccelerated="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme" />
+        <!--注册-->
+        <activity
+            android:name=".ablogin.activity.UserRegisterActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <!--注册房屋绑定-->
+        <activity
+            android:name=".ablogin.activity.RegisterBindingActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme" />
+        <!--公司简介-->
+        <activity
+            android:name=".abmine.CompanyInfoActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme" />
+        <!--使用帮助-->
+        <activity
+            android:name=".abmine.UserHelpActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme" />
+        <!--帮助说明-->
+        <activity
+            android:name=".integration.activity.HelpNoticeActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme" />
+        <!--我的账户-->
+        <activity
+            android:name=".integration.activity.BalanceActivity"
+            android:hardwareAccelerated="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme" />
+        <!--我的收藏-->
+        <activity
+            android:name=".abmine.MyCollectionActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme" />
+        <!--购物车-->
+        <activity
+            android:name=".freshshop.activity.ShopCarActivity"
+            android:hardwareAccelerated="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme" />
+        <!--意见反馈-->
+        <activity
+            android:name=".systemsetting.activity.MessageSendActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme" />
+        <!--xx须知-->
+        <activity
+            android:name=".abmine.UserAgreementActivity"
+            android:hardwareAccelerated="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme" />
+        <!--支付成功-->
+        <activity
+            android:name=".propertyservicepay.activity.PaySuccessActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme" />
+        <!--php图片上传-->
+        <activity
+            android:name=".order.activity.PhpPhotoMultipleUploadActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Transparent" />
+        <!--php图片上传-->
+        <activity
+            android:name=".order.activity.PhpPhotoMultipleActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/SelectDialog" />
+        <activity
+            android:name=".order.activity.PhpShowNetWorkImageActivity"
+            android:theme="@style/ActivityTheme"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden|stateAlwaysHidden" />
+        <!--商品详情web页-->
+        <activity
+            android:name=".freshshop.activity.ShopDetailWebActivity"
+            android:hardwareAccelerated="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme" />
+        <!--商品搜索-->
+        <activity
+            android:name=".freshshop.activity.SearchShopActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme"
+            android:windowSoftInputMode="stateAlwaysVisible" />
+        <!--商品搜索详情-->
+        <activity
+            android:name=".freshshop.activity.ShopSearchDetailActivity"
+            android:hardwareAccelerated="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <!--远程开门-->
+        <activity
+            android:name=".opendoor.activity.OpenDoorChooseActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme" />
+        <!--远程开门分享二维码-->
+        <activity
+            android:name=".opendoor.activity.OpenDoorShareActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme" />
+        <!--远程开门地址选择-->
+        <activity
+            android:name=".opendoor.activity.OpenDoorAddressChooseActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme" />
+        <!--会员卡-->
+        <activity
+            android:name=".integration.activity.MembershipCardActivity"
+            android:hardwareAccelerated="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme" />
+        <!--新增会员卡-->
+        <activity
+            android:name=".integration.activity.AddMembershipCardActivity"
+            android:hardwareAccelerated="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme" />
+        <!--会员卡详情-->
+        <activity
+            android:name=".integration.activity.MembershipCardDetailActivity"
+            android:hardwareAccelerated="true"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme" />
+        <!--设置支付密码-->
+        <activity
+            android:name=".integration.activity.SettingPayPasswordActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <!--修改支付密码-->
+        <activity
+            android:name=".integration.activity.UpdatePayPasswordActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <!--确认支付密码-->
+        <activity
+            android:name=".integration.activity.ConfirmPayPasswordActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <!--忘记支付密码-->
+        <activity
+            android:name=".integration.activity.ForgetPayPasswordActivity"
+            android:hardwareAccelerated="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+
+        <!--兴趣爱好列表-->
+        <activity
+            android:name=".nearbyinteraction.activity.NearByListActivity"
+            android:hardwareAccelerated="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme"
+            android:windowSoftInputMode="adjustPan|stateHidden|stateAlwaysHidden" />
+        <!--发布帖子-->
+        <activity
+            android:name=".nearbyinteraction.activity.NearBySendNoteActivity"
+            android:hardwareAccelerated="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <!--帖子内容-->
+        <activity
+            android:name=".nearbyinteraction.activity.NearByNoteContentActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:hardwareAccelerated="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <!--我的动态-->
+        <activity
+            android:name=".myaction.activity.MyActionActivity"
+            android:hardwareAccelerated="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <!--java新图片上传接口-->
+        <activity
+            android:name="com.zhjl.qihao.activity.NewPhotoMultipleActivity"
+            android:theme="@style/SelectDialog"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden|stateAlwaysHidden" />
+        <activity
+            android:name="com.zhjl.qihao.activity.NewPhotoMultipleUploadActivity"
+            android:theme="@style/Theme.Transparent"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden|stateAlwaysHidden" />
+
+
+        <activity
+            android:name="com.zhjl.qihao.nearbyinteraction.activity.SearchNoteActivity"
+            android:hardwareAccelerated="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme"
+            android:windowSoftInputMode="stateAlwaysVisible" />
+        <activity
+            android:name="com.zhjl.qihao.nearbyinteraction.activity.SearchNoteDetailActivity"
+            android:hardwareAccelerated="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+
+        <!--我的投诉-->
+        <activity
+            android:name="com.zhjl.qihao.propertyservicecomplaint.activity.MyComplaintActivity"
+            android:hardwareAccelerated="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+    </application>
+
+</manifest>

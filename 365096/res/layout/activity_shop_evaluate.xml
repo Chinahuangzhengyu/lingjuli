@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <include layout="@layout/ab_header_bar"></include>
+
+    <com.zhjl.qihao.abrefactor.view.CustomRadioGroup
+        android:id="@+id/rg_evaluate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/activity_bg"
+        android:paddingLeft="14dp"
+        android:paddingTop="20dp"
+        android:paddingRight="14dp"
+        android:paddingBottom="20dp"
+        app:width_space="16dp">
+
+        <RadioButton
+            android:id="@+id/rb_all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shop_evaluate_status"
+            android:button="@null"
+            android:paddingLeft="12dp"
+            android:checked="true"
+            android:paddingTop="4dp"
+            android:paddingRight="12dp"
+            android:textColor="@color/white"
+            android:paddingBottom="4dp"
+            android:text="全部"
+            android:textSize="14sp" />
+
+        <RadioButton
+            android:id="@+id/rb_good"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shop_evaluate_status"
+            android:button="@null"
+            android:paddingLeft="12dp"
+            android:paddingTop="4dp"
+            android:paddingRight="12dp"
+            android:paddingBottom="4dp"
+            android:text="好评"
+            android:textSize="14sp" />
+
+        <RadioButton
+            android:id="@+id/rb_middle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shop_evaluate_status"
+            android:button="@null"
+            android:paddingLeft="12dp"
+            android:paddingTop="4dp"
+            android:paddingRight="12dp"
+            android:paddingBottom="4dp"
+            android:text="中评"
+            android:textSize="14sp" />
+
+        <RadioButton
+            android:id="@+id/rb_bad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shop_evaluate_status"
+            android:button="@null"
+            android:paddingLeft="12dp"
+            android:paddingTop="4dp"
+            android:paddingRight="12dp"
+            android:paddingBottom="4dp"
+            android:text="差评"
+            android:textSize="14sp" />
+    </com.zhjl.qihao.abrefactor.view.CustomRadioGroup>
+
+    <com.jcodecraeer.xrecyclerview.XRecyclerView
+        android:id="@+id/xrv_shop_evaluate"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></com.jcodecraeer.xrecyclerview.XRecyclerView>
+
+</LinearLayout>

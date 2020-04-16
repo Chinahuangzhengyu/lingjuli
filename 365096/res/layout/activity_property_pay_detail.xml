@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:layout_height="match_parent">
+    <include layout="@layout/ab_header_bar"></include>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="16dp"
+        android:background="@color/main_bg"
+        ></View>
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tab_property_pay"
+        android:layout_width="match_parent"
+        android:layout_height="32dp"
+        app:tabRippleColor = "@android:color/transparent"
+        app:tabIndicatorColor="@color/new_theme_color"
+        app:tabIndicatorHeight="4dp"
+        app:tabIndicator="@drawable/circle_green_19"
+        android:background="@color/main_bg"
+        app:tabIndicatorFullWidth="false"
+        style="@style/MyTabLayoutTextSize"
+        >
+
+    </android.support.design.widget.TabLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="16dp"
+        android:background="@color/main_bg"
+        ></View>
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_property_pay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+    </android.support.v4.view.ViewPager>
+</LinearLayout>

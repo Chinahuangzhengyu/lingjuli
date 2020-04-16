@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/quhuo"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="12dp"
+    android:layout_marginRight="12dp"
+    android:layout_marginTop="10dp"
+    android:background="@drawable/shape_groupbuy_price_bg"
+    android:visibility="visible">
+
+
+    <RelativeLayout
+        android:id="@+id/r"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp"
+        android:paddingTop="11dp">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="21dp"
+            android:layout_marginTop="11dp"
+            android:text="取货地址"
+            android:textColor="@color/Navigate_title"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dp"
+            android:text="(此商品为自取商品,请按地址上门取货)"
+            android:textColor="#EC0606"
+            android:textSize="10sp" />
+
+    </RelativeLayout>
+
+
+    <View
+        android:id="@+id/v"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:layout_below="@+id/r"
+        android:background="@drawable/fengtiao" />
+
+
+    <!-- 商店名称 -->
+    <RelativeLayout
+        android:id="@+id/r1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/v"
+        android:layout_marginTop="10dp">
+
+
+        <TextView
+            android:id="@+id/t1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="21dp"
+            android:drawableLeft="@drawable/shangdianicon"
+            android:text="   商店名称:"
+            android:textColor="@color/color_666666"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/shopname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="11dp"
+            android:layout_toRightOf="@+id/t1"
+            android:textColor="@color/color_666666"
+            android:textSize="14sp" />
+
+    </RelativeLayout>
+
+    <!-- 取货地址 -->
+    <RelativeLayout
+        android:id="@+id/r2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/r1"
+        android:layout_marginTop="10dp">
+
+
+        <TextView
+            android:id="@+id/t2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="21dp"
+            android:drawableLeft="@drawable/dizhiicon"
+            android:text="    取货地址:"
+            android:textColor="@color/color_666666"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/t_qhdz"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="11dp"
+            android:layout_toRightOf="@+id/t2"
+            android:maxLines="2"
+            android:text="sdjfadjgfasgjsdglk"
+            android:textColor="@color/color_666666"
+            android:textSize="14sp" />
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/r2"
+        android:layout_marginBottom="7dp"
+        android:layout_marginTop="12dp"
+        android:gravity="center"
+        android:text="此商品新鲜度极高，请您尽快提取，以防变质，谢谢配合"
+        android:textColor="#5CCDA4"
+        android:textSize="10sp" />
+</RelativeLayout>

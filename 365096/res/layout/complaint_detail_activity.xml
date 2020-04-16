@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/head"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/status_bar_color"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/main_header_color" />
+
+        <include layout="@layout/new_header_bar"></include>
+    </LinearLayout>
+
+    <com.zhjl.qihao.complaint.view.XExpandableListView
+        android:id="@+id/rv_complaint_detail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@null"
+        android:groupIndicator="@null"
+        android:dividerHeight="15dp"
+        android:listSelector="@android:color/transparent"
+        android:scrollbars="none"
+        android:layout_below="@+id/head"
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="64dp"
+        android:layout_marginRight="20dp"></com.zhjl.qihao.complaint.view.XExpandableListView>
+    <!--<com.jcodecraeer.xrecyclerview.XRecyclerView-->
+        <!--android:id="@+id/rv_complaint_detail"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@+id/head"-->
+        <!--android:layout_marginLeft="20dp"-->
+        <!--android:layout_marginRight="20dp"-->
+        <!--&gt;</com.jcodecraeer.xrecyclerview.XRecyclerView>-->
+
+    <View
+        android:layout_width="100dp"
+        android:layout_height="1dp"></View>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_Comment"
+            android:layout_width="0dp"
+            android:layout_height="32dp"
+            android:layout_marginLeft="45dp"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:background="@drawable/btn_round_style"
+            android:gravity="center"
+            android:text="评论"
+            android:textColor="@color/color_white"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_sure_agree"
+            android:layout_width="0dp"
+            android:layout_height="32dp"
+            android:layout_marginLeft="14dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="45dp"
+            android:layout_weight="1"
+            android:background="@drawable/add_agree"
+            android:gravity="center"
+            android:text="点赞"
+            android:textColor="@color/color_white"
+            android:textSize="16sp" />
+    </LinearLayout>
+    <RelativeLayout
+        android:id="@+id/rl_parent"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:id="@+id/ll_aboveView"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_above="@+id/line_1"
+            android:background="@null"
+            android:orientation="vertical"/>
+
+        <TextView
+            android:id="@+id/line_1"
+            android:layout_width="fill_parent"
+            android:layout_height="1.0dip"
+            android:layout_above="@+id/ll_edt"
+            android:background="#e2e2e2" />
+
+        <LinearLayout
+            android:id="@+id/ll_edt"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:paddingBottom="5dp"
+            android:paddingLeft="8dp"
+            android:paddingTop="5dp">
+
+            <com.zhjl.qihao.view.ChatEditText
+                android:id="@+id/reply_edt"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:inputType="textAutoCorrect|textCapSentences|textMultiLine"
+                android:layout_weight="4"
+                android:background="@drawable/btn_round_gray"
+                android:focusable="true"
+                android:minHeight="36dp"/>
+
+            <LinearLayout
+                android:id="@+id/btn_send_reply"
+                android:layout_width="0dp"
+                android:layout_height="36dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="0.7"
+                android:background="@drawable/btn_round_blue"
+                android:gravity="center"
+                android:minHeight="36dp">
+
+                <TextView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:background="@drawable/send" />
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/rl_loading"
+        android:layout_below="@+id/head"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/color_white"
+        android:visibility="gone">
+
+        <com.zhjl.qihao.materialdesign.views.CircularProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            app:cpb_colors="@array/gplus_colors" />
+    </RelativeLayout>
+</RelativeLayout>

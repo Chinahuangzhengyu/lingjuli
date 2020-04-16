@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:myview="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <!-- 店铺 logo -->
+    <ImageView
+        android:id="@+id/ic"
+        android:layout_width="85dp"
+        android:layout_height="66dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="15dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/dplogo" />
+
+    <!-- title -->
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/ic"
+        android:layout_toRightOf="@+id/ic"
+        android:text="title"
+        android:textColor="@color/font_blak"
+        android:textSize="16sp" />
+
+    <!--<RatingBar-->
+    <!--android:id="@+id/star"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="8dp"-->
+    <!--android:layout_above="@+id/r"-->
+    <!--android:layout_below="@+id/title"-->
+    <!--android:layout_toRightOf="@+id/ic"-->
+    <!--android:isIndicator="true"-->
+    <!--android:numStars="5" />-->
+
+    <com.zhjl.qihao.view.RatingBar
+        android:id="@+id/star"
+        android:layout_width="wrap_content"
+        android:layout_height="8dp"
+        android:layout_above="@+id/r"
+        android:layout_below="@+id/title"
+        android:layout_marginTop="6dp"
+        android:layout_toRightOf="@+id/ic"
+        app:clickable="false"
+        app:starCount="5"
+        app:starEmpty="@drawable/star_grey"
+        app:starFill="@drawable/star_yellow"
+        app:starPadding="2dp"
+        app:starStep="3" />
+
+    <RelativeLayout
+        android:id="@+id/r"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/ic"
+        android:layout_toRightOf="@+id/ic"
+        android:orientation="horizontal">
+        <!-- 营业时间-->
+        <TextView
+            android:id="@+id/duration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text="营业时间:"
+            android:textColor="@color/font_blak"
+            android:textSize="13sp" />
+
+        <!-- 销量-->
+        <TextView
+            android:id="@+id/sales"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="12dp"
+            android:text="月销: "
+            android:textColor="@color/red_font"
+            android:textSize="12sp" />
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/v"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/ic"
+        android:layout_marginRight="12dp"
+        android:layout_marginTop="5dp"
+        android:layout_toRightOf="@+id/ic"
+        android:background="#EAEAEA" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/v"
+        android:layout_marginBottom="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginTop="12dp"
+        android:layout_toRightOf="@+id/ic"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="主营: "
+            android:textColor="@color/grey_font"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="地址: "
+            android:textColor="@color/grey_font"
+            android:textSize="13sp" />
+    </LinearLayout>
+
+</RelativeLayout>

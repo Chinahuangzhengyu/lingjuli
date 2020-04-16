@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RadioButton xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/btn_radio_orange"
+    android:button="@null"
+    android:gravity="center"
+    android:paddingLeft="6dip"
+    android:paddingRight="6dip"
+    android:layout_marginRight="5dip"
+    android:minHeight="25dp"
+    android:minWidth="60dip"
+    android:text="颜色"
+    android:textColor="@color/white"
+    android:textSize="12sp" />
+

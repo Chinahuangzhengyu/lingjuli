@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/rl_edit_complaint"
+    android:orientation="vertical">
+    <LinearLayout
+        android:id="@+id/head"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+    <TextView
+        android:id="@+id/status_bar_color"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/main_header_color"
+        />
+    <include
+        layout="@layout/new_header_bar"></include>
+    </LinearLayout>
+    <ScrollView
+        android:layout_below="@+id/head"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/edit_title"
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:layout_marginTop="10dp"
+                android:paddingLeft="10dp"
+                android:textSize="16sp"
+                android:textColor="@color/color_gray"
+                android:background="@drawable/round_gray"
+                android:hint="请输入主标题，内容二十字以内"
+                android:lines="1"
+                />
+
+            <EditText
+                android:id="@+id/edit_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="180dp"
+                android:layout_below="@id/edit_title"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/round_gray"
+                android:gravity="start"
+                android:hint="请输入内容"
+                android:padding="10dp"
+                android:textSize="12sp" />
+
+            <LinearLayout
+                android:id="@+id/ll_add_img"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/edit_content"
+                android:layout_marginTop="20dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/img_add"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/add_img" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="10sp"
+                    android:textColor="@color/color_gray"
+                    android:layout_marginStart="10dp"
+                    android:text="添加图片（最多添加4张）" />
+            </LinearLayout>
+
+            <com.zhjl.qihao.view.CustomGridView
+                android:id="@+id/gv_upload_complaint_img"
+                android:layout_width="match_parent"
+                android:layout_marginTop="20dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ll_add_img"
+                android:horizontalSpacing="10dp"
+                android:listSelector="@android:color/transparent"
+                android:numColumns="4"
+                android:visibility="visible"></com.zhjl.qihao.view.CustomGridView>
+
+            <com.zhjl.qihao.view.CustomGridView
+                android:layout_marginTop="20dp"
+                android:id="@+id/gv_change_neighborhood_interaction"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/gv_upload_complaint_img"
+                android:horizontalSpacing="13dp"
+                android:listSelector="@android:color/transparent"
+                android:numColumns="3"
+                android:paddingBottom="100dp"
+                android:verticalSpacing="15dp" />
+
+
+        </RelativeLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/top_shadow"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <View
+            android:id="@+id/v_line"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/activity_color"></View>
+
+        <TextView
+            android:id="@+id/tv_complaint"
+            android:layout_width="86dp"
+            android:layout_marginTop="10dp"
+            android:layout_height="26dp"
+            android:background="@drawable/btn_round_style"
+            android:gravity="center"
+            android:text="发表"
+            android:textSize="16sp"
+            android:layout_marginBottom="10dp"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+    </LinearLayout>
+</RelativeLayout>

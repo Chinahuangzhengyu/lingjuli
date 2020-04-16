@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/activity_bg"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:background="@color/white"
+        >
+        <ImageView
+            android:id="@+id/img_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingLeft="14dp"
+            android:paddingRight="14dp"
+            android:src="@drawable/iv_back"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="@color/text_color_f1"
+            android:layout_centerInParent="true"
+            android:text="我的住所"
+            />
+        <TextView
+            android:id="@+id/tv_add_home_address_binding"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="新增"
+            android:textColor="@color/new_theme_color"
+            android:drawableRight="@drawable/img_add_home"
+            android:drawablePadding="6dp"
+            android:gravity="center_vertical"
+            android:textSize="14sp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="14dp"
+            />
+    </RelativeLayout>
+
+    <com.jcodecraeer.xrecyclerview.XRecyclerView
+        android:id="@+id/xrv_home_address_binding"
+        android:layout_width="match_parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="14dp"
+        android:layout_marginRight="14dp"
+        android:layout_height="wrap_content"></com.jcodecraeer.xrecyclerview.XRecyclerView>
+
+</LinearLayout>

@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    style="@style/root_layout_style" >
+
+    <RelativeLayout
+        android:id="@+id/top"
+        android:layout_width="fill_parent"
+        android:layout_height="48dp"
+        android:background="@color/top_color" >
+
+        <ImageView
+            android:id="@+id/img_back"
+            android:layout_width="50dp"
+            android:layout_height="48dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:src="@drawable/btn_back_style"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_centerInParent="true"
+            android:layout_margin="5dp"
+            android:contentDescription="@string/app_name"
+            android:gravity="center"
+            android:text="确认转出信息"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/gray"
+        android:padding="5dp" >
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:padding="5dp" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp" >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp" >
+
+                    <TextView
+                        android:id="@+id/tv_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:gravity="center_vertical"
+                        android:text="转出金额:"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/tv_drawmoney_sum"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_toRightOf="@id/tv_label"
+                        android:gravity="center_vertical"
+                        android:textSize="16sp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp" >
+
+                    <TextView
+                        android:id="@+id/tv_label1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:gravity="center_vertical"
+                        android:text="转出银行:"
+                        android:textColor="@color/color_888888"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/tv_drawmoney_bank"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="5dip"
+                        android:layout_toRightOf="@id/tv_label1"
+                        android:gravity="center_vertical"
+                        android:textColor="@color/color_888888"
+                        android:textSize="16sp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:visibility="gone" >
+
+                    <TextView
+                        android:id="@+id/tv_label4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:gravity="center_vertical"
+                        android:text="分　　行:"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/tv_bank_branch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="5dip"
+                        android:layout_toRightOf="@id/tv_label4"
+                        android:gravity="center_vertical"
+                        android:textSize="16sp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="30dp"
+                    android:visibility="gone" >
+
+                    <TextView
+                        android:id="@+id/tv_label2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:gravity="top"
+                        android:text="开户地址:"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/tv_bank_address"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="5dip"
+                        android:layout_toRightOf="@id/tv_label2"
+                        android:gravity="top"
+                        android:textSize="16sp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="30dp" >
+
+                    <TextView
+                        android:id="@+id/tv_label3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:gravity="top"
+                        android:text="银行卡号:"
+                        android:textColor="@color/color_888888"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/tv_bank_card_no"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="5dip"
+                        android:layout_toRightOf="@id/tv_label3"
+                        android:gravity="top"
+                        android:textColor="@color/color_888888"
+                        android:textSize="16sp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp" >
+
+                    <TextView
+                        android:id="@+id/tv_label41"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:gravity="center_vertical"
+                        android:text="您的手机号码:"
+                        android:textColor="@color/color_888888"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/tv_phone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="5dip"
+                        android:layout_toRightOf="@id/tv_label41"
+                        android:gravity="center_vertical"
+                        android:textColor="@color/color_888888"
+                        android:textSize="16sp" />
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="5dp"
+                        android:gravity="top"
+                        android:text="请输入你的手机验证码:"
+                        android:textColor="@color/color_333333"
+                        android:textSize="16sp" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="5dip"
+                        android:paddingRight="5dp" >
+
+                        <Button
+                            android:id="@+id/btn_send_sms"
+                            android:layout_width="wrap_content"
+                            android:layout_height="36dp"
+                            android:layout_alignParentRight="true"
+                            android:background="@drawable/btn_round_orange_two"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:text="获取验证码"
+                            android:textColor="@color/white" />
+
+                        <EditText
+                            android:id="@+id/et_sms"
+                            android:layout_width="match_parent"
+                            android:layout_height="36dp"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="4dp"
+                            android:layout_toLeftOf="@id/btn_send_sms"
+                            android:background="@drawable/btn_count_bg"
+                            android:inputType="number"
+                            android:paddingLeft="5dp"
+                            android:textSize="18sp" />
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" >
+
+                    <Button
+                        android:id="@+id/btn_confirm"
+                        android:layout_width="match_parent"
+                        android:layout_height="36dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginTop="24dp"
+                        android:background="@drawable/btn_round_red"
+                        android:paddingBottom="5dp"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:paddingTop="5dp"
+                        android:text="　确定　"
+                        android:textColor="@color/white" />
+
+                    <!-- <TextView android:layout_width="match_parent" -->
+                    <!-- android:layout_height="30dp" -->
+                    <!-- android:gravity="center_vertical" -->
+                    <!-- android:textSize="16sp" -->
+                    <!-- android:textColor="@color/content_gray" -->
+                    <!-- android:text="请输入你要转出密码:"/> -->
+                    <!-- <RelativeLayout android:layout_width="match_parent" -->
+                    <!-- android:layout_height="wrap_content"> -->
+                    <!-- <Button android:id="@+id/btn_confirm" -->
+                    <!-- android:layout_width="wrap_content" -->
+                    <!-- android:layout_height="30dp" -->
+                    <!-- android:text="　确定　" -->
+                    <!-- android:textColor="@color/white" -->
+                    <!-- android:layout_alignParentRight="true" -->
+                    <!-- android:background="@drawable/btn_round_orange_two" -->
+                    <!-- android:paddingLeft="10dp" -->
+                    <!-- android:paddingRight="10dp" -->
+                    <!-- android:paddingTop="5dp" -->
+                    <!-- android:paddingBottom="5dp"/> -->
+                    <!-- <EditText android:id="@+id/et_drawmoney_pwd" -->
+                    <!-- android:layout_height="30dp" -->
+                    <!-- android:paddingLeft="5dp" -->
+                    <!-- android:textSize="18sp" -->
+                    <!-- android:inputType="textPassword" -->
+                    <!-- android:layout_marginRight="10dp" -->
+                    <!-- android:layout_width="match_parent" -->
+                    <!-- android:background="@drawable/btn_count_bg" -->
+                    <!-- android:layout_toLeftOf="@id/btn_confirm"/> -->
+                    <!-- </RelativeLayout> -->
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+</LinearLayout>

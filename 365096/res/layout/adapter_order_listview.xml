@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="12dp"
+    android:paddingTop="12dp">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="74dp"
+            android:layout_height="74dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/zwt" />
+
+        <TextView
+            android:id="@+id/comm_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/logo"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@+id/logo"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="风衣"
+            android:textColor="@color/Navigate_title"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:id="@+id/sell_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/logo"
+            android:layout_alignParentRight="true"
+            android:text="99"
+            android:textColor="@color/color_goods_ordertv"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/n"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/logo"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@+id/logo"
+            android:text="数量:"
+            android:textColor="@color/grey_font"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/comm_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/logo"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/n"
+            android:text="2"
+            android:textColor="@color/Navigate_title"
+            android:textSize="16sp" />
+
+
+    </RelativeLayout>
+
+</LinearLayout>

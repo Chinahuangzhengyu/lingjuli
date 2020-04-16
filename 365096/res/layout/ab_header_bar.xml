@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_header_bar"
+    android:layout_width="fill_parent"
+    android:layout_height="@dimen/header_height"
+    android:background="@color/white"
+    android:fitsSystemWindows="true">
+
+    <!-- 返回图片 -->
+    <LinearLayout
+        android:id="@+id/ll_head_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:background="@drawable/bg_click_selector"
+            android:padding="14dp"
+            android:scaleType="center"
+            android:src="@drawable/iv_back"
+            android:visibility="gone" />
+    </LinearLayout>
+
+
+    <!-- 右边图片 -->
+
+    <ImageView
+        android:id="@+id/iv_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="2dp"
+        android:background="@drawable/bg_click_selector"
+        android:padding="10dp"
+        android:scaleType="center"
+        android:src="@drawable/img_search"
+        android:visibility="gone" />
+    <ImageView
+        android:id="@+id/iv_share"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="2dp"
+        android:background="@drawable/bg_click_selector"
+        android:padding="10dp"
+        android:scaleType="center"
+        android:src="@drawable/fenxiang"
+        android:visibility="gone" />
+
+    <!-- 标题 -->
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:maxLength="12"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:text="标题"
+        android:textColor="@color/Navigate_title"
+        android:textSize="18sp"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/tv_right"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_click_selector"
+        android:gravity="center"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="14dp"
+        android:textColor="@color/white"
+        android:visibility="gone"
+        android:textSize="16sp" />
+
+
+</RelativeLayout>

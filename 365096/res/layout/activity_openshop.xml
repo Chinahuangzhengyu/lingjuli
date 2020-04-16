@@ -1,0 +1,146 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/root_layout_style"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/ab_header_bar" />
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#F5F6FA">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:background="#F7F7F7">
+
+                <EditText
+                    android:id="@+id/et_search_city"
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:layout_centerInParent="true"
+                    android:layout_marginLeft="24dp"
+                    android:background="@drawable/btn_count_bg"
+                    android:drawableLeft="@drawable/city_search"
+                    android:drawablePadding="8dp"
+                    android:hint="搜索城市"
+                    android:imeOptions="actionSearch"
+                    android:paddingLeft="16dp"
+                    android:singleLine="true"
+                    android:textColor="@color/color_555555"
+                    android:textSize="14sp" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_search_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="14dp"
+                    android:gravity="center_vertical"
+                    android:text="当前城市"
+                    android:textColor="#FF999999"
+                    android:textSize="14sp" />
+
+                <RelativeLayout
+                    android:id="@+id/ll_location"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="14dp"
+                    android:background="@color/color_white">
+
+                    <TextView
+                        android:id="@+id/localCity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/circle_5"
+                        android:drawableLeft="@drawable/city_local"
+                        android:drawablePadding="4dp"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="6dp"
+                        android:text="当前城市"
+                        android:textColor="#FF999999"
+                        android:textSize="14sp" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/list_line" />
+
+                <ListView
+                    android:id="@+id/listView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="14dp"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginRight="40dp"
+                    android:cacheColorHint="@color/transparent"
+                    android:divider="#FFE8E8E8"
+                    android:overScrollMode="never"
+                    android:dividerHeight="1dp"
+                    android:fadingEdge="none"
+                    android:scrollbars="none"></ListView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_search_no_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:visibility="gone"
+                android:gravity="center_horizontal"
+                >
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_marginTop="120dp"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/search_no_content"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_height="wrap_content"
+                    android:text="未搜索到您要的小区~"
+                    />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv"
+            android:layout_width="62dp"
+            android:layout_height="62dp"
+            android:layout_gravity="center"
+            android:background="@drawable/green_circle"
+            android:gravity="center"
+            android:text="A"
+            android:textColor="#FFFFFFFF"
+            android:textSize="30sp" />
+
+        <LinearLayout
+            android:id="@+id/layout"
+            android:layout_width="40dp"
+            android:layout_height="fill_parent"
+            android:layout_gravity="right"
+            android:layout_marginTop="48dp"
+            android:gravity="center"
+            android:orientation="vertical"></LinearLayout>
+    </FrameLayout>
+
+</LinearLayout>

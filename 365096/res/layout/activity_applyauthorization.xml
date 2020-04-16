@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    style="@style/root_layout_style" >
+
+	<include layout="@layout/ab_header_bar"/>
+
+    <include layout="@layout/ab_layout_space"/>
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/tx_requestname"
+                android:layout_width="fill_parent"
+                android:layout_height="36dp"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:textColor="@color/color_333333"
+                android:textSize="16sp" />
+
+
+            <TextView
+                android:id="@+id/tx_requestphonenum"
+                android:layout_width="fill_parent"
+                android:layout_height="36dp"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:textColor="@color/color_333333"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tx_name"
+                android:layout_width="fill_parent"
+                android:layout_height="36dp"
+                android:layout_marginTop="4dp"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:textColor="@color/color_333333"
+                android:textSize="16sp" />
+
+
+            <TextView
+                android:id="@+id/tx_phonenum"
+                android:layout_width="fill_parent"
+                android:layout_height="36dp"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:textColor="@color/color_333333"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tx_time"
+                android:layout_width="fill_parent"
+                android:layout_height="36dp"
+                android:layout_marginTop="4dp"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:textColor="@color/color_333333"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tx_smallcommuite"
+                android:layout_width="fill_parent"
+                android:layout_height="36dp"
+                android:layout_marginTop="4dp"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:textColor="@color/color_333333"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tx_desc"
+                android:layout_width="fill_parent"
+                android:layout_height="36dp"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:textColor="@color/color_333333"
+                android:textSize="16sp" />
+
+            <Button
+                android:id="@+id/btn_authorization"
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                android:layout_marginTop="36dp"
+                android:background="@drawable/ab_btn_bg"
+                android:gravity="center"
+                android:text="授权"
+                android:textSize="18sp"
+                android:textColor="@color/white" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

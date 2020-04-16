@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginBottom="20dp"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/rl_my_send_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_content"
+            android:layout_marginLeft="14dp"
+            android:layout_marginRight="14dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="4"
+            android:textColor="@color/text_color_f1"
+            android:textSize="16sp" />
+
+        <com.zhjl.qihao.abrefactor.view.RoundImageView
+            android:id="@+id/img_content"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="14dp"
+            android:layout_marginRight="14dp"
+            android:visibility="gone"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_content"
+            android:layout_marginTop="16dp"
+            app:round="6"
+            ></com.zhjl.qihao.abrefactor.view.RoundImageView>
+
+        <TextView
+            android:id="@+id/tv_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/img_content"
+            android:layout_marginTop="14dp"
+            android:layout_marginLeft="14dp"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/circle_green_14"
+            android:paddingLeft="8dp"
+            android:paddingTop="4dp"
+            android:paddingRight="8dp"
+            android:paddingBottom="4dp"
+            android:text=""
+            android:textColor="@color/white"
+            android:textSize="14sp" />
+        <TextView
+            android:layout_below="@+id/img_content"
+            android:id="@+id/tv_type_two"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:layout_toRightOf="@+id/tv_type"
+            android:textColor="@color/new_theme_color"
+            android:background="@drawable/circle_e7f9ea_14"
+            android:drawableLeft="@drawable/img_note_list_tag"
+            android:drawablePadding="8dp"
+            android:text=""
+            android:layout_marginTop="16dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            />
+        <LinearLayout
+            android:id="@+id/ll_info"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="14dp"
+            android:layout_marginRight="14dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_type"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_nearby_more_select_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/img_nearby_select"
+                android:drawablePadding="4dp"
+                android:textColor="@color/bbbbbb"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tv_nearby_more_agree_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:drawableLeft="@drawable/img_nearby_agree"
+                android:drawablePadding="4dp"
+                android:textColor="@color/bbbbbb"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tv_nearby_more_reply_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:drawableLeft="@drawable/img_nearby_reply"
+                android:drawablePadding="4dp"
+                android:textColor="@color/bbbbbb"
+                android:textSize="14sp" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1"></View>
+
+            <TextView
+                android:id="@+id/tv_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/bbbbbb"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <View
+            android:layout_below="@+id/ll_info"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="20dp"
+            android:background="@color/view_line"
+            ></View>
+    </RelativeLayout>
+</RelativeLayout>

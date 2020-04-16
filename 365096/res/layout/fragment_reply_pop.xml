@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:background="@drawable/circle_left_right_activitybg_12"
+    android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/tv_note_complaint"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:gravity="center"
+        android:text="我要举报"
+        android:textSize="16sp"
+        android:textColor="@color/text_color_f1"
+        />
+    <TextView
+        android:id="@+id/tv_delete_note"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:gravity="center"
+        android:text="删除"
+        android:textSize="16sp"
+        android:textColor="@color/text_color_f1"
+        />
+    <TextView
+        android:id="@+id/tv_note_cancel"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@color/white"
+        android:textSize="16sp"
+        android:textColor="@color/text_color_f1"
+        android:gravity="center"
+        android:text="取消"
+        />
+</LinearLayout>

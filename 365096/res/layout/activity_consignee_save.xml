@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    style="@style/root_layout_style" >
+
+    <include layout="@layout/header_bar" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dip"
+                android:layout_marginTop="8dp"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:paddingLeft="12dip"
+                android:paddingRight="12dip" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="收  货 人:"
+                    android:textColor="@color/font_dark_grey"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/et_consignee"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:inputType="textPersonName"
+                    android:maxLength="10"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dip"
+                android:layout_marginTop="8dp"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:paddingLeft="12dip"
+                android:paddingRight="12dip" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="手机号码:"
+                    android:textColor="@color/font_dark_grey"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/et_consignee_phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:inputType="phone"
+                    android:maxLength="11"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_consignee_area"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:minHeight="48dip"
+                android:paddingBottom="6dip"
+                android:paddingLeft="12dip"
+                android:paddingRight="12dp"
+                android:paddingTop="6dip" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="所在地区:"
+                    android:textColor="@color/font_dark_grey"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tv_consignee_area"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:textSize="16sp" />
+                <!-- <ImageView android:layout_width="48dp" -->
+                <!-- android:layout_height="48dp" -->
+                <!-- android:padding="8dip" -->
+                <!-- android:contentDescription="@null" -->
+                <!-- android:src="@drawable/button_next_up"/> -->
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:minHeight="48dip"
+                android:paddingBottom="6dip"
+                android:paddingLeft="12dip"
+                android:paddingRight="12dip"
+                android:paddingTop="6dip" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="详细地址:"
+                    android:textColor="@color/font_dark_grey"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/et_consignee_addr"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:maxLength="30"
+                    android:textSize="16sp" />
+                <!-- <EditText android:id="@+id/et_consignee_addr" -->
+                <!-- android:layout_width="match_parent" -->
+                <!-- android:layout_weight="1" -->
+                <!-- android:layout_height="wrap_content" -->
+                <!-- android:textSize="16sp" -->
+                <!-- android:inputType="text" -->
+                <!-- android:text="啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊" -->
+                <!-- android:background="@null"/> -->
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/btn_save_consignee"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_gravity="center"
+        android:layout_margin="12dip"
+        android:background="@drawable/btn_round_blue"
+        android:gravity="center"
+        android:text="保存并使用"
+        android:textColor="@color/white" />
+
+</LinearLayout>

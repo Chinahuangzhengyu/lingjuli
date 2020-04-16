@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    android:orientation="horizontal">
+    <q.rorbin.verticaltablayout.VerticalTabLayout
+        android:id="@+id/vtab_shop_type"
+        android:layout_width="84dp"
+        android:layout_height="wrap_content"
+        app:indicator_width="0dp"
+        android:contextClickable="false"
+        android:background="@color/activity_bg"
+        ></q.rorbin.verticaltablayout.VerticalTabLayout>
+    <!--<com.zhjl.qihao.view.CannotScrollViewpager-->
+        <!--android:id="@+id/vp_shop_type"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"></com.zhjl.qihao.view.CannotScrollViewpager>-->
+        <RelativeLayout
+            android:id="@+id/rl_fragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></RelativeLayout>
+</LinearLayout>

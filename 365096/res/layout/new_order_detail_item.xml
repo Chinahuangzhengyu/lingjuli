@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:background="@color/white" >
+
+        <TextView
+            android:id="@+id/tv_shop_name"
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            android:layout_centerVertical="true"
+            android:textColor="@color/color_333333"
+            android:textSize="16sp"
+            android:layout_marginLeft="12dp"
+            android:gravity="center_vertical"
+            android:text="老陕西风衣店" />
+
+        <TextView
+            android:id="@+id/order_status"
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:textColor="@color/color_fca764"
+            android:textSize="16sp"
+            android:layout_marginRight="12dp"
+            android:gravity="center_vertical"
+            android:text="联系卖家" />
+
+        <ImageView
+            android:id="@+id/iv_call"
+            android:layout_width="10dp"
+            android:layout_height="14dp"
+            android:layout_centerInParent="true"
+            android:layout_marginRight="10dp"
+            android:layout_toLeftOf="@+id/order_status"
+            android:src="@drawable/ddxq_lxdh"/>
+    </RelativeLayout>
+    <include layout="@layout/ab_layout_short_line"/>
+    <com.zhjl.qihao.view.ScrollViewIncludeListView2
+        android:id="@+id/lv_order_good"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/order_good"
+        android:background="@color/white"
+        android:divider="@null"
+        android:listSelector="@android:color/transparent" >
+    </com.zhjl.qihao.view.ScrollViewIncludeListView2>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/list_line" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/white" >
+        <TextView
+            android:id="@+id/tv_goods_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="12dp"
+            android:textColor="@color/ff1b1b1b"
+            android:text="共1件商品"
+            android:textSize="@dimen/text_16"
+            />
+        <TextView
+            android:id="@+id/tv_refund_name"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_toLeftOf="@+id/tv_actual_pay"
+            android:text="实付:"
+            android:gravity="center_vertical"
+            android:layout_marginRight="10dp"
+            android:textSize="18sp"
+            android:textColor="@color/ff1b1b1b" />
+
+        <TextView
+            android:id="@+id/tv_actual_pay"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:text="¥13.00"
+            android:layout_marginRight="12dp"
+            android:gravity="center_vertical"
+            android:textSize="18sp"
+            android:textColor="@color/color_f80000" />
+
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/view1"
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:background="@color/color_e8ebf0"/>
+
+</LinearLayout>

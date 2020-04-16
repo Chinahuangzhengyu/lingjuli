@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools"
+	tools:ignore="MissingTranslation" >
+	<string-array name="event_notification">
+	    <item>Silent</item>
+		<item>Tones only</item>
+		<item>Vibrate only</item>
+		<item>Ringtone and Vibrate</item>
+	</string-array>
+</resources>

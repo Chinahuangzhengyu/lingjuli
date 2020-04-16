@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    android:orientation="vertical" >
+    
+    
+    <TextView 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/common_text_style_2" 
+        android:text="本人是XXXX文化艺术传媒公司法人,公司主营,品牌推广,企业LOGO设计,房地产策划与设计,旅游项目开发等.本人诚信良好,公司发展稳定,此次借款用于短期资金周转,已将名下大众轿车办理车辆抵押相关手续."/>
+
+    
+</LinearLayout>

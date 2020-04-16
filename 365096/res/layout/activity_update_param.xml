@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/root_layout_style"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.zhjl.qihao.health.activity.UpdateParamActivity">
+
+    <include layout="@layout/header_bar" />
+
+    <com.handmark.pulltorefresh.library.PullToRefreshScrollView
+        android:id="@+id/pull_parent"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/text_16_fff47301"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/list_item_height_common"
+                android:gravity="center_vertical"
+                android:paddingLeft="25dp"
+                android:text="个人设置" />
+
+            <RelativeLayout
+                android:id="@+id/rl_birthday"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/list_item_height_common"
+                android:background="@drawable/click_white_gray_selector">
+
+                <TextView
+                    android:id="@+id/tv_birthday_text"
+                    style="@style/text_16_ff442004"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="25dp"
+                    android:text="出生日期" />
+
+                <ImageView
+                    android:id="@+id/iv_birthday"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="25dp"
+                    android:src="@drawable/ic_common_next" />
+
+                <TextView
+                    android:id="@+id/tv_birthday_value"
+                    style="@style/text_14_fff47301"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@id/iv_birthday"
+                    android:text="1983年5月27日" />
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_blood_type"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/list_item_height_common"
+                android:layout_marginTop="@dimen/xsmall_margin"
+                android:background="@drawable/click_white_gray_selector">
+
+                <TextView
+                    android:id="@+id/tv_blood_type_text"
+                    style="@style/text_16_ff442004"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="25dp"
+                    android:text="血型" />
+
+                <ImageView
+                    android:id="@+id/iv_blood_type"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="25dp"
+                    android:src="@drawable/ic_common_next" />
+
+                <TextView
+                    android:id="@+id/tv_blood_type_value"
+                    style="@style/text_14_fff47301"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@id/iv_blood_type"
+                    android:text="B" />
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_body_weight"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/list_item_height_common"
+                android:layout_marginTop="@dimen/xsmall_margin"
+                android:background="@drawable/click_white_gray_selector">
+
+                <TextView
+                    android:id="@+id/tv_body_weight_text"
+                    style="@style/text_16_ff442004"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="25dp"
+                    android:text="体重(千克)" />
+
+                <ImageView
+                    android:id="@+id/iv_body_weight"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="25dp"
+                    android:src="@drawable/ic_common_next" />
+
+                <TextView
+                    android:id="@+id/tv_body_weight_value"
+                    style="@style/text_14_fff47301"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@id/iv_body_weight"
+                    android:text="46" />
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_height"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/list_item_height_common"
+                android:layout_marginTop="@dimen/xsmall_margin"
+                android:background="@drawable/click_white_gray_selector">
+
+                <TextView
+                    android:id="@+id/tv_height_text"
+                    style="@style/text_16_ff442004"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="25dp"
+                    android:text="身高(厘米)" />
+
+                <ImageView
+                    android:id="@+id/iv_height"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="25dp"
+                    android:src="@drawable/ic_common_next" />
+
+                <TextView
+                    android:id="@+id/tv_blood_height_value"
+                    style="@style/text_14_fff47301"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@id/iv_height"
+                    android:text="163" />
+
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/rl_step_aims"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/list_item_height_common"
+                android:layout_marginTop="@dimen/xsmall_margin"
+                android:background="@drawable/click_white_gray_selector">
+
+                <TextView
+                    android:id="@+id/tv_step_aims_text"
+                    style="@style/text_16_ff442004"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="25dp"
+                    android:text="运动目标(步)" />
+
+                <ImageView
+                    android:id="@+id/iv_step_aims"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="25dp"
+                    android:src="@drawable/ic_common_next" />
+
+                <TextView
+                    android:id="@+id/tv_step_aims_value"
+                    style="@style/text_14_fff47301"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@id/iv_step_aims"
+                    android:text="10000" />
+
+
+            </RelativeLayout>
+
+            <TextView
+                style="@style/text_16_fff47301"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/list_item_height_common"
+                android:gravity="center_vertical"
+                android:paddingLeft="25dp"
+                android:text="我的手环" />
+
+            <com.zhjl.qihao.view.CustomListView
+                android:id="@+id/clv_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:divider="@null"
+                android:dividerHeight="@dimen/dividerHeight" >
+            </com.zhjl.qihao.view.CustomListView>
+
+        </LinearLayout>
+    </com.handmark.pulltorefresh.library.PullToRefreshScrollView>
+
+</LinearLayout>

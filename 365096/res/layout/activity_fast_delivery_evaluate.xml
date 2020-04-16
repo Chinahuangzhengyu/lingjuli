@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    style="@style/root_layout_style"
+    android:orientation="vertical" >
+
+    <include layout="@layout/header_bar" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/list_line"
+        android:orientation="vertical"
+        android:padding="5dip" >
+
+        <RadioGroup
+            android:id="@+id/rg_evaluate"
+            android:layout_width="fill_parent"
+            android:layout_height="36dp"
+            android:background="@color/white"
+            android:divider="@null"
+            android:dividerPadding="0dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:showDividers="middle" >
+
+            <RadioButton
+                android:id="@+id/rb_all"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@null"
+                android:button="@null"
+                android:drawableBottom="@drawable/tab_evaluate_bar"
+                android:gravity="center"
+                android:text="全部(0)"
+                android:textColor="@color/tab_evaluate_color"
+                android:textSize="14sp" />
+
+            <RadioButton
+                android:id="@+id/rb_good"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@null"
+                android:button="@null"
+                android:drawableBottom="@drawable/tab_evaluate_bar"
+                android:gravity="center"
+                android:text="好评(0)"
+                android:textColor="@color/tab_evaluate_color"
+                android:textSize="14sp" />
+
+            <RadioButton
+                android:id="@+id/rb_middle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@null"
+                android:button="@null"
+                android:drawableBottom="@drawable/tab_evaluate_bar"
+                android:gravity="center"
+                android:text="中评(0)"
+                android:textColor="@color/tab_evaluate_color"
+                android:textSize="14sp" />
+
+            <RadioButton
+                android:id="@+id/rb_bad"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@null"
+                android:button="@null"
+                android:drawableBottom="@drawable/tab_evaluate_bar"
+                android:gravity="center"
+                android:text="差评(0)"
+                android:textColor="@color/tab_evaluate_color"
+                android:textSize="14sp" />
+        </RadioGroup>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/list_line" />
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/wp_evaluate"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white" >
+        </android.support.v4.view.ViewPager>
+    </LinearLayout>
+
+</LinearLayout>

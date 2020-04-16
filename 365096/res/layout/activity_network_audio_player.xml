@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    style="@style/root_layout_style" >
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:gravity="left"
+        android:text="@string/playing_sound"
+        android:textColor="@color/black"
+        android:textSize="18sp" />
+
+    <SeekBar
+        android:id="@+id/seekbar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:progressDrawable="@drawable/progress_holo_light"
+        android:thumb="@drawable/detail_icon_schedule_ball"
+        android:layout_gravity="center"
+        android:paddingLeft="15.0dip"
+        android:paddingRight="15.0dip" />
+
+    <TextView
+        android:id="@+id/tx_time"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:gravity="right"
+        android:text="0:00/0:00"
+        android:textColor="@color/black"
+        android:textSize="14sp" />
+
+    <Button
+        android:id="@+id/btn_play"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_margin="5dp"
+        android:background="@drawable/button_commit_style"
+        android:text="@string/play_close"
+        android:textSize="14sp" />
+
+</LinearLayout>

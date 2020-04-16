@@ -1,0 +1,183 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context="com.zhjl.qihao.abrefactor.fragment.SweetCicleFragment">
+
+    <RelativeLayout
+        android:id="@+id/sweet_header_bar"
+        android:layout_width="fill_parent"
+        android:layout_height="64dp"
+        android:background="@color/new_theme_color">
+
+        <!-- 右边 -->
+        <RelativeLayout
+            android:id="@+id/ll_right"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:background="@null"
+            android:gravity="bottom"
+            android:paddingBottom="2dp"
+            android:paddingRight="2dp">
+
+
+            <ImageView
+                android:id="@+id/iv_right_more"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_click_selector"
+                android:padding="10dp"
+                android:layout_marginRight="5dp"
+                android:src="@drawable/yuityuiyt" />
+            <TextView
+                android:id="@+id/qz_tie_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/circle_red_bg"
+                android:gravity="center"
+                android:text="0"
+                android:layout_marginLeft="8dp"
+                android:textColor="@color/white"
+                android:visibility="gone"
+                android:textSize="10sp" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_left"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:background="@null"
+            android:gravity="bottom"
+            android:orientation="horizontal"
+            android:paddingBottom="2dp"
+            android:paddingLeft="2dp">
+
+
+            <ImageView
+                android:id="@+id/qz_search"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_click_selector"
+                android:padding="10dp"
+                android:src="@drawable/shouye_sousuo" />
+
+        </LinearLayout>
+
+
+        <!-- 标题 -->
+
+        <!--<LinearLayout-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_centerInParent="true"-->
+            <!--android:background="@drawable/bg_click_selector"-->
+            <!--android:gravity="bottom"-->
+            <!--android:orientation="horizontal">-->
+
+            <TextView
+                android:id="@+id/sweet_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="@null"
+                android:gravity="center"
+                android:paddingBottom="11dp"
+                android:paddingTop="31dp"
+                android:text="圈子"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_18" />
+
+        <!--</LinearLayout>-->
+
+    </RelativeLayout>
+
+
+    <include layout="@layout/ab_layout_space" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
+
+
+        <TextView
+            android:id="@+id/tv_activity"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/activity"
+            android:textColor="@color/new_theme_color"
+            android:textSize="16sp" />
+
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/new_theme_color" />
+
+
+        <TextView
+            android:id="@+id/tv_hot"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/hot"
+            android:textColor="@color/new_theme_color"
+            android:textSize="16sp" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/new_theme_color" />
+
+        <TextView
+            android:id="@+id/tv_mutual"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/mutual"
+            android:textColor="@color/new_theme_color"
+            android:textSize="16sp" />
+
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/white"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp">
+
+        <ImageView
+            android:id="@+id/iv_line"
+            android:layout_width="110dp"
+            android:layout_height="1dp"
+            android:background="@color/new_theme_color" />
+
+    </RelativeLayout>
+
+    <include layout="@layout/ab_layout_space" />
+
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager_hlq_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

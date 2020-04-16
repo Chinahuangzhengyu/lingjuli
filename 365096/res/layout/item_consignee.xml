@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:focusable="false"
+	android:focusableInTouchMode="false"
+    android:orientation="vertical" >
+    <RelativeLayout android:id="@+id/rl_consignee" 
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:padding="12dip">
+        <LinearLayout android:id="@+id/ll_operate" android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:orientation="vertical">
+            <TextView android:id="@+id/tv_edit_consignee" 
+                android:layout_width="wrap_content"
+                android:paddingLeft="12dp"
+	            android:textColor="@color/font_blue"
+	            android:layout_weight="1"
+	            android:text="编辑"
+	            android:gravity="center"
+	            android:textSize="16sp"
+	            android:layout_height="wrap_content"/>
+            <TextView android:id="@+id/tv_del_consignee"
+                android:layout_weight="1" 
+                android:layout_width="wrap_content"
+                android:paddingLeft="12dp"
+	            android:textColor="@color/font_grey"
+	            android:text="删除"
+	            android:gravity="center"
+	            android:textSize="16sp"
+	            android:layout_height="wrap_content"/>
+        </LinearLayout>
+        <View android:layout_width="1px" android:id="@+id/v_line" android:layout_alignLeft="@id/ll_operate" android:layout_height="match_parent" android:background="@color/font_grey"/>
+        <TextView android:id="@+id/tv_consignee_phone" 
+            android:layout_width="wrap_content"
+            android:textColor="@color/font_grey"
+            android:layout_alignRight="@id/v_line"
+            android:layout_marginRight="12dip"
+            android:textSize="16sp"
+            android:layout_height="wrap_content"/>
+        <TextView android:id="@+id/tv_consignee_name" 
+            android:layout_width="wrap_content"
+            android:textColor="@color/font_grey"
+            android:textSize="16sp"
+            android:layout_alignParentLeft="true"
+            android:layout_toLeftOf="@id/tv_consignee_phone"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:layout_height="wrap_content"/>
+        <TextView android:id="@+id/tv_consignee_addr" 
+            android:layout_width="match_parent"
+            android:textColor="@color/font_grey"
+            android:minLines="2"
+            android:layout_alignRight="@id/v_line"
+            android:layout_marginRight="12dip"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:textSize="14sp"
+            android:layout_alignParentBottom="true"
+            android:layout_height="wrap_content"/>
+    </RelativeLayout>
+
+</LinearLayout>

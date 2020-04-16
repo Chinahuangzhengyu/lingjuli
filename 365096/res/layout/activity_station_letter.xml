@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    style="@style/root_layout_style" >
+
+    <include layout="@layout/header_bar" />
+
+    <com.zhjl.qihao.housekeeeping.activity.view.PagerTab
+        android:id="@+id/pager_tab"
+        android:layout_width="fill_parent"
+        android:layout_height="42dp"
+        android:background="@drawable/shop_radiogroup_bg" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager_station_letter"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+    </android.support.v4.view.ViewPager>
+
+</LinearLayout>

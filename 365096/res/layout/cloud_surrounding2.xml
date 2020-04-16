@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_e8ebf0"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical" >
+
+	<include layout="@layout/header_bar"/>
+    <android.support.v4.widget.DrawerLayout
+        android:id="@+id/drawer_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="80dp"
+                android:layout_marginLeft="4dp" 
+                android:layout_marginRight="4dp"
+                android:layout_marginTop="4dp"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:orientation="horizontal" >
+
+                <com.makeramen.RoundedImageView
+                    android:id="@+id/img_repair"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_margin="10dp"
+                    android:scaleType="centerCrop"
+                    app:riv_corner_radius="10dip"
+                    app:riv_oval="false" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical" >
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="12dp"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:id="@+id/tx_store_name"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:ellipsize="end"
+                            android:singleLine="true"
+                            android:textColor="@color/color_333333"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/tx_attention"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:gravity="right"
+                            android:singleLine="true"
+                            android:textColor="@color/color_1d80f3"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tx_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:singleLine="true"
+                        android:textColor="@color/color_555555"
+                        android:textSize="12sp" />
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="12dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal" >
+
+                        <LinearLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical" >
+
+                            <TextView
+                                android:id="@+id/tx_main_sell"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:ellipsize="end"
+                                android:singleLine="true"
+                                android:textColor="@color/color_555555"
+                                android:textSize="12sp" />
+
+                            <TextView
+                                android:id="@+id/tx_adress"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:ellipsize="end"
+                                android:singleLine="true"
+                                android:textColor="@color/color_555555"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+						
+                        
+                        <RelativeLayout
+			                android:id="@+id/rl_collect"
+			                android:layout_width="wrap_content"
+			                android:orientation="vertical"
+			                android:gravity="center"
+			                android:layout_height="wrap_content">
+		                <ToggleButton android:id="@+id/tb_collect"
+		                    android:minWidth="60dp"
+		                    android:minHeight="25dp"
+		                    android:gravity="center"
+		                    android:button="@null" 
+		                    android:enabled="false"
+		                    android:focusable="false"
+		                    android:layout_centerInParent="true"
+		                    android:layout_centerHorizontal="true"
+		                    android:focusableInTouchMode="false"
+		                    android:layout_width="wrap_content" 
+		                    android:layout_height="wrap_content" 
+		                    android:background="@drawable/btn_round_red3" 
+		                    android:textColor="@color/white" 
+		                    android:textOn="已收藏"
+		                    android:textOff="收藏"
+		                    android:textSize="12sp"/>
+		                <LinearLayout android:id="@+id/ll_collect"
+			                android:orientation="vertical"
+			                android:layout_width="60dp"
+			                android:layout_centerHorizontal="true"
+			                android:layout_height="25dp"/>
+		            </RelativeLayout>
+<!--                         <Button -->
+<!--                             android:id="@+id/btn_collection" -->
+<!--                             android:layout_width="wrap_content" -->
+<!--                             android:layout_height="24dp" -->
+<!--                             android:background="@drawable/roundbg_f78071" -->
+<!--                             android:text="收藏" -->
+<!--                             android:textColor="@color/white" -->
+<!--                             android:textSize="12sp" /> -->
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1px"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                android:background="#dbdbdb" />
+
+            <RadioGroup
+                android:id="@+id/rg_type"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                android:background="@drawable/shop_radiogroup_bg"
+                android:gravity="center_vertical"
+                android:orientation="horizontal" >
+
+                <RadioButton
+                    android:id="@+id/rb_default"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/shop_radio_background"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:paddingBottom="8dp"
+                    android:paddingTop="8dp"
+                    android:text="全部"
+                    android:textColor="@drawable/shop_radio_textcolor"
+                    android:textSize="14sp" />
+
+                <RadioButton
+                    android:id="@+id/rb_sales_volume"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/shop_radio_background"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:paddingBottom="8dp"
+                    android:paddingTop="8dp"
+                    android:text="销量"
+                    android:textColor="@drawable/shop_radio_textcolor"
+                    android:textSize="14sp" />
+
+                <RadioButton
+                    android:id="@+id/rb_popularity"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/shop_radio_background"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:paddingBottom="8dp"
+                    android:paddingTop="8dp"
+                    android:text="人气"
+                    android:textColor="@drawable/shop_radio_textcolor"
+                    android:textSize="14sp" />
+
+                <RadioButton
+                    android:id="@+id/rb_price"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/shop_radio_background"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:paddingBottom="8dp"
+                    android:paddingTop="8dp"
+                    android:text="价格"
+                    android:textColor="@drawable/shop_radio_textcolor"
+                    android:textSize="14sp" />
+            </RadioGroup>
+
+            <RelativeLayout
+                android:id="@+id/ll_list"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                android:orientation="vertical" >
+				<android.support.v4.view.ViewPager 
+			        android:id="@+id/vp_goods_list"  
+			        android:background="@color/white"
+			        android:layout_width="match_parent"
+			        android:layout_height="match_parent"  
+			        android:layout_gravity="center" >   
+			    </android.support.v4.view.ViewPager> 
+<!--                 <com.handmark.pulltorefresh.library.PullToRefreshListView -->
+<!--                     android:id="@+id/listv_show_shop" -->
+<!--                     android:layout_width="fill_parent" -->
+<!--                     android:layout_height="fill_parent" -->
+<!--                     android:cacheColorHint="@null" -->
+<!--                     android:divider="@null" -->
+<!--                     android:scrollbars="none" > -->
+<!--                 </com.handmark.pulltorefresh.library.PullToRefreshListView> -->
+				<RelativeLayout
+		            android:id="@+id/rl_shop_cart"
+		            android:layout_width="55dp"
+		            android:layout_height="55dp"
+		            android:visibility="gone"
+		            android:layout_alignParentBottom="true"
+		            android:layout_marginRight="12dip" >
+		
+		            <ImageView
+		                android:layout_width="40dp"
+		                android:layout_height="40dp"
+		                android:layout_centerInParent="true"
+		                android:background="@drawable/img_fastdelivery_shopcart"
+		                android:contentDescription="@null" />
+		
+		            <TextView
+		                android:id="@+id/tv_shop_cart_sum"
+		                android:layout_width="18dp"
+		                android:layout_height="18dp"
+		                android:layout_alignParentRight="true"
+		                android:layout_marginRight="5dp"
+		                android:layout_marginTop="5dp"
+		                android:visibility="gone"
+		                android:background="@drawable/circle_red_bg"
+		                android:gravity="center"
+		                android:text="0"
+		                android:textColor="#ffffff"
+		                android:textSize="10sp"
+		                android:textStyle="bold" />
+		        </RelativeLayout>
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tx_message"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:text="暂无数据"
+                android:textColor="#1a1a1a"
+                android:textSize="14sp"
+                android:visibility="gone" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/right_drawer"
+            android:layout_width="240dp"
+            android:orientation="vertical"
+            android:layout_height="fill_parent"
+            android:layout_gravity="right"
+            android:background="#ffffff"
+            android:choiceMode="singleChoice" >
+			<RadioGroup android:id="@+id/rg_product_class" 
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <RadioButton android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:text="全部"
+                    android:checked="true"
+                    android:paddingLeft="24dp"
+                    android:paddingRight="12dp"
+                    android:drawablePadding="12dp"
+                    android:drawableRight="@drawable/radio_product_class"
+                    android:button="@null"
+                    android:textColor="@color/color_555555"/>
+                <View android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_marginRight="48dp"
+                    android:background="@color/list_line"/>
+            </RadioGroup>
+<!--             <ListView -->
+<!--                 android:id="@+id/list_menu" -->
+<!--                 android:layout_width="240dp" -->
+<!--                 android:layout_height="fill_parent" -->
+<!--                 android:divider="@android:color/transparent" -->
+<!--                 android:dividerHeight="0dp" -->
+<!--                 android:scrollbars="none" /> -->
+
+            <TextView
+                android:id="@+id/tx_nodata_message"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:text="暂无数据"
+                android:textColor="#1a1a1a"
+                android:textSize="14sp"
+                android:visibility="gone" />
+        </LinearLayout>
+    </android.support.v4.widget.DrawerLayout>
+
+</LinearLayout>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/LinearLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_e8ebf0"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical" >
+
+	<include layout="@layout/header_bar"/>
+    <com.handmark.pulltorefresh.library.PullToRefreshListView
+        android:id="@+id/list_my_property"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:cacheColorHint="@null"
+        android:divider="@null"
+        android:dividerHeight="4dp"
+        android:scrollbars="none" >
+    </com.handmark.pulltorefresh.library.PullToRefreshListView>
+
+    <LinearLayout
+        android:id="@+id/tx_message"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone" >
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="72dp"
+            android:layout_marginTop="72dp"
+            android:gravity="center"
+            android:text="暂无房间信息"
+            android:textColor="#1a1a1a"
+            android:textSize="16sp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="36dp" >
+
+            <TextView
+                android:id="@+id/tv_add_house"
+                android:layout_width="160dp"
+                android:layout_height="36dp"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center"
+                android:background="@drawable/btn_round_blue"
+                android:gravity="center"
+                android:text="添加房间"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>

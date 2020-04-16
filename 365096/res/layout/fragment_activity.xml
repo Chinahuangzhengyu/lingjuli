@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:background="@color/gray">
+    <TextView android:id="@+id/tv_community_no_activity" 
+	    android:layout_width="match_parent"
+	    android:layout_height="30dp"
+	    android:gravity="center"
+	    android:textColor="@color/color_888888"
+	    android:background="@color/white"
+	    android:textSize="12sp"
+	    android:visibility="gone"
+	    android:text="本小区暂无活动"/>
+	<TextView android:id="@+id/tv_my_no_activity" 
+	    android:layout_width="match_parent"
+	    android:layout_height="30dp"
+	    android:gravity="center"
+	    android:background="@color/white"
+	    android:textColor="@color/color_888888"
+	    android:textSize="12sp"
+	    android:visibility="gone"
+	    android:text="暂无活动记录"/>
+	<com.handmark.pulltorefresh.library.PullToRefreshListView
+		    android:id="@+id/pullToRefreshListView"
+		    android:layout_width="match_parent"
+		    android:layout_height="match_parent" >
+	</com.handmark.pulltorefresh.library.PullToRefreshListView>
+</LinearLayout>

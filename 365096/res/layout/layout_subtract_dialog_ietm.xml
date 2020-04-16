@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp" >
+
+        <TextView
+            android:id="@+id/tx_good"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:textSize="16sp" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:gravity="right|center_vertical" >
+
+            <ImageView
+                android:id="@+id/btn_subtraction"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/subtraction_gray"
+                android:focusable="false"
+                android:gravity="center"
+                android:padding="12dp" />
+
+            <TextView
+                android:id="@+id/et_goodnum"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:background="@null"
+                android:focusable="false"
+                android:gravity="center"
+                android:maxEms="5"
+                android:minEms="1"
+                android:text="0" />
+
+            <ImageView
+                android:id="@+id/btn_add"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/plus_blue"
+                android:focusable="false"
+                android:padding="12dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:background="@color/font_Lightgray" />
+
+</LinearLayout>

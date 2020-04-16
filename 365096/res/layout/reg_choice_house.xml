@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/LinearLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <include layout="@layout/ab_header_bar" />
+
+    <include layout="@layout/ab_layout_space" />
+
+
+    <ListView
+        android:id="@+id/ll_house_choice"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:background="#f7f7f7"
+        android:scrollbars="none"/>
+
+
+</LinearLayout>

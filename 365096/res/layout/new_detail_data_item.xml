@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp"
+        android:orientation="vertical" >
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/list_line" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white" >
+
+            <ImageView
+                android:id="@+id/iv_goods_picture_one"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="12dp"
+                android:contentDescription="@null"
+                android:scaleType="fitXY"
+                android:padding="1dp" />
+
+            <TextView
+                android:id="@+id/price_one"
+                android:layout_width="wrap_content"
+                android:visibility="visible"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignBottom="@+id/iv_goods_picture_one"
+                android:layout_marginRight="12dp"
+                android:textColor="@color/txred"
+                android:textSize="14sp"
+                android:text="¥：90.00" />
+
+            <TextView
+                android:id="@+id/tv_goods_title_one"
+                android:layout_width="match_parent"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="40dp"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/iv_goods_picture_one"
+                android:layout_toLeftOf="@+id/price"
+                android:layout_toRightOf="@+id/iv_goods_picture_one"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:text="法兰亚"
+                android:textColor="@color/color_333333"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_order_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/tv_goods_title_one"
+                android:layout_alignRight="@+id/tv_goods_title_one"
+                android:layout_alignBottom="@+id/iv_goods_picture_one"
+                android:ellipsize="end"
+                android:visibility="gone"
+                android:maxLines="2"
+                android:text="下单时间【10：00】"
+                android:textColor="@color/order_time"
+                android:textSize="12sp" />
+
+
+            <TextView
+                android:id="@+id/tv_product_num_one"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/price"
+                android:layout_alignTop="@id/iv_goods_picture_one"
+                android:layout_alignRight="@+id/price_one"
+                android:textColor="@color/color_888888"
+                android:textSize="14sp"
+                android:visibility="visible"
+                android:text="X999" />
+
+        </RelativeLayout>
+    </LinearLayout>
+    <include layout="@layout/ab_layout_short_line"/>
+</LinearLayout>

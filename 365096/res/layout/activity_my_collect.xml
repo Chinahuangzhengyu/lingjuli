@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+   >
+
+	<include
+        android:id="@+id/ll_layout"
+        layout="@layout/ab_header_bar"/>
+
+    <TextView
+        android:drawableTop="@drawable/img_collection_bg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:drawablePadding="10dp"
+        android:layout_centerInParent="true"
+        android:text="该功能暂未开放，敬请期待"
+        android:textColor="@color/ff999999"
+        />
+
+
+</RelativeLayout>

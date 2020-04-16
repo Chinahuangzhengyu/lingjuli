@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape_shoppingcart_group"
+    android:padding="10dp">
+
+
+    <CheckBox
+        android:id="@+id/c_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:button="@drawable/selector_checkbox"
+        android:text="  " />
+
+
+    <TextView
+        android:id="@+id/com_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/c_title"
+        android:text="铭基便利店"
+        android:textColor="@color/color_333333"
+        android:textSize="16sp" />
+
+</RelativeLayout>

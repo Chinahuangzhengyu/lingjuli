@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" >
+
+    <RelativeLayout
+        android:background="#fff"
+        android:layout_width="match_parent"
+        android:layout_height="88dp"
+       >
+
+        <ImageView
+            android:scaleType="centerCrop"
+            android:id="@+id/img_item"
+            android:layout_width="60dp"
+            android:layout_height="60dp" 
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="12dp"
+            />
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="14dp"
+            android:layout_toRightOf="@id/img_item"
+            android:text="王阿姨"
+            android:textColor="#333333"
+            android:textSize="16sp" />
+
+        
+
+        <TextView
+            android:id="@+id/tv_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="12dp"
+            android:layout_marginLeft="14dp"
+            android:layout_toRightOf="@id/img_item"
+            android:text="1200元/月"
+            android:textColor="#f80000"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_age"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_name"
+            android:layout_marginLeft="14dp"
+            android:layout_marginTop="3dp"
+            android:layout_toRightOf="@id/img_item"
+            android:text="44岁"
+            android:textColor="@color/color_888888"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_place"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_name"
+            android:layout_marginLeft="14dp"
+            android:layout_marginTop="2dp"
+            android:layout_toRightOf="@id/tv_age"
+            android:text="湖南"
+            android:textColor="@color/color_888888"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_work_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="从业1-2年"
+            android:textColor="#555555"
+            android:textSize="14sp" 
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            />
+        <View 
+             android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:background="#e8ebf0"
+            android:layout_alignParentBottom="true"
+            />
+        
+    </RelativeLayout>
+
+</FrameLayout>

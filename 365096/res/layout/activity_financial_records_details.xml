@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    style="@style/root_layout_style" >
+    
+    <include layout="@layout/header_bar"/>
+    
+    <LinearLayout android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingTop="20dp"
+        android:orientation="horizontal">
+        <TextView android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="时间："/>
+        
+        <TextView
+            android:id="@+id/tv_timer" 
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="2015-12-29 23:59"/>
+    </LinearLayout>
+    
+    <LinearLayout android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingTop="20dp"
+        android:orientation="horizontal">
+        <TextView android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="类型："/>
+        
+        <TextView
+            android:id="@+id/tv_type" 
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="投资资金冻结"/>
+    </LinearLayout>
+    
+    <LinearLayout android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingTop="20dp"
+        android:orientation="horizontal">
+        <TextView android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="详情："/>
+        
+        <TextView android:id="@+id/tv_details" 
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="对项目[xxxx(GHGI4824)]投标15000.00元,扣除可用金额15000.00元,冻结金额增加15000.00元."/>
+    </LinearLayout>
+
+</LinearLayout>

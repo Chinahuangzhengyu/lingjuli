@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/ab_header_bar"></include>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="14dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="14dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="适用范围"
+                android:textColor="@color/text_color_f1"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="28dp"
+                android:lineHeight="28dp"
+                android:text="1、N币仅可在7好零距离APP中使用，用户必须为APP注册会员。
+\n2、N币可直接用于7好零距离中商城付款时抵扣应付金额。
+\n3、N币查询：您可以在“我的账户”中查询到您的N币收支详细情况。"
+                android:textColor="@color/text_help"
+                android:textSize="16sp" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:lineHeight="28dp"
+                android:text="N币使用规则"
+                android:textColor="@color/text_color_f1"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="28dp"
+                android:lineHeight="28dp"
+                android:text="1、本平台所指的N币全部为电子版代币。
+\n2、N币的使用限制和抵扣金额不尽相同，使用前请认真核对。
+\n3、N币的抵扣金额以平台实时公布的金额为准。
+\n4、N币不可折现或以任何形式转让他人。
+\n5、使用N币购买的订单发生退款，已消费的N原路退回，可以继续使用。
+\n6、N币使用规则会根据平台情况不定期修改，具体规则可在APP中查询，平台不再另行通知。
+\n7、平台保留对此N币的最终解释权。"
+                android:textColor="@color/text_help"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:lineHeight="28dp"
+                android:text="如何获得"
+                android:textColor="@color/text_color_f1"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="28dp"
+                android:lineHeight="28dp"
+                android:text="1、用户通过平台缴纳物业费，平台会将物业费全部折算成同等价值的N币赠送给用户；
+\n2、用户通过平台缴纳停车费，平台会把停车费全部折算成同等价值的N币赠送给用户；
+\n3、用户通过平台完成特定消费（如：家政服务等），平台按相关优惠政策赠送N币给用户；
+\n4、用户通过线下便利店办理充值会员，平台按充值时活动规定的N币赠送规则赠送N币给用户。"
+                android:textColor="@color/text_help"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+
+    </ScrollView>
+</LinearLayout>

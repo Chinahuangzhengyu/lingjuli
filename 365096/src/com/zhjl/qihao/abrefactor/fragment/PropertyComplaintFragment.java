@@ -1,0 +1,462 @@
+package com.zhjl.qihao.abrefactor.fragment;
+
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.BaseAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.bigkoo.pickerview.builder.OptionsPickerBuilder;
+import com.bigkoo.pickerview.listener.CustomListener;
+import com.bigkoo.pickerview.listener.OnOptionsSelectListener;
+import com.bigkoo.pickerview.view.OptionsPickerView;
+import com.zhjl.qihao.R;
+import com.zhjl.qihao.abcommon.VolleyBaseActivity;
+import com.zhjl.qihao.abcommon.VolleyBaseFragment;
+import com.zhjl.qihao.abrefactor.view.GridViewForScrollView;
+import com.zhjl.qihao.abrefactor.view.RoundImageView;
+import com.zhjl.qihao.abutil.PictureHelper;
+import com.zhjl.qihao.activity.NewPhotoMultipleActivity;
+import com.zhjl.qihao.activity.PhotoMultipleActivity;
+import com.zhjl.qihao.image.ShowNetWorkImageActivity;
+import com.zhjl.qihao.nearbyinteraction.api.NearByInterfaces;
+import com.zhjl.qihao.nearbyinteraction.bean.FileUploadBean;
+import com.zhjl.qihao.propertyservicecomplaint.api.ComplaintInterface;
+import com.zhjl.qihao.propertyservicepay.api.PropertyPayInterface;
+import com.zhjl.qihao.propertyservicepay.bean.UserRoomListBean;
+import com.zhjl.qihao.propertyservicerepair.activity.RepairDetailActivity;
+import com.zhjl.qihao.util.Utils;
+import com.zhjl.qihao.zq.ApiHelper;
+import com.zhjl.qihao.zq.ParamForNet;
+
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+import butterknife.Unbinder;
+import okhttp3.RequestBody;
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+
+public class PropertyComplaintFragment extends VolleyBaseFragment {
+
+    @BindView(R.id.tv_complaint_type)
+    TextView tvComplaintType;
+    @BindView(R.id.rb_proposal)
+    RadioButton rbProposal;
+    @BindView(R.id.rb_complaint)
+    RadioButton rbComplaint;
+    @BindView(R.id.rg_complaint_type)
+    RadioGroup rgComplaintType;
+    @BindView(R.id.rl_property_complaint_type)
+    RelativeLayout rlPropertyComplaintType;
+    @BindView(R.id.rl_complaint_address)
+    LinearLayout rlComplaintAddress;
+    @BindView(R.id.et_complaint_content)
+    EditText etComplaintContent;
+    @BindView(R.id.tv_text_count)
+    TextView tvTextCount;
+    @BindView(R.id.gv_upload_complaint_img)
+    GridViewForScrollView gvUploadComplaintImg;
+    Unbinder unbinder;
+    @BindView(R.id.tv_choose_name)
+    TextView tvChooseName;
+    @BindView(R.id.rl_loading)
+    FrameLayout rlLoading;
+    @BindView(R.id.et_choose_address)
+    EditText etChooseAddress;
+    @BindView(R.id.rl_complaint_name)
+    RelativeLayout rlComplaintName;
+    private View view;
+    public static final int REQUEST_ADD_PHOTO = 1;
+    public static final int REQUEST_CODE = 0x1;
+    private List<String> repairAddressLists;
+    private List<String> imgIdList = new ArrayList<String>();
+    List<String> imgList = new ArrayList<String>();
+    List<Boolean> imgDeleteShow = new ArrayList<>();
+    private MyUpLoadAdapter imgAdapter;
+    private OptionsPickerView pvOptions;
+    private List<String> communityList;
+    private String labelTypeId;
+    private int type = 1;
+    private int currentPosition = 0;
+    private FileUploadBean.DataBean resultData;
+    private List<UserRoomListBean.DataBean> data = new ArrayList<>();
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        mContext = context;
+    }
+
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        if (view == null) {
+            view = inflater.inflate(R.layout.fragment_property_complaint_main, container, false);
+        }
+        unbinder = ButterKnife.bind(this, view);
+        repairAddressLists = new ArrayList<>();
+        rlLoading.setVisibility(View.VISIBLE);
+        initSendMessage();
+        initData();
+        etComplaintContent.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                tvTextCount.setText(etComplaintContent.getText().toString().trim().length() + "");
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+        imgAdapter = new MyUpLoadAdapter();
+        gvUploadComplaintImg.setAdapter(imgAdapter);
+        gvUploadComplaintImg.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+
+                int imgsize = imgAdapter.getCount();
+                if (imgList.size() < 5 && arg2 <= 5 && arg2 + 1 == imgsize) {
+                    tokephote();
+                } else {
+
+                    showImage(arg2);
+
+                }
+
+            }
+        });
+
+        rgComplaintType.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (checkedId == rbComplaint.getId()) {
+                    type = 0;
+                } else if (checkedId == rbProposal.getId()) {
+                    type = 1;
+                }
+            }
+        });
+
+        return view;
+    }
+
+    public void initSendMessage() {
+        PropertyPayInterface payInterface = ApiHelper.getInstance().buildRetrofit(mContext).createService(PropertyPayInterface.class);
+        Map<String, Object> map = new HashMap<>();
+        RequestBody body = ParamForNet.put(map);
+        Call<ResponseBody> call = payInterface.userRoomList(body);
+        fragmentRequestData(call, UserRoomListBean.class, new RequestResult<UserRoomListBean>() {
+            @Override
+            public void success(UserRoomListBean result, String message) {
+                data.clear();
+                repairAddressLists.clear();
+                if (result.getData() != null && result.getData().size() > 0) {
+                    data = result.getData();
+                    if (data.size() > 0) {
+                        tvChooseName.setText(data.get(0).getSmallCommunityName() + data.get(0).getRoomName());
+                        tvChooseName.setTextColor(ContextCompat.getColor(mContext, R.color.text_color_f1));
+                    }
+                    for (int i = 0; i < data.size(); i++) {
+                        repairAddressLists.add(data.get(i).getSmallCommunityName() + data.get(i).getRoomName());
+                    }
+                } else {
+                    Toast.makeText(mContext, "获取入住房间失败！", Toast.LENGTH_SHORT).show();
+                }
+                if (rlLoading!=null){
+                    rlLoading.setVisibility(View.GONE);
+                }
+            }
+
+            @Override
+            public void fail() {
+                rlLoading.setVisibility(View.GONE);
+            }
+        });
+    }
+
+    /**
+     * 获取上传文件签名
+     */
+    private void initData() {
+        NearByInterfaces nearByInterfaces = ApiHelper.getInstance().buildRetrofit(mContext).createService(NearByInterfaces.class);
+        Call<ResponseBody> call = nearByInterfaces.getFileSign(new HashMap<>());
+        fragmentRequestData(call, FileUploadBean.class, new RequestResult<FileUploadBean>() {
+            @Override
+            public void success(FileUploadBean result, String message) throws Exception {
+                resultData = result.getData();
+            }
+
+            @Override
+            public void fail() {
+
+            }
+        });
+    }
+
+    public void tokephote() {
+        if (resultData == null) {
+            Toast.makeText(mContext, "签名获取失败！", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        Intent takePictureIntent = new Intent(mContext,
+                NewPhotoMultipleActivity.class);
+        takePictureIntent.putExtra("photonums", 5);
+        takePictureIntent.putExtra("type", imgList.size());
+        takePictureIntent.putExtra("size", imgList.size());
+        takePictureIntent.putExtra("fileSign", resultData);
+        startActivityForResult(takePictureIntent, REQUEST_ADD_PHOTO);
+    }
+
+    public void showImage(int index) {
+        Intent it = new Intent(mContext, ShowNetWorkImageActivity.class);
+        String[] strings = new String[imgList.size()];
+        for (int i = 0; i < imgList.size(); i++) {
+            if (!imgList.get(i).contains("_small")) {
+                strings[i] = imgList.get(i);
+            } else {
+                String[] split = imgList.get(i).split("\\.");
+                StringBuffer sb = new StringBuffer();
+                for (int j = 0; j < split.length; j++) {
+                    if (split[j].endsWith("_small")) {
+                        split[j] = split[j].substring(0, split[j].length() - 6);
+                    }
+                    if (j == split.length - 1) {
+                        sb.append(split[j]);
+                    } else {
+                        sb.append(split[j] + ".");
+                    }
+                }
+                strings[i] = sb.toString();
+            }
+        }
+        it.putExtra("urls", strings);
+        it.putExtra("nowImage", imgList.get(index));
+//		dialog.dismiss();
+        startActivity(it);
+    }
+
+    @OnClick({R.id.rl_complaint_name})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.rl_complaint_name:
+                initAddressPop();
+                break;
+        }
+    }
+
+    public void requestNote() {
+        if (data == null || data.size() == 0) {
+            Toast.makeText(mContext, "暂无入住房间，无法投诉！", Toast.LENGTH_SHORT).show();
+            refreshData.fail();
+            return;
+        }
+        if (etChooseAddress.getText().toString().trim().length() == 0) {
+            Toast.makeText(mContext, "请填写投诉地址！", Toast.LENGTH_SHORT).show();
+            refreshData.fail();
+            return;
+        }
+        if (etComplaintContent.getText().toString().trim().length() == 0) {
+            Toast.makeText(mContext, "请填写问题描述！", Toast.LENGTH_SHORT).show();
+            refreshData.fail();
+            return;
+        }
+        ComplaintInterface complaintInterfaces = ApiHelper.getInstance().buildRetrofit(mContext).createService(ComplaintInterface.class);
+        Map<String, Object> map = new HashMap<>();
+        map.put("type", type);
+        map.put("roomId", data.get(currentPosition).getRoomId());
+        map.put("address", etChooseAddress.getText().toString().trim());
+        map.put("roomName", data.get(currentPosition).getRoomName());
+        map.put("smallCommunityCode", data.get(currentPosition).getSmallCommunityCode());
+        map.put("smallCommunityName", data.get(currentPosition).getSmallCommunityName());
+        map.put("description", etComplaintContent.getText().toString().trim());
+        RequestBody body = ParamForNet.putContainsArray(map, "pictures", imgIdList);
+        Call<ResponseBody> call = complaintInterfaces.createComplaint(body);
+        fragmentRequestData(call, null, new RequestResult<Object>() {
+            @Override
+            public void success(Object result, String message) throws Exception {
+                refreshData.refresh();
+                String string = (String) result;
+                JSONObject object = new JSONObject(string);
+                JSONObject data = object.optJSONObject("data");
+                long id = data.optLong("id");
+                Intent intent = new Intent();
+                intent.setClass(getActivity(), RepairDetailActivity.class);
+                intent.putExtra("isComplaint", true);
+                etComplaintContent.getText().clear();
+                imgList.clear();
+                etChooseAddress.getText().clear();
+                imgDeleteShow.clear();
+                imgAdapter.notifyDataSetChanged();
+                intent.putExtra("id", id);
+                getActivity().startActivityForResult(intent, REQUEST_CODE);
+                Toast.makeText(mContext, message, Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void fail() {
+                refreshData.refresh();
+            }
+        });
+    }
+
+    public RefreshData refreshData;
+
+    public void setRefreshData(RefreshData refreshData) {
+        this.refreshData = refreshData;
+    }
+
+    public interface RefreshData {
+        void refresh();
+
+        void fail();
+    }
+
+    private void initAddressPop() {
+        Utils.hideInput(getActivity());
+        //条件选择器
+        pvOptions = new OptionsPickerBuilder(getActivity(), new OnOptionsSelectListener() {
+            @Override
+            public void onOptionsSelect(int options1, int option2, int options3, View v) {
+                //返回的分别是三个级别的选中位置
+                if (repairAddressLists.size()>0){
+                    tvChooseName.setText(repairAddressLists.get(options1));
+                    tvChooseName.setTextColor(ContextCompat.getColor(mContext, R.color.text_color_f1));
+                    currentPosition = options1;
+                }
+            }
+        }).setLayoutRes(R.layout.pop_choose_room, new CustomListener() {
+            @Override
+            public void customLayout(View v) {
+                TextView tvSure = v.findViewById(R.id.tv_sure);
+                TextView tvCancel = v.findViewById(R.id.tv_cancel);
+                tvSure.setOnClickListener(v1 -> {
+                    pvOptions.returnData();
+                    pvOptions.dismiss();
+                });
+
+                tvCancel.setOnClickListener(v12 -> pvOptions.dismiss());
+            }
+        }).build();
+        pvOptions.setPicker(repairAddressLists);
+        pvOptions.show();
+    }
+
+    public class MyUpLoadAdapter extends BaseAdapter {
+        private LayoutInflater inflater = LayoutInflater.from(mContext);
+
+        @Override
+        public int getCount() {
+            if (imgList.size() < 5 && imgList.size() > 0) {
+                return imgList.size() + 1;
+            } else if (imgList.size() <= 0) {
+                return 1;
+            } else {
+                return imgList.size();
+            }
+        }
+
+        @Override
+        public Object getItem(int arg0) {
+            // TODO 自动生成的方法存根
+            return null;
+        }
+
+        @Override
+        public long getItemId(int arg0) {
+            // TODO 自动生成的方法存根
+            return 0;
+        }
+
+        @Override
+        public View getView(final int position, View convertView, ViewGroup arg2) {
+            convertView = inflater.inflate(R.layout.item_imgview, null);
+            RoundImageView img_pic = (RoundImageView) convertView
+                    .findViewById(R.id.img_pic);
+            ImageView iv_add = (ImageView) convertView.findViewById(R.id.iv_add);
+            ImageView iv_delete = (ImageView) convertView.findViewById(R.id.iv_delete);
+
+            iv_add.setVisibility(View.VISIBLE);
+            if (imgList.size() >= 1 && position < imgList.size()) {
+                iv_delete.setVisibility(View.VISIBLE);
+                img_pic.setVisibility(View.VISIBLE);
+                PictureHelper.showPictureWithSquare(mContext, img_pic,
+                        imgList.get(position));
+                iv_add.setVisibility(View.GONE);
+
+            }
+
+            iv_delete.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    imgList.remove(position);
+                    imgIdList.remove(position);
+                    imgDeleteShow.remove(position);
+                    imgAdapter.notifyDataSetChanged();
+                }
+            });
+            return convertView;
+        }
+
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        // TODO 自动生成的方法存根
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == 1 && data != null) {
+            List<String> mSamllPathList = (List<String>) data.getExtras()
+                    .getSerializable("samllPath");
+            for (int i = 0; i < mSamllPathList.size(); i++) {
+                String url = mSamllPathList.get(i);
+                if (url != null) {
+
+                    imgList.add(url);
+                    imgDeleteShow.add(false);
+                }
+            }
+            imgIdList.addAll((List<String>) data.getExtras().getSerializable(
+                    ("imageId")));
+            imgAdapter.notifyDataSetChanged();
+        }
+
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        unbinder.unbind();
+    }
+}

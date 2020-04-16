@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/dl_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_white">
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/sw_refresh"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/scrollview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:id="@+id/rl_head_bar"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="230dp"
+                        android:background="@drawable/bg"></RelativeLayout>
+                    <!-- ActionBar -->
+
+                    <com.zhjl.qihao.view.CannotScrollViewpager
+                        android:id="@+id/vp_main_head"
+                        android:layout_width="match_parent"
+                        android:layout_height="168dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginLeft="14dp"
+                        android:layout_marginRight="14dp"
+                        android:layout_marginBottom="26dp"></com.zhjl.qihao.view.CannotScrollViewpager>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:orientation="vertical">
+
+                        <RadioGroup
+                            android:id="@+id/dot_group"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:paddingTop="4dp"
+                            android:paddingBottom="12dp"
+                            android:visibility="visible" />
+
+                    </LinearLayout>
+                </RelativeLayout>
+
+
+                <!--  列表 -->
+                <com.zhjl.qihao.view.CustomGridView
+                    android:id="@+id/gv_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/rl_head_bar"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="6dp"
+                    android:background="@color/white"
+                    android:listSelector="@android:color/transparent"
+                    android:numColumns="5"></com.zhjl.qihao.view.CustomGridView>
+
+
+                <!-- 公益之行 -->
+
+                <RelativeLayout
+                    android:id="@+id/rl_gongyi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/gv_list"
+                    android:paddingTop="20dp"
+                    app:layout_scrollFlags="scroll">
+
+                    <TextView
+                        android:id="@+id/tv_active_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="14dp"
+                        android:drawableLeft="@drawable/main_view"
+                        android:drawablePadding="10dp"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:text="精品推荐"
+                        android:textColor="@color/color_black"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv_select_more"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="6dp"
+                        android:drawableRight="@drawable/sy_gd"
+                        android:drawablePadding="10dp"
+                        android:padding="10dp"
+                        android:text="查看更多"
+                        android:textColor="#bbbbbb"
+                        android:textSize="14sp"
+                        android:visibility="gone" />
+
+                </RelativeLayout>
+
+                <com.zhjl.qihao.view.CannotScrollViewpager
+                    android:id="@+id/cover"
+                    android:layout_width="match_parent"
+                    android:layout_height="160dp"
+                    android:layout_below="@+id/rl_gongyi"
+                    android:clipToPadding="false"
+                    android:paddingLeft="14dp"
+                    android:paddingRight="14dp" />
+                <!-- 邻里互动 -->
+
+                <RelativeLayout
+                    android:id="@+id/rl_neighborhood_interaction"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/cover"
+                    android:paddingTop="20dp"
+                    app:layout_scrollFlags="scroll">
+
+                    <TextView
+                        android:id="@+id/tv_neighborhood_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="14dp"
+                        android:drawableLeft="@drawable/main_view"
+                        android:drawablePadding="10dp"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:text="邻里互动"
+                        android:textColor="@color/color_black"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv_two_select_more"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="6dp"
+                        android:drawableRight="@drawable/sy_gd"
+                        android:drawablePadding="10dp"
+                        android:padding="10dp"
+                        android:text="查看更多"
+                        android:textColor="#bbbbbb"
+                        android:textSize="14sp"
+                        android:visibility="visible" />
+
+                </RelativeLayout>
+
+                <com.zhjl.qihao.view.CustomGridView
+                    android:id="@+id/gv_neighborhood_interaction"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/rl_neighborhood_interaction"
+                    android:layout_marginLeft="14dp"
+                    android:layout_marginRight="14dp"
+                    android:layout_marginBottom="50dp"
+                    android:horizontalSpacing="12dp"
+                    android:listSelector="@android:color/transparent"
+                    android:numColumns="2"
+                    android:scrollbars="none"
+                    android:verticalSpacing="12dp" />
+            </RelativeLayout>
+        </android.support.v4.widget.NestedScrollView>
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/rl_head_bar_bg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg1">
+
+        <TextView
+            android:id="@+id/status_bar_color"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <!-- 我的消息 -->
+        <FrameLayout
+            android:id="@+id/fl_msg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/status_bar_color"
+            android:layout_alignParentRight="true"
+            android:paddingLeft="2dp"
+            android:paddingTop="16dp"
+            android:paddingRight="13dp"
+            android:paddingBottom="2dp">
+
+            <ImageView
+                android:id="@+id/iv_notification"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:src="@drawable/xx" />
+
+            <View
+                android:id="@+id/tv_notice_not_read"
+                android:layout_width="8dp"
+                android:layout_height="8dp"
+                android:layout_gravity="right"
+                android:background="@drawable/circle_red_bg2"
+                android:gravity="center"
+                android:visibility="gone" />
+        </FrameLayout>
+
+
+        <!-- 标题 -->
+        <LinearLayout
+            android:id="@+id/ll_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/status_bar_color"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="14dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/bg_click_selector"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/img_home_pulldown"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="5dp"
+                android:background="@null"
+                android:src="@drawable/dz" />
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="5dp"
+                android:contentDescription="@string/app_name"
+                android:gravity="center"
+                android:text="社区"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/rl_loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/rl_head_bar_bg"
+        android:background="@color/color_white"
+        android:visibility="gone">
+
+        <com.zhjl.qihao.materialdesign.views.CircularProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            app:cpb_colors="@array/gplus_colors" />
+    </RelativeLayout>
+</RelativeLayout>
+

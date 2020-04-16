@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:background="@drawable/circle_white_6"
+    >
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:textColor="@color/text_color_f1"
+        android:textSize="16sp"
+        android:text="请输入图形验证码"
+        />
+    
+    <ImageView
+        android:id="@+id/img_sms"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+    <EditText
+        android:id="@+id/et_input"
+        android:layout_width="168dp"
+        android:lines="1"
+        android:imeOptions="actionDone"
+        android:layout_height="34dp"
+        android:inputType="text"
+        android:layout_marginTop="16dp"
+        android:hint="请输入"
+        android:gravity="center"
+        android:background="@drawable/stroke_circle_viewline_6"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <TextView
+            android:id="@+id/tv_cancel"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="取消"
+            android:gravity="center"
+            android:textColor="@color/ff999999"
+            android:textSize="14sp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            />
+
+        <TextView
+            android:id="@+id/tv_sure"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="确认"
+            android:gravity="center"
+            android:textSize="14sp"
+            android:textColor="@color/new_theme_color"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            />
+    </LinearLayout>
+
+</LinearLayout>

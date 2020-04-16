@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:background="@color/background_color"
+    android:orientation="vertical"
+    tools:context="com.zhjl.qihao.find.activitys.SpxqlActivity">
+
+
+    <!--正常商品详情页面 ，需要隐藏一些视图-->
+    <include
+        layout="@layout/zq_layout_spxq_show"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/ld"
+            />
+
+    <View
+        android:id="@+id/fake_status_bar"
+        android:layout_width="match_parent"
+        android:layout_height="0dp" />
+
+
+
+    <!-- 底部 button-->
+    <RelativeLayout
+        android:id="@+id/ld"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/background_color" />
+
+        <!-- 购物车-->
+        <RelativeLayout
+            android:id="@+id/shopcart"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="24dp">
+
+            <ImageView
+                android:id="@+id/gwc"
+                android:layout_width="23dp"
+                android:layout_height="22dp"
+                android:layout_centerInParent="true"
+                android:src="@drawable/gouwuche" />
+
+            <TextView
+                android:id="@+id/shopnum"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="3dp"
+                android:layout_marginTop="3dp"
+                android:background="@drawable/shape_shopnum"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="@color/white"
+                android:textSize="10sp"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+        <!-- 购买 和 加入购物车-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="12dp"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@+id/shopcart"
+            android:background="@drawable/shape_groupbuy_price_bg"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/t_in_shopcart"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/shape_radius_left"
+                android:gravity="center"
+                android:text="加入购物车"
+                android:textColor="@color/font_white"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/t_buy"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/shape_radius_right"
+                android:gravity="center"
+                android:text="立即购买"
+                android:textColor="@color/font_white"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+
+    </RelativeLayout>
+    <!-- 返回-->
+    <RelativeLayout
+        android:id="@+id/back"
+        android:layout_width="31dp"
+        android:layout_height="31dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="27dp"
+        android:background="@drawable/shape_groupbuy_back">
+
+        <ImageView
+            android:layout_width="9dp"
+            android:layout_height="18dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/baifanhui" />
+
+    </RelativeLayout>
+</RelativeLayout>

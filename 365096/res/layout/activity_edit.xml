@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/ll_edt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:paddingLeft="14dp"
+        android:paddingTop="6dp"
+        android:paddingBottom="6dp"
+        android:visibility="visible">
+
+        <EditText
+            android:id="@+id/reply_edt"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:background="@drawable/note_reply_bg"
+            android:hint="我也来说两句~"
+            android:imeOptions="actionDone"
+            android:inputType="textAutoCorrect|textCapSentences|textMultiLine"
+            android:maxLines="1"
+            android:minHeight="38dp"
+            android:paddingLeft="16dp"
+            android:textColor="@color/text_color_f1"
+            android:textSize="16sp" />
+
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="38dp">
+
+            <!--<TextView-->
+            <!--android:id="@+id/tv_agree_num"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:drawableLeft="@drawable/img_nearby_detail_no_agree"-->
+            <!--android:gravity="center"-->
+            <!--android:paddingLeft="22dp"-->
+            <!--android:paddingRight="34dp"-->
+            <!--android:text=""-->
+            <!--android:textColor="@color/text_color_f1"-->
+            <!--android:textSize="16sp" />-->
+
+            <TextView
+                android:id="@+id/tv_send"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="14dp"
+                android:background="@drawable/circle_green_6"
+                android:gravity="center"
+                android:paddingLeft="14dp"
+                android:paddingTop="4dp"
+                android:paddingRight="14dp"
+                android:paddingBottom="4dp"
+                android:text="发表"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</RelativeLayout>

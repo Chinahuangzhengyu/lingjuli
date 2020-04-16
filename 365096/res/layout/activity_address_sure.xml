@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:gravity="center_horizontal"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <include layout="@layout/ab_header_bar"></include>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="26dp"
+            android:src="@drawable/home_bg" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="温馨提示："
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="14dp"
+            android:layout_gravity="left"
+            android:layout_marginRight="14dp"
+            android:textColor="@color/text_color_f1"
+            />
+        <TextView
+            android:id="@+id/tv_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="14dp"
+            android:layout_marginRight="14dp"
+            android:layout_marginTop="10dp"
+            android:lineHeight="26dp"
+            android:textColor="@color/text_color_f1"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="我知道了"
+            android:textColor="@color/new_theme_color"
+            android:textSize="16sp"
+            android:layout_marginTop="26dp"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        android:layout_height="44dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_cancel"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="我知道了"
+            android:textColor="@color/white"
+            android:background="@color/new_theme_color2"
+            android:textSize="16sp"
+            android:layout_weight="1" />
+        <Button
+            android:id="@+id/btn_request"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="我要申诉"
+            android:textColor="@color/white"
+            android:background="@color/new_theme_color"
+            android:textSize="16sp"
+            android:layout_weight="1" />
+    </LinearLayout>
+</RelativeLayout>

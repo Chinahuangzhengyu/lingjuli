@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingTop="15dp"
+        android:text="提示"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/content"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:text="确认删除这条邻里圈信息吗哈哈哈哈哈哈哈？"
+        android:layout_marginLeft="20dp"
+         android:layout_marginRight="20dp"
+        android:textColor="@color/black"
+        android:textSize="14sp" />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:background="#e2e2e2"
+        android:layout_height="0.5dip" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal" >
+
+        <TextView
+             android:id="@+id/no"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="#1d80f3"
+            android:textSize="16sp"
+            android:text="取消" />
+
+        <TextView
+            android:layout_width="0.5dip"
+            android:background="#e2e2e2"
+            android:layout_weight="0.001"
+            android:layout_height="fill_parent"/>
+
+        <TextView
+            android:id="@+id/yes"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+              android:textColor="#1d80f3"
+            android:textSize="16sp"
+            android:text="确认" />
+    </LinearLayout>
+
+</LinearLayout>

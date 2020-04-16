@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:background="@color/list_line">
+    <LinearLayout android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical">
+        <LinearLayout android:layout_width="match_parent"
+            android:paddingLeft="12dp"
+            android:gravity="center_vertical"
+            android:paddingRight="12dip"
+            android:layout_height="36dip">
+            <TextView android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:text="放行缘由:"
+                android:textColor="@color/font_dark_grey"/>
+            <EditText android:id="@+id/et_delivery_reason" 
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:paddingLeft="5dip"
+                android:textSize="14sp"
+                android:textColor="@color/font_right_value"
+                android:textColorHint="@color/gray"
+                android:hint="必填"/>
+        </LinearLayout>
+        <View android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/list_line"/>
+        
+        <LinearLayout android:layout_width="match_parent"
+            android:paddingLeft="12dp"
+            android:gravity="center_vertical"
+            android:paddingRight="12dip"
+            android:layout_height="36dip">
+            <TextView android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:text="放行物品:"
+                android:textColor="@color/font_dark_grey"/>
+
+            <EditText
+                android:id="@+id/et_delivery_goods"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:hint="必填"
+                android:textSize="14sp"
+                android:textColor="@color/font_right_value"
+                android:paddingLeft="5dip"
+                android:textColorHint="@color/gray"/>
+        </LinearLayout>
+        <View android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/list_line"/>
+        <LinearLayout android:layout_width="match_parent"
+            android:paddingLeft="12dp"
+            android:gravity="center_vertical"
+            android:paddingRight="12dip"
+            android:layout_height="36dip">
+            <TextView android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:text="数\u3000\u3000量:"
+                android:textColor="@color/font_dark_grey"/>
+            <ImageView android:id="@+id/iv_subtract" 
+                android:layout_width="36dip"
+                android:padding="6dip"
+                android:layout_height="36dip"
+                android:layout_marginLeft="5dip"
+                android:src="@drawable/btn_subtract"/>
+            <TextView android:id="@+id/tv_delivery_number" 
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="35dip"
+                android:background="@null"
+                android:paddingLeft="5dip"
+                android:gravity="center"
+                android:textSize="16sp"
+                android:textColorHint="@color/gray"/>
+            <ImageView android:id="@+id/iv_add" android:layout_width="36dip"
+                android:layout_height="36dip"
+                android:padding="6dip"
+                android:src="@drawable/btn_add"/>
+        </LinearLayout>
+        <View android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/list_line"/>
+        <LinearLayout android:layout_width="match_parent"
+            android:paddingLeft="12dp"
+            android:gravity="center_vertical"
+            android:paddingRight="12dip"
+            android:layout_height="36dip">
+            <TextView android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:text="有效时间:"
+                android:textColor="@color/font_dark_grey"/>
+            <RelativeLayout android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+                <TextView android:id="@+id/tv_valid_time" 
+	                android:layout_width="match_parent"
+	                android:layout_height="wrap_content"
+	                android:background="@null"
+	                android:paddingLeft="5dip"
+	                android:textSize="16sp"
+	                android:textColorHint="@color/gray"
+	                android:hint="请选择有效时间"/>
+                <ImageView android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/img_pulldown"/>
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+	<Button android:id="@+id/btn_confirm"
+	    android:layout_width="match_parent"
+	    android:layout_height="36dp"
+	    android:layout_margin="6dp"
+	    android:background="@drawable/btn_round_orange_two"
+	    android:text="生成"
+	    android:textColor="@color/white" />
+
+	<LinearLayout android:id="@+id/ll_list" 
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent">
+	    <com.handmark.pulltorefresh.library.PullToRefreshListView
+		    android:id="@+id/pullToRefreshListView"
+		    android:layout_width="match_parent"
+		    android:scrollbars="none"
+		    android:layout_height="400dp" >
+		</com.handmark.pulltorefresh.library.PullToRefreshListView>
+	</LinearLayout>
+</LinearLayout>

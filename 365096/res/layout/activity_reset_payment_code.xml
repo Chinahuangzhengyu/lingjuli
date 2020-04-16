@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    style="@style/root_layout_style"
+    android:orientation="vertical" >
+
+    <include layout="@layout/header_bar"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/list_line" >
+
+        <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="4dp"
+            android:background="@color/white"
+            android:scrollbars="none" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingLeft="24dp"
+                android:paddingRight="24dp"
+                android:paddingTop="12dp" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:gravity="center_vertical"
+                    android:text="第二步:修改支付密码"
+                    android:textColor="@color/color_333333"
+                    android:textSize="16sp" />
+
+                <LinearLayout
+                    android:id="@+id/ll_msg_code"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <EditText
+                        android:id="@+id/edt_msg_code"
+                        android:layout_width="87dp"
+                        android:layout_height="36dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="0.74"
+                        android:background="@drawable/btn_count_bg"
+                        android:ems="10"
+                        android:hint="短信验证码"
+                        android:inputType="phone"
+                        android:maxLength="6"
+                        android:padding="5dp"
+                        android:textColorHint="@color/greytext"
+                        android:textSize="16sp" />
+
+                    <Button
+                        android:id="@+id/btn_msg_code"
+                        android:layout_width="94dp"
+                        android:layout_height="36dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="0.05"
+                        android:background="@drawable/btn_round_red"
+                        android:text="点击获取"
+                        android:textColor="#F8F8FF"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_pwd_area"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/textView1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginTop="10dp"
+                        android:text="密码长度6至16位"
+                        android:textColor="#3d3d3d"
+                        android:textSize="16sp" />
+
+                    <EditText
+                        android:id="@+id/edt_new_pass"
+                        android:layout_width="match_parent"
+                        android:layout_height="36dp"
+                        android:layout_marginBottom="10dp"
+                        android:background="@drawable/btn_count_bg"
+                        android:ems="10"
+                        android:hint="输入新密码"
+                        android:inputType="textPassword"
+                        android:maxLength="16"
+                        android:padding="5dp"
+                        android:textColorHint="@color/greytext"
+                        android:textSize="16sp" >
+                    </EditText>
+
+                    <EditText
+                        android:id="@+id/edt_new_pass_again"
+                        android:layout_width="match_parent"
+                        android:layout_height="36dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/btn_count_bg"
+                        android:ems="10"
+                        android:hint="确认新密码"
+                        android:inputType="textPassword"
+                        android:maxLength="16"
+                        android:padding="5dp"
+                        android:textColorHint="@color/greytext"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/change_password_load"
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/btn_round_red"
+                    android:text="完成"
+                    android:textColor="#F8F8FF"
+                    android:textSize="16sp" />
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+</LinearLayout>

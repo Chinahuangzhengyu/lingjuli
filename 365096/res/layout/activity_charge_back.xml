@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f2f2f2"
+    android:paddingLeft="12dp"
+    android:paddingRight="12dp"
+    tools:context=".myservice.ChargeBackActivity">
+
+    <LinearLayout
+        android:id="@+id/l"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="11dp"
+            android:text="您的满意就是对我们最大的支持"
+            android:textColor="@color/grey_font"
+            android:textSize="10sp"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/shape_groupbuy_price_bg"
+        android:orientation="vertical"
+        android:paddingBottom="20dp"
+        app:layout_constraintTop_toBottomOf="@+id/l">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/reason"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="11dp"
+                android:layout_marginTop="11dp"
+                android:text="请选择退单原因"
+                android:textColor="@color/Navigate_title"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="11dp"
+                android:text="(必选)"
+                android:textColor="#EC0606"
+                android:textSize="14sp"
+                app:layout_constraintTop_toTopOf="parent" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="11dp"
+            android:background="#EBEBEB" />
+
+        <RadioGroup
+            android:id="@+id/r_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical">
+
+
+            <RadioButton
+                android:id="@+id/rb1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/zq_selector_tui_rb"
+                android:button="@null"
+                android:gravity="center"
+                android:paddingBottom="11dp"
+                android:paddingTop="11dp"
+                android:text="提交信息有误"
+                android:textColor="@color/zq_rb_checked"
+                android:textSize="14sp" />
+
+            <RadioButton
+                android:id="@+id/rb2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/zq_selector_tui_rb"
+                android:button="@null"
+                android:gravity="center"
+                android:paddingBottom="11dp"
+                android:paddingTop="11dp"
+                android:text="故障已排除"
+                android:textColor="@color/zq_rb_checked"
+                android:textSize="14sp" />
+
+            <RadioButton
+                android:id="@+id/rb3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/zq_selector_tui_rb"
+                android:button="@null"
+                android:gravity="center"
+                android:paddingBottom="11dp"
+                android:paddingTop="11dp"
+                android:text="有事，下次报修"
+                android:textColor="@color/zq_rb_checked"
+                android:textSize="14sp" />
+
+            <RadioButton
+                android:id="@+id/rb4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/zq_selector_tui_rb"
+                android:button="@null"
+                android:gravity="center"
+                android:paddingBottom="11dp"
+                android:paddingTop="11dp"
+                android:text="主人不在服务区"
+                android:textColor="@color/zq_rb_checked"
+                android:textSize="14sp" />
+
+            <RadioButton
+                android:id="@+id/rb5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/zq_selector_tui_rb"
+                android:button="@null"
+                android:gravity="center"
+                android:paddingBottom="11dp"
+                android:paddingTop="11dp"
+                android:text="无理由退单"
+                android:textColor="@color/zq_rb_checked"
+                android:textSize="14sp" />
+
+            <RadioButton
+                android:id="@+id/rb6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/zq_selector_tui_rb"
+                android:button="@null"
+                android:gravity="center"
+                android:paddingBottom="11dp"
+                android:paddingTop="11dp"
+                android:text="其他"
+                android:textColor="@color/zq_rb_checked"
+                android:textSize="14sp" />
+
+        </RadioGroup>
+
+        <LinearLayout
+            android:id="@+id/l_reason"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/zq_shape_chage_back_reason"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:padding="11dp"
+            android:visibility="gone">
+
+            <EditText
+                android:id="@+id/et_reason"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:hint="输入退单原因"
+                android:maxLength="150"
+                android:textColor="@color/Navigate_title"
+                android:textSize="14sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/commit"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginBottom="12dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:background="@drawable/zq_shape_service"
+        android:text="提   交"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent" />
+</android.support.constraint.ConstraintLayout>

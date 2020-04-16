@@ -1,0 +1,939 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+    <!-- popwindow底部弹出，退出向下的动画-->
+    <style name="AnimationPopupPush">
+        <item name="android:windowEnterAnimation">@anim/push_down_in</item>
+        <!--<item name="android:windowExitAnimation">@anim/push_down_out</item>-->
+    </style>
+
+    <!-- popwindow中间放大弹出，退出变淡的动画-->
+    <style name="AnimationPopupCenter">
+        <item name="android:windowEnterAnimation">@anim/pop_scale_large</item>
+        <item name="android:windowExitAnimation">@anim/pop_scale_small</item>
+    </style>
+
+
+    <!-- 根布局元素设置-->
+
+    <style name="ref_root_layout_style">
+        <item name="android:background">@color/goodslistbg</item>
+        <item name="android:fitsSystemWindows">true</item>
+    </style>
+
+    <!-- 支付-->
+    <style name="pay_rb_style" parent="@style/pay_rb_item_text">
+        <item name="android:button">@null</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingLeft">@dimen/pay_rb_paddingLeft</item>
+        <item name="android:paddingRight">@dimen/pay_rb_paddingRight</item>
+        <item name="android:drawableRight">@drawable/pay_aradio_flag</item>
+
+    </style>
+
+    <style name="pay_dialog_et">
+        <item name="android:layout_width">@dimen/pay_dialog_et_pad_width</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_marginRight">5dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:inputType">numberPassword</item>
+        <item name="android:background">@drawable/pay_password_bg</item>
+    </style>
+
+
+    <style name="pay_rb_item_text">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/font_left_label</item>
+
+    </style>
+
+    <!-- Application theme. -->
+    <style name="AppTheme" parent="AppBaseTheme">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">false</item>
+        <item name="cpbStyle">@style/CircularProgressBar</item>
+    </style>
+
+    <style name="TextAppearanceSwitch" parent="@android:style/TextAppearance.Small">
+        <item name="android:textColor">?android:textColorPrimary</item>
+        <item name="android:textSize">16.0sp</item>
+        <item name="android:textColorHighlight">?android:textColorHighlight</item>
+        <item name="android:textColorHint">?android:textColorHint</item>
+        <item name="android:textColorLink">?android:textColorLink</item>
+    </style>
+
+    <style name="ActivityTheme" parent="AppBaseTheme">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowBackground">@color/white</item>
+        <item name="android:windowAnimationStyle">@style/activityAnimation</item>
+        <item name="android:textColor">@color/money_tree_text2</item>
+        <item name="android:textSize">@dimen/money_tree_title_item_text_size</item>
+        <item name="cpbStyle">@style/CircularProgressBar</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <!-- 状态栏文字颜色  true = 黑色 -->
+        <item name="android:windowLightStatusBar" tools:ignore="NewApi">true</item>
+        <!-- 设置沉浸式状态栏-->
+        <item name="android:windowTranslucentStatus" tools:targetApi="kitkat">false</item>
+        <item name="android:windowDrawsSystemBarBackgrounds" tools:targetApi="lollipop">true</item>
+        <item name="android:statusBarColor" tools:targetApi="lollipop">@android:color/transparent
+        </item>
+    </style>
+
+
+    <style name="Transparent2" parent="AppBaseTheme">
+
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowAnimationStyle">@style/activityAnimation</item>
+        <item name="android:textColor">@color/money_tree_text2</item>
+        <item name="android:textSize">@dimen/money_tree_title_item_text_size</item>
+        <item name="cpbStyle">@style/CircularProgressBar</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <!-- 状态栏文字颜色  true = 黑色 -->
+        <item name="android:windowLightStatusBar" tools:ignore="NewApi">true</item>
+        <!-- 设置沉浸式状态栏-->
+        <item name="android:windowTranslucentStatus" tools:targetApi="kitkat">false</item>
+        <item name="android:windowDrawsSystemBarBackgrounds" tools:targetApi="lollipop">true</item>
+        <item name="android:statusBarColor" tools:targetApi="lollipop">@android:color/transparent
+        </item>
+    </style>
+
+    <style name="MyDialogStyle">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+
+
+    <style name="Theme.NoTitlebar_NoBlack" parent="@android:style/Theme.Light">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+
+    </style>
+
+    <style name="mydialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:background">@null</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+    <!-- animation 样式 -->
+    <style name="activityAnimation" parent="@android:style/Animation">
+        <item name="android:activityOpenEnterAnimation">@anim/slide_right_in</item>
+        <item name="android:activityOpenExitAnimation">@anim/slide_left_out</item>
+        <item name="android:activityCloseEnterAnimation">@anim/slide_left_in</item>
+        <item name="android:activityCloseExitAnimation">@anim/slide_right_out</item>
+    </style>
+
+    <style name="SelectDialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowCloseOnTouchOutside">true</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:windowAnimationStyle">@style/activityAnimation</item>
+    </style>
+
+
+    <style name="PayDialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowCloseOnTouchOutside">true</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:windowAnimationStyle">@style/activityAnimation</item>
+        <!-- 状态栏文字颜色  true = 黑色 -->
+        <item name="android:windowLightStatusBar" tools:ignore="NewApi">true</item>
+        <!-- 设置沉浸式状态栏-->
+        <item name="android:windowTranslucentStatus" tools:targetApi="kitkat">false</item>
+        <item name="android:windowDrawsSystemBarBackgrounds" tools:targetApi="lollipop">true</item>
+        <item name="android:statusBarColor" tools:targetApi="lollipop">@android:color/transparent
+        </item>
+    </style>
+
+    <style name="Theme.Transparent" parent="AppBaseTheme">
+
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:windowAnimationStyle">@style/activityAnimation</item>
+
+    </style>
+
+    <style name="PopupAnimation">
+        <item name="android:windowEnterAnimation">@anim/luckydraw_popup_anim_in</item>
+        <item name="android:windowExitAnimation">@anim/luckydraw_popup_anim_out</item>
+    </style>
+
+    <style name="image_PopupAnimation">
+        <item name="android:windowEnterAnimation">@anim/popupanimation_enter</item>
+        <item name="android:windowExitAnimation">@anim/popupanimation_exit</item>
+    </style>
+
+    <style name="ratingbar" parent="@android:style/Widget.RatingBar">
+        <item name="android:progressDrawable">@drawable/ratingbar</item>
+        <item name="android:minHeight">16dip</item>
+        <item name="android:maxHeight">16dip</item>
+    </style>
+
+    <!-- 详细账单 -->
+    <style name="bill_detail_dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <!-- Dialog的windowFrame框为无 -->
+        <item name="android:windowIsFloating">true</item>
+        <!-- 是否漂现在activity上 -->
+        <item name="android:windowIsTranslucent">true</item>
+        <!-- 是否半透明 -->
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:windowBackground">@null</item>
+    </style>
+
+    <style name="NumberProgressBar_Default">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="max">100</item>
+        <item name="progress">0</item>
+        <item name="progress_unreached_color">#CCCCCC</item>
+        <item name="progress_reached_color">#3498DB</item>
+        <item name="progress_text_size">10sp</item>
+        <item name="progress_text_color">#3498DB</item>
+        <item name="progress_reached_bar_height">1.5dp</item>
+        <item name="progress_unreached_bar_height">0.75dp</item>
+    </style>
+
+    <style name="NumberProgressBar_Passing_Green">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="max">100</item>
+        <item name="progress">0</item>
+        <item name="progress_unreached_color">#CCCCCC</item>
+        <item name="progress_reached_color">#70A800</item>
+        <item name="progress_text_size">10sp</item>
+        <item name="progress_text_color">#70A800</item>
+        <item name="progress_reached_bar_height">1.5dp</item>
+        <item name="progress_unreached_bar_height">0.75dp</item>
+    </style>
+
+
+    <style name="NumberProgressBar_Beauty_Red">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="max">100</item>
+        <item name="progress">0</item>
+        <item name="progress_unreached_color">#CCCCCC</item>
+        <item name="progress_reached_color">#FF3D7F</item>
+        <item name="progress_text_size">10sp</item>
+        <item name="progress_text_color">#FF3D7F</item>
+        <item name="progress_reached_bar_height">1.5dp</item>
+        <item name="progress_unreached_bar_height">0.75dp</item>
+    </style>
+
+    <style name="NumberProgressBar_Warning_Red">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="max">100</item>
+        <item name="progress">0</item>
+        <item name="progress_unreached_color">#CCCCCC</item>
+        <item name="progress_reached_color">#E74C3C</item>
+        <item name="progress_text_size">10sp</item>
+        <item name="progress_text_color">#E74C3C</item>
+        <item name="progress_reached_bar_height">1.5dp</item>
+        <item name="progress_unreached_bar_height">0.75dp</item>
+    </style>
+
+    <style name="NumberProgressBar_Relax_Blue">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="max">100</item>
+        <item name="progress">0</item>
+        <item name="progress_unreached_color">#CCCCCC</item>
+        <item name="progress_reached_color">#6DBCDB</item>
+        <item name="progress_text_size">10sp</item>
+        <item name="progress_text_color">#6DBCDB</item>
+        <item name="progress_reached_bar_height">1.5dp</item>
+        <item name="progress_unreached_bar_height">0.75dp</item>
+    </style>
+
+    <style name="NumberProgressBar_Grace_Yellow">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="max">100</item>
+        <item name="progress">0</item>
+        <item name="progress_unreached_color">#CCCCCC</item>
+        <item name="progress_reached_color">#FFC73B</item>
+        <item name="progress_text_size">10sp</item>
+        <item name="progress_text_color">#FFC73B</item>
+        <item name="progress_reached_bar_height">1.5dp</item>
+        <item name="progress_unreached_bar_height">0.75dp</item>
+    </style>
+
+    <style name="NumberProgressBar_Funny_Orange">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="max">100</item>
+        <item name="progress">0</item>
+        <item name="progress_unreached_color">#CCCCCC</item>
+        <item name="progress_reached_color">#FF530D</item>
+        <item name="progress_text_size">10sp</item>
+        <item name="progress_text_color">#FF530D</item>
+        <item name="progress_reached_bar_height">1.5dp</item>
+        <item name="progress_unreached_bar_height">0.75dp</item>
+    </style>
+
+    <style name="NumberProgressBar_Twinkle_Night">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="max">100</item>
+        <item name="progress">0</item>
+        <item name="progress_unreached_color">#CCCCCC</item>
+        <item name="progress_reached_color">#ECF0F1</item>
+        <item name="progress_text_size">10sp</item>
+        <item name="progress_text_color">#ECF0F1</item>
+        <item name="progress_reached_bar_height">1.5dp</item>
+        <item name="progress_unreached_bar_height">0.75dp</item>
+    </style>
+
+    <style name="dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <!-- 边框 -->
+        <item name="android:windowIsFloating">true</item>
+        <!-- 是否浮现在activity之上 -->
+        <item name="android:windowIsTranslucent">true</item>
+        <!-- 半透明 -->
+        <item name="android:windowNoTitle">true</item>
+        <!-- 无标题 -->
+        <item name="android:windowBackground">@color/transparent</item>
+        <!-- 背景透明 -->
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:background">#00ffffff</item>
+        <!-- 模糊 -->
+    </style>
+
+    <style name="user_protocol_dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@color/transparent</item>
+        <!-- 边框 -->
+        <item name="android:windowIsFloating">true</item>
+        <!-- 是否浮现在activity之上 -->
+        <item name="android:windowIsTranslucent">true</item>
+        <!-- 半透明 -->
+        <item name="android:windowNoTitle">true</item>
+        <!-- 无标题 -->
+        <item name="android:background">@color/transparent</item>
+        <!-- 背景色 -->
+        <item name="android:windowBackground">@color/white</item>
+        <!-- 背景透明 -->
+        <item name="android:backgroundDimEnabled">true</item>
+        <!-- 模糊 -->
+        <item name="android:windowFullscreen">true</item>
+        <!-- 全屏 -->
+    </style>
+
+    <!-- 加载动画 -->
+    <style name="loading_dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:background">@null</item>
+    </style>
+
+    <style name="voice_dialog" parent="@android:style/Theme.Dialog">
+        <!--         <item name="android:windowFrame">@null</item> -->
+        <item name="android:windowNoTitle">true</item>
+        <!--         <item name="android:windowFullscreen">true</item> -->
+        <!--         <item name="android:windowIsTranslucent">false</item> -->
+        <!--         <item name="android:backgroundDimEnabled">true</item> -->
+        <!--         <item name="android:windowBackground">@android:color/transparent</item> -->
+        <!--         <item name="android:background">@null</item> -->
+    </style>
+
+    <style name="StyledIndicators" parent="AppBaseTheme">
+        <item name="vpiTabPageIndicatorStyle">@style/CustomTabPageIndicator</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <style name="CustomTabPageIndicator" parent="Widget.TabPageIndicator">
+        <item name="android:background">@drawable/custom_tab_indicator</item>
+        <item name="android:textAppearance">@style/CustomTabPageIndicator.Text</item>
+        <item name="android:textColor">@drawable/custom_tab_textcolor</item>
+        <item name="android:height">48dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="CustomTabPageIndicator.Text" parent="android:TextAppearance.Medium">
+        <item name="android:typeface">monospace</item>
+    </style>
+
+    <style name="CustomUnderlinePageIndicator">
+        <item name="selectedColor">#FFCC0000</item>
+        <item name="android:background">#FFCCCCCC</item>
+        <item name="fadeLength">1000</item>
+        <item name="fadeDelay">1000</item>
+    </style>
+
+    <style name="StyledIndicators_fastdelivery" parent="AppBaseTheme">
+        <item name="vpiTabPageIndicatorStyle">@style/CustomTabPageIndicator_fastdelivery</item>
+        <item name="android:windowNoTitle">true</item>
+        <!-- 状态栏文字颜色  true = 黑色 -->
+        <item name="android:windowLightStatusBar" tools:ignore="NewApi">true</item>
+        <!-- 设置沉浸式状态栏-->
+        <item name="android:windowTranslucentStatus" tools:targetApi="kitkat">false</item>
+        <item name="android:windowDrawsSystemBarBackgrounds" tools:targetApi="lollipop">true</item>
+        <item name="android:statusBarColor" tools:targetApi="lollipop">@android:color/transparent
+        </item>
+
+
+        <item name="android:windowAnimationStyle">@style/activityAnimation</item>
+    </style>
+
+    <style name="CustomTabPageIndicator_fastdelivery" parent="Widget.TabPageIndicator">
+        <item name="android:background">@drawable/custom_tab_indicator</item>
+        <item name="android:textAppearance">@style/CustomTabPageIndicator.Text</item>
+        <item name="android:textColor">@drawable/custom_tab_textcolor</item>
+        <item name="android:divider">@drawable/custom_tab_indicator_divider</item>
+        <item name="android:dividerPadding">10dp</item>
+        <item name="android:showDividers">middle</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:height">48dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="roomRatingBar" parent="@android:style/Widget.RatingBar">
+        <item name="android:progressDrawable">@drawable/rating_bar</item>
+        <item name="android:minHeight">12dp</item>
+        <item name="android:maxHeight">12dp</item>
+    </style>
+
+    <style name="evaluateRatingBar" parent="@android:style/Widget.RatingBar">
+        <!--<item name="android:progressDrawable">@drawable/rating_bar_128</item>-->
+        <item name="android:minHeight">11dip</item>
+        <item name="android:maxHeight">11dip</item>
+    </style>
+
+    <style name="CustomCheckboxTheme" parent="@android:style/Widget.CompoundButton.CheckBox">
+        <item name="android:button">@drawable/checkbox_style</item>
+    </style>
+
+    <style name="list_item_single">
+        <item name="android:clickable">true</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:background">@drawable/background_view_rounded_single</item>
+    </style>
+
+    <style name="list_item_editview">
+        <item name="android:textSize">14sp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textColor">@color/ff666666</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:paddingLeft">58dp</item>
+        <item name="android:layout_marginBottom">5dp</item>
+        <item name="android:layout_marginTop">15dp</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:paddingRight">58dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/btn_count_bg</item>
+    </style>
+
+    <style name="MD">
+        <item name="animationVelocity">6</item>
+        <item name="insetBottom">0dp</item>
+        <item name="insetTop">0dp</item>
+        <item name="insetLeft">0dp</item>
+        <item name="insetRight">0dp</item>
+        <item name="measureFactor">1.4</item>
+        <item name="offDrawable">@drawable/md_back_off</item>
+        <item name="onDrawable">@drawable/md_back_on</item>
+        <item name="thumbDrawable">@drawable/md_thumb</item>
+        <item name="thumb_margin">-12dp</item>
+    </style>
+
+    <style name="Dialog_Fullscreen" parent="@android:style/Theme.Holo.DialogWhenLarge">
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <style name="MaterialDesignStyle" parent="MD">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="loadingdialog_style" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <style name="Transparent" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@color/white</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowFrame">@null</item>
+    </style>
+
+    <style name="TransparentDialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowNoTitle">true</item><!--无标题-->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item><!--允许呈现半透明状态-->
+        <item name="android:windowIsFloating">true</item><!--悬浮在父界面之上-->
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:backgroundDimEnabled">true</item> <!-- 允许周围模糊 -->
+        <item name="android:backgroundDimAmount">0.6</item><!--设置模糊灰度-->
+    </style>
+
+    <!-- 白色字样式 -->
+    <style name="white_text_12">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/text_12</item>
+        <item name="android:typeface">normal</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceSmall</item>
+
+    </style>
+
+    <style name="white_text_14" parent="@style/white_text_12">
+        <item name="android:textSize">@dimen/text_14</item>
+
+    </style>
+
+    <style name="white_text_16" parent="@style/white_text_12">
+        <item name="android:textSize">@dimen/text_16</item>
+
+    </style>
+
+    <style name="white_text_18" parent="@style/white_text_12">
+        <item name="android:textSize">@dimen/text_18</item>
+
+    </style>
+
+    <style name="white_text_20" parent="@style/white_text_12">
+        <item name="android:textSize">@dimen/text_20</item>
+
+    </style>
+
+    <style name="white_text_22" parent="@style/white_text_12">
+        <item name="android:textSize">@dimen/text_22</item>
+
+    </style>
+
+    <style name="white_text_24" parent="@style/white_text_12">
+        <item name="android:textSize">@dimen/text_24</item>
+
+    </style>
+
+    <style name="white_text_26" parent="@style/white_text_12">
+        <item name="android:textSize">@dimen/text_26</item>
+
+    </style>
+
+    <style name="white_text_28" parent="@style/white_text_12">
+        <item name="android:textSize">@dimen/text_28</item>
+
+    </style>
+    <!-- 主页 -->
+
+    <style name="main_title" parent="@style/white_text_22">
+        <item name="android:textSize">@dimen/main_title</item>
+
+
+    </style>
+
+    <style name="main_title_des" parent="@style/white_text_12">
+        <item name="android:textColor">@color/font_white</item>
+        <item name="android:textSize">@dimen/main_title_des</item>
+    </style>
+
+
+    <style name="home_style_title_text">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/title_size</item>
+    </style>
+
+
+    <style name="home_text_context">
+        <item name="android:textColor">@color/normal</item>
+        <item name="android:textSize">@dimen/content</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="context_text_default">
+        <item name="android:textColor">@color/normal</item>
+        <item name="android:textSize">@dimen/default_size</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="text_14_fffc223">
+        <item name="android:textColor">@color/ffffc223</item>
+        <item name="android:textSize">@dimen/default_size</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="context_text_14_bold">
+        <item name="android:textSize">@dimen/default_size</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="text_16_fff47301" parent="text_14_fff47301">
+        <item name="android:textSize">@dimen/text_16</item>
+
+    </style>
+
+    <style name="text_16_fff47301_bold" parent="text_14_fff47301">
+        <item name="android:textSize">@dimen/text_16</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="text_40_fff47301_bold" parent="text_16_fff47301_bold">
+        <item name="android:textSize">@dimen/text_40</item>
+    </style>
+
+    <style name="text_14_fff47301">
+        <item name="android:textColor">@color/fff47301</item>
+        <item name="android:textSize">@dimen/text_14</item>
+    </style>
+
+    <style name="text_16_ff442004">
+        <item name="android:textColor">@color/ff442004</item>
+        <item name="android:textSize">@dimen/text_16</item>
+    </style>
+
+    <style name="text_16_ffffc223" parent="white_text_16">
+        <item name="android:textColor">@color/ffffc223</item>
+    </style>
+
+
+    <style name="text_14_ff8a6034">
+        <item name="android:textSize">@dimen/text_14</item>
+        <item name="android:textColor">@color/ff8a6034</item>
+    </style>
+
+    <style name="text_12_ffb1a8a4">
+        <item name="android:textSize">@dimen/text_12</item>
+        <item name="android:textColor">@color/ffb1a8a4</item>
+    </style>
+
+    <style name="text_14_ffb1a8a4">
+        <item name="android:textSize">@dimen/text_14</item>
+        <item name="android:textColor">@color/ffb1a8a4</item>
+    </style>
+
+    <style name="text_14_ffdcdbe3" parent="text_14_ffb1a8a4">
+        <item name="android:textSize">@dimen/text_12</item>
+        <item name="android:textColor">@color/ffdcdbe3</item>
+    </style>
+
+    <style name="text_14_ffffffff">
+        <item name="android:textSize">@dimen/text_14</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="text_16_ffffffff" parent="text_14_ffffffff">
+        <item name="android:textSize">@dimen/text_16</item>
+    </style>
+
+    <style name="text_14_ffffffff_height_1_center" parent="text_14_ffffffff">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:gravity">center_horizontal|bottom</item>
+        <item name="android:layout_weight">1</item>
+
+    </style>
+
+    <style name="text_16_ffffc223_height_1_center" parent="text_14_ffffffff_height_1_center">
+        <item name="android:textColor">@color/ffffc223</item>
+        <item name="android:textSize">@dimen/text_16</item>
+        <item name="android:gravity">center_horizontal|top</item>
+    </style>
+
+    <style name="text_14_ff442004">
+        <item name="android:textSize">@dimen/text_14</item>
+        <item name="android:textColor">@color/ff666666</item>
+    </style>
+
+    <style name="text_12_ff442004">
+        <item name="android:textSize">@dimen/text_12</item>
+        <item name="android:textColor">@color/ff442004</item>
+    </style>
+
+
+    <style name="context_text_big_default">
+        <item name="android:textColor">@color/normal</item>
+        <item name="android:textSize">@dimen/big_title_size</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="text_30_ffffffff">
+
+        <item name="android:textSize">@dimen/text_26</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="big_text_style">
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_marginRight">@dimen/margin_common</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:textSize">@dimen/big_title_size</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/ff442004</item>
+    </style>
+
+
+    <style name="my_center_title">
+        <item name="android:textColor">@color/common_text_style</item>
+        <item name="android:textSize">@dimen/my_center_title_size</item>
+        <item name="android:layout_marginTop">@dimen/my_text_margin_top</item>
+
+    </style>
+
+    <style name="my_center_item">
+        <item name="android:textColor">@color/common_text_style</item>
+        <item name="android:textSize">@dimen/my_center_title_size</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingLeft">18dp</item>
+
+    </style>
+
+    <!-- 发现字体样式 -->
+    <style name="find_title">
+        <item name="android:textColor">@color/find_title</item>
+        <item name="android:textSize">@dimen/find_title_size</item>
+
+    </style>
+
+    <!-- 发现字体样式 -->
+    <style name="find_title_item">
+        <item name="android:textColor">@color/ff666666</item>
+        <item name="android:textSize">@dimen/text_14</item>
+
+    </style>
+
+    <!-- 摇钱树 -->
+
+    <style name="money_tree_text_orange" parent="@style/white_text_18">
+        <item name="android:textColor">@color/money_tree_text3</item>
+        <item name="android:textSize">@dimen/money_tree_project_orange_1</item>
+    </style>
+
+    <style name="money_tree_text_title" parent="@style/white_text_18">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/money_tree_project_title</item>
+    </style>
+
+    <style name="money_tree_text_subtitle" parent="@style/white_text_18">
+        <item name="android:textColor">@color/money_tree_text2</item>
+        <item name="android:textSize">@dimen/money_tree_project_subtitle</item>
+    </style>
+
+    <style name="money_tree_text_gray" parent="@style/white_text_16">
+        <item name="android:textColor">@color/money_tree_text2</item>
+        <item name="android:textSize">@dimen/money_tree_project_gray</item>
+    </style>
+
+    <style name="money_tree_text_gray_2" parent="@style/white_text_16">
+        <item name="android:textColor">@color/money_tree_text2</item>
+        <item name="android:textSize">@dimen/money_tree_project_gray_2</item>
+    </style>
+
+
+    <!-- 摇钱树功能字体 -->
+    <style name="money_tree_title_item" parent="@style/white_text_12">
+        <item name="android:textColor">@color/money_tree_text2</item>
+        <item name="android:textSize">@dimen/money_tree_title_item_text_size</item>
+        <item name="android:layout_margin">@dimen/money_tree_features_item_text_margin</item>
+
+    </style>
+    <!-- 摇钱树功能图标 -->
+    <style name="money_tree_features_item_icon_style">
+        <item name="android:layout_width">@dimen/money_tree_features_item_icon_size</item>
+        <item name="android:layout_height">@dimen/money_tree_features_item_icon_size</item>
+    </style>
+
+    <!-- 通用字体颜色 灰 14sp -->
+    <style name="common_text_style" parent="@style/white_text_14">
+        <item name="android:textColor">@color/money_tree_text2</item>
+        <item name="android:textSize">@dimen/money_tree_title_item_text_size</item>
+    </style>
+
+    <style name="common_text_style_2" parent="@style/white_text_14">
+        <item name="android:textColor">@color/money_tree_text1</item>
+        <item name="android:textSize">@dimen/money_tree_project_gray</item>
+    </style>
+
+    <style name="common_text_style_16">
+        <item name="android:textSize">@dimen/text_16</item>
+        <item name="android:textColor">@color/common_text_style</item>
+    </style>
+
+    <style name="common_text_style_18">
+        <item name="android:textSize">@dimen/text_18</item>
+        <item name="android:textColor">@color/common_text_style</item>
+    </style>
+
+    <style name="common_text_style_22">
+        <item name="android:textSize">@dimen/text_18</item>
+        <item name="android:textColor">@color/common_text_style</item>
+    </style>
+
+    <style name="common_text_style_orangle_3" parent="@style/white_text_14">
+        <item name="android:textColor">@color/money_tree_text4</item>
+        <item name="android:textSize">@dimen/money_tree_project_title_2</item>
+    </style>
+
+    <style name="common_text_style_orangle_4" parent="@style/white_text_14">
+        <item name="android:textColor">@color/money_tree_text4</item>
+        <item name="android:textSize">@dimen/money_tree_project_gray</item>
+    </style>
+
+
+    <!-- 圆形进度条 -->
+    <style name="CPB" parent="android:Widget.Holo.ProgressBar"></style>
+
+    <style name="CircularProgressBar" parent="CPB">
+        <item name="cpb_color">@color/cpb_default_color</item>
+        <item name="cpb_stroke_width">@dimen/cpb_default_stroke_width</item>
+        <item name="cpb_min_sweep_angle">@integer/cpb_default_min_sweep_angle</item>
+        <item name="cpb_max_sweep_angle">@integer/cpb_default_max_sweep_angle</item>
+        <item name="cpb_sweep_speed">@string/cpb_default_sweep_speed</item>
+        <item name="cpb_rotation_speed">@string/cpb_default_rotation_speed</item>
+    </style>
+
+    <!-- 单选类型 -->
+    <style name="radioType">
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textColor">@drawable/main_home_bottom_text</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:button">@null</item>
+        <item name="android:layout_margin">10dip</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+
+    <!-- 根布局元素设置-->
+
+    <style name="root_layout_style">
+        <item name="android:background">@color/white</item>
+        <item name="android:fitsSystemWindows">true</item>
+    </style>
+
+    <style name="root_black_layout_style">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:background">@color/black</item>
+        <item name="android:fitsSystemWindows">true</item>
+    </style>
+
+    <style name="home_item">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">20dp</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:layout_alignParentBottom">true</item>
+        <item name="android:layout_marginBottom">@dimen/margin_common</item>
+        <item name="android:layout_marginLeft">@dimen/margin_common</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <!-- 物业-->
+    <style name="property_item_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/property_item_height</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:layout_marginTop">3dp</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:background">@drawable/click_white_gray_selector</item>
+    </style>
+
+    <style name="root_layout_style1">
+        <item name="android:background">@color/white</item>
+        <item name="android:fitsSystemWindows">true</item>
+    </style>
+
+    <style name="spinner_style" parent="android:Widget.Spinner">
+        <item name="android:background">@drawable/spinner_background</item>
+    </style>
+
+
+    <!-- status Bar 文字颜色-->
+    <style name="statusbarColor">
+        <item name="android:statusBarColor"></item>
+    </style>
+
+    <!-- 团购中我的拼团tablayout 字体大小-->
+
+    <style name="groupbuytab">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <!-- 沉浸式状态栏 ，NoActionBar-->
+    <style name="ZQBaseTheme" parent="Theme.AppCompat.Light.NoActionBar">
+
+        <!--<item name="colorPrimary">@color/colorPrimary</item>-->
+        <!--<item name="colorPrimaryDark">@color/colorPrimaryDark</item>-->
+        <!--<item name="colorAccent">@color/colorAccent</item>-->
+
+        <!-- 取消水波纹点击效果-->
+        <item name="android:selectableItemBackground">@null</item>
+        <item name="android:selectableItemBackgroundBorderless" tools:targetApi="lollipop">@null
+        </item>
+
+        <!-- 状态栏文字颜色  true = 黑色 -->
+        <item name="android:windowLightStatusBar" tools:ignore="NewApi">true</item>
+
+        <!-- 设置沉浸式状态栏-->
+        <item name="android:windowTranslucentStatus" tools:targetApi="kitkat">false</item>
+        <item name="android:windowDrawsSystemBarBackgrounds" tools:targetApi="lollipop">true</item>
+        <item name="android:statusBarColor" tools:targetApi="lollipop">@android:color/transparent
+        </item>
+
+    </style>
+
+
+    <!-- 维修记录 字体属性-->
+    <style name="ZQServiceText">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/Navigate_title</item>
+        <item name="android:maxLines">1</item>
+
+
+    </style>
+
+
+    <!--热点TabLayout的字体-->
+    <style name="MyTabLayoutTextSize" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Dialog.PayDialog" parent="Theme.AppCompat.Dialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@color/transparent</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:statusBarColor">@color/transparent</item>
+        <!-- 状态栏文字颜色  true = 黑色 -->
+        <item name="android:windowLightStatusBar" tools:ignore="NewApi">true</item>
+    </style>
+
+</resources>

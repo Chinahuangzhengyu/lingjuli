@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/activity_bg"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/status_bar_color"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white" />
+
+    <LinearLayout
+        android:id="@+id/ll_head"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_below="@+id/status_bar_color"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="14dp"
+            android:text="智能门禁"
+            android:textColor="@color/text_color_f1"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/sv_qr"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ll_head"
+        android:visibility="gone"
+        android:scrollbars="none">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <ImageView
+                android:id="@+id/img_title_bg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scaleType="fitXY"
+                android:src="@drawable/img_open_door_bg" />
+
+            <LinearLayout
+                android:id="@+id/ll_code"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="38dp"
+                android:gravity="center"
+                android:layout_marginTop="40dp"
+                android:layout_marginRight="38dp"
+                android:orientation="vertical"
+                android:background="@drawable/img_open_door_code_bg">
+
+                <ImageView
+                    android:id="@+id/img_open_door_code"
+                    android:layout_width="236dp"
+                    android:layout_height="236dp"
+                     />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@+id/img_open_door_code"
+                    android:text="点击刷新二维码"
+                    android:textSize="14sp"
+                    android:textColor="@color/ff999999"
+                    />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_choose_smallCommunity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ll_code"
+                android:layout_marginLeft="38dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="38dp"
+                android:background="@drawable/circle_white_6">
+
+                <TextView
+                    android:id="@+id/tv_open_door_address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:text=""
+                    android:textColor="@color/text_color_f1"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_open_door_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_open_door_address"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="10dp"
+                    android:text=""
+                    android:textColor="@color/ff999999"
+                    android:textSize="14sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="14dp"
+                    android:src="@drawable/img_black_back" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rl_choose_smallCommunity"
+                android:layout_marginLeft="38dp"
+                android:layout_marginTop="26dp"
+                android:layout_marginBottom="50dp"
+                android:layout_marginRight="38dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_open_door"
+                    android:layout_width="134dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/circle_green_19"
+                    android:gravity="center"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
+                    android:text="远程开门"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1"></View>
+
+                <TextView
+                    android:id="@+id/tv_share_code"
+                    android:layout_width="134dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/circle_orange_20"
+                    android:gravity="center"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
+                    android:text="分享二维码"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+            </LinearLayout>
+        </RelativeLayout>
+
+
+    </ScrollView>
+    <include layout="@layout/no_data"></include>
+</RelativeLayout>

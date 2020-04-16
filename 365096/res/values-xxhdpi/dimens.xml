@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    
+    <!-- RadioGroup height -->
+    <dimen name="main_radio_group_height">42dp</dimen>
+    <!-- //////////////////////////////////Home//////////////////////// -->
+    <!-- xxhdpi头部高度 -->
+	<dimen name="header_height">48dp</dimen>
+	
+	<!-- 广告高度 -->
+	<dimen name="main_viewpager_height">159dp</dimen>
+	
+	<!--  物业提示高度-->
+    <dimen name="main_msg_tips_height">25dp</dimen>
+    
+    <!-- 功能项标题大小 名称-描述 -->
+	<dimen name="main_title">15sp</dimen> 
+	<dimen name="main_title_des">10sp</dimen>
+	<!-- 主页图标大小 xhdpi -->
+	<dimen name="main_item_iv_width">30dp</dimen>
+    <dimen name="main_item_iv_height">30dp</dimen> 
+    
+    
+    <!-- //////////////////////////////////Home//////////////////////// -->
+    
+    
+    <!-- //////////////////////////摇钱树///////////////////////// -->
+    <!-- banner高度 -->
+    <dimen name="money_tree_banner_height">159dp</dimen>
+    
+    <!-- //////////////////////////摇钱树///////////////////////// -->
+    
+    
+    <!-- //////////////////////发现/////////////////////////////////// -->
+    
+
+    
+</resources>

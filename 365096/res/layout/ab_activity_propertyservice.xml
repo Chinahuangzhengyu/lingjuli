@@ -1,0 +1,543 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/header_height"
+            android:background="@color/white"
+            android:fitsSystemWindows="true">
+
+            <!-- 返回图片 -->
+            <LinearLayout
+                android:id="@+id/ll_head_left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/iv_back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="2dp"
+                    android:background="@drawable/bg_click_selector"
+                    android:padding="10dp"
+                    android:scaleType="center"
+                    android:src="@drawable/ic_back_btn" />
+            </LinearLayout>
+
+
+            <!-- 标题 -->
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:text="物业服务"
+                android:textColor="@color/Navigate_title"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/property_order"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="12dp"
+                android:text="我的维修"
+                android:textColor="@color/new_theme_color"
+                android:textSize="@dimen/text_14" />
+        </RelativeLayout>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/ffd1d1d1" />
+
+        <ScrollView
+            android:id="@+id/ll_parent"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/copy_cardview"
+                    android:elevation="8dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="9dp"
+                        android:text="选择类型"
+                        android:textColor="@color/color_333333"
+                        android:textSize="16sp" />
+
+
+                    <com.zhjl.qihao.abrefactor.view.CustomRadioGroup
+                        android:id="@+id/rg_service_type"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="9dp"
+                        android:layout_marginBottom="10dp"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        app:height_space="10dp"
+                        app:width_space="10dp" />
+
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/money"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginTop="10dp"
+                    android:text=""
+                    android:textColor="@color/color_333333"
+                    android:textSize="16sp"
+                    />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="50dp"
+                    android:background="@color/white"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:text="@string/contact"
+                        android:textColor="@color/color_333333"
+                        android:textSize="16sp" />
+
+                    <com.zhjl.qihao.view.LastInputEditText
+                        android:id="@+id/contact_edit"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="12dp"
+                        android:background="@null"
+                        android:gravity="end"
+                        android:hint="请输入联系人"
+                        android:maxLength="20"
+                        android:textColor="@color/ff666666"
+                        android:textColorHint="#acacac"
+                        android:textCursorDrawable="@null"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginEnd="12dp"
+                    android:layout_marginStart="12dp"
+                    android:background="@color/ffd1d1d1" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="50dp"
+                    android:background="@color/white"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:text="@string/contact_phone"
+                        android:textColor="@color/color_333333"
+                        android:textSize="16sp" />
+
+                    <com.zhjl.qihao.view.LastInputEditText
+                        android:id="@+id/phone_edit"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="12dp"
+                        android:background="@null"
+                        android:gravity="right"
+                        android:hint="请输入电话号码"
+                        android:inputType="phone"
+                        android:maxLength="11"
+                        android:textColor="@color/color_333333"
+                        android:textColorHint="#acacac"
+                        android:textCursorDrawable="@null"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/tv"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="6dp"
+                        android:background="@null"
+                        android:gravity="right|center_vertical"
+                        android:text="Hello World!" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_repair"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginEnd="12dp"
+                        android:layout_marginStart="12dp"
+                        android:background="@color/ffd1d1d1" />
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="50dp"
+                        android:background="@color/white"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:text="@string/order_time"
+                            android:textColor="@color/color_333333"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/order_time_view"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@null"
+                            android:gravity="end"
+                            android:hint="请选择预约时间"
+                            android:maxLength="20"
+                            android:textColor="@color/color_333333"
+                            android:textColorHint="@color/ff999999"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/suggest_spinner3"
+                            android:layout_width="15dp"
+                            android:layout_height="8dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="4dp"
+                            android:layout_marginRight="12dp"
+                            android:background="@drawable/zk"
+                            android:gravity="center"
+                            android:textColor="@color/color_333333"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginEnd="12dp"
+                        android:layout_marginStart="12dp"
+                        android:background="@color/ffd1d1d1" />
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="50dp"
+                        android:background="@color/white"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:text="预约地址"
+                            android:textColor="@color/color_333333"
+                            android:textSize="16sp" />
+
+                        <com.zhjl.qihao.view.LastInputEditText
+                            android:id="@+id/address_edit"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@null"
+                            android:gravity="end"
+                            android:hint="请输入地址"
+                            android:maxLength="32"
+                            android:textColor="@color/color_333333"
+                            android:textColorHint="#acacac"
+                            android:textCursorDrawable="@null"
+                            android:textSize="16sp" />
+
+                        <ImageView
+                            android:id="@+id/img_dw"
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:layout_marginLeft="4dp"
+                            android:layout_marginRight="12dp"
+                            android:src="@drawable/dw" />
+                    </LinearLayout>
+
+                    <include layout="@layout/ab_layout_space" />
+
+                </LinearLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="157dp"
+                    android:background="@color/white"
+                    android:padding="10dp"
+                    android:textSize="16sp">
+
+                    <EditText
+                        android:id="@+id/content_edit"
+                        android:layout_width="fill_parent"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:gravity="start"
+                        android:hint="请在这里写事件内容（300字以内）"
+                        android:maxLength="300"
+                        android:minLines="4"
+                        android:textColor="#666666"
+                        android:textColorHint="#cccccc"
+                        android:textSize="14sp" />
+
+                    <com.zhjl.qihao.view.WaveView
+                        android:id="@+id/wv_yuyin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:background="@null"
+                        android:visibility="gone" />
+
+                    <Button
+                        android:id="@+id/img_yuyin"
+                        android:layout_width="51dp"
+                        android:layout_height="51dp"
+                        android:layout_centerInParent="true"
+                        android:background="@drawable/yuyin"
+                        />
+
+                    <TextView
+                        android:id="@+id/tv_yuyin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/img_yuyin"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="5dp"
+                        android:text="按住说话" />
+
+                    <TextView
+                        android:id="@+id/tv_yuyin_ts"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginRight="15dp"
+                        android:drawableTop="@drawable/hei"
+                        android:text="语音输入"
+                        android:textSize="@dimen/text_10"
+                        android:visibility="gone" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginEnd="12dp"
+                    android:layout_marginStart="12dp"
+                    android:background="@color/ffd1d1d1" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:gravity="top"
+                    android:padding="2dp"
+                    android:textSize="16sp"
+                    android:visibility="gone">
+
+                    <com.zhjl.qihao.view.ScrollViewIncludeListView
+                        android:id="@+id/gv_img"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:cacheColorHint="@null"
+                        android:horizontalSpacing="7dp"
+                        android:listSelector="@null"
+                        android:numColumns="3"
+                        android:scrollbars="none"
+                        android:stretchMode="columnWidth"
+                        android:verticalSpacing="10dp"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="38dp"
+                    android:background="@color/white"
+                    android:gravity="top"
+                    android:paddingBottom="4dp"
+                    android:textSize="16sp"
+                    android:visibility="gone">
+
+                    <ImageView
+                        android:id="@+id/add_img_ico"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:src="@drawable/add_ico_1" />
+
+                    <TextView
+                        android:id="@+id/add_img_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginLeft="5dp"
+                        android:layout_toLeftOf="@+id/add_img_ico"
+                        android:text="@string/add_img"
+                        android:textColor="@color/font_left_label"
+                        android:textSize="16sp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/white"
+                    android:paddingBottom="15dp">
+
+                    <!-- <TextView
+                         android:id="@+id/tvTips"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:layout_marginLeft="12dp"
+                         android:layout_marginTop="15dp"
+                         android:text="上传图片"
+                         android:textColor="#333333"
+                         android:textSize="14sp" />-->
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="12dp"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tvTipsCount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="最多可传"
+                            android:textColor="#666666"
+                            android:textSize="12dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="3"
+                            android:textColor="@color/txred"
+                            android:textSize="12dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="张"
+                            android:textColor="#666666"
+                            android:textSize="12dp" />
+                    </LinearLayout>
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_below="@id/tvTips"
+                        android:layout_marginRight="12dp"
+                        android:layout_marginTop="5dp"
+                        android:text="长按删除图片"
+                        android:textColor="#666666"
+                        android:textSize="12dp" />
+
+                    <LinearLayout
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="26dp"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <GridView
+                            android:id="@+id/gv_property"
+                            android:layout_width="277dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="4dp"
+                            android:background="@color/white"
+                            android:cacheColorHint="@null"
+                            android:horizontalSpacing="3dp"
+                            android:listSelector="@null"
+                            android:numColumns="3"
+                            android:scrollbars="none"
+                            android:stretchMode="columnWidth"
+                            android:verticalSpacing="3dp" />
+                    </LinearLayout>
+                </RelativeLayout>
+            </LinearLayout>
+        </ScrollView>
+
+        <Button
+            android:id="@+id/btn_submit"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:layout_marginBottom="12dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/ab_btn_bg"
+            android:text="@string/submit"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:visibility="gone">
+
+        <com.zhjl.qihao.materialdesign.views.CircularProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            app:cpb_colors="@array/gplus_colors" />
+    </RelativeLayout>
+
+</FrameLayout>

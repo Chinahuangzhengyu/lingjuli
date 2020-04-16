@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/tv_goods_title"
+            android:layout_width="match_parent"
+            android:layout_height="24dp"
+            android:background="@color/color_f5f5f5"
+            android:gravity="center_vertical"
+            android:paddingLeft="8dp"
+            android:text="法兰亚特旗舰店"
+            android:textColor="@color/color_333333"
+            android:textSize="16sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/color_e2e2e2" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="88dp"
+            android:orientation="horizontal" >
+
+            <CheckBox
+                android:id="@+id/cbox_choice"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignBottom="@+id/iv_goods_picture"
+                android:layout_alignTop="@+id/iv_goods_picture"
+                android:checked="false"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/iv_goods_picture"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_toRightOf="@+id/cbox_choice"
+                android:contentDescription="@null"
+                android:padding="1dp"
+                android:scaleType="centerCrop" />
+
+            <TextView
+                android:id="@+id/tv_business_hours"
+                android:layout_width="wrap_content"
+                android:layout_height="18dp"
+                android:layout_alignTop="@+id/iv_goods_picture"
+                android:layout_toRightOf="@+id/iv_goods_picture"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:text="营业："
+                android:textColor="@color/font_medium_grey"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tv_attention"
+                android:layout_width="wrap_content"
+                android:layout_height="18dp"
+                android:layout_below="@+id/tv_business_hours"
+                android:layout_toRightOf="@+id/iv_goods_picture"
+                android:gravity="center_vertical"
+                android:text="关注："
+                android:textColor="@color/font_medium_grey"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tv_main_product"
+                android:layout_width="wrap_content"
+                android:layout_height="18dp"
+                android:layout_below="@+id/tv_attention"
+                android:layout_toRightOf="@+id/iv_goods_picture"
+                android:gravity="center_vertical"
+                android:text="主营："
+                android:textColor="@color/font_medium_grey"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tv_address"
+                android:layout_width="wrap_content"
+                android:layout_height="18dp"
+                android:layout_below="@+id/tv_main_product"
+                android:layout_toRightOf="@+id/iv_goods_picture"
+                android:gravity="center_vertical"
+                android:text="地址："
+                android:textColor="@color/font_medium_grey"
+                android:textSize="14sp" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:background="@color/color_e8ebf0" />
+    </LinearLayout>
+
+</LinearLayout>

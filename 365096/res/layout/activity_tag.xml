@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/ref_root_layout_style"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_color"
+    android:orientation="vertical"
+    tools:context="com.zhjl.qihao.find.activitys.DplbActivity">
+
+    <!-- titlebar -->
+    <!--<RelativeLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="64dp"-->
+        <!--android:background="@color/white">-->
+
+        <!--<RelativeLayout-->
+            <!--android:id="@+id/back"-->
+            <!--android:layout_width="35dp"-->
+            <!--android:layout_height="match_parent">-->
+
+            <!--<ImageView-->
+                <!--android:layout_width="9dp"-->
+                <!--android:layout_height="18dp"-->
+                <!--android:layout_alignParentBottom="true"-->
+                <!--android:layout_marginBottom="13dp"-->
+                <!--android:layout_marginLeft="12dp"-->
+                <!--android:src="@drawable/ic_back_btn" />-->
+        <!--</RelativeLayout>-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/title"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignParentBottom="true"-->
+            <!--android:layout_centerInParent="true"-->
+            <!--android:layout_marginBottom="12dp"-->
+            <!--android:text="title"-->
+            <!--android:textColor="@color/Navigate_title"-->
+            <!--android:textSize="18sp" />-->
+    <!--</RelativeLayout>-->
+
+    <include layout="@layout/header_bar" />
+
+    <include layout="@layout/ab_layout_space" />
+
+    <RadioGroup
+        android:id="@+id/group"
+        android:layout_width="match_parent"
+        android:layout_height="47dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+
+        android:background="@color/white"
+        android:orientation="horizontal">
+
+        <com.zhjl.qihao.view.MRadioButton
+            android:id="@+id/rbQuanbu"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:checked="true"
+            android:drawableRight="@drawable/selector_dplb"
+            android:gravity="center"
+            android:paddingLeft="20dp"
+            android:paddingRight="30dp"
+            android:text="全部"
+            android:textColor="@drawable/selector_dplb_textcolor"
+            android:textSize="16sp"
+            android:textStyle="normal" />
+
+        <View
+            android:layout_width="2dp"
+            android:layout_height="26dp"
+            android:layout_gravity="center_vertical"
+            android:background="#666666" />
+
+
+        <com.zhjl.qihao.view.MRadioButton
+            android:id="@+id/rbHaoping"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableRight="@drawable/selector_dplb"
+            android:gravity="center"
+            android:paddingLeft="20dp"
+            android:paddingRight="30dp"
+            android:text="好评"
+            android:textColor="@drawable/selector_dplb_textcolor"
+            android:textSize="16sp"
+            android:textStyle="normal" />
+
+        <View
+            android:layout_width="2dp"
+            android:layout_height="26dp"
+            android:layout_gravity="center_vertical"
+            android:background="#666666" />
+
+        <com.zhjl.qihao.view.MRadioButton
+            android:id="@+id/rbXiaoliang"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableRight="@drawable/selector_dplb"
+            android:gravity="center"
+            android:paddingLeft="20dp"
+            android:paddingRight="30dp"
+            android:text="销量"
+            android:textColor="@drawable/selector_dplb_textcolor"
+            android:textSize="16sp"
+            android:textStyle="normal" />
+
+
+    </RadioGroup>
+
+    <com.handmark.pulltorefresh.library.PullToRefreshListView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <include layout="@layout/data_no" />
+</LinearLayout>

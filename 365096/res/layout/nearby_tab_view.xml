@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+
+    <LinearLayout
+        android:id="@+id/ll_tab_bg"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minHeight="6dp"
+        android:layout_marginBottom="2dp"
+        android:layout_alignBottom="@+id/tv_tab_title"
+        android:background="@color/new_theme_color"
+        >
+
+    </LinearLayout>
+    <TextView
+        android:id="@+id/tv_tab_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="16sp"
+        android:padding="0dp"
+        android:minHeight="0dp"
+        android:minWidth="0dp"
+        android:includeFontPadding="false"
+        android:text=""
+        android:textColor="@color/text_color_f1"
+        />
+</RelativeLayout
+>

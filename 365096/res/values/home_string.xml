@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingTranslation" >
+    <string name="visitor_name1">请输入访客</string>
+    <string name="visitor_num1">请添加访客人数</string>
+    <string name="visitor_valid_time">有效时间最长只能选择72小时</string>
+    <string name="visitor_property">请选择到访物业</string>
+    
+    <string name="delivery_reason">请输入放行缘由</string>
+    <string name="delivery_goods">请输入放行物品</string>
+    <string name="delivery_number">请增加放行数量</string>
+    
+    <string name="shop_addr_lable">店铺地址:</string>
+    <string name="deliver_mode">送货方式:</string>
+    <string name="home_delivery">送货上门</string>
+    <string name="home_delivery_fee">送货上门(加%s元)</string>
+    <string name="shop_delivery">到店提货</string>
+    
+    <string name="home_promotion_lable">促销价:</string>
+    
+<!--     <string name="wallet_prompt1">为了您的财产安全,请您配合我们填写您的信息!</string> -->
+    <string name="wallet_prompt1">为了您的财产安全，请您配合我们完善您的信息！身份证与姓名必须与身份证上一致，否则余额无法退回到您的银行卡，我们概不负责</string>
+    <string name="wallet_hint1">请您输入您的身份证上的姓名</string>
+    <string name="wallet_hint2">请输入您的身份证号码</string>
+    <string name="wallet_hint3">请再次输入您的身份证号码</string>
+    <string name="wallet_hint_code">请输入收到的6位数字</string>
+    <string name="wallet_identity_info">身份证信息</string>
+    
+    <string name="wallet_phone_code">请输入您的手机验证码:</string>
+    <string name="wallet_set_pay_pwd">请设置支付密码:</string>
+    <string name="wallet_pay_pwd_hint">请输入</string>
+    <string name="wallet_set_pay_pwd2">请再次设置支付密码:</string>
+    <string name="wallet_drawmoney_price">转出金额:</string>
+    <string name="wallet_drawmoney_price_hint">请输入转出金额</string>
+    
+    <string name="wallet_select_bank_card">请选择银行卡:</string>
+</resources>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    style="@style/root_layout_style" >
+
+	<include layout="@layout/header_bar"/>
+    <RadioGroup
+        android:id="@+id/group"
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/round_white_blue_style"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="1px" >
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="36dp"
+            android:background="@color/top_color" />
+
+        <RadioButton
+            android:id="@+id/suround"
+            android:layout_width="0dp"
+            android:layout_height="36dp"
+            android:layout_weight="1"
+            android:background="@drawable/order_sales_bn_style"
+            android:button="@null"
+            android:gravity="center"
+            android:text="全部订单"
+            android:textColor="@drawable/white_1c81f3_style" />
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="36dp"
+            android:background="@color/top_color" />
+
+        <RadioButton
+            android:id="@+id/sales"
+            android:layout_width="0dp"
+            android:layout_height="36dp"
+            android:layout_weight="1"
+            android:background="@drawable/order_sales_bn_style"
+            android:button="@null"
+            android:gravity="center"
+            android:text="退款/售后"
+            android:textColor="@drawable/white_1c81f3_style" />
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="36dp"
+            android:background="@color/top_color" />
+    </RadioGroup>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/shop_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+    </android.support.v4.view.ViewPager>
+
+</LinearLayout>

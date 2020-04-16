@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    style="@style/root_layout_style" >
+
+ 	<include layout="@layout/header_bar"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="4dip" >
+
+        <RadioGroup
+            android:id="@+id/rg_my_activity"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:orientation="horizontal" >
+
+            <RadioButton
+                android:id="@+id/rb_create_activity"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/btn_login_mode"
+                android:button="@null"
+                android:drawablePadding="-28dp"
+                android:gravity="center"
+                android:text="我参与的"
+                android:textColor="@color/text_login_mode_color"
+                android:textSize="16sp" />
+
+            <RadioButton
+                android:id="@+id/rb_join_activity"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/btn_login_mode"
+                android:button="@null"
+                android:drawablePadding="-28dp"
+                android:gravity="center"
+                android:text="我发起的"
+                android:textColor="@color/text_login_mode_color"
+                android:textSize="16sp" />
+        </RadioGroup>
+
+        <LinearLayout
+            android:id="@+id/ll_activity_area"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:orientation="vertical" >
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

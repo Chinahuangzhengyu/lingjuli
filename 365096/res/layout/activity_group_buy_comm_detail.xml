@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_color"
+    android:clipChildren="false"
+    android:orientation="vertical"
+    tools:context=".groupbuy.GroupBuyCommDetailActivity">
+
+    <include
+        layout="@layout/zq_layout_spxq_show"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/opengroup"
+        android:layout_below="@+id/fake_status_bar" />
+
+    <View
+        android:id="@+id/fake_status_bar"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_alignParentTop="true" />
+
+    <!-- 返回  -->
+    <RelativeLayout
+        android:id="@+id/back"
+        android:layout_width="31dp"
+        android:layout_height="31dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="27dp"
+        android:background="@drawable/shape_groupbuy_back">
+
+        <ImageView
+            android:layout_width="9dp"
+            android:layout_height="18dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/baifanhui" />
+
+    </RelativeLayout>
+
+    <!-- 立即开团 -->
+    <TextView
+        android:id="@+id/opengroup"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/ffec0606"
+        android:gravity="center"
+        android:text="立即开团"
+        android:textColor="@color/font_white"
+        android:textSize="18sp" />
+
+</RelativeLayout>

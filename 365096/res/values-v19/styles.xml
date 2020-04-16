@@ -1,0 +1,19 @@
+<resources>
+
+    <!--
+        Base application theme for API 14+. This theme completely replaces
+        AppBaseTheme from BOTH res/values/styles.xml and
+        res/values-v11/styles.xml on API 14+ devices.
+    --><!-- API 14 theme customizations can go here. -->
+ <style name="AppBaseTheme" parent="@style/Theme.AppCompat.Light.NoActionBar">
+     <item name="android:windowNoTitle">true</item>
+     <item name="android:windowContentOverlay">@null</item>
+     <item name="android:windowBackground">@color/white</item>
+     <item name="android:windowAnimationStyle">@style/activityAnimation</item>
+     <item name="android:textColor">@color/money_tree_text2</item>
+     <item name="android:textSize">@dimen/money_tree_title_item_text_size</item>
+     <item name="cpbStyle">@style/CircularProgressBar</item>
+     <item name="android:windowIsTranslucent">false</item>
+    </style>
+
+</resources>

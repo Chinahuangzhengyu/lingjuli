@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/root_layout_style">
+
+    <include layout="@layout/header_bar" />
+
+    <!-- 广告图片 -->
+    <!-- ViewPager是一个控件 -->
+
+    <ScrollView
+        android:id="@+id/pull_to_scroll"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@color/gray"
+                android:padding="2dp"
+                android:orientation="vertical" >
+
+                <LinearLayout 
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:orientation="horizontal">
+                    
+                    <TextView android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textSize="16sp"
+                        android:background="#F9FAF6"
+                        android:layout_marginRight="2dp"
+                        android:text="资金总额"/>
+                    
+                    <TextView android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textSize="16sp"
+                        android:background="#F9FAF6"
+                        android:layout_marginRight="2dp"
+                        android:text="可用金额"/>
+                    
+                    <TextView android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textSize="16sp"
+                        android:background="#F9FAF6"
+                        android:text="冻结金额"/>
+                    
+                </LinearLayout>
+                
+                <LinearLayout 
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="2dp"
+                    android:orientation="horizontal">
+                    
+                    <TextView android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        
+                        android:background="@color/white"
+                        android:layout_marginRight="2dp"
+                        style="@style/money_tree_text_orange"
+                        android:text="15000.00元"/>
+                    
+                    <TextView android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        style="@style/money_tree_text_orange"
+                        android:background="@color/white"
+                        android:layout_marginRight="2dp"
+                        android:text="15000.00元"/>
+                    
+                    <TextView android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        style="@style/money_tree_text_orange"
+                        android:background="@color/white"
+                        android:text="15000.00元"/>
+                    
+                </LinearLayout>
+                
+                
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.zhjl.qihao.view.CustomListView
+                    android:id="@+id/list_financia_records"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/gray">
+                    
+                </com.zhjl.qihao.view.CustomListView>
+
+            </RelativeLayout>
+        </LinearLayout>
+        
+        
+        
+    </ScrollView>
+
+</LinearLayout>

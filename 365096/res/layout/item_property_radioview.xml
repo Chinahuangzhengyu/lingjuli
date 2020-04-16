@@ -1,0 +1,46 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" 
+    android:orientation="vertical"
+    android:layout_height="wrap_content">
+	<RelativeLayout 
+	    android:id="@+id/layout"
+	    android:layout_width="fill_parent"
+	    android:layout_height="40dp"
+	    android:gravity="center" >
+	
+	    <ImageView
+	        android:id="@+id/play_voice_img"
+	        android:layout_width="24dp"
+	        android:layout_height="24dp"
+	        android:layout_centerVertical="true"
+	        android:layout_marginLeft="16dp"
+	        android:layout_marginRight="8dp"
+	        android:src="@drawable/play_ico" />
+	
+	    <SeekBar
+	        android:id="@+id/seekbar"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_centerVertical="true"
+	        android:layout_gravity="center"
+	        android:layout_toLeftOf="@+id/img_delete"
+	        android:layout_toRightOf="@+id/play_voice_img"
+	        android:progressDrawable="@drawable/progress_holo_light"
+	        android:thumb="@drawable/detail_icon_schedule_ball" />
+	
+	    <ImageView
+	        android:id="@+id/img_delete"
+	        android:layout_width="24dp"
+	        android:layout_height="24dp"
+	        android:layout_alignParentRight="true"
+	        android:layout_centerVertical="true"
+	        android:layout_marginLeft="8dp"
+	        android:layout_marginRight="16dp"
+	        android:background="@drawable/img_delet" />
+	
+	</RelativeLayout>
+	<TextView
+	        android:layout_width="fill_parent"
+	        android:layout_height="1px"
+	        android:background="#E2E2E2" />
+</LinearLayout>

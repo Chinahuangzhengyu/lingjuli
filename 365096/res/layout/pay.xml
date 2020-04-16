@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+    
+    <TextView
+        android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:text="通过微信支付"/>
+    
+    <Button
+        android:id="@+id/pay_btn"
+       android:layout_width="fill_parent"
+    android:layout_height="40dp"
+    android:background="@drawable/btn_blue"
+	    android:layout_margin="10dp"
+        android:text="通过微信支付"/>
+    
+    <Button
+        android:id="@+id/check_pay_btn"
+     android:layout_width="fill_parent"
+    android:layout_height="40dp"
+    android:background="@drawable/btn_blue"
+	    android:layout_margin="10dp"
+        android:text="检查是否支持微信支付"/>
+
+</LinearLayout>

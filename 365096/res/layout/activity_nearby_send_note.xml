@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white">
+    <RelativeLayout
+        android:id="@+id/rl_head"
+        android:layout_width="match_parent"
+        android:layout_height="44dp">
+        <ImageView
+            android:id="@+id/img_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:padding="14dp"
+            android:src="@drawable/iv_back"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textSize="18sp"
+            android:text="发帖子"
+            android:textColor="@color/text_color_f1"
+            />
+        <TextView
+            android:id="@+id/tv_send_note"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="发布"
+            android:textColor="@color/white"
+            android:paddingLeft="20dp"
+            android:paddingTop="6dp"
+            android:enabled="false"
+            android:paddingBottom="6dp"
+            android:textSize="16sp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="14dp"
+            android:layout_centerVertical="true"
+            android:paddingRight="20dp"
+            android:alpha="0.4"
+            android:background="@drawable/circle_gradient_green_22"
+            />
+    </RelativeLayout>
+    <ScrollView
+        android:layout_below="@+id/rl_head"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        android:layout_marginTop="20dp"
+        android:overScrollMode="never"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="14dp"
+            android:layout_marginRight="14dp"
+            >
+
+            <EditText
+                android:id="@+id/et_send_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lineHeight="22dp"
+                android:inputType="text|textMultiLine"
+                android:background="@null"
+                android:textSize="16sp"
+                android:lines="4"
+                android:minLines="1"
+                android:minHeight="70dp"
+                android:gravity="start"
+                android:hint="动动手分享你的美好生活~"
+                android:textColor="@color/text_color_f1"
+                />
+
+            <com.zhjl.qihao.abrefactor.view.GridViewForScrollView
+                android:id="@+id/gv_upload_img"
+                android:layout_width="match_parent"
+                android:layout_marginTop="60dp"
+                android:numColumns="3"
+                android:verticalSpacing="10dp"
+                android:scrollbars="none"
+                android:horizontalSpacing="10dp"
+                android:layout_marginBottom="60dp"
+                android:layout_height="wrap_content">
+
+            </com.zhjl.qihao.abrefactor.view.GridViewForScrollView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="添加标签（必选）"
+                android:textSize="18sp"
+                android:textColor="@color/text_color_f1"
+                android:textStyle="bold"
+                android:drawableLeft="@drawable/img_note_tag"
+                android:drawablePadding="10dp"
+                />
+            <com.zhjl.qihao.abrefactor.view.CustomRadioGroup
+                android:id="@+id/rg_note_tag"
+                android:layout_width="match_parent"
+                android:layout_marginTop="20dp"
+                app:width_space = "16dp"
+                app:height_space="16dp"
+                android:layout_height="wrap_content">
+
+            </com.zhjl.qihao.abrefactor.view.CustomRadioGroup>
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

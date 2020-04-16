@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <include layout="@layout/ab_header_bar"></include>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="14dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:text="商品打分"
+                android:textColor="@color/text_color_f1"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/view_line"></View>
+
+            <RadioGroup
+                android:id="@+id/rg_evaluate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="14dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="14dp"
+                android:layout_marginBottom="14dp"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/rb_check_good"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/transparent"
+                    android:button="@null"
+                    android:checked="true"
+                    android:drawableRight="@drawable/car_choose_status"
+                    android:drawablePadding="10dp"
+                    android:gravity="center"
+                    android:text="好评"
+                    android:textColor="@color/text_color_f1"
+                    android:textSize="16sp" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1"></View>
+
+                <RadioButton
+                    android:id="@+id/rb_check_middle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/transparent"
+                    android:button="@null"
+                    android:drawableRight="@drawable/car_choose_status"
+                    android:drawablePadding="10dp"
+                    android:gravity="center"
+                    android:text="中评"
+                    android:textColor="@color/text_color_f1"
+                    android:textSize="16sp" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1"></View>
+
+                <RadioButton
+                    android:id="@+id/rb_check_bad"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/transparent"
+                    android:button="@null"
+                    android:drawableRight="@drawable/car_choose_status"
+                    android:drawablePadding="10dp"
+                    android:gravity="center"
+                    android:text="差评"
+                    android:textColor="@color/text_color_f1"
+                    android:textSize="16sp" />
+            </RadioGroup>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/view_line"></View>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="14dp"
+                android:layout_marginTop="16dp"
+                android:text="商品评价"
+                android:textColor="@color/text_color_f1"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/et_repair_content"
+                android:layout_width="match_parent"
+                android:layout_height="156dp"
+                android:layout_marginLeft="14dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="14dp"
+                android:background="@drawable/circle_viewline_6"
+                android:gravity="start"
+                android:hint="请输入您的评价"
+                android:paddingLeft="16dp"
+                android:paddingTop="10dp"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="14dp"
+                android:layout_marginTop="16dp"
+                android:text="上传图片"
+                android:textColor="@color/text_color_f1"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <com.zhjl.qihao.abrefactor.view.GridViewForScrollView
+                android:id="@+id/gv_upload_evaluate_img"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="14dp"
+                android:layout_marginTop="10dp"
+                android:verticalSpacing="10dp"
+                android:horizontalSpacing="10dp"
+                android:layout_marginRight="14dp"
+                android:listSelector="@color/transparent"
+                android:numColumns="3"></com.zhjl.qihao.abrefactor.view.GridViewForScrollView>
+        </LinearLayout>
+
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_submit"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="14dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginRight="14dp"
+            android:layout_marginBottom="4dp"
+            android:background="@drawable/circle_green_22"
+            android:text="提交"
+            android:textColor="@color/color_white"
+            android:textSize="18sp" />
+    </LinearLayout>
+</LinearLayout>

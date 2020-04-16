@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+    <include layout="@layout/ab_header_bar"></include>
+
+    <GridView
+        android:id="@+id/gv_shop_type"
+        android:layout_width="match_parent"
+        android:layout_marginTop="16dp"
+        android:listSelector="@color/transparent"
+        android:layout_marginLeft="14dp"
+        android:layout_marginRight="14dp"
+        android:verticalSpacing="10dp"
+        android:numColumns="4"
+        android:layout_height="match_parent"></GridView>
+</LinearLayout>

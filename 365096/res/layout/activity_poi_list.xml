@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/root_layout_style"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/ab_header_bar" />
+
+    <include layout="@layout/ab_layout_space" />
+
+    <com.handmark.pulltorefresh.library.PullToRefreshListView
+        android:id="@+id/list_poi"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_margin="3dp"
+        android:layout_weight="1"
+        android:cacheColorHint="@null"
+        android:dividerHeight="1px"
+        android:scrollbarStyle="outsideInset"
+        android:scrollbars="none"/>
+
+    <TextView
+        android:id="@+id/tx_message"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:text="暂无数据"
+        android:textColor="#1a1a1a"
+        android:textSize="14sp"
+        android:visibility="gone" />
+
+</LinearLayout>

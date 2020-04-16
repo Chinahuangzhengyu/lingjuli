@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    android:orientation="vertical" >
+    
+
+    <RelativeLayout android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        
+        <TextView
+            android:id="@+id/tv_statement_lable" 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="声明："
+            style="@style/common_text_style_orangle_4"/>
+        
+        <TextView android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/tv_statement_lable"
+            android:text="我们将以客观、公正的原则，并最大程度地核实借入者的真实性，但保证审核信息100%真实。如果借入者长期逾期，其提供的信息将会被公布。"
+            style="@style/common_text_style_orangle_4"/>
+        
+        
+        
+    </RelativeLayout>
+    
+    
+    <GridView 
+        android:id="@+id/gv_authenticate"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
+        android:numColumns="4">
+        
+    </GridView>
+    
+    
+    
+</LinearLayout>

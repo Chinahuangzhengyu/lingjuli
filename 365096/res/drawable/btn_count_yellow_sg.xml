@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+	<item android:state_pressed="true">
+        <shape android:shape="rectangle">
+		    
+		    <!-- 填充颜色 -->
+		    <solid android:color="@color/fffd9e44"></solid>
+		    <!-- 线的宽度，颜色灰色 -->
+		    <stroke android:width="2px" android:color="@color/fffd9e44"></stroke>
+		    <corners android:radius="13dp" />
+		    
+		</shape>
+    </item>
+    <item android:state_checked="true" >
+        <shape android:shape="rectangle">
+		    
+		    <!-- 填充颜色 -->
+		    <solid android:color="@color/fffd9e44"></solid>
+		    <!-- 线的宽度，颜色灰色 -->
+		    <stroke android:width="2px" android:color="@color/fffd9e44"></stroke>
+		    <corners android:radius="13dp" />
+		    
+		</shape>
+    </item>
+    <item>
+        <shape android:shape="rectangle">
+		    
+		    <!-- 填充颜色 -->
+		    <solid android:color="@color/ff999999"></solid>
+		    <!-- 线的宽度，颜色灰色 -->
+		    <stroke android:width="2px" android:color="@color/ff999999"></stroke>
+		    <corners android:radius="13dp" />
+		    
+		</shape>
+    </item>
+</selector>

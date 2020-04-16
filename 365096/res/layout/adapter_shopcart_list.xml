@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape_shoppingcart_child"
+    android:layout_marginBottom="10dp"
+    android:padding="12dp">
+
+
+    <CheckBox
+        android:id="@+id/check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:button="@drawable/selector_checkbox"
+        android:padding="5dp"
+        android:text=" " />
+    <!--</RelativeLayout>-->
+
+    <ImageView
+        android:id="@+id/i"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/check" />
+
+    <TextView
+        android:id="@+id/shop_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/i"
+        android:layout_marginLeft="15dp"
+        android:layout_toRightOf="@+id/i"
+        android:text="韩国风衣"
+        android:textColor="@color/ff333333"
+        android:textSize="16sp" />
+
+
+    <TextView
+        android:id="@+id/price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/i"
+        android:layout_marginLeft="15dp"
+        android:layout_toRightOf="@+id/i"
+        android:text="150"
+        android:textColor="@color/red_font"
+        android:textSize="14sp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/i"
+        android:layout_alignParentRight="true"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/delete"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/i_delete"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:src="@drawable/jia_hui" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/num"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:maxLines="1"
+            android:text="10"
+            android:textSize="25sp" />
+
+
+        <LinearLayout
+            android:id="@+id/add"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/i_add"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:src="@drawable/jia_hei" />
+
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

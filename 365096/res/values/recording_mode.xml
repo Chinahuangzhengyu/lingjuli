@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools"
+	tools:ignore="MissingTranslation" >
+	<string-array name="recording_mode">
+	    <item>Off</item>
+		<item>Full Time</item>
+		<item>ALARM</item>
+	</string-array>
+</resources>

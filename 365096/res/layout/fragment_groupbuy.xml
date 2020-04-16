@@ -1,0 +1,137 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/color_e8ebf0"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/rl_head"
+            android:layout_width="fill_parent"
+            android:layout_height="30dp"
+            android:background="#ff7f7f"
+            android:orientation="vertical" >
+
+            <TextView
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:paddingRight="20dp"
+                android:id="@+id/tv_head_navigation"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:gravity="center"
+                android:text="下期预告：暂无"
+                android:textColor="#ffffff"
+                android:textSize="13sp" >
+            </TextView>
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="8dp"
+                android:background="@drawable/img_enter_arrow" />
+        </RelativeLayout>
+
+        <RadioGroup
+            android:id="@+id/rg_group_buy"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:background="@color/white"
+            android:orientation="horizontal" >
+
+            <RadioButton
+                android:id="@+id/rb_choice"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:button="@null"
+                android:checked="true"
+                android:gravity="center"
+                android:paddingBottom="8dp"
+                android:paddingTop="8dp"
+                android:text="精选"
+                android:textColor="@drawable/shop_radio_textcolor" />
+
+            <RadioButton
+                android:id="@+id/rb_amount"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:button="@null"
+                android:gravity="center"
+                android:paddingBottom="8dp"
+                android:paddingTop="8dp"
+                android:text="销量"
+                android:textColor="@drawable/shop_radio_textcolor" />
+
+            <RadioButton
+                android:id="@+id/rb_hot"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:button="@null"
+                android:gravity="center"
+                android:paddingBottom="8dp"
+                android:paddingTop="8dp"
+                android:text="人气"
+                android:textColor="@drawable/shop_radio_textcolor" />
+
+            <RadioButton
+                android:id="@+id/rb_price"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:button="@null"
+                android:gravity="center"
+                android:paddingBottom="8dp"
+                android:paddingTop="8dp"
+                android:text="价格"
+                android:textColor="@drawable/shop_radio_textcolor" />
+        </RadioGroup>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="@color/gray" />
+
+        <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" >
+
+            <com.handmark.pulltorefresh.library.PullToRefreshListView
+                android:id="@+id/list_group_buy"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="#e8ebf0"
+                android:descendantFocusability="blocksDescendants"            
+                android:fadingEdge="none"
+                android:fastScrollEnabled="false"
+                android:divider="@null"
+                android:scrollbars="none"
+                android:smoothScrollbar="true" >
+            </com.handmark.pulltorefresh.library.PullToRefreshListView>
+
+            <TextView
+                android:id="@+id/tx_empty_message"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:text="暂无团购商品"
+                android:textColor="#1a1a1a"
+                android:textSize="14sp"
+                android:visibility="gone" />
+        </FrameLayout>
+    </LinearLayout>
+
+</LinearLayout>

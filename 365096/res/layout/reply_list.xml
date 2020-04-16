@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/rl_item"
+    android:layout_marginTop="20dp"
+    >
+
+
+    <com.zhjl.qihao.view.CircleImageView
+        android:id="@+id/img_head"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_marginLeft="14dp"
+         />
+
+    <LinearLayout
+        android:id="@+id/ll_title"
+        android:layout_width="match_parent"
+        android:layout_toRightOf="@+id/img_head"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:layout_toLeftOf="@+id/img_complaint"
+        android:orientation="horizontal"
+        >
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:maxWidth="300dp"
+        android:text=""
+        android:textColor="@color/text_color_f1"
+        android:textSize="14sp" />
+    <TextView
+        android:id="@+id/tv_tag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="4dp"
+        android:paddingRight="4dp"
+        android:paddingTop="2dp"
+        android:paddingBottom="2dp"
+        android:text="作者"
+        android:background="@drawable/circle_gradient_green_2"
+        android:textColor="@color/white"
+        android:visibility="gone"
+        android:textSize="10sp"
+        />
+    </LinearLayout>
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ll_title"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginRight="10dp"
+        android:layout_toLeftOf="@+id/img_complaint"
+        android:layout_toRightOf="@+id/img_head"
+        android:text=""
+        android:textColor="@color/bbbbbb"
+        android:textSize="12sp" />
+
+    <ImageView
+        android:id="@+id/img_complaint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="10dp"
+        android:paddingRight="14dp"
+        android:src="@drawable/img_complaint" />
+
+    <TextView
+        android:id="@+id/tv_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_time"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="14dp"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@+id/img_head"
+        android:ellipsize="end"
+        android:maxLines="4"
+        android:textColor="@color/text_color_f1"
+        android:textSize="16sp" />
+
+
+
+</RelativeLayout>

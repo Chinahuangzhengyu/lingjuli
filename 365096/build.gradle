@@ -1,0 +1,266 @@
+apply plugin: 'com.android.application'
+apply plugin: 'org.greenrobot.greendao' // apply plugin
+android {
+/*安装不同的cup指令打包*/
+    signingConfigs {
+        debug {
+            keyAlias '七好零距离'
+            keyPassword 'zhjl365096'
+            storeFile file('D:/qihaolingjuli.jks')
+            storePassword 'zhjl365096'
+        }
+        release {
+            keyAlias '七好零距离'
+            keyPassword 'zhjl365096'
+            storeFile file('D:/qihaolingjuli.jks')
+            storePassword 'zhjl365096'
+        }
+    }
+//    splits {
+//        abi {
+//            enable true
+//            reset()
+////            include 'x86', 'x86_64', 'armeabi-v7a', 'armeabi'
+//            include 'armeabi-v7a'
+//            universalApk false
+//        }
+//    }
+
+
+    /*多渠道打包*/
+    productFlavors {
+
+        huawei {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "huawei"]
+        }
+        baidu {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "baidu"]
+        }
+        c360 {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "c360"]
+        }
+        yingyongbao {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "yingyongbao"]
+        }
+        wandoujia {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "wandoujia"]
+        }
+        xiaomi {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "xiaomi"]
+        }
+        vivo {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "vivo"]
+        }
+        oppo {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "oppo"]
+        }
+        yyb_lingjuli {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "yyb_lingjuli"]
+        }
+
+
+    }
+    compileSdkVersion 28
+    useLibrary 'org.apache.http.legacy'
+    defaultConfig {
+        applicationId "com.zhjl.qihao"
+        minSdkVersion 17
+        targetSdkVersion 28
+        versionCode = 1
+        versionName = "1.6.0"
+        flavorDimensions "versionCode"
+//        buildConfigField("String", "API_HOST", "\"http://120.27.221.45\"")
+        multiDexEnabled true                    //突破应用方法数65535的一个限制
+
+        ndk {
+            //选择要添加的对应 cpu 类型的 .so 库。
+            abiFilters 'armeabi', 'armeabi-v7a', 'arm64-v8a'
+//
+            // 还可以添加 'x86', 'x86_64', 'mips', 'mips64,'armeabi-v7a''
+        }
+        manifestPlaceholders = [
+                JPUSH_PKGNAME: applicationId,
+                JPUSH_APPKEY : "73193d7f2ac477be7914a54f", //JPush 上注册的包名对应的 Appkey.
+                JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
+        ]
+        dexOptions {
+            javaMaxHeapSize "2g"
+        }
+    }
+    compileOptions {        //开启java8  Lambda表达式
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    aaptOptions.cruncherEnabled = false
+    aaptOptions.useNewCruncher = false
+    sourceSets {
+//        packagingOptions {
+//            exclude 'META-INF/DEPENDENCIES.txt'
+//            exclude 'META-INF/LICENSE.txt'
+//            exclude 'META-INF/NOTICE.txt'
+//            exclude 'META-INF/NOTICE'
+//            exclude 'META-INF/LICENSE'
+//            exclude 'META-INF/DEPENDENCIES'
+//            exclude 'META-INF/notice.txt'
+//            exclude 'META-INF/license.txt'
+//            exclude 'META-INF/dependencies.txt'
+//            exclude 'META-INF/LGPL2.1'
+//
+//        }
+        main {
+            manifest.srcFile 'AndroidManifest.xml'
+            java.srcDirs = ['src']
+            resources.srcDirs = ['src']
+            aidl.srcDirs = ['src']
+            renderscript.srcDirs = ['src']
+            res.srcDirs = ['res']
+            assets.srcDirs = ['assets']
+            jniLibs.srcDirs = ['libs']
+        }
+
+        // Move the tests to tests/java, tests/res, etc...
+        androidTest.setRoot('tests')
+
+        // Move the build types to build-types/<type>
+        // For instance, build-types/debug/java, build-types/debug/AndroidManifest.xml, ...
+        // This moves them out of them default location under src/<type>/... which would
+        // conflict with src/ being used by the main source set.
+        // Adding new build types or product flavors should be accompanied
+        // by a similar customization.
+        debug.setRoot('build-types/debug')
+        release.setRoot('build-types/release')
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true//移除无用资源
+            buildConfigField "boolean", "LOG_DEBUG", "false" //不显示log
+//            buildConfigField("String", "API_HOST", "\"http://tj.qihaolingjuli.com\"")
+//            buildConfigField("String", "JAVA_PORT_NUMBER", "\"\"")
+//            buildConfigField("String", "PHP_API_HOST", "\"http://tp.qihaolingjuli.com\"")
+//            buildConfigField("String", "PHT_PORT_NUMBER", "\"\"")
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard.cfg'
+        }
+        debug {
+            minifyEnabled false
+            shrinkResources false//移除无用资源
+//            buildConfigField("String", "API_HOST", "\"http://47.105.215.157\"")
+//            buildConfigField("String", "JAVA_PORT_NUMBER", "\":8081\"")
+//            buildConfigField("String", "API_HOST", "\"http://tj.qihaolingjuli.com\"")
+//            buildConfigField("String", "JAVA_PORT_NUMBER", "\"\"")
+//            buildConfigField("String", "PHP_API_HOST", "\"http://tp.qihaolingjuli.com\"")
+//            buildConfigField("String", "PHT_PORT_NUMBER", "\"\"")
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard.cfg'
+        }
+    }
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+        maven { url "https://jitpack.io" }
+    }
+    lintOptions {
+        abortOnError false
+        disable 'InvalidPackage'
+    }
+    packagingOptions {
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/INDEX.LIST'
+        exclude 'META-INF/services/javax.annotation.processing.Processor'
+
+        exclude 'META-INF/DEPENDENCIES.txt'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/LGPL2.1'
+
+//        exclude 'META-INF/rxjava.properties'
+    }
+
+}
+
+dependencies {
+    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
+    compile fileTree(include: '*.jar', dir: 'libs')
+    compile project(':floatingbuttonlibrary')
+    compile 'com.android.support:multidex:1.0.2'
+    implementation files('libs/Msc.jar')
+    implementation project(':xrecyclerview')
+    compile 'de.greenrobot:eventbus:2.4.0'
+    compile 'io.reactivex:rxandroid:1.2.1'
+    // ButterKnife  注解
+    implementation 'com.jakewharton:butterknife:8.4.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
+    // Retrofit2 以及相关
+    implementation 'com.squareup.retrofit2:retrofit-converters:2.4.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
+    implementation 'com.squareup.retrofit2:converter-scalars:2.4.0'
+    implementation 'com.squareup.retrofit2:retrofit:2.4.0'
+    //rxjava2
+//    implementation "io.reactivex.rxjava2:rxjava:2.1.1"
+//    implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
+//    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
+
+    // adapter
+    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.40'
+    implementation files('libs/volley.jar')
+    //检查内存泄漏
+    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.6.1'
+    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.1'
+    implementation files('libs/alipaySdk-20170623-proguard.jar')
+    implementation 'org.greenrobot:greendao:3.2.2'
+    // add library
+    //glide
+    implementation('com.github.bumptech.glide:glide:4.8.0') {
+        exclude group: 'com.android.support', module: 'support-annotations'
+        exclude group: 'com.android.support', module: 'support-fragment'
+    }
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.8.0'
+    implementation('com.github.chrisbanes:PhotoView:1.2.6') {
+        exclude group: 'com.android.support', module: 'support-v4'
+        exclude group: 'com.android.support', module: 'support-annotations'
+    }
+    //时间选择器
+    implementation 'com.contrarywind:Android-PickerView:4.1.8'
+    implementation files('libs/BaiduLBS_Android.jar')
+    implementation('com.haibin:calendarview:3.6.6') {
+        exclude group: 'com.android.support', module: 'appcompat-v7'
+        exclude group: 'com.android.support', module: 'recyclerview-v7'
+    }
+//    implementation('com.github.JuHonggang:ShadowDrawable:0.1') {
+//        exclude group: 'com.android.support', module: 'appcompat-v7'
+//    }
+    compile project(path: ':verticaltablayout')
+    implementation files('libs/umeng-common-2.1.8.jar')
+    implementation files('libs/umeng-share-core-6.9.6.jar')
+    compile 'cn.jiguang.sdk:jpush:3.5.0'
+    // 此处以JPush 3.4.1 版本为例。
+    compile 'cn.jiguang.sdk:jcore:2.2.4'
+    // 此处以JCore 2.2.4 版本为例。
+    implementation files('libs/michoi_unlock.jar')
+    //今日头条适配
+    //    implementation 'me.jessyan:autosize:0.9.5'
+    //腾讯bugly
+    implementation 'com.tencent.bugly:crashreport:latest.release'
+    implementation 'com.tencent.bugly:nativecrashreport:latest.release'
+    //友盟统计
+    implementation files('libs/SecurityEnvSDK-release-1.1.0.jar')
+    implementation files('libs/umeng-analytics-8.1.4.jar')
+//    implementation ('com.github.HuangGangHust:SlideDrawerHelper:1.0.1'){
+//        exclude group: 'com.android.support', module: 'appcompat-v7'
+//        exclude group: 'com.android.support', module: 'support-annotations'
+//    }
+//    implementation files('libs/utdid4all-1.1.5.3_proguard.jar'){
+//        exclude group: 'com.ta.utdid2.device', module: ''
+//    }
+}
+greendao {
+    schemaVersion 2 //数据库版本号
+    daoPackage 'com.zhjl.qihao.greendao'
+// 设置DaoMaster、DaoSession、Dao 包名
+    targetGenDir 'src'//设置DaoMaster、DaoSession、Dao目录
+}

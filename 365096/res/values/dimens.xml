@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+
+    <!-- 支付相关项 -->
+    <dimen name="pay_item_height">45dp</dimen>
+
+    <dimen name="pay_icon_size">18dp</dimen>
+    <dimen name="pay_icon_margin_left">27dp</dimen>
+
+    <dimen name="pay_rb_paddingLeft">55dp</dimen>
+    <dimen name="pay_rb_paddingRight">22dp</dimen>
+
+    <dimen name="pay_btn_width">75dp</dimen>
+
+    <dimen name="pay_dialog_et_pad_width">35dp</dimen>
+
+
+
+    <!-- 头部高度 -->
+    <dimen name="header_height">44dp</dimen>
+
+
+    <dimen name="head_size">42dp</dimen>
+
+    <dimen name="item_height_common">50dp</dimen>
+    <dimen name="list_item_height_common">66dp</dimen>
+    <dimen name="list_item_margin_left">25dp</dimen>
+    <dimen name="list_item_margin_right">25dp</dimen>
+    <dimen name="list_item_padding_left">25dp</dimen>
+    <dimen name="list_item_padding_right">25dp</dimen>
+    <dimen name="dividerHeight">4dp</dimen>
+    <dimen name="next_size">15dp</dimen>
+
+    <dimen name="big_margin">24dp</dimen>
+    <dimen name="margin_common">16dp</dimen>
+    <dimen name="small_margin">8dp</dimen>
+    <dimen name="xsmall_margin">4dp</dimen>
+
+    <dimen name="icon_size_ex">34dp</dimen>
+    <dimen name="big_icon_size">40dp</dimen>
+    <dimen name="normal_icon_size">30dp</dimen>
+    <dimen name="icon_size">20dp</dimen>
+
+    <dimen name="padding">16dp</dimen>
+    <dimen name="small_padding">8dp</dimen>
+    <dimen name="x_small_padding">4dp</dimen>
+
+    <dimen name="indicator_right_padding">10dp</dimen>
+    <dimen name="indicator_corner_radius">12dp</dimen>
+    <dimen name="indicator_internal_padding">4dp</dimen>
+    <dimen name="header_footer_left_right_padding">24dp</dimen>
+    <dimen name="header_footer_top_bottom_padding">12dp</dimen>
+    <!-- /////////////////////主界面//////////////////////////  -->
+
+    <!--  物业提示高度-->
+    <dimen name="main_msg_tips_height">24dp</dimen>
+    <dimen name="main_property_tips_size">12sp</dimen>
+    <dimen name="main_property_tips_more_size">10sp</dimen>
+
+
+    <!-- 主界面功能块的高度 -->
+    <!--   <dimen name="main_item_height">120dp</dimen>-->
+    <!-- 功能模块的内边距 -->
+    <dimen name="main_item_rl_padding">10dp</dimen>
+    <!-- 功能模块的间隔 -->
+    <dimen name="main_item_view_size">5dp</dimen>
+
+    <!-- 功能项标题大小 -->
+    <dimen name="main_title">16sp</dimen>
+    <dimen name="main_title_des">12sp</dimen>
+    <dimen name="main_item_margin">5dp</dimen>
+
+
+    <dimen name="main_viewpager_height">130dp</dimen>
+    <!-- 图标大小 -->
+    <dimen name="main_item_iv_width">10dp</dimen>
+    <dimen name="main_item_iv_height">10dp</dimen>
+    <dimen name="main_item_iv_width_other">150dp</dimen>
+    <dimen name="zhjl_icon">15dp</dimen>
+
+    <!-- RadioGroup height -->
+    <dimen name="main_radio_group_height">48dp</dimen>
+
+    <!-- /////////////////////主界面//////////////////////////  -->
+    <dimen name="big_title_size">45sp</dimen>
+    <dimen name="title_size">24sp</dimen>
+    <dimen name="sub_title">19sp</dimen>
+    <dimen name="tips_title">16sp</dimen>
+    <dimen name="content">14sp</dimen>
+    <dimen name="default_size">14sp</dimen>
+
+
+    <!-- /////////////////////////发现/////////////////////////////////////// -->
+    <!-- 标题字体大小 -->
+    <dimen name="find_title_size">21sp</dimen>
+    <!-- 标题项字体大小 -->
+    <dimen name="find_title_size_item">19sp</dimen>
+    <!-- 高度 -->
+    <dimen name="find_title_height">48dp</dimen>
+    <!--  项的高度-->
+    <dimen name="find_title_item_height">48dp</dimen>
+    <!-- double项的高度 -->
+    <dimen name="find_title_item_double_height">96dp</dimen>
+
+
+    <!-- /////////////////////////发现/////////////////////////////////////// -->
+
+
+    <!-- //////////////////////////////个人中心//////////////////////////////////// -->
+    <dimen name="person_information_ll_height">188dp</dimen>
+    <dimen name="person_featrues_ll_height">55dp</dimen>
+
+    <!-- 个人资料 -->
+    <!-- 图标 -->
+    <dimen name="my_center_icon">30dp</dimen>
+    <!-- 标题 -->
+    <dimen name="my_center_title_size">16sp</dimen>
+
+    <!-- //////////////////////////////个人中心//////////////////////////////////// -->
+
+
+    <!-- ////////////////////////////摇钱树 //////////////////////////////////-->
+
+    <!-- banner高度 -->
+    <dimen name="money_tree_banner_height">130dp</dimen>
+    <!-- 功能项高度 -->
+    <dimen name="money_tree_features">55dp</dimen>
+    <!-- 字与图标边距 -->
+    <dimen name="money_tree_features_item_text_margin">2dp</dimen>
+    <!-- 功能项图标大小 -->
+    <!-- 图标 -->
+    <dimen name="money_tree_features_item_icon_size">20dp</dimen>
+    <!-- 标题 -->
+    <dimen name="money_tree_features_item_text_size">13sp</dimen>
+
+    <!-- 投资项目  -->
+    <!-- 高度  -->
+    <dimen name="money_tree_project_height">170dp</dimen>
+
+    <dimen name="money_tree_project_title">16sp</dimen>
+    <dimen name="money_tree_project_subtitle">16sp</dimen>
+    <dimen name="money_tree_project_orange_1">16sp</dimen>
+    <dimen name="money_tree_project_gray">14sp</dimen>
+    <dimen name="money_tree_project_gray_2">12sp</dimen>
+
+    <dimen name="property_item_height">118dp</dimen>
+    <!-- ////////////////////////////摇钱树 //////////////////////////////////-->
+    <dimen name="text_10">10sp</dimen>
+    <dimen name="text_12">12sp</dimen>
+    <dimen name="text_14">14sp</dimen>
+    <dimen name="text_16">16sp</dimen>
+    <dimen name="text_18">18sp</dimen>
+    <dimen name="text_20">20sp</dimen>
+    <dimen name="text_22">22sp</dimen>
+    <dimen name="text_24">24sp</dimen>
+    <dimen name="text_26">26sp</dimen>
+    <dimen name="text_28">28sp</dimen>
+    <dimen name="text_30">30sp</dimen>
+    <dimen name="text_32">32sp</dimen>
+    <dimen name="text_40">40sp</dimen>
+
+
+    <dimen name="cpb_default_stroke_width">4dp</dimen>
+    <dimen name="my_text_margin_top">8dp</dimen>
+    <integer name="cpb_default_min_sweep_angle">30</integer>
+    <integer name="cpb_default_max_sweep_angle">300</integer>
+    <item name="cpb_default_sweep_speed" format="float" type="string">1</item>
+    <item name="cpb_default_rotation_speed" format="float" type="string">1</item>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+
+
+</resources>

@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    style="@style/root_layout_style" >
+
+    <include layout="@layout/ab_header_bar"/>
+    <include layout="@layout/ab_layout_space"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:text="请输入转出的银行卡类型"
+                    android:textColor="@color/ff333333"
+                    android:textSize="@dimen/text_14" />
+
+                    <EditText
+                        android:id="@+id/et_drawmoney_bank"
+                        style="@style/list_item_editview"
+                        android:hint="类型 (必填)" />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginStart="58dp"
+                        android:layout_marginEnd="58dp"
+                        android:background="@color/ff999999"/>
+            </LinearLayout>
+
+            <include layout="@layout/ab_layout_space"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:text="请输入转出的银行卡持有人姓名"
+                    android:textColor="@color/ff333333"
+                    android:textSize="@dimen/text_14" />
+
+                <EditText
+                    android:id="@+id/et_bank_card_name"
+                    style="@style/list_item_editview"
+                    android:hint="姓名 (必填)" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="58dp"
+                    android:layout_marginEnd="58dp"
+                    android:background="@color/ff999999"/>
+            </LinearLayout>
+
+            <include layout="@layout/ab_layout_space"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:text="请输入转出的银行卡号"
+                    android:textColor="@color/ff333333"
+                    android:textSize="@dimen/text_14" />
+
+                <EditText
+                    android:id="@+id/et_bank_card_no"
+                    style="@style/list_item_editview"
+                    android:inputType="number"
+                    android:hint="输入银行卡号 (必填)" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="58dp"
+                    android:layout_marginEnd="58dp"
+                    android:background="@color/ff999999"/>
+                <EditText
+                    android:id="@+id/et_confirm_bank_card_no"
+                    style="@style/list_item_editview"
+                    android:inputType="number"
+                    android:hint="确认银行卡号 (必填)"
+                    android:textColorHint="@color/fffd9e44"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="58dp"
+                    android:layout_marginEnd="58dp"
+                    android:background="@color/ff999999"/>
+            </LinearLayout>
+
+            <include layout="@layout/ab_layout_space"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:text="请输入转出银行卡的开户行"
+                    android:textColor="@color/ff333333"
+                    android:textSize="@dimen/text_14" />
+                <TextView
+                    android:id="@+id/tv_open_account_province"
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:background="@drawable/btn_count_bg"
+                    android:drawablePadding="5dp"
+                    android:drawableRight="@drawable/arrow_triangle_down"
+                    android:gravity="center_vertical"
+                    android:hint="省"
+                    android:layout_marginStart="58dp"
+                    android:layout_marginEnd="58dp"
+                    android:textColor="@color/ff666666"
+                    android:textSize="14sp" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="58dp"
+                    android:layout_marginEnd="58dp"
+                    android:background="@color/ff999999"/>
+                <TextView
+                    android:id="@+id/tv_open_account_city"
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:background="@drawable/btn_count_bg"
+                    android:drawablePadding="5dp"
+                    android:drawableRight="@drawable/arrow_triangle_down"
+                    android:gravity="center_vertical"
+                    android:hint="市"
+                    android:layout_marginStart="58dp"
+                    android:layout_marginEnd="58dp"
+                    android:textColor="@color/ff666666"
+                    android:textSize="14sp" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="58dp"
+                    android:layout_marginEnd="58dp"
+                    android:background="@color/ff999999"/>
+                <TextView
+                    android:id="@+id/tv_open_account_district"
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:background="@drawable/btn_count_bg"
+                    android:drawablePadding="5dp"
+                    android:drawableRight="@drawable/arrow_triangle_down"
+                    android:gravity="center_vertical"
+                    android:hint="区"
+                    android:layout_marginStart="58dp"
+                    android:layout_marginEnd="58dp"
+                    android:textColor="@color/ff666666"
+                    android:textSize="14sp" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="58dp"
+                    android:layout_marginEnd="58dp"
+                    android:background="@color/ff999999"/>
+                <EditText
+                    android:id="@+id/et_branch_bank"
+                    style="@style/list_item_editview"
+                    android:hint="行 (必填)" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="58dp"
+                    android:layout_marginEnd="58dp"
+                    android:background="@color/ff999999"/>
+                <TextView
+                    android:id="@+id/et_drawmoney_sum"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginStart="140dp"
+                    android:text="转出银行卡持有人姓名必须与首次验证的身份证的名字一致，否则转出申请失败"
+                    android:textColor="@color/txred"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+
+            <EditText
+                android:id="@+id/et_branch_bank_addr"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:background="@null"
+                android:hint="具体开户行地址详情(可不填)"
+                android:minHeight="36dp"
+                android:paddingLeft="3dip"
+                android:singleLine="true"
+                android:visibility="gone"
+                android:textColor="@color/color_888888"
+                android:textColorHint="@color/font_Lightgray"
+                android:textSize="18sp" />
+
+          <!--  <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:text="请输入你的开户行:"
+                    android:textColor="@color/color_888888"
+                    android:textSize="16sp" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp" >
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp" >
+
+
+                    &lt;!&ndash; <TextView &ndash;&gt;
+                    &lt;!&ndash; android:layout_height="wrap_content" &ndash;&gt;
+                    &lt;!&ndash; android:layout_width="wrap_content" &ndash;&gt;
+                    &lt;!&ndash; android:textSize="18sp" &ndash;&gt;
+                    &lt;!&ndash; android:layout_centerVertical="true" &ndash;&gt;
+                    &lt;!&ndash; android:layout_marginLeft="10dp" &ndash;&gt;
+                    &lt;!&ndash; android:hint="市"/> &ndash;&gt;
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp" >
+
+
+                    &lt;!&ndash; <TextView &ndash;&gt;
+                    &lt;!&ndash; android:layout_height="wrap_content" &ndash;&gt;
+                    &lt;!&ndash; android:layout_width="wrap_content" &ndash;&gt;
+                    &lt;!&ndash; android:textSize="18sp" &ndash;&gt;
+                    &lt;!&ndash; android:layout_centerVertical="true" &ndash;&gt;
+                    &lt;!&ndash; android:layout_marginLeft="10dp" &ndash;&gt;
+                    &lt;!&ndash; android:hint="区"/> &ndash;&gt;
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp" >
+
+                  &lt;!&ndash;  <EditText
+                        android:id="@+id/et_branch_bank"
+                        android:layout_width="match_parent"
+                        android:layout_height="36dp"
+                        android:background="@drawable/btn_count_bg"
+                        android:gravity="center_vertical"
+                        android:hint="行"
+                        android:paddingLeft="12dp"
+                        android:textColor="@color/color_888888"
+                        android:textSize="18sp" />&ndash;&gt;
+                    &lt;!&ndash; <TextView &ndash;&gt;
+                    &lt;!&ndash; android:layout_height="wrap_content" &ndash;&gt;
+                    &lt;!&ndash; android:layout_width="wrap_content" &ndash;&gt;
+                    &lt;!&ndash; android:textSize="18sp" &ndash;&gt;
+                    &lt;!&ndash; android:gravity="center_vertical" &ndash;&gt;
+                    &lt;!&ndash; android:layout_centerVertical="true" &ndash;&gt;
+                    &lt;!&ndash; android:layout_marginLeft="10dp" &ndash;&gt;
+                    &lt;!&ndash; android:hint="行"/> &ndash;&gt;
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/btn_count_bg" >
+
+                    <EditText
+                        android:id="@+id/et_branch_bank_addr"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:background="@null"
+                        android:hint="具体开户行地址详情(可不填)"
+                        android:minHeight="36dp"
+                        android:paddingLeft="3dip"
+                        android:singleLine="true"
+                        android:textColor="@color/color_888888"
+                        android:textColorHint="@color/font_Lightgray"
+                        android:textSize="18sp" >
+
+                        <requestFocus />
+                    </EditText>
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/et_drawmoney_sum"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:gravity="center"
+                    android:text="转出银行卡持有人姓名必须与首次验证的身份证的名字一致，否则转出申请失败"
+                    android:textColor="@color/color_888888"
+                    android:textSize="16sp" />
+            </LinearLayout>-->
+        </LinearLayout>
+    </ScrollView>
+    <Button
+        android:id="@+id/bind_card_btn"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/fffd9e44"
+        android:text="完\u3000成"
+        android:textColor="@color/white"
+        android:textSize="18sp" />
+
+</LinearLayout>

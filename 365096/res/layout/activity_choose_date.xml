@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <include layout="@layout/ab_header_bar"></include>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/img_date_left"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:src="@drawable/img_date_left" />
+
+                    <TextView
+                        android:id="@+id/tv_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/text_color_f1"
+                        android:textSize="16sp" />
+
+                    <ImageView
+                        android:id="@+id/img_date_right"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:src="@drawable/img_date_right" />
+                </LinearLayout>
+
+
+                <com.haibin.calendarview.CalendarView
+                    android:id="@+id/cv_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#F5F6FA"
+                    app:calendar_padding="10dp"
+                    app:calendar_height="46dp"
+                    app:current_month_lunar_text_color="#CFCFCF"
+                    app:current_month_text_color="#333333"
+                    app:min_year="2004"
+                    app:scheme_text="假"
+                    app:scheme_text_color="#333"
+                    app:scheme_theme_color="#333"
+                    app:selected_text_color="#fff"
+                    app:selected_theme_color="#23AC38"
+                    app:week_background="#F5F6FA"
+                    app:day_text_size="14sp"
+                    app:month_view_show_mode="mode_only_current"
+                    app:week_text_color="#1F1F1F"
+                    app:week_text_size="14sp"
+                    app:year_view_day_text_color="#333333"
+                    app:year_view_day_text_size="14sp"
+                    app:year_view_month_text_color="#1F1F1F"
+                    app:year_view_month_text_size="14sp"
+                    app:year_view_scheme_color="#f17706"
+                    app:month_view="com.zhjl.qihao.freshshop.view.CustomMonthView"
+                    app:week_view="com.zhjl.qihao.freshshop.view.CustomWeekView" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="14dp"
+                    android:layout_marginTop="20dp"
+                    android:text="选择时间"
+                    android:textColor="@color/text_color_f1"
+                    android:textSize="16sp" />
+
+                <com.zhjl.qihao.abrefactor.view.GridViewForScrollView
+                    android:id="@+id/gv_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="14dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginRight="14dp"
+                    android:layout_marginBottom="64dp"
+                    android:horizontalSpacing="20dp"
+                    android:listSelector="@color/transparent"
+                    android:numColumns="4"
+                    android:verticalSpacing="16dp"></com.zhjl.qihao.abrefactor.view.GridViewForScrollView>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_cancel"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#f1f1f1"
+            android:gravity="center"
+            android:text="取消"
+            android:textColor="@color/text_color_f1"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_sure"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/color_green"
+            android:gravity="center"
+            android:text="确认"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+</RelativeLayout>
