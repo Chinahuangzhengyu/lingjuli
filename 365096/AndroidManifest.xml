@@ -1213,6 +1213,20 @@
             android:screenOrientation="portrait"
             android:theme="@style/ActivityTheme"
             android:windowSoftInputMode="adjustPan|stateHidden" />
+        <!--房屋管理-->
+        <activity
+            android:name=".homemanage.activity.HomeManageActivity"
+            android:hardwareAccelerated="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <!--入住详情-->
+        <activity
+            android:name=".homemanage.activity.HomeManageDetailActivity"
+            android:hardwareAccelerated="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
     </application>
 
 </manifest>

@@ -507,10 +507,10 @@
                         android:layout_weight="1"
                         android:background="@color/transparent"
                         android:button="@null"
-                        android:drawableTop="@drawable/mine_yq"
+                        android:drawableTop="@drawable/mine_fwgl"
                         android:drawablePadding="6dp"
                         android:gravity="center"
-                        android:text="邀请" />
+                        android:text="房屋管理" />
 
                     <RadioButton
                         android:id="@+id/rb_mine_person"

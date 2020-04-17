@@ -57,6 +57,7 @@
             android:layout_width="match_parent"
             android:layout_below="@+id/ll_name"
             android:layout_marginLeft="8dp"
+            android:gravity="center_vertical"
             android:layout_toRightOf="@+id/img_shop"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -68,13 +69,15 @@
                 android:textSize="14sp"
                 android:textColor="@color/text_color_f1"
                 android:textStyle="bold"
+                android:text=""
                 />
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
+                android:orientation="horizontal"
                 android:visibility="visible"
-                android:background="@drawable/circle_viewline_3"
                 >
                 <TextView
                     android:id="@+id/tv_shop_type"
@@ -83,22 +86,22 @@
                     android:paddingBottom="2dp"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
+                    android:background="@drawable/circle_viewline_3"
                     android:text=""
+                    android:lines="1"
+                    android:ellipsize="end"
                     android:layout_height="wrap_content"
                     android:textSize="12sp"
                     android:textColor="@color/bbbbbb"
                     />
             </LinearLayout>
-            <View
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1"
-                ></View>
+
             <ImageView
                 android:id="@+id/img_delete"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingTop="8dp"
+                android:paddingBottom="8dp"
                 android:paddingRight="12dp"
                 android:paddingLeft="12dp"
                 android:src="@drawable/img_shop_car_delete"

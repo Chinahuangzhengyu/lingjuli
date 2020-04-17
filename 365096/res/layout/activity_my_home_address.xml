@@ -238,16 +238,9 @@
                     android:textSize="16sp"
                     android:textColor="@color/text_color_f1"
                     android:layout_marginTop="16dp"
-                    android:text="上传购房合同（选填）"
+                    android:text="购房合同"
                     />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="房屋备案表、房本照片、房屋合同（房屋信息页、盖章页）三者选其一即可"
-                    android:textColor="@color/ff999999"
-                    android:layout_marginTop="6dp"
-                    android:textSize="14sp"
-                    />
+
 
                 <com.zhjl.qihao.abrefactor.view.GridViewForScrollView
                     android:layout_width="match_parent"
@@ -259,7 +252,7 @@
                     android:horizontalSpacing="70dp"
                     android:layout_marginLeft="34dp"
                     android:layout_marginRight="34dp"
-                    android:layout_marginBottom="4dp"
+                    android:layout_marginBottom="16dp"
                     android:numColumns="2"
                     android:layout_height="wrap_content"></com.zhjl.qihao.abrefactor.view.GridViewForScrollView>
 

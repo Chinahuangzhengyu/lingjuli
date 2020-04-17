@@ -319,12 +319,12 @@ public class NewPhotoMultipleUploadActivity extends VolleyBaseActivity {
 
             builder.addFormDataPart("policy", fileSign.getPolicy());
             builder.addFormDataPart("signature", fileSign.getSignature());
-            builder.addFormDataPart("key", fileSign.getDir() + "/picture_" + System.currentTimeMillis()+i + ".jpg");
+            builder.addFormDataPart("key", fileSign.getDir() + "/picture_" + System.currentTimeMillis() + ".jpg");
             builder.addFormDataPart("ossaccessKeyId", fileSign.getAccessKeyId());
             builder.addFormDataPart("dir", fileSign.getDir());
             builder.addFormDataPart("host", fileSign.getHost());
             builder.addFormDataPart("callback", fileSign.getCallback());
-            builder.addFormDataPart("file",  "picture_" + System.currentTimeMillis() + ".jpg", fileBody);
+            builder.addFormDataPart("file",  fileSign.getDir() +"picture_" + System.currentTimeMillis() + ".jpg", fileBody);
             List<MultipartBody.Part> parts=builder.build().parts();
 //            Map<String, String> stringMap = new LinkedHashMap<>();
 //            stringMap.put("policy", fileSign.getPolicy());
@@ -336,7 +336,7 @@ public class NewPhotoMultipleUploadActivity extends VolleyBaseActivity {
 //            stringMap.put("callback", fileSign.getCallback());
 
 //            Map<String, RequestBody> requestBodyMap = generateRequestBody(stringMap, true, fileBody);
-            Call<ResponseBody> call = service.newNoteUploadPhoto(parts);
+            Call<ResponseBody> call = service.newNoteUploadPhoto(fileSign.getHost(),parts);
             activityRequestData(call, UploadPhotoBean.class, new RequestResult<UploadPhotoBean>() {
                 @Override
                 public void success(UploadPhotoBean result, String message) throws Exception {

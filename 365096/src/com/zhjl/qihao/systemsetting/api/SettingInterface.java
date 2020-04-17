@@ -9,10 +9,14 @@ import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.GET;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.Part;
 import retrofit2.http.PartMap;
+import retrofit2.http.Path;
+import retrofit2.http.QueryMap;
+import retrofit2.http.Url;
 
 import static com.zhjl.qihao.util.UrlChangeUtils.API_HOST;
 import static com.zhjl.qihao.util.UrlChangeUtils.JAVA_PORT_NUMBER;
@@ -37,7 +41,9 @@ public interface SettingInterface {
     //解绑房间
     String UNBUILDING_ROOM = API_HOST + JAVA_PORT_NUMBER + "/api/userRoom/unResident";
     //新帖子图片上传接口
-    String NEW_NOTE_UPLOAD_PHOTO = "https://7hao.oss-cn-beijing.aliyuncs.com";
+//    String NEW_NOTE_UPLOAD_PHOTO = "https://7hao.oss-cn-beijing.aliyuncs.com";
+    //获取入住详情
+    String GET_RESIDENT_DETAIL = API_HOST + JAVA_PORT_NUMBER + "/api/userRoom/detail";
 
     @POST(UPDATE_INFO)
     Call<ResponseBody> updateInfo(@Body RequestBody body);
@@ -69,6 +75,9 @@ public interface SettingInterface {
     Call<ResponseBody> upLoadFiles(@Part("versionTag") RequestBody body, @Part List<MultipartBody.Part> file);
 
     @Multipart
-    @POST(NEW_NOTE_UPLOAD_PHOTO)
-    Call<ResponseBody> newNoteUploadPhoto(@Part List<MultipartBody.Part> partLis);
+    @POST
+    Call<ResponseBody> newNoteUploadPhoto(@Url String url, @Part List<MultipartBody.Part> partLis);
+
+    @GET(GET_RESIDENT_DETAIL)
+    Call<ResponseBody> getResidentDetail(@QueryMap Map<String,Object> map);
 }

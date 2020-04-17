@@ -36,6 +36,7 @@ import com.zhjl.qihao.abmine.UserAgreementActivity;
 import com.zhjl.qihao.abutil.NewStatusBarUtils;
 import com.zhjl.qihao.freshshop.activity.ShopCarActivity;
 import com.zhjl.qihao.freshshop.api.ShopInterface;
+import com.zhjl.qihao.homemanage.activity.HomeManageActivity;
 import com.zhjl.qihao.integration.activity.BalanceActivity;
 import com.zhjl.qihao.myaction.activity.MyActionActivity;
 import com.zhjl.qihao.order.activity.NewOrderServiceActivity;
@@ -371,8 +372,8 @@ public class QHMineFragment extends VolleyBaseFragment {
                 startActivity(intent);
                 break;
             case R.id.rb_invitation:        //邀请
-                intent.setClass(mContext, MyCollectionActivity.class);
-                intent.putExtra("name","邀请");
+                intent.setClass(mContext, HomeManageActivity.class);
+//                intent.putExtra("name","邀请");
                 startActivity(intent);
                 break;
             case R.id.rb_mine_person:       //在线客服

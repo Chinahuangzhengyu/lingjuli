@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,13 +19,15 @@ import com.zhjl.qihao.abrefactor.view.RoundImageView;
 import com.zhjl.qihao.abutil.PictureHelper;
 import com.zhjl.qihao.image.ShowNetWorkImageActivity;
 import com.zhjl.qihao.integration.utils.PopWindowUtils;
-import com.zhjl.qihao.propertyservicepay.bean.UserRoomListBean;
 import com.zhjl.qihao.systemsetting.api.SettingInterface;
+import com.zhjl.qihao.systemsetting.bean.HomeDetailBean;
 import com.zhjl.qihao.util.NewHeaderBar;
 import com.zhjl.qihao.zq.ApiHelper;
 import com.zhjl.qihao.zq.ParamForNet;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import butterknife.BindView;
@@ -61,6 +62,8 @@ public class MyHomeAddressActivity extends VolleyBaseActivity {
     LinearLayout llType;
     private String residentId = ""; //入住id
     private MyUpLoadAdapter imgAdapter;
+    private List<HomeDetailBean.DataBean.PicturesBean> data = new ArrayList<>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,50 +74,84 @@ public class MyHomeAddressActivity extends VolleyBaseActivity {
         tvRight.setTextColor(ContextCompat.getColor(mContext, R.color.new_theme_color));
         tvRight.setTextSize(18);
         residentId = getIntent().getStringExtra("residentId");
-        boolean isHomeList = getIntent().getBooleanExtra("isHomeList", false);
-        if (isHomeList) {
-            UserRoomListBean.DataBean data = getIntent().getParcelableExtra("data");
-            if (data != null) {
-                tvHomeName.setText(data.getName());
-                tvNumber.setText(data.getMobile());
-                tvSmallCommunity.setText(data.getSmallCommunityName());
-                tvHomeNumber.setText(data.getRoomName());
-                if (data.getResidentType().equals("1")) {
-                    tvHomeType.setText("业主");
-                } else if (data.getResidentType().equals("2")) {
-                    tvHomeType.setText("家庭成员");
-                } else {
-                    tvHomeType.setText("租户");
-                }
-                if (data.getStatus() == 0) {
-                    tvName.setText("住所正在审核中");
-                } else {
-                    tvName.setText("住所绑定成功");
-                }
-            }
-        } else {
-            String name = getIntent().getStringExtra("name");
-            String smallCommunity = getIntent().getStringExtra("smallCommunity");
-            String room = getIntent().getStringExtra("room");
-            String userType = getIntent().getStringExtra("userType");
-            tvHomeName.setText(name);
-            tvNumber.setText(mSession.getRegisterMobile());
-            tvSmallCommunity.setText(smallCommunity);
-            tvHomeNumber.setText(room);
-            tvHomeType.setText(userType);
-        }
+        initData();
+//        boolean isHomeList = getIntent().getBooleanExtra("isHomeList", false);
+//        if (isHomeList) {
+//            UserRoomListBean.DataBean data = getIntent().getParcelableExtra("data");
+//            if (data != null) {
+//                tvHomeName.setText(data.getName());
+//                tvNumber.setText(data.getMobile());
+//                tvSmallCommunity.setText(data.getSmallCommunityName());
+//                tvHomeNumber.setText(data.getRoomName());
+//                if (data.getResidentType().equals("1")) {
+//                    tvHomeType.setText("业主");
+//                } else if (data.getResidentType().equals("2")) {
+//                    tvHomeType.setText("家庭成员");
+//                } else {
+//                    tvHomeType.setText("租户");
+//                }
+//                if (data.getStatus() == 0) {
+//                    tvName.setText("住所正在审核中");
+//                } else {
+//                    tvName.setText("住所绑定成功");
+//                }
+//            }
+//        } else {
+//            String name = getIntent().getStringExtra("name");
+//            String smallCommunity = getIntent().getStringExtra("smallCommunity");
+//            String room = getIntent().getStringExtra("room");
+//            String userType = getIntent().getStringExtra("userType");
+//            tvHomeName.setText(name);
+//            tvNumber.setText(mSession.getRegisterMobile());
+//            tvSmallCommunity.setText(smallCommunity);
+//            tvHomeNumber.setText(room);
+//            tvHomeType.setText(userType);
+//        }
 
         imgAdapter = new MyUpLoadAdapter();
         gvImgUpload.setAdapter(imgAdapter);
         gvImgUpload.setOnItemClickListener((arg0, arg1, arg2, arg3) -> {
-            if (arg2 == 0) {
-                showImage();
-            } else {
-                showImage(arg2);
-            }
-
+            showImage(arg2);
         });
 
+    }
+
+    private void initData() {
+        SettingInterface settingInterface = ApiHelper.getInstance().buildRetrofit(mContext).createService(SettingInterface.class);
+        Map<String, Object> map = new HashMap<>();
+        map.put("id", residentId);
+        Call<ResponseBody> call = settingInterface.getResidentDetail(map);
+        activityRequestData(call, HomeDetailBean.class, new RequestResult<HomeDetailBean>() {
+            @Override
+            public void success(HomeDetailBean result, String message) throws Exception {
+                tvHomeName.setText(result.getData().getResidentName());
+                tvNumber.setText(result.getData().getMobile());
+                if (result.getData().getRoomInfo() != null) {
+                    tvHomeNumber.setText(result.getData().getRoomInfo().getRoomName());
+                }
+                if (result.getData().getResidentType() == 1) {
+                    tvHomeType.setText("业主");
+                } else if (result.getData().getResidentType() == 2) {
+                    tvHomeType.setText("家庭成员");
+                } else {
+                    tvHomeType.setText("租户");
+                }
+                if (result.getData().getSmallCommunityInfo() != null) {
+                    tvSmallCommunity.setText(result.getData().getSmallCommunityInfo().getSmallCommunityName());
+                }
+                if (result.getData().getPictures()!=null&&result.getData().getPictures().size()>0){
+                    llType.setVisibility(View.VISIBLE);
+                    imgAdapter.addData(result.getData().getPictures());
+                }else {
+                    llType.setVisibility(View.GONE);
+                }
+            }
+
+            @Override
+            public void fail() {
+
+            }
+        });
     }
 
 
@@ -124,22 +161,22 @@ public class MyHomeAddressActivity extends VolleyBaseActivity {
     public void showImage() {
         Intent it = new Intent(mContext, ShowNetWorkImageActivity.class);
         it.putExtra("urls", new String[1]);
-        it.putExtra("localPic",R.drawable.img_contract);
+        it.putExtra("localPic", R.drawable.img_contract);
         it.putExtra("isLocal", true);
         it.putExtra("index", 0);
         startActivity(it);
     }
 
     public void showImage(int index) {
-//        Intent it = new Intent(mContext, ShowNetWorkImageActivity.class);
-//        String[] strings = new String[imgList.size()];
-//        for (int i = 0; i < imgList.size(); i++) {
-//            strings[i] = imgList.get(i);
-//        }
-//        it.putExtra("urls", strings);
-//        it.putExtra("index", index);
-//        it.putExtra("nowImage", imgList.get(index));
-//        startActivity(it);
+        Intent it = new Intent(mContext, ShowNetWorkImageActivity.class);
+        String[] strings = new String[data.size()];
+        for (int i = 0; i < data.size(); i++) {
+            strings[i] = data.get(i).getFilename();
+        }
+        it.putExtra("urls", strings);
+        it.putExtra("index", index);
+        it.putExtra("nowImage", data.get(index).getFilename());
+        startActivity(it);
     }
 
     public class MyUpLoadAdapter extends BaseAdapter {
@@ -147,44 +184,48 @@ public class MyHomeAddressActivity extends VolleyBaseActivity {
 
         @Override
         public int getCount() {
-//            if (imgList.size() < 5 && imgList.size() > 0) {
-//                return imgList.size() + 2;
-//            } else if (imgList.size() <= 0) {
-//                return 2;
-//            } else {
-//                return imgList.size();
-//            }
-            return 2;
+            return data.size();
         }
 
         @Override
         public Object getItem(int arg0) {
             // TODO 自动生成的方法存根
-            return null;
+            return data.get(arg0);
         }
 
         @Override
         public long getItemId(int arg0) {
             // TODO 自动生成的方法存根
-            return 0;
+            return arg0;
         }
 
         @Override
         public View getView(final int position, View convertView, ViewGroup arg2) {
+            ViewHolder holder = null;
             if (convertView == null) {
-                if (position == 0) {
-                    convertView = inflater.inflate(R.layout.home_item_one, null);
-                } else {
-                    convertView = inflater.inflate(R.layout.home_item_imgview, null);
-                    RoundImageView img_pic = (RoundImageView) convertView
-                            .findViewById(R.id.img_pic);
-
-                }
-
+                convertView = inflater.inflate(R.layout.home_item_pic, null);
+                holder = new ViewHolder(convertView);
+                convertView.setTag(holder);
+            } else {
+                holder = (ViewHolder) convertView.getTag();
             }
+            PictureHelper.setImageView(mContext, data.get(position).getFilename(), holder.imgHome, R.drawable.img_loading);
             return convertView;
         }
 
+        public void addData(List<HomeDetailBean.DataBean.PicturesBean> pictures) {
+            data = pictures;
+            notifyDataSetChanged();
+        }
+
+        class ViewHolder {
+            @BindView(R.id.img_home)
+            RoundImageView imgHome;
+
+            ViewHolder(View view) {
+                ButterKnife.bind(this, view);
+            }
+        }
     }
 
     @OnClick({R.id.tv_number_update, R.id.iv_back, R.id.tv_right, R.id.btn_update_home})
