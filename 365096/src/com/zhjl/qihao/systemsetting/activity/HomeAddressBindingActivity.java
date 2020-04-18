@@ -49,6 +49,7 @@ public class HomeAddressBindingActivity extends VolleyBaseActivity {
         homeAddressBindingAdapter.setSetOnItemClickListener((view, position) -> {
             Intent intent = new Intent(mContext,MyHomeAddressActivity.class);
             intent.putExtra("residentId",data.get(position).getResidentId());
+            intent.putExtra("status",data.get(position).getStatus());
             intent.putExtra("data",data.get(position));
             intent.putExtra("isHomeList",true);
             startActivity(intent);

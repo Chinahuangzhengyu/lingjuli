@@ -49,7 +49,7 @@ public class ApiHelper {
             Request originalRequest = chain.request();
             Request.Builder authorised = originalRequest.newBuilder();
             String url = originalRequest.url().toString();
-            if (Session.get(mContext).isTest()){
+            if (!Session.get(mContext).isTest()){
                 // 如果是测试服并且拦截下来的url中还包含正式服，将url前缀替换成测试服的url前缀
                 if (url.contains("tj.")) {
                     url = url.replace("tj.", "psms.");

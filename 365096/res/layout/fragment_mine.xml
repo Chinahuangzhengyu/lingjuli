@@ -506,6 +506,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:background="@color/transparent"
+                        android:visibility="gone"
                         android:button="@null"
                         android:drawableTop="@drawable/mine_fwgl"
                         android:drawablePadding="6dp"

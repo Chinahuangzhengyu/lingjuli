@@ -423,7 +423,6 @@ public class PropertyComplaintFragment extends VolleyBaseFragment {
                 PictureHelper.showPictureWithSquare(mContext, img_pic,
                         imgList.get(position));
                 iv_add.setVisibility(View.GONE);
-
             }
 
             iv_delete.setOnClickListener(new View.OnClickListener() {

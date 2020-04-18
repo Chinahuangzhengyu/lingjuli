@@ -44,6 +44,8 @@ public interface SettingInterface {
 //    String NEW_NOTE_UPLOAD_PHOTO = "https://7hao.oss-cn-beijing.aliyuncs.com";
     //获取入住详情
     String GET_RESIDENT_DETAIL = API_HOST + JAVA_PORT_NUMBER + "/api/userRoom/detail";
+    //更新入住信息
+    String UPDATE_ROOM_INFO = API_HOST + JAVA_PORT_NUMBER + "/api/userRoom/updateResident";
 
     @POST(UPDATE_INFO)
     Call<ResponseBody> updateInfo(@Body RequestBody body);
@@ -80,4 +82,7 @@ public interface SettingInterface {
 
     @GET(GET_RESIDENT_DETAIL)
     Call<ResponseBody> getResidentDetail(@QueryMap Map<String,Object> map);
+
+    @POST(UPDATE_ROOM_INFO)
+    Call<ResponseBody> updateRoomInfo(@Body RequestBody body);
 }

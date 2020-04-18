@@ -2,6 +2,7 @@ package com.zhjl.qihao.systemsetting.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -37,6 +38,8 @@ import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 
+import static com.zhjl.qihao.systemsetting.activity.AddHomeAddressBindingActivity.UPDATE_HOME;
+
 public class MyHomeAddressActivity extends VolleyBaseActivity {
     @BindView(R.id.tv_home_name)
     TextView tvHomeName;
@@ -63,6 +66,8 @@ public class MyHomeAddressActivity extends VolleyBaseActivity {
     private String residentId = ""; //入住id
     private MyUpLoadAdapter imgAdapter;
     private List<HomeDetailBean.DataBean.PicturesBean> data = new ArrayList<>();
+    private int residentType;
+    private ArrayList<HomeDetailBean.DataBean.PicturesBean> pictures = new ArrayList<>();
 
 
     @Override
@@ -74,6 +79,7 @@ public class MyHomeAddressActivity extends VolleyBaseActivity {
         tvRight.setTextColor(ContextCompat.getColor(mContext, R.color.new_theme_color));
         tvRight.setTextSize(18);
         residentId = getIntent().getStringExtra("residentId");
+
         initData();
 //        boolean isHomeList = getIntent().getBooleanExtra("isHomeList", false);
 //        if (isHomeList) {
@@ -129,9 +135,10 @@ public class MyHomeAddressActivity extends VolleyBaseActivity {
                 if (result.getData().getRoomInfo() != null) {
                     tvHomeNumber.setText(result.getData().getRoomInfo().getRoomName());
                 }
-                if (result.getData().getResidentType() == 1) {
+                residentType = result.getData().getResidentType();
+                if (residentType == 1) {
                     tvHomeType.setText("业主");
-                } else if (result.getData().getResidentType() == 2) {
+                } else if (residentType == 2) {
                     tvHomeType.setText("家庭成员");
                 } else {
                     tvHomeType.setText("租户");
@@ -139,11 +146,22 @@ public class MyHomeAddressActivity extends VolleyBaseActivity {
                 if (result.getData().getSmallCommunityInfo() != null) {
                     tvSmallCommunity.setText(result.getData().getSmallCommunityInfo().getSmallCommunityName());
                 }
-                if (result.getData().getPictures()!=null&&result.getData().getPictures().size()>0){
+                if (result.getData().getPictures() != null && result.getData().getPictures().size() > 0) {
+                    pictures = result.getData().getPictures();
                     llType.setVisibility(View.VISIBLE);
                     imgAdapter.addData(result.getData().getPictures());
-                }else {
+                } else {
                     llType.setVisibility(View.GONE);
+                }
+                if (result.getData().getStatus() == 0) {
+                    tvName.setText("待审核");
+                    btnUpdateHome.setVisibility(View.VISIBLE);
+                } else if (result.getData().getStatus() == 1) {
+                    btnUpdateHome.setVisibility(View.GONE);
+                    tvName.setText("通过");
+                } else {
+                    btnUpdateHome.setVisibility(View.VISIBLE);
+                    tvName.setText("未通过");
                 }
             }
 
@@ -244,7 +262,14 @@ public class MyHomeAddressActivity extends VolleyBaseActivity {
                 break;
             case R.id.btn_update_home:
                 Intent intent1 = new Intent(mContext, AddHomeAddressBindingActivity.class);
-                startActivity(intent1);
+                intent1.putExtra("isUpdate", true);
+                intent1.putExtra("name", tvHomeName.getText());
+                intent1.putExtra("community", tvSmallCommunity.getText());
+                intent1.putExtra("room", tvHomeNumber.getText());
+                intent1.putExtra("userType", residentType);
+                intent1.putExtra("residentId", residentId);
+                intent1.putParcelableArrayListExtra("pic", pictures);
+                startActivityForResult(intent1, 0x3);
                 break;
         }
     }
@@ -272,4 +297,11 @@ public class MyHomeAddressActivity extends VolleyBaseActivity {
         });
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == UPDATE_HOME) {
+            finish();
+        }
+    }
 }

@@ -98,7 +98,7 @@ public class ZHJLApplication extends MultiDexApplication {
             }
         }.start();
         //腾讯bugly查找异常
-        CrashReport.initCrashReport(getApplicationContext(), "54c83d9769", false);
+//        CrashReport.initCrashReport(getApplicationContext(), "54c83d9769", false);
         //麦驰门禁初始化
         try {
             UnlockManager.initLock(getApplicationContext(), "lock.mcsqfw.com", 11050, "512b619a5a35a468", Short.parseShort("55"));

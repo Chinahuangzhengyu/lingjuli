@@ -1,8 +1,12 @@
 package com.zhjl.qihao.systemsetting.bean;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import java.util.ArrayList;
 import java.util.List;
 
-public class HomeDetailBean {
+public class HomeDetailBean implements Parcelable {
 
     /**
      * code : 200
@@ -38,7 +42,7 @@ public class HomeDetailBean {
         this.message = message;
     }
 
-    public static class DataBean {
+    public static class DataBean implements Parcelable {
         /**
          * mobile : 18201137023
          * pictures : []
@@ -53,7 +57,16 @@ public class HomeDetailBean {
         private int residentType;
         private RoomInfoBean roomInfo;
         private SmallCommunityInfoBean smallCommunityInfo;
-        private List<PicturesBean> pictures;
+        private ArrayList<PicturesBean> pictures;
+        private int status;
+
+        public int getStatus() {
+            return status;
+        }
+
+        public void setStatus(int status) {
+            this.status = status;
+        }
 
         public String getMobile() {
             return mobile;
@@ -95,19 +108,32 @@ public class HomeDetailBean {
             this.smallCommunityInfo = smallCommunityInfo;
         }
 
-        public List<PicturesBean> getPictures() {
+        public ArrayList<PicturesBean> getPictures() {
             return pictures;
         }
 
-        public void setPictures(List<PicturesBean> pictures) {
+        public void setPictures(ArrayList<PicturesBean> pictures) {
             this.pictures = pictures;
         }
 
-        public static class PicturesBean{
+        public static class PicturesBean implements Parcelable {
             private int fileSize;
             private String filename;
             private String height;
             private String width;
+            private Long ossId;
+
+            public Long getOssId() {
+                return ossId;
+            }
+
+            public void setOssId(Long ossId) {
+                this.ossId = ossId;
+            }
+
+            public static Creator<PicturesBean> getCREATOR() {
+                return CREATOR;
+            }
 
             public int getFileSize() {
                 return fileSize;
@@ -140,8 +166,45 @@ public class HomeDetailBean {
             public void setWidth(String width) {
                 this.width = width;
             }
+
+            public PicturesBean() {
+            }
+
+            @Override
+            public int describeContents() {
+                return 0;
+            }
+
+            @Override
+            public void writeToParcel(Parcel dest, int flags) {
+                dest.writeInt(this.fileSize);
+                dest.writeString(this.filename);
+                dest.writeString(this.height);
+                dest.writeString(this.width);
+                dest.writeValue(this.ossId);
+            }
+
+            protected PicturesBean(Parcel in) {
+                this.fileSize = in.readInt();
+                this.filename = in.readString();
+                this.height = in.readString();
+                this.width = in.readString();
+                this.ossId = (Long) in.readValue(Long.class.getClassLoader());
+            }
+
+            public static final Creator<PicturesBean> CREATOR = new Creator<PicturesBean>() {
+                @Override
+                public PicturesBean createFromParcel(Parcel source) {
+                    return new PicturesBean(source);
+                }
+
+                @Override
+                public PicturesBean[] newArray(int size) {
+                    return new PicturesBean[size];
+                }
+            };
         }
-        public static class RoomInfoBean {
+        public static class RoomInfoBean implements Parcelable {
             /**
              * roomId : 1575104681203e5136803a694f71b80c
              * roomName : H33栋3单元0202
@@ -165,9 +228,40 @@ public class HomeDetailBean {
             public void setRoomName(String roomName) {
                 this.roomName = roomName;
             }
+
+            @Override
+            public int describeContents() {
+                return 0;
+            }
+
+            @Override
+            public void writeToParcel(Parcel dest, int flags) {
+                dest.writeString(this.roomId);
+                dest.writeString(this.roomName);
+            }
+
+            public RoomInfoBean() {
+            }
+
+            protected RoomInfoBean(Parcel in) {
+                this.roomId = in.readString();
+                this.roomName = in.readString();
+            }
+
+            public static final Creator<RoomInfoBean> CREATOR = new Creator<RoomInfoBean>() {
+                @Override
+                public RoomInfoBean createFromParcel(Parcel source) {
+                    return new RoomInfoBean(source);
+                }
+
+                @Override
+                public RoomInfoBean[] newArray(int size) {
+                    return new RoomInfoBean[size];
+                }
+            };
         }
 
-        public static class SmallCommunityInfoBean {
+        public static class SmallCommunityInfoBean implements Parcelable {
             /**
              * smallCommunityCode : 0044001
              * smallCommunityName : 博南小区
@@ -191,6 +285,111 @@ public class HomeDetailBean {
             public void setSmallCommunityName(String smallCommunityName) {
                 this.smallCommunityName = smallCommunityName;
             }
+
+            @Override
+            public int describeContents() {
+                return 0;
+            }
+
+            @Override
+            public void writeToParcel(Parcel dest, int flags) {
+                dest.writeString(this.smallCommunityCode);
+                dest.writeString(this.smallCommunityName);
+            }
+
+            public SmallCommunityInfoBean() {
+            }
+
+            protected SmallCommunityInfoBean(Parcel in) {
+                this.smallCommunityCode = in.readString();
+                this.smallCommunityName = in.readString();
+            }
+
+            public static final Creator<SmallCommunityInfoBean> CREATOR = new Creator<SmallCommunityInfoBean>() {
+                @Override
+                public SmallCommunityInfoBean createFromParcel(Parcel source) {
+                    return new SmallCommunityInfoBean(source);
+                }
+
+                @Override
+                public SmallCommunityInfoBean[] newArray(int size) {
+                    return new SmallCommunityInfoBean[size];
+                }
+            };
         }
+
+        @Override
+        public int describeContents() {
+            return 0;
+        }
+
+        @Override
+        public void writeToParcel(Parcel dest, int flags) {
+            dest.writeString(this.mobile);
+            dest.writeString(this.residentName);
+            dest.writeInt(this.residentType);
+            dest.writeParcelable(this.roomInfo, flags);
+            dest.writeParcelable(this.smallCommunityInfo, flags);
+            dest.writeTypedList(this.pictures);
+            dest.writeInt(this.status);
+        }
+
+        public DataBean() {
+        }
+
+        protected DataBean(Parcel in) {
+            this.mobile = in.readString();
+            this.residentName = in.readString();
+            this.residentType = in.readInt();
+            this.roomInfo = in.readParcelable(RoomInfoBean.class.getClassLoader());
+            this.smallCommunityInfo = in.readParcelable(SmallCommunityInfoBean.class.getClassLoader());
+            this.pictures = in.createTypedArrayList(PicturesBean.CREATOR);
+            this.status = in.readInt();
+        }
+
+        public static final Parcelable.Creator<DataBean> CREATOR = new Parcelable.Creator<DataBean>() {
+            @Override
+            public DataBean createFromParcel(Parcel source) {
+                return new DataBean(source);
+            }
+
+            @Override
+            public DataBean[] newArray(int size) {
+                return new DataBean[size];
+            }
+        };
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(this.code);
+        dest.writeParcelable(this.data, flags);
+        dest.writeString(this.message);
+    }
+
+    public HomeDetailBean() {
+    }
+
+    protected HomeDetailBean(Parcel in) {
+        this.code = in.readInt();
+        this.data = in.readParcelable(DataBean.class.getClassLoader());
+        this.message = in.readString();
+    }
+
+    public static final Parcelable.Creator<HomeDetailBean> CREATOR = new Parcelable.Creator<HomeDetailBean>() {
+        @Override
+        public HomeDetailBean createFromParcel(Parcel source) {
+            return new HomeDetailBean(source);
+        }
+
+        @Override
+        public HomeDetailBean[] newArray(int size) {
+            return new HomeDetailBean[size];
+        }
+    };
 }

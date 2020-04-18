@@ -1,228 +1,234 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    android:orientation="vertical"
-    >
-    <include layout="@layout/ab_header_bar"></include>
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/head"
+        layout="@layout/ab_header_bar"></include>
+
     <ScrollView
+        android:layout_below="@+id/head"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:scrollbars="none"
-        >
+        android:scrollbars="none">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            >
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/img_home_binding_bg"
-        >
-        <TextView
-            android:id="@+id/tv_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="住所正在审核中"
-            android:textColor="@color/white"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="28dp"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            />
+            android:orientation="vertical">
 
-    </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/img_home_binding_bg">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_marginTop="26dp"
-        android:layout_marginLeft="14dp"
-        android:layout_marginRight="14dp"
-        android:layout_marginBottom="16dp"
-        android:layout_height="wrap_content">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="住户姓名"
-            android:textSize="16sp"
-            android:textColor="@color/ff999999"
-            />
-        <TextView
-            android:id="@+id/tv_home_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=""
-            android:layout_alignParentRight="true"
-            android:textColor="@color/text_color_f1"
-            android:textSize="16sp"
-            />
-    </RelativeLayout>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/view_line"
-        ></View>
+                <TextView
+                    android:id="@+id/tv_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="28dp"
+                    android:text="住所正在审核中"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_marginLeft="14dp"
-        android:layout_marginRight="14dp"
-        android:layout_height="wrap_content">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:text="手机号"
-            android:textSize="16sp"
-            android:textColor="@color/ff999999"
-            />
+            </RelativeLayout>
 
-        <TextView
-            android:id="@+id/tv_number_update"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingTop="16dp"
-            android:paddingBottom="16dp"
-            android:visibility="gone"
-            android:layout_alignParentRight="true"
-            android:text="修改"
-            android:textColor="@color/new_theme_color"
-            android:textSize="16sp"
-            />
-        <TextView
-            android:id="@+id/tv_number"
-            android:layout_toLeftOf="@+id/tv_number_update"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:paddingTop="16dp"
-            android:paddingBottom="16dp"
-            android:layout_alignParentRight="true"
-            android:text=""
-            android:textColor="@color/text_color_f1"
-            android:textSize="16sp"
-            />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="14dp"
+                android:layout_marginTop="26dp"
+                android:layout_marginRight="14dp"
+                android:layout_marginBottom="16dp">
 
-    </RelativeLayout>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/view_line"
-        ></View>
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_marginTop="16dp"
-        android:layout_marginLeft="14dp"
-        android:layout_marginRight="14dp"
-        android:layout_marginBottom="16dp"
-        android:layout_height="wrap_content">
-        <TextView
-            android:id="@+id/tv_small_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="小区"
-            android:textSize="16sp"
-            android:textColor="@color/ff999999"
-            />
-        <TextView
-            android:layout_toRightOf="@+id/tv_small_name"
-            android:id="@+id/tv_small_community"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="right"
-            android:layout_alignParentRight="true"
-            android:textColor="@color/text_color_f1"
-            android:textSize="16sp"
-            />
-    </RelativeLayout>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/view_line"
-        ></View>
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_marginTop="16dp"
-        android:layout_marginLeft="14dp"
-        android:layout_marginRight="14dp"
-        android:layout_marginBottom="16dp"
-        android:layout_height="wrap_content">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="门牌号"
-            android:textSize="16sp"
-            android:textColor="@color/ff999999"
-            />
-        <TextView
-            android:id="@+id/tv_home_number"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=""
-            android:layout_alignParentRight="true"
-            android:textColor="@color/text_color_f1"
-            android:textSize="16sp"
-            />
-    </RelativeLayout>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/view_line"
-        ></View>
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_marginTop="16dp"
-        android:layout_marginLeft="14dp"
-        android:layout_marginRight="14dp"
-        android:layout_marginBottom="16dp"
-        android:layout_height="wrap_content">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="住户类型"
-            android:textSize="16sp"
-            android:textColor="@color/ff999999"
-            />
-        <TextView
-            android:id="@+id/tv_home_type"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=""
-            android:layout_alignParentRight="true"
-            android:textColor="@color/text_color_f1"
-            android:textSize="16sp"
-            />
-    </RelativeLayout>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/view_line"
-        ></View>
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:visibility="gone"
-        android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="住户姓名"
+                    android:textColor="@color/ff999999"
+                    android:textSize="16sp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="14dp"
-            android:text="设为默认房间"
-            android:textColor="@color/ff999999"
-            android:textSize="16sp" />
+                <TextView
+                    android:id="@+id/tv_home_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:text=""
+                    android:textColor="@color/text_color_f1"
+                    android:textSize="16sp" />
+            </RelativeLayout>
 
-        <com.kyleduo.switchbutton.SwitchButton
-            android:id="@+id/sb_default_room"
-            android:layout_width="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="14dp"
-            android:paddingTop="16dp"
-            android:paddingBottom="16dp"
-            android:layout_height="wrap_content" />
-    </RelativeLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/view_line"></View>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="14dp"
+                android:layout_marginRight="14dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="手机号"
+                    android:textColor="@color/ff999999"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tv_number_update"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:paddingTop="16dp"
+                    android:paddingBottom="16dp"
+                    android:text="修改"
+                    android:textColor="@color/new_theme_color"
+                    android:textSize="16sp"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/tv_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@+id/tv_number_update"
+                    android:paddingTop="16dp"
+                    android:paddingBottom="16dp"
+                    android:text=""
+                    android:textColor="@color/text_color_f1"
+                    android:textSize="16sp" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/view_line"></View>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="14dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="14dp"
+                android:layout_marginBottom="16dp">
+
+                <TextView
+                    android:id="@+id/tv_small_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="小区"
+                    android:textColor="@color/ff999999"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tv_small_community"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_toRightOf="@+id/tv_small_name"
+                    android:gravity="right"
+                    android:textColor="@color/text_color_f1"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/view_line"></View>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="14dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="14dp"
+                android:layout_marginBottom="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="门牌号"
+                    android:textColor="@color/ff999999"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tv_home_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:text=""
+                    android:textColor="@color/text_color_f1"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/view_line"></View>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="14dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="14dp"
+                android:layout_marginBottom="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="住户类型"
+                    android:textColor="@color/ff999999"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tv_home_type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:text=""
+                    android:textColor="@color/text_color_f1"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/view_line"></View>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="14dp"
+                    android:text="设为默认房间"
+                    android:textColor="@color/ff999999"
+                    android:textSize="16sp" />
+
+                <com.kyleduo.switchbutton.SwitchButton
+                    android:id="@+id/sb_default_room"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="14dp"
+                    android:paddingTop="16dp"
+                    android:paddingBottom="16dp" />
+            </RelativeLayout>
 
             <LinearLayout
                 android:id="@+id/ll_type"
@@ -230,48 +236,59 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="14dp"
                 android:layout_marginRight="14dp"
-                android:orientation="vertical"
-                >
+                android:orientation="vertical">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="16sp"
-                    android:textColor="@color/text_color_f1"
                     android:layout_marginTop="16dp"
                     android:text="购房合同"
-                    />
+                    android:textColor="@color/text_color_f1"
+                    android:textSize="16sp" />
 
 
                 <com.zhjl.qihao.abrefactor.view.GridViewForScrollView
-                    android:layout_width="match_parent"
                     android:id="@+id/gv_img_upload"
-                    android:listSelector="@color/transparent"
-                    android:scrollbars="none"
-                    android:verticalSpacing="16dp"
-                    android:layout_marginTop="16dp"
-                    android:horizontalSpacing="70dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginLeft="34dp"
+                    android:layout_marginTop="16dp"
                     android:layout_marginRight="34dp"
                     android:layout_marginBottom="16dp"
+                    android:horizontalSpacing="70dp"
+                    android:listSelector="@color/transparent"
                     android:numColumns="2"
-                    android:layout_height="wrap_content"></com.zhjl.qihao.abrefactor.view.GridViewForScrollView>
+                    android:scrollbars="none"
+                    android:verticalSpacing="16dp"></com.zhjl.qihao.abrefactor.view.GridViewForScrollView>
 
             </LinearLayout>
-            <Button
-                android:id="@+id/btn_update_home"
-                android:layout_marginTop="80dp"
+
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:visibility="gone"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="14dp"
-                android:layout_marginRight="14dp"
-                android:background="@drawable/circle_green_22"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
-                android:text="修改信息"
-                android:textColor="@color/white"
-                android:textSize="@dimen/text_18" />
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/btn_update_home"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="14dp"
+                    android:layout_marginRight="14dp"
+                    android:background="@drawable/circle_green_22"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:text="修改信息"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_18"
+                    android:visibility="visible" />
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
-</LinearLayout>
+
+
+</RelativeLayout>

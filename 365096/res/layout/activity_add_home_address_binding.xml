@@ -58,6 +58,7 @@
                 android:background="@color/view_line"></View>
 
             <RelativeLayout
+                android:id="@+id/rl_building"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="14dp"
@@ -298,6 +299,7 @@
                     android:textSize="14sp"
                     />
 
+
                 <com.zhjl.qihao.abrefactor.view.GridViewForScrollView
                     android:layout_width="match_parent"
                     android:id="@+id/gv_img_upload"
@@ -310,7 +312,9 @@
                     android:layout_marginRight="34dp"
                     android:layout_marginBottom="4dp"
                     android:numColumns="2"
-                    android:layout_height="wrap_content"></com.zhjl.qihao.abrefactor.view.GridViewForScrollView>
+                    android:layout_height="wrap_content">
+
+                </com.zhjl.qihao.abrefactor.view.GridViewForScrollView>
 
             </LinearLayout>
 

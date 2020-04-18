@@ -64,7 +64,7 @@ public class HomeManageActivity extends VolleyBaseActivity {
         roomId = mSession.getRoomId();
         NewHeaderBar.createCommomBack(this, "房屋管理", this);
         initRightView();
-        initRoom();
+//        initRoom();
         initData();
         xrvHomeManage.setLayoutManager(new LinearLayoutManager(mContext));
         homeManageAdapter = new HomeManageAdapter(this, data);
@@ -126,7 +126,7 @@ public class HomeManageActivity extends VolleyBaseActivity {
         Map<String, Object> map = new HashMap<>();
         map.put("pageIndex", pageIndex);
         map.put("pageSize", pageSize);
-        map.put("roomId", roomId);
+//        map.put("roomId", roomId);
         Call<ResponseBody> call = manageInterface.applyList(map);
         activityRequestData(call, HomeManageListBean.class, new RequestResult<HomeManageListBean>() {
             @Override
@@ -158,7 +158,7 @@ public class HomeManageActivity extends VolleyBaseActivity {
      * 设置头部右边布局
      */
     private void initRightView() {
-        tvRight.setVisibility(View.VISIBLE);
+        tvRight.setVisibility(View.GONE);
         tvRight.setFilters(new InputFilter[]{new InputFilter.LengthFilter(4)});
         tvRight.setText(mSession.getSmallCommunityName());
         tvRight.setTextSize(16);

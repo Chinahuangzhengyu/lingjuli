@@ -5,10 +5,8 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -25,12 +23,12 @@ import com.bigkoo.pickerview.view.OptionsPickerView;
 import com.michoi.unlock.UnlockManager;
 import com.zhjl.qihao.R;
 import com.zhjl.qihao.abcommon.VolleyBaseActivity;
-import com.zhjl.qihao.abcommon.VolleyBaseFragment;
 import com.zhjl.qihao.ablogin.activity.ChooseSmallCity;
 import com.zhjl.qihao.ablogin.bean.LoginBean;
 import com.zhjl.qihao.abrefactor.RefactorMainActivity;
 import com.zhjl.qihao.abrefactor.view.GridViewForScrollView;
 import com.zhjl.qihao.abrefactor.view.RoundImageView;
+import com.zhjl.qihao.abutil.ButtonRepect;
 import com.zhjl.qihao.abutil.PictureHelper;
 import com.zhjl.qihao.activity.NewPhotoMultipleActivity;
 import com.zhjl.qihao.image.ShowNetWorkImageActivity;
@@ -41,6 +39,7 @@ import com.zhjl.qihao.propertyservicepay.bean.UserRoomListBean;
 import com.zhjl.qihao.systemsetting.api.SettingInterface;
 import com.zhjl.qihao.systemsetting.bean.AllCommunityBean;
 import com.zhjl.qihao.systemsetting.bean.BuildingBean;
+import com.zhjl.qihao.systemsetting.bean.HomeDetailBean;
 import com.zhjl.qihao.systemsetting.bean.RoomsBean;
 import com.zhjl.qihao.util.NewHeaderBar;
 import com.zhjl.qihao.util.Utils;
@@ -100,6 +99,8 @@ public class AddHomeAddressBindingActivity extends VolleyBaseActivity {
     LinearLayout llType;
     @BindView(R.id.tv_message)
     TextView tvMessage;
+    @BindView(R.id.rl_building)
+    RelativeLayout rlBuilding;
     private SettingInterface settingInterface;
     private List<String> smallCommunityList = new ArrayList<>();    //小区数据
     private List<String> buildingList = new ArrayList<>();    //楼栋数据
@@ -116,33 +117,80 @@ public class AddHomeAddressBindingActivity extends VolleyBaseActivity {
     private Map<Integer, String> list = new HashMap<>();
     private int userType = 1;
     private int currentPosition;
+    private int selectPosition;//住户类型选中的下标
     private int currentBuildPosition;
     private boolean isRegister;
     private boolean isPopAddress;
     public static final int BINDING_ADDRESS_SUCCESS = 0x167;
     public static final int REQUEST_ADD_PHOTO = 2;
+    public static final int UPDATE_HOME = 3;
     private ProgressDialog dialog;
     private List<String> imgIdList = new ArrayList<String>();
     List<String> imgList = new ArrayList<String>();
-    List<Boolean> imgDeleteShow = new ArrayList<>();
     private FileUploadBean.DataBean resultData;
     private MyUpLoadAdapter imgAdapter;
+    private boolean isUpdate;
+    private ArrayList<HomeDetailBean.DataBean.PicturesBean> pic;
+    private String residentId;
+    private boolean isFirst = true; //是否是第一次上传图片
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_home_address_binding);
         ButterKnife.bind(this);
-        NewHeaderBar.createCommomBack(this, "住所绑定", this);
         isRegister = getIntent().getBooleanExtra("isRegister", false);
         isPopAddress = getIntent().getBooleanExtra("isPopAddress", false);
+        isUpdate = getIntent().getBooleanExtra("isUpdate", false);
         settingInterface = ApiHelper.getInstance().buildRetrofit(mContext).createService(SettingInterface.class);
+        if (isUpdate) {
+            NewHeaderBar.createCommomBack(this, "修改住所绑定", this);
+            String name = getIntent().getStringExtra("name");
+            pic = getIntent().getParcelableArrayListExtra("pic");
+            for (int i = 0; i < pic.size(); i++) {
+                imgList.add(pic.get(i).getFilename());
+                imgIdList.add(String.valueOf(pic.get(i).getOssId()));
+            }
+            String community = getIntent().getStringExtra("community");
+            residentId = getIntent().getStringExtra("residentId");
+            String room = getIntent().getStringExtra("room");
+            userType = getIntent().getIntExtra("userType", 0);
+            if (userType == 1) {
+                selectPosition = 0;
+                tvUserType.setText("业主");
+                llType.setVisibility(View.VISIBLE);
+            } else if (userType == 2) {
+                selectPosition = 1;
+                tvUserType.setText("家庭成员");
+                llType.setVisibility(View.GONE);
+            } else {
+                selectPosition = 2;
+                tvUserType.setText("租户");
+                llType.setVisibility(View.GONE);
+            }
+            tvChooseSmallCommunity.setText(community);
+            tvChooseSmallCommunity.setEnabled(false);
+            tvChooseSmallCommunity.setCompoundDrawables(null, null, null, null);
+            tvChooseRoom.setText(room);
+            tvChooseRoom.setEnabled(false);
+            tvChooseRoom.setCompoundDrawables(null, null, null, null);
+            etName.setText(name);
+            rlBuilding.setVisibility(View.GONE);
+        } else {
+            NewHeaderBar.createCommomBack(this, "住所绑定", this);
+            initData();
+            requestRoomList();
+        }
         list.put(1, "业主");
         list.put(2, "家庭成员");
         list.put(3, "租户");
-        initData();
+        if (imgList.size() == 0) {
+            imgList.add("");    //设置默认图
+            imgList.add("");
+        } else {
+            isFirst = false;
+        }
         initUploadData();
-        requestRoomList();
         userTypeAdapter = new UserTypeAdapter();
         lvAddressType.setAdapter(userTypeAdapter);
         lvAddressType.setOnItemClickListener((parent, view, position, id) -> {
@@ -171,23 +219,20 @@ public class AddHomeAddressBindingActivity extends VolleyBaseActivity {
                 }
             }
         });
-
-
         imgAdapter = new MyUpLoadAdapter();
         gvImgUpload.setAdapter(imgAdapter);
         gvImgUpload.setOnItemClickListener((arg0, arg1, arg2, arg3) -> {
             int imgsize = imgAdapter.getCount();
-            if (arg2 == 0) {
-                showImage();
-            } else if (imgList.size() < 5 && arg2 + 1 == imgsize) {
+            if (imgList.size() < 5 && arg2 <= 5 && arg2 + 1 == imgsize) {
                 tokephote();
             } else {
-                showImage(arg2 - 1);
-
+                if (imgList.get(arg2).equals("")) {
+                    showImage();
+                } else {
+                    showImage(arg2);
+                }
             }
-
         });
-
     }
 
     public void tokephote() {
@@ -209,8 +254,8 @@ public class AddHomeAddressBindingActivity extends VolleyBaseActivity {
      */
     public void showImage() {
         Intent it = new Intent(mContext, ShowNetWorkImageActivity.class);
-        it.putExtra("urls", new String[1]);
-        it.putExtra("localPic", R.drawable.img_contract);
+        it.putExtra("urls", new String[2]);
+        it.putExtra("localPic", new int[]{R.drawable.img_contract, R.drawable.img_contract2});
         it.putExtra("isLocal", true);
         it.putExtra("index", 0);
         startActivity(it);
@@ -230,65 +275,78 @@ public class AddHomeAddressBindingActivity extends VolleyBaseActivity {
 
 
     public class MyUpLoadAdapter extends BaseAdapter {
-        private LayoutInflater inflater = LayoutInflater.from(mContext);
 
         @Override
         public int getCount() {
             if (imgList.size() < 5 && imgList.size() > 0) {
-                return imgList.size() + 2;
-            } else if (imgList.size() <= 0) {
-                return 2;
-            } else {
                 return imgList.size() + 1;
+            } else if (imgList.size() <= 0) {
+                return 1;
+            } else {
+                return imgList.size();
             }
         }
 
         @Override
         public Object getItem(int arg0) {
             // TODO 自动生成的方法存根
-            return null;
+            return imgList.get(arg0);
         }
 
 
         @Override
         public long getItemId(int arg0) {
             // TODO 自动生成的方法存根
-            return 0;
+            return arg0;
         }
 
         @Override
-        public View getView(final int position, View convertView, ViewGroup arg2) {
-            if (position == 0) {
-                if (convertView == null) {
-                    convertView = inflater.inflate(R.layout.home_item_one, null);
-                }
-                return convertView;
+        public View getView(int position, View convertView, ViewGroup arg2) {
+            ViewHolder holder = null;
+            if (convertView == null) {
+                convertView = View.inflate(mContext, R.layout.home_item_imgview, null);
+                holder = new ViewHolder(convertView);
+                convertView.setTag(holder);
             } else {
-                convertView = inflater.inflate(R.layout.home_item_imgview, null);
-                RoundImageView img_pic = (RoundImageView) convertView
-                        .findViewById(R.id.img_pic);
-                ImageView iv_add = (ImageView) convertView.findViewById(R.id.iv_add);
-                ImageView iv_delete = (ImageView) convertView.findViewById(R.id.iv_delete);
-
-                iv_add.setVisibility(View.VISIBLE);
-                if (imgList.size() >= 1 && position < imgList.size() + 1) {
-                    iv_delete.setVisibility(View.VISIBLE);
-                    img_pic.setVisibility(View.VISIBLE);
-                    PictureHelper.showPictureWithSquare(mContext, img_pic,
-                            imgList.get(position - 1));
-                    iv_add.setVisibility(View.GONE);
-                }
-
-                iv_delete.setOnClickListener(v -> {
-                    imgList.remove(position - 1);
-                    imgIdList.remove(position - 1);
-                    imgDeleteShow.remove(position - 1);
-                    imgAdapter.notifyDataSetChanged();
-                });
-                return convertView;
+                holder = (ViewHolder) convertView.getTag();
             }
+            holder.ivAdd.setVisibility(View.VISIBLE);
+            holder.ivDelete.setVisibility(View.GONE);
+            if (imgList.size() >= 1 && position < imgList.size()) {
+                holder.imgPic.setVisibility(View.VISIBLE);
+                if (imgList.get(position).equals("") && position == 0) {
+                    holder.imgPic.setImageDrawable(ContextCompat.getDrawable(mContext, R.drawable.img_contract));
+                } else if (imgList.get(position).equals("") && position == 1) {
+                    holder.imgPic.setImageDrawable(ContextCompat.getDrawable(mContext, R.drawable.img_contract_two));
+                } else {
+                    holder.ivDelete.setVisibility(View.VISIBLE);
+                    PictureHelper.showPictureWithSquare(mContext, holder.imgPic,
+                            imgList.get(position));
+                }
+                holder.ivAdd.setVisibility(View.GONE);
+            } else {
+                holder.imgPic.setVisibility(View.GONE);
+            }
+            holder.ivDelete.setOnClickListener(v -> {
+                imgList.remove(position);
+                imgIdList.remove(position);
+                imgAdapter.notifyDataSetChanged();
+            });
+            return convertView;
         }
 
+        class ViewHolder {
+            @BindView(R.id.img_pic)
+            RoundImageView imgPic;
+            @BindView(R.id.iv_add)
+            ImageView ivAdd;
+            @BindView(R.id.iv_delete)
+            ImageView ivDelete;
+
+            ViewHolder(View view) {
+                ButterKnife.bind(this, view);
+            }
+        }
     }
 
     private void requestRoomList() {
@@ -364,23 +422,31 @@ public class AddHomeAddressBindingActivity extends VolleyBaseActivity {
                 finish();
                 break;
             case R.id.btn_binding:
-                String chooseSmall = tvChooseSmallCommunity.getText().toString().trim();
-                String chooseBuilding = tvChooseBuilding.getText().toString().trim();
-                String chooseRoom = tvChooseRoom.getText().toString().trim();
-                if (chooseSmall.equals("请选择小区") || chooseSmall.equals("")) {
-                    Toast.makeText(mContext, "请先选择小区！", Toast.LENGTH_SHORT).show();
-                    return;
-                } else if (chooseBuilding.equals("请选择楼栋") || chooseBuilding.equals("")) {
-                    Toast.makeText(mContext, "请先选择楼栋！", Toast.LENGTH_SHORT).show();
-                    return;
-                } else if (chooseRoom.equals("请选择房间") || chooseRoom.equals("")) {
-                    Toast.makeText(mContext, "请选择房间！", Toast.LENGTH_SHORT).show();
-                    return;
-                } else if (etName.getText().toString().trim().equals("")) {
-                    Toast.makeText(mContext, "请输入真实姓名！", Toast.LENGTH_SHORT).show();
-                    return;
+                if (isUpdate) {
+                    boolean fastClick = ButtonRepect.isFastClick();
+                    if (!fastClick) {
+                        return;
+                    }
+                    requestUpdate();
+                } else {
+                    String chooseSmall = tvChooseSmallCommunity.getText().toString().trim();
+                    String chooseBuilding = tvChooseBuilding.getText().toString().trim();
+                    String chooseRoom = tvChooseRoom.getText().toString().trim();
+                    if (chooseSmall.equals("请选择小区") || chooseSmall.equals("")) {
+                        Toast.makeText(mContext, "请先选择小区！", Toast.LENGTH_SHORT).show();
+                        return;
+                    } else if (chooseBuilding.equals("请选择楼栋") || chooseBuilding.equals("")) {
+                        Toast.makeText(mContext, "请先选择楼栋！", Toast.LENGTH_SHORT).show();
+                        return;
+                    } else if (chooseRoom.equals("请选择房间") || chooseRoom.equals("")) {
+                        Toast.makeText(mContext, "请选择房间！", Toast.LENGTH_SHORT).show();
+                        return;
+                    } else if (etName.getText().toString().trim().equals("")) {
+                        Toast.makeText(mContext, "请输入真实姓名！", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                    requestResident();
                 }
-                requestResident();
                 break;
             case R.id.tv_choose_small_community:    //选择小区
                 initSmallCommunityPop(smallCommunityList, tvChooseSmallCommunity);
@@ -419,6 +485,33 @@ public class AddHomeAddressBindingActivity extends VolleyBaseActivity {
                 }
                 break;
         }
+    }
+
+    private void requestUpdate() {
+        Map<String, Object> map = new HashMap<>();
+        map.put("name", etName.getText().toString().trim());
+        map.put("residentId", residentId);
+        map.put("type", userType);
+        RequestBody body = null;
+        if (userType == 1) {        //业主传图片
+            body = ParamForNet.putContainsArray(map, "pictures", imgIdList);
+        } else {
+            body = ParamForNet.put(map);
+        }
+        Call<ResponseBody> call = settingInterface.updateRoomInfo(body);
+        activityRequestData(call, null, new RequestResult<Object>() {
+            @Override
+            public void success(Object result, String message) throws Exception {
+                Toast.makeText(mContext, message, Toast.LENGTH_SHORT).show();
+                setResult(UPDATE_HOME, getIntent());
+                finish();
+            }
+
+            @Override
+            public void fail() {
+
+            }
+        });
     }
 
     private void requestResident() {
@@ -634,7 +727,7 @@ public class AddHomeAddressBindingActivity extends VolleyBaseActivity {
             } else {
                 holder = (ViewHolder) convertView.getTag();
             }
-            if (position == 0) {
+            if (position == selectPosition) {
                 holder.tvPayTimeItem.setBackground(ContextCompat.getDrawable(mContext, R.drawable.circle_green_6));
                 holder.tvPayTimeItem.setTextColor(Color.parseColor("#ffffff"));
             } else {
@@ -662,17 +755,19 @@ public class AddHomeAddressBindingActivity extends VolleyBaseActivity {
         if (resultCode == 1 && data != null) {
             List<String> mSamllPathList = (List<String>) data.getExtras()
                     .getSerializable("samllPath");
+            if (isFirst) {
+                imgList.clear();
+            }
             for (int i = 0; i < mSamllPathList.size(); i++) {
                 String url = mSamllPathList.get(i);
                 if (url != null) {
-
                     imgList.add(url);
-                    imgDeleteShow.add(false);
                 }
             }
             imgIdList.addAll((List<String>) data.getExtras().getSerializable(
                     ("imageId")));
             imgAdapter.notifyDataSetChanged();
+            isFirst = false;
         }
 
     }

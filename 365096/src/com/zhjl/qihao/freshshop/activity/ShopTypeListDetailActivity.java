@@ -11,6 +11,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.PagerAdapter;
 import android.view.MotionEvent;
 import android.view.View;
@@ -198,27 +199,33 @@ public class ShopTypeListDetailActivity extends VolleyBaseActivity {
                     RoundImageView imageView = new RoundImageView(mContext);
                     imageView.setRoundImg(mContext, 6);
                     imageView.setScaleType(ImageView.ScaleType.FIT_XY);
-                    if (!isFinishing()){
+                    if (!isFinishing()) {
                         PictureHelper.setImageView(mContext, mainViewPagerBean.getIamge(), imageView, R.drawable.img_loading);
                     }
                     imageViewList.add(imageView);
                     viewpagerList.add(mainViewPagerBean);
-                }
-                if (imageViewList.size() <= 1) {
-                    vpShopTitle.setPagingCount(false);
-                } else {
-                    vpShopTitle.setPagingCount(true);
                 }
                 if (imageViewList.size() == 2) {
                     for (int i = 0; i < 2; i++) {
                         RoundImageView imageView = new RoundImageView(mContext);
                         imageView.setRoundImg(mContext, 6);
                         imageView.setScaleType(ImageView.ScaleType.FIT_XY);
-                        if (!isFinishing()){
+                        if (!isFinishing()) {
                             PictureHelper.setImageView(mContext, viewpagerList.get(i).getIamge(), imageView, R.drawable.img_loading);
                         }
                         imageViewList.add(imageView);
                     }
+                } else if (imageViewList.size() == 0) {
+                    RoundImageView imageView = new RoundImageView(mContext);
+                    imageView.setRoundImg(mContext, 6);
+                    imageView.setScaleType(ImageView.ScaleType.FIT_XY);
+                    imageView.setImageDrawable(ContextCompat.getDrawable(mContext, R.drawable.img_loading));
+                    imageViewList.add(imageView);
+                }
+                if (imageViewList.size() <= 1) {
+                    vpShopTitle.setPagingCount(false);
+                } else {
+                    vpShopTitle.setPagingCount(true);
                 }
                 initTitleViewPager(viewpagerList);
                 setTimer(viewpagerList.size());
@@ -439,14 +446,14 @@ public class ShopTypeListDetailActivity extends VolleyBaseActivity {
         Intent intent = new Intent();
         switch (view.getId()) {
             case R.id.ll_search:
-                intent.setClass(mContext,SearchShopActivity.class);
+                intent.setClass(mContext, SearchShopActivity.class);
                 startActivity(intent);
                 break;
             case R.id.img_call_person:
 //                Utils.callPerson(this,"是否拨打电话0855-8552588","0855-8552588");
                 intent.setClass(mContext, UserAgreementActivity.class);
-                intent.putExtra("name","在线客服");
-                intent.putExtra("webContent","http://p.qiao.baidu.com/cps/chat?siteId=14492024&userId=29966678&cp=&cr=APP&cw=");
+                intent.putExtra("name", "在线客服");
+                intent.putExtra("webContent", "http://p.qiao.baidu.com/cps/chat?siteId=14492024&userId=29966678&cp=&cr=APP&cw=");
                 startActivity(intent);
                 break;
             case R.id.img_back:

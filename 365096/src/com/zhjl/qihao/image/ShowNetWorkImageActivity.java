@@ -44,7 +44,7 @@ public class ShowNetWorkImageActivity extends VolleyBaseActivity {
     private long firstMillis = 0;//用于保存时间戳
     private long timeLong = 600;//时间戳
     private boolean isLocal;
-    private int localPic;
+    private int[] localPics;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,7 +73,7 @@ public class ShowNetWorkImageActivity extends VolleyBaseActivity {
         int index = getIntent().getIntExtra("index", -1);
         isLocal = getIntent().getBooleanExtra("isLocal", false);
         if (isLocal) {
-            localPic = getIntent().getIntExtra("localPic", 0);
+            localPics = getIntent().getIntArrayExtra("localPic");
         }
         image_pager = (ViewPager) findViewById(R.id.image_pager);
         viewGroup = (LinearLayout) findViewById(R.id.viewGroup);
@@ -178,9 +178,9 @@ public class ShowNetWorkImageActivity extends VolleyBaseActivity {
                     return true;
                 }
             });
-            if (localPic != 0) {
-                PictureHelper.setImageView(ShowNetWorkImageActivity.this, localPic, itemview, R.drawable.img_loading);
-            }else {
+            if (localPics != null && localPics.length != 0) {
+                PictureHelper.setImageView(ShowNetWorkImageActivity.this, localPics[arg1], itemview, R.drawable.img_loading);
+            } else {
                 PictureHelper.showPictureWithSquare(ShowNetWorkImageActivity.this, itemview,
                         urls[arg1].toString().replaceAll("\"", ""));
             }

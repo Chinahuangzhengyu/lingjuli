@@ -286,15 +286,25 @@ public class FreshShopActivity extends VolleyBaseActivity {
                         }
                     }
                     rgVpItem.check(rgVpItem.getChildAt(0).getId());
-                    vpShop.setAdapter(new MyPagerAdapter(imageViewList));
-                    if (viewpagerList.size() == 1) {
-                        vpShop.setPagingCount(false);
-                    }
-                    if (imageViewList.size() > 0) {
-                        vpShop.setCurrentItem(imageViewList.size() * 8);
-                    }
-                    setTimer(imageViewList.size());
+
+                } else {
+                    imageView = new AnyRoundImageView(mContext);
+                    imageView.setBorderRadius(20);
+                    imageView.setCorners_top_left(false);
+                    imageView.setScaleType(ImageView.ScaleType.FIT_XY);
+                    imageView.setCorners_top_right(false);
+                    imageView.setType(TYPE_ROUND);
+                    imageView.setImageDrawable(ContextCompat.getDrawable(mContext, R.drawable.img_loading));
+                    imageViewList.add(imageView);
                 }
+                vpShop.setAdapter(new MyPagerAdapter(imageViewList));
+                if (viewpagerList.size() == 1) {
+                    vpShop.setPagingCount(false);
+                }
+                if (imageViewList.size() > 0) {
+                    vpShop.setCurrentItem(imageViewList.size() * 8);
+                }
+                setTimer(imageViewList.size());
             }
 
             @Override
@@ -355,8 +365,8 @@ public class FreshShopActivity extends VolleyBaseActivity {
             case R.id.img_call_person:
 //                Utils.callPerson(this,"是否拨打电话0855-8552588","0855-8552588");
                 intent.setClass(mContext, UserAgreementActivity.class);
-                intent.putExtra("name","在线客服");
-                intent.putExtra("webContent","http://p.qiao.baidu.com/cps/chat?siteId=14492024&userId=29966678&cp=&cr=APP&cw=");
+                intent.putExtra("name", "在线客服");
+                intent.putExtra("webContent", "http://p.qiao.baidu.com/cps/chat?siteId=14492024&userId=29966678&cp=&cr=APP&cw=");
                 startActivity(intent);
                 break;
         }

@@ -28,6 +28,7 @@ import android.widget.Toast;
 
 import com.zhjl.qihao.R;
 import com.zhjl.qihao.Session;
+import com.zhjl.qihao.abcommon.VolleyBaseActivity;
 import com.zhjl.qihao.abcommon.VolleyBaseFragment;
 import com.zhjl.qihao.ablogin.activity.UserLoginActivity;
 import com.zhjl.qihao.abmine.AboutUSActivity;
@@ -41,6 +42,8 @@ import com.zhjl.qihao.integration.activity.BalanceActivity;
 import com.zhjl.qihao.myaction.activity.MyActionActivity;
 import com.zhjl.qihao.order.activity.NewOrderServiceActivity;
 import com.zhjl.qihao.propertyservicecomplaint.activity.MyComplaintActivity;
+import com.zhjl.qihao.propertyservicepay.api.PropertyPayInterface;
+import com.zhjl.qihao.propertyservicepay.bean.UserRoomListBean;
 import com.zhjl.qihao.systemsetting.activity.PersonSettingsActivity;
 import com.zhjl.qihao.abrefactor.RefactorMainActivity;
 import com.zhjl.qihao.abutil.PictureHelper;
@@ -52,6 +55,7 @@ import com.zhjl.qihao.zq.ParamForNet;
 
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -153,6 +157,29 @@ public class QHMineFragment extends VolleyBaseFragment {
     public void onResume() {
         super.onResume();
         initData();
+        initRoomData();
+    }
+
+    private void initRoomData() {
+        PropertyPayInterface propertyPayInterface = ApiHelper.getInstance().buildRetrofit(mContext).createService(PropertyPayInterface.class);
+        Call<ResponseBody> call = propertyPayInterface.userRoomList(ParamForNet.put(new HashMap<>()));
+        fragmentRequestData(call, UserRoomListBean.class, new RequestResult<UserRoomListBean>() {
+            @Override
+            public void success(UserRoomListBean result, String message) {
+                ArrayList<UserRoomListBean.DataBean> data = result.getData();
+                for (int i = 0; i < data.size(); i++) {
+                    if (data.get(i).getResidentType().equals("1")){
+                        rbInvitation.setVisibility(View.VISIBLE);
+                        break;
+                    }
+                }
+            }
+
+            @Override
+            public void fail() {
+
+            }
+        });
     }
 
     @Override
@@ -185,7 +212,7 @@ public class QHMineFragment extends VolleyBaseFragment {
         }
         ShopInterface shopInterface = ApiHelper.getInstance().buildRetrofit(mContext).createService(ShopInterface.class);
         Map<String, Object> map = new HashMap<>();
-        map.put("user_token",mSession.getmToken());
+        map.put("user_token", mSession.getmToken());
         RequestBody body = ParamForNet.put(map);
         Call<ResponseBody> call = shopInterface.allOrderStatusNumber(body);
         fragmentRequestPhpData(call, new RequestResult<Object>() {
@@ -348,7 +375,7 @@ public class QHMineFragment extends VolleyBaseFragment {
                 break;
             case R.id.rb_cattle_selection:      //牛牛优选
                 intent.setClass(mContext, MyCollectionActivity.class);
-                intent.putExtra("name","牛牛优选");
+                intent.putExtra("name", "牛牛优选");
                 startActivity(intent);
                 break;
             case R.id.rb_mine_complaint:        //我的投诉
@@ -368,7 +395,7 @@ public class QHMineFragment extends VolleyBaseFragment {
                 break;
             case R.id.rb_receive_address:       //收货地址
                 intent.setClass(mContext, MyCollectionActivity.class);
-                intent.putExtra("name","收货地址");
+                intent.putExtra("name", "收货地址");
                 startActivity(intent);
                 break;
             case R.id.rb_invitation:        //邀请
@@ -378,8 +405,8 @@ public class QHMineFragment extends VolleyBaseFragment {
                 break;
             case R.id.rb_mine_person:       //在线客服
                 intent.setClass(mContext, UserAgreementActivity.class);
-                intent.putExtra("name","在线客服");
-                intent.putExtra("webContent","http://p.qiao.baidu.com/cps/chat?siteId=14492024&userId=29966678&cp=&cr=APP&cw=");
+                intent.putExtra("name", "在线客服");
+                intent.putExtra("webContent", "http://p.qiao.baidu.com/cps/chat?siteId=14492024&userId=29966678&cp=&cr=APP&cw=");
                 startActivity(intent);
                 break;
             case R.id.rb_about_mine:        //关于我们
