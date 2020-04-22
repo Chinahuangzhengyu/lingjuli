@@ -12,6 +12,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.zhjl.qihao.R;
+import com.zhjl.qihao.abcommon.VolleyBaseActivity;
 import com.zhjl.qihao.integration.activity.MembershipCardDetailActivity;
 import com.zhjl.qihao.integration.bean.CardListBean;
 
@@ -22,10 +23,11 @@ import butterknife.ButterKnife;
 
 public class MembershipCardAdapter extends RecyclerView.Adapter<MembershipCardAdapter.ViewHolder> {
 
-    private Context context;
+    private VolleyBaseActivity context;
     private List<CardListBean> list;
+    public static final int REQUEST_CARD_CODE = 0x4;
 
-    public MembershipCardAdapter(Context context, List<CardListBean> list) {
+    public MembershipCardAdapter(VolleyBaseActivity context, List<CardListBean> list) {
         this.context = context;
         this.list = list;
     }
@@ -53,7 +55,7 @@ public class MembershipCardAdapter extends RecyclerView.Adapter<MembershipCardAd
         holder.rlMembershipCardItem.setOnClickListener(v -> {
             Intent intent = new Intent(context, MembershipCardDetailActivity.class);
             intent.putExtra("cardId", list.get(i).getCard_id());
-            context.startActivity(intent);
+            context.startActivityForResult(intent,REQUEST_CARD_CODE);
         });
     }
 

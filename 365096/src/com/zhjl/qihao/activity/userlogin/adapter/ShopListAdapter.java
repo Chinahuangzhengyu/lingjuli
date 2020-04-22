@@ -1,7 +1,5 @@
 package com.zhjl.qihao.activity.userlogin.adapter;
 
-import java.util.List;
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,10 +7,10 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.makeramen.RoundedImageView;
 import com.zhjl.qihao.R;
 import com.zhjl.qihao.activity.userlogin.vo.SearchShopVo;
-import com.zhjl.qihao.abutil.PictureHelper;
+
+import java.util.List;
 
 public class ShopListAdapter extends BaseAdapter {
 	private Context context;
@@ -73,8 +71,6 @@ public class ShopListAdapter extends BaseAdapter {
 					.findViewById(R.id.tx_mian_sell);
 			viewHolder.tx_adress = (TextView) convertView
 					.findViewById(R.id.tx_adress);
-			viewHolder.img_repair = (RoundedImageView) convertView
-					.findViewById(R.id.img_repair);
 			convertView.setTag(viewHolder);
 		} else {
 			viewHolder = (ViewHolder) convertView.getTag();
@@ -87,8 +83,6 @@ public class ShopListAdapter extends BaseAdapter {
 			viewHolder.tx_adress.setText("地址:" + shopVo.getShopAddr());
 			viewHolder.tx_main_sell.setText("主营:" + shopVo.getShopMainTypes());
 			viewHolder.tx_attention.setText("关注:" + shopVo.getShopFocusNum());
-			PictureHelper.showPictureWithSquare(context,
-					viewHolder.img_repair, shopVo.getShopLogo());
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
@@ -101,6 +95,5 @@ public class ShopListAdapter extends BaseAdapter {
 		TextView tx_attention;
 		TextView tx_main_sell;
 		TextView tx_adress;
-		RoundedImageView img_repair;
 	}
 }

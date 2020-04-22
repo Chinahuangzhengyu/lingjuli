@@ -68,16 +68,16 @@ public class HomeManageDetailActivity extends VolleyBaseActivity {
             if (data.getResidentType().equals("1")) {
                 tvUserTypeValue.setText("业主");
             } else if (data.getResidentType().equals("2")) {
-                tvUserTypeValue.setText("家庭成员");
+                tvUserTypeValue.setText("家人");
             } else {
-                tvUserTypeValue.setText("租户");
+                tvUserTypeValue.setText("租客");
             }
             if (data.getStatus() == 0) {
-                tvName.setText("待审核");
+                tvName.setText("住所绑定审核中");
             } else if (data.getStatus() == 1) {
-                tvName.setText("通过");
+                tvName.setText("住所绑定成功");
             } else {
-                tvName.setText("未通过");
+                tvName.setText("住所绑定审核未通过");
             }
             tvCityName.setText(data.getSmallCommunityName());
             tvDoorNumberValue.setText(data.getRoomName());

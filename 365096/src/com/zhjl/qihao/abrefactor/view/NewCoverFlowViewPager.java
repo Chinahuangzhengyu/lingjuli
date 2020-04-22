@@ -11,8 +11,6 @@ import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
-import com.makeramen.RoundedImageView;
 import com.zhjl.qihao.R;
 import com.zhjl.qihao.abrefactor.adapter.NewCoverFlowAdapter;
 import com.zhjl.qihao.abrefactor.model.MainTjShopModel;
@@ -92,12 +90,10 @@ public class NewCoverFlowViewPager extends RelativeLayout implements NewCoverFlo
             FrameLayout layout = new FrameLayout(getContext());
             // 设置padding 值，默认缩小
             inflaterService.inflate(R.layout.ab_new_conver_item, layout);
-            RoundedImageView avatar = (RoundedImageView) layout.findViewById(R.id.iv_conver);
             TextView tv1 = (TextView) layout.findViewById(R.id.tv_conver_title);
             TextView content = (TextView) layout.findViewById(R.id.tv_conver_content);
             tv1.setText(lists.get(i).getUrl_name());
             content.setText(lists.get(i).getNote());
-            PictureHelper.setPlaceholderImageView(getContext(),lists.get(i).getLogo(),avatar,R.drawable.square_default_diagram);
 //            Glide.with(getContext()).load(lists.get(i).getLogo()).asBitmap().placeholder(R.drawable.shouye_dianputuijian).error(R.drawable.square_default_diagram).into(avatar);
             mViewList.add(layout);
         }

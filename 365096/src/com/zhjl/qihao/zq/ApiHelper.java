@@ -7,14 +7,22 @@ import com.zhjl.qihao.Session;
 import com.zhjl.qihao.util.SSLSocketClient;
 
 import java.io.IOException;
+import java.security.KeyStore;
 import java.util.concurrent.TimeUnit;
+
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.SSLSocketFactory;
+import javax.net.ssl.TrustManager;
+import javax.net.ssl.TrustManagerFactory;
+import javax.net.ssl.X509TrustManager;
 
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
+import okhttp3.internal.platform.ConscryptPlatform;
+import okhttp3.internal.platform.Platform;
 import retrofit2.Retrofit;
-
 
 
 /**
@@ -33,11 +41,13 @@ public class ApiHelper {
     }
 
     public ApiHelper(int connTimeout, int readTimeout, int writeTimeout) {
+
         OkHttpClient.Builder builder = new OkHttpClient.Builder()
                 .connectTimeout(connTimeout, TimeUnit.SECONDS)
                 .readTimeout(readTimeout, TimeUnit.SECONDS)
                 .writeTimeout(writeTimeout, TimeUnit.SECONDS)
-                .sslSocketFactory(SSLSocketClient.getSSLSocketFactory())
+                .sslSocketFactory(SSLSocketClient.getSSLSocketFactory(), SSLSocketClient.getX509TrustManager())
+//                .sslSocketFactory(SSLSocketClient.getSSLSocketFactory())
                 .hostnameVerifier(SSLSocketClient.getHostnameVerifier())
                 .addInterceptor(mTokenInterceptor);
 
@@ -45,21 +55,22 @@ public class ApiHelper {
     }
 
     Interceptor mTokenInterceptor = new Interceptor() {
-        @Override public Response intercept(Chain chain) throws IOException {
+        @Override
+        public Response intercept(Chain chain) throws IOException {
             Request originalRequest = chain.request();
             Request.Builder authorised = originalRequest.newBuilder();
             String url = originalRequest.url().toString();
-            if (!Session.get(mContext).isTest()){
+            if (!Session.get(mContext).isTest()) {
                 // 如果是测试服并且拦截下来的url中还包含正式服，将url前缀替换成测试服的url前缀
                 if (url.contains("tj.")) {
                     url = url.replace("tj.", "psms.");
-                }else if (url.contains("tp.")){
+                } else if (url.contains("tp.")) {
                     url = url.replace("tp.", "mall.");
                 }
-            }else {
-                if (url.contains("psms.")){
+            } else {
+                if (url.contains("psms.")) {
                     url = url.replace("psms.", "tj.");
-                }else if (url.contains("mall.")){
+                } else if (url.contains("mall.")) {
                     url = url.replace("mall.", "tp.");
                 }
             }

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -34,6 +35,7 @@ import okhttp3.ResponseBody;
 import retrofit2.Call;
 
 import static com.zhjl.qihao.integration.activity.AddMembershipCardActivity.ADD_CARD_RESULT_CODE;
+import static com.zhjl.qihao.integration.activity.MembershipCardDetailActivity.RESULT_CARD_CODE;
 
 /**
  * 会员卡页面
@@ -48,7 +50,8 @@ public class MembershipCardActivity extends VolleyBaseActivity {
     XRecyclerView xrvMembershipCard;
     private List<CardListBean> list = new ArrayList<>();
     private MembershipCardAdapter membershipCardAdapter;
-    public static final int REQUEST_ADD_CARD_CODE = 0x123;
+    public static final int RESULT_INTEGRATION_CODE = 0x5;
+    boolean isRefresh = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,9 +65,9 @@ public class MembershipCardActivity extends VolleyBaseActivity {
         drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
         tvRight.setCompoundDrawables(null, null, drawable, null);
         xrvMembershipCard.setLayoutManager(new LinearLayoutManager(mContext));
-        membershipCardAdapter = new MembershipCardAdapter(mContext, list);
+        membershipCardAdapter = new MembershipCardAdapter(this, list);
         xrvMembershipCard.setAdapter(membershipCardAdapter);
-
+        initData();
         xrvMembershipCard.setLoadingListener(new XRecyclerView.LoadingListener() {
             @Override
             public void onRefresh() {
@@ -115,6 +118,9 @@ public class MembershipCardActivity extends VolleyBaseActivity {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.iv_back:
+                if (isRefresh){
+                    setResult(RESULT_INTEGRATION_CODE, getIntent());
+                }
                 finish();
                 break;
             case R.id.tv_right:
@@ -124,9 +130,24 @@ public class MembershipCardActivity extends VolleyBaseActivity {
         }
     }
 
+
     @Override
-    protected void onResume() {
-        super.onResume();
-        initData();
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode==RESULT_INTEGRATION_CODE){
+            isRefresh = true;
+            initData();
+        }
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode==KeyEvent.KEYCODE_BACK){
+            if (isRefresh){
+                setResult(RESULT_INTEGRATION_CODE, getIntent());
+            }
+        }
+        finish();
+        return super.onKeyDown(keyCode, event);
     }
 }

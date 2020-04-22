@@ -64,7 +64,7 @@ public class BalanceFragment extends VolleyBaseFragment {
             public void onRefresh() {
                 isRefresh = true;
                 pageIndex = 1;
-                initData();
+                initData(pageIndex,false);
                 xrvBalance.refreshComplete();
             }
 
@@ -73,7 +73,7 @@ public class BalanceFragment extends VolleyBaseFragment {
                 isRefresh = false;
                 pageIndex++;
                 if (pageIndex <= totalPage) {
-//                    initData();
+                    initData(pageIndex,false);
                 } else {
                     int top = Utils.dip2px(mContext, 10);
                     int bottom = Utils.dip2px(mContext, 30);
@@ -82,16 +82,11 @@ public class BalanceFragment extends VolleyBaseFragment {
                 }
             }
         });
+        initData(pageIndex,false);
         return view;
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        initData();
-    }
-
-    private void initData() {
+    public void initData(int pageIndex,boolean isRefresh) {
         IntegralInterface integralInterface = ApiHelper.getInstance().buildRetrofit(mContext).createService(IntegralInterface.class);
         Call<ResponseBody> call = RequestUtils.defaultCardDetail(mSession.getmToken(), pageIndex, integralInterface);
         fragmentRequestPhpData(call, new RequestResult<Object>() {
@@ -103,9 +98,9 @@ public class BalanceFragment extends VolleyBaseFragment {
                 if (status) {
                     String money = object.optString("money");
                     if (money == null) {
-                        getBalanceData.data("¥0.00");
+                        getBalanceData.data("¥0.00",isRefresh);
                     }else {
-                        getBalanceData.data("¥" + money);
+                        getBalanceData.data("¥" + money,isRefresh);
                     }
                     BalanceListBean balanceListBean = gson.fromJson((String) result, BalanceListBean.class);
                     totalPage = balanceListBean.getTotal_page();
@@ -151,6 +146,6 @@ public class BalanceFragment extends VolleyBaseFragment {
     }
 
     public interface GetBalanceData {
-        void data(String sum);
+        void data(String sum,boolean isRefresh);
     }
 }

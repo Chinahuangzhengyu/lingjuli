@@ -7,7 +7,6 @@
     android:layout_height="wrap_content"
     android:background="@drawable/circle_white_6"
     android:padding="10dp"
-    tools:ignore="MissingConstraints"
     android:layout_marginTop="16dp"
     >
 
@@ -22,23 +21,43 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="26dp"
+        android:maxLength="10"
+        android:textColor="@color/text_color_f1"
+        android:textSize="16sp"
+        android:text=""
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_city_name"
+        app:layout_constraintRight_toLeftOf="@id/tv_type" />
+
+    <TextView
         android:id="@+id/tv_type"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:layout_marginRight="26dp"
         android:textColor="@color/new_theme_color2"
         android:textSize="16sp"
-        app:layout_constraintTop_toBottomOf="@id/tv_city_name" />
+        android:text=""
+        app:layout_constraintBaseline_toBaselineOf="@id/tv_name"
+        app:layout_constraintLeft_toRightOf="@id/tv_name"
+        app:layout_constraintRight_toLeftOf="@id/tv_status"
+         />
 
     <TextView
         android:id="@+id/tv_status"
         android:layout_width="0dp"
+        app:layout_constraintHorizontal_weight="1"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="26dp"
         android:textColor="@color/new_theme_color"
         android:textSize="16sp"
-        app:layout_constraintRight_toLeftOf="@id/img_delete"
-        app:layout_constraintBaseline_toBaselineOf="@id/tv_type"
+        android:text=""
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBaseline_toBaselineOf="@id/tv_name"
         app:layout_constraintLeft_toRightOf="@id/tv_type" />
 
     <ImageView

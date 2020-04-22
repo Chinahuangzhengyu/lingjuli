@@ -8,12 +8,14 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.os.SystemClock;
+import android.support.annotation.NonNull;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnLongClickListener;
+import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -142,12 +144,9 @@ public class ShowNetWorkImageActivity extends VolleyBaseActivity {
         }
 
         @Override
-        public void destroyItem(View arg0, int arg1, Object arg2) {
-            ((ViewPager) arg0).removeView(views.get(arg1));
-        }
+        public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
+            container.removeView(views.get(position));
 
-        @Override
-        public void finishUpdate(View arg0) {
         }
 
         @Override
@@ -155,36 +154,34 @@ public class ShowNetWorkImageActivity extends VolleyBaseActivity {
             return views == null ? 0 : views.size();
         }
 
+        @NonNull
         @Override
-        public Object instantiateItem(View arg0, int arg1) {
-            ViewPager convertview = (ViewPager) arg0;
-            PhotoView itemview = (PhotoView) views.get(arg1);
-            itemview.setOnPhotoTapListener(new PhotoViewAttacher.OnPhotoTapListener() {
-                @Override
-                public void onPhotoTap(View view, float x, float y) {
-                    exitActivity();
-                }
-
-                @Override
-                public void onOutsidePhotoTap() {
-
-                }
+        public Object instantiateItem(@NonNull ViewGroup container, int position) {
+            PhotoView itemview = (PhotoView) views.get(position);
+//            itemview.setOnPhotoTapListener(new PhotoViewAttacher.OnPhotoTapListener() {
+//                @Override
+//                public void onPhotoTap(View view, float x, float y) {
+//                    exitActivity();
+//                }
+//
+//                @Override
+//                public void onOutsidePhotoTap() {
+//
+//                }
+//            });
+            itemview.setOnViewTapListener((view, x, y) -> exitActivity());
+            itemview.setOnLongClickListener(v -> {
+                // TODO Auto-generated method stub
+                showDownloadDialog();
+                return true;
             });
-            itemview.setOnLongClickListener(new OnLongClickListener() {
-                @Override
-                public boolean onLongClick(View v) {
-                    // TODO Auto-generated method stub
-                    showDownloadDialog();
-                    return true;
-                }
-            });
-            if (localPics != null && localPics.length != 0) {
-                PictureHelper.setImageView(ShowNetWorkImageActivity.this, localPics[arg1], itemview, R.drawable.img_loading);
+            if (localPics != null && localPics.length > position ) {
+                PictureHelper.setImageView(ShowNetWorkImageActivity.this, localPics[position], itemview, R.drawable.img_loading);
             } else {
                 PictureHelper.showPictureWithSquare(ShowNetWorkImageActivity.this, itemview,
-                        urls[arg1].toString().replaceAll("\"", ""));
+                        urls[position].replaceAll("\"", ""));
             }
-            convertview.addView(itemview, 0);
+            container.addView(itemview, 0);
             return itemview;
         }
 

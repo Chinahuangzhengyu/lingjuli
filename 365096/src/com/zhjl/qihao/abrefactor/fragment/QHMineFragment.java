@@ -166,12 +166,18 @@ public class QHMineFragment extends VolleyBaseFragment {
         fragmentRequestData(call, UserRoomListBean.class, new RequestResult<UserRoomListBean>() {
             @Override
             public void success(UserRoomListBean result, String message) {
+                boolean isFinish = false;
                 ArrayList<UserRoomListBean.DataBean> data = result.getData();
                 for (int i = 0; i < data.size(); i++) {
-                    if (data.get(i).getResidentType().equals("1")){
-                        rbInvitation.setVisibility(View.VISIBLE);
+                    if (data.get(i).getStatus() == 1 && data.get(i).getResidentType().equals("1")) {
+                        isFinish = true;
                         break;
                     }
+                }
+                if (isFinish) {
+                    rbInvitation.setVisibility(View.VISIBLE);
+                } else {
+                    rbInvitation.setVisibility(View.GONE);
                 }
             }
 

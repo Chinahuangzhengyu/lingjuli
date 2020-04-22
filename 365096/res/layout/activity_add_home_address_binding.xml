@@ -346,7 +346,7 @@
                 android:id="@+id/tv_message"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="注：业主增加住所提交后平台客服专员会在24小时内以短信告知您增加结果，请注意查收。家人或租户增加住所请提醒业主审核"
+                android:text="注：业主增加住所提交后平台客服专员会在24小时内以短信告知您增加结果，请注意查收。家人或租客增加住所请提醒业主审核"
                 android:textColor="#ffb126"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginLeft="14dp"

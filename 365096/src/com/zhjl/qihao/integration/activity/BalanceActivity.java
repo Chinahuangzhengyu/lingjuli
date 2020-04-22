@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -25,6 +26,8 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+import static com.zhjl.qihao.integration.activity.MembershipCardActivity.RESULT_INTEGRATION_CODE;
+
 public class BalanceActivity extends VolleyBaseActivity {
     @BindView(R.id.tv_integral_sum)
     TextView tvIntegralSum;
@@ -37,19 +40,20 @@ public class BalanceActivity extends VolleyBaseActivity {
     private List<Fragment> list = new ArrayList<>();
     private String integralSum;
     private String balanceSum = "¥0.00";
+    public static final int REQUEST_BALANCE_REFRESH = 0x6;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_balance);
         ButterKnife.bind(this);
-        NewHeaderBar headerBar = NewHeaderBar.createCommomBack(this, "我的账户","会员卡",this);
+        NewHeaderBar headerBar = NewHeaderBar.createCommomBack(this, "我的账户", "会员卡", this);
         headerBar.getRightText().setTextSize(14);
-        headerBar.getRightText().setTextColor(ContextCompat.getColor(mContext,R.color.new_theme_color));
+        headerBar.getRightText().setTextColor(ContextCompat.getColor(mContext, R.color.new_theme_color));
         headerBar.getRightText().setOnClickListener(this);
         Drawable drawable = ContextCompat.getDrawable(mContext, R.drawable.img_card);
         drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
-        headerBar.getRightText().setCompoundDrawables(null,null,drawable,null);
+        headerBar.getRightText().setCompoundDrawables(null, null, drawable, null);
 //        headerBar.getRightText().setVisibility(View.GONE);
         list.add(new IntegralFragment());
         list.add(new BalanceFragment());
@@ -67,13 +71,17 @@ public class BalanceActivity extends VolleyBaseActivity {
             }
         }
         IntegralFragment integralFragment = (IntegralFragment) list.get(0);
-        integralFragment.setGetData(sum -> {integralSum = sum;
+        integralFragment.setGetData(sum -> {
+            integralSum = sum;
             tvIntegralSum.setText(integralSum);
         });
 
         BalanceFragment balanceFragment = (BalanceFragment) list.get(1);
-        balanceFragment.setGetBalanceData(sum -> {
+        balanceFragment.setGetBalanceData((sum, isRefresh) -> {
             balanceSum = sum;
+            if (isRefresh){
+                tvIntegralSum.setText(balanceSum);
+            }
         });
         tabIntegral.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
@@ -83,7 +91,7 @@ public class BalanceActivity extends VolleyBaseActivity {
                 if (textView.getText().toString().trim().equals("余额")) {
                     tvIntegralName.setText("余额剩余");
                     tvIntegralSum.setText(balanceSum);
-                }else {
+                } else {
                     tvIntegralName.setText("N币剩余");
                     tvIntegralSum.setText(integralSum);
                 }
@@ -129,10 +137,26 @@ public class BalanceActivity extends VolleyBaseActivity {
                 break;
             case R.id.tv_right:
                 Intent intent = new Intent();
-                intent.setClass(mContext,MembershipCardActivity.class);
-                startActivity(intent);
+                intent.setClass(mContext, MembershipCardActivity.class);
+                startActivityForResult(intent, REQUEST_BALANCE_REFRESH);
                 break;
         }
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_INTEGRATION_CODE) {
+            if (list.size() >= 2 && list.get(0) != null && list.get(1) != null) {
+//                IntegralFragment integralFragment = (IntegralFragment) list.get(0);
+//                integralFragment.initData(1);
+                BalanceFragment balanceFragment = (BalanceFragment) list.get(1);
+                if (vpIntegral.getCurrentItem()==1){
+                    balanceFragment.initData(1,true);
+                }else {
+                    balanceFragment.initData(1,false);
+                }
+            }
+        }
+    }
 }

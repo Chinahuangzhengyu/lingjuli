@@ -1,9 +1,11 @@
 package com.zhjl.qihao.integration.utils;
 
 import com.zhjl.qihao.integration.api.IntegralInterface;
+import com.zhjl.qihao.systemsetting.api.SettingInterface;
 import com.zhjl.qihao.zq.ParamForNet;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import okhttp3.RequestBody;
@@ -25,7 +27,7 @@ public class RequestUtils {
     }
 
     /**
-     * 获取验证码
+     * php获取验证码
      *
      * @param userToken
      * @param number
@@ -227,6 +229,32 @@ public class RequestUtils {
         map.put("limit", 10);
         RequestBody body = ParamForNet.put(map);
         Call<ResponseBody> call = integralInterface.defaultCardDetail(body);
+        return call;
+    }
+
+
+ //   <!--   java接口请求--!>
+
+    /**
+     * 修改绑定房间信息
+     * @param name
+     * @param residentId
+     * @param type
+     * @param settingInterface
+     * @return
+     */
+    public static Call<ResponseBody> updateRoomInfo(String name, String residentId, int type, List<String> imgIdList, SettingInterface settingInterface) {
+        Map<String, Object> map = new HashMap<>();
+        map.put("name", name);
+        map.put("residentId", residentId);
+        map.put("type", type);
+        RequestBody body;
+        if (type == 1) {        //业主传图片
+            body = ParamForNet.putContainsArray(map, "pictures", imgIdList);
+        } else {
+            body = ParamForNet.put(map);
+        }
+        Call<ResponseBody> call = settingInterface.updateRoomInfo(body);
         return call;
     }
 

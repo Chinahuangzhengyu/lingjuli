@@ -23,7 +23,6 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.google.gson.Gson;
-import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.umeng.analytics.MobclickAgent;
 import com.umeng.socialize.ShareAction;
 import com.umeng.socialize.UMShareListener;
@@ -254,18 +253,6 @@ public class VolleyBaseFragment extends Fragment implements OnClickListener, Req
             @Override
             public void onErrorResponse(VolleyError error) {
                 LogUtils.d("---------error--------");
-                showErrortoast();
-                dismissdialog();
-            }
-        };
-    }
-
-    protected Response.ErrorListener errorListener(
-            final PullToRefreshListView listView) {
-        return new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                listView.onRefreshComplete();
                 showErrortoast();
                 dismissdialog();
             }

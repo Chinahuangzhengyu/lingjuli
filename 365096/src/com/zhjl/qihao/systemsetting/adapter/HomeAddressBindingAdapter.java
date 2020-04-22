@@ -40,14 +40,16 @@ public class HomeAddressBindingAdapter extends RecyclerView.Adapter<HomeAddressB
         if (data.get(i).getResidentType().equals("1")){
             holder.tvUserType.setText("业主");
         }else if (data.get(i).getResidentType().equals("2")){
-            holder.tvUserType.setText("家庭成员");
+            holder.tvUserType.setText("家人");
         }else {
-            holder.tvUserType.setText("租户");
+            holder.tvUserType.setText("租客");
         }
         if (data.get(i).getStatus()==0){
-            holder.tvIsBinding.setText("正在审核中");
+            holder.tvIsBinding.setText("住所绑定审核中");
+        }else if (data.get(i).getStatus()==1){
+            holder.tvIsBinding.setText("住所绑定成功");
         }else {
-            holder.tvIsBinding.setText("已绑定");
+            holder.tvIsBinding.setText("住所绑定审核未通过");
         }
         holder.rlHomeAddressItem.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -11,8 +11,7 @@ import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
-import com.makeramen.RoundedImageView;
+
 import com.zhjl.qihao.R;
 import com.zhjl.qihao.abrefactor.adapter.CoverFlowAdapter;
 import com.zhjl.qihao.abrefactor.bean.RecommendLinksBean;
@@ -95,13 +94,11 @@ public class CoverFlowViewPager extends RelativeLayout {
            // layout.setBackground(getResources().getDrawable(R.drawable.ab_roomlist_bg,null));
 
             layout.setPadding(CoverFlowAdapter.sWidthPadding, CoverFlowAdapter.sHeightPadding, CoverFlowAdapter.sWidthPadding, CoverFlowAdapter.sHeightPadding);
-            RoundedImageView avatar = (RoundedImageView) layout.findViewById(R.id.iv_conver);
             TextView tv1 = (TextView) layout.findViewById(R.id.tv_conver_title);
             TextView content = (TextView) layout.findViewById(R.id.tv_conver_content);
             tv1.setText(view.getUrl_name());
             content.setText(view.getNote());
            // PictureHelper.showPictureWithSquare(getContext(), avatar, view.getLogo());
-            PictureHelper.setPlaceholderImageView(getContext(),view.getLogo(),avatar,R.drawable.square_default_diagram);
 //            Glide.with(getContext()).load(view.getLogo()).asBitmap().placeholder(R.drawable.shouye_dianputuijian).error(R.drawable.square_default_diagram).into(avatar);
             mViewList.add(layout);
         }

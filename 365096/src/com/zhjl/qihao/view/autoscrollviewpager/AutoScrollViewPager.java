@@ -13,8 +13,6 @@ import android.view.MotionEvent;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Interpolator;
 
-import com.marqueeimage.transforms.ABaseTransformer;
-import com.marqueeimage.transforms.DefaultTransformer;
 
 /**
  * Auto Scroll View Pager
@@ -87,7 +85,6 @@ public class AutoScrollViewPager extends ViewPager {
 	public AutoScrollViewPager(Context paramContext) {
 		super(paramContext);
 		init();
-		setScrollerAnimation(new DefaultTransformer());
 		setScrollerTime(700);
 	}
 
@@ -95,7 +92,6 @@ public class AutoScrollViewPager extends ViewPager {
 			AttributeSet paramAttributeSet) {
 		super(paramContext, paramAttributeSet);
 		init();
-		setScrollerAnimation(new DefaultTransformer());
 		setScrollerTime(700);
 	}
 
@@ -273,9 +269,6 @@ public class AutoScrollViewPager extends ViewPager {
 		}
 	}
 
-	public void setScrollerAnimation(ABaseTransformer animation) {
-		setPageTransformer(true, animation);
-	}
 
 	private FixedSpeedScroller scroller_animation = null;
 

@@ -9,7 +9,7 @@
         android:layout_height="146dp"
         android:scaleType="fitXY"
         android:src="@drawable/img_contract"
-        app:round="2"
+        app:round="6"
         />
 
 </LinearLayout>

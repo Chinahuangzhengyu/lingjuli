@@ -78,6 +78,7 @@ public class PhotoAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+        viewHolder = null;
         if (convertView == null) {
             viewHolder = new ViewHolder();
             convertView = mInflater.inflate(R.layout.item_selectphoto, null);
@@ -96,10 +97,10 @@ public class PhotoAdapter extends BaseAdapter {
         layoutParams.width = width;
         layoutParams.height = height;
         viewHolder.image.setLayoutParams(layoutParams);
-        final PhotoInfo photoInfo = list.get(position);
+        PhotoInfo photoInfo = list.get(position);
         if (photoInfo != null) {
             PictureHelper.showPictureWithCustom(mContext, viewHolder.image,
-                    photoInfo.getPath_file(), R.drawable.square_default_diagram);
+                    photoInfo.getPath_file(), R.drawable.img_loading);
         } else {
             viewHolder.image.setImageDrawable(ContextCompat.getDrawable(mContext, R.drawable.img_loading));
         }

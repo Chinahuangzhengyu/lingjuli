@@ -159,6 +159,9 @@ public class NewPhotoMultipleUploadActivity extends VolleyBaseActivity {
      */
     public void copyFile(String oldPath, String newPath) {
         try {
+            if (oldPath.equals(newPath)) {
+                return;
+            }
             int bytesum = 0;
             int byteread = -1;
             File oldfile = new File(oldPath);
@@ -324,8 +327,8 @@ public class NewPhotoMultipleUploadActivity extends VolleyBaseActivity {
             builder.addFormDataPart("dir", fileSign.getDir());
             builder.addFormDataPart("host", fileSign.getHost());
             builder.addFormDataPart("callback", fileSign.getCallback());
-            builder.addFormDataPart("file",  fileSign.getDir() +"picture_" + System.currentTimeMillis() + ".jpg", fileBody);
-            List<MultipartBody.Part> parts=builder.build().parts();
+            builder.addFormDataPart("file", fileSign.getDir() + "picture_" + System.currentTimeMillis() + ".jpg", fileBody);
+            List<MultipartBody.Part> parts = builder.build().parts();
 //            Map<String, String> stringMap = new LinkedHashMap<>();
 //            stringMap.put("policy", fileSign.getPolicy());
 //            stringMap.put("signature", fileSign.getSignature());
@@ -336,13 +339,18 @@ public class NewPhotoMultipleUploadActivity extends VolleyBaseActivity {
 //            stringMap.put("callback", fileSign.getCallback());
 
 //            Map<String, RequestBody> requestBodyMap = generateRequestBody(stringMap, true, fileBody);
-            Call<ResponseBody> call = service.newNoteUploadPhoto(fileSign.getHost(),parts);
+            Call<ResponseBody> call = service.newNoteUploadPhoto(fileSign.getHost(), parts);
             activityRequestData(call, UploadPhotoBean.class, new RequestResult<UploadPhotoBean>() {
                 @Override
                 public void success(UploadPhotoBean result, String message) throws Exception {
                     currentUploadCount++;
                     mSamllPathList.add(result.getData().getFilename());
                     mImageIdList.add(result.getData().getOssId() + "");
+                    //上传成功删除图片
+//                    for (int j = 0; j < mCurrentPhotoPath.size(); j++) {
+//                        File file = mCurrentPhotoPath.get(j);
+//                        file.delete();
+//                    }
                     if (currentUploadCount == mCurrentPhotoPath.size()) {
                         mHandler.sendEmptyMessage(TAG_UPLOAD_SUCCESS);
                     }

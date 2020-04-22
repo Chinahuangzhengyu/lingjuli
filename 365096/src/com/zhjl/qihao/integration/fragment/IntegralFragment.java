@@ -77,7 +77,7 @@ public class IntegralFragment extends VolleyBaseFragment {
             public void onRefresh() {
                 isRefresh =true;
                 pageIndex = 1;
-                initData();
+                initData(pageIndex);
             }
 
             @Override
@@ -85,7 +85,7 @@ public class IntegralFragment extends VolleyBaseFragment {
                 isRefresh = false;
                 pageIndex++;
                 if (pageIndex <= totalPage) {
-                    initData();
+                    initData(pageIndex);
                 } else {
                     int top = Utils.dip2px(mContext, 10);
                     int bottom = Utils.dip2px(mContext, 30);
@@ -94,11 +94,11 @@ public class IntegralFragment extends VolleyBaseFragment {
                 }
             }
         });
-        initData();
+        initData(pageIndex);
         return view;
     }
 
-    private void initData() {
+    public void initData(int pageIndex) {
         IntegralInterface integralInterface = ApiHelper.getInstance().buildRetrofit(mContext).createService(IntegralInterface.class);
         Map<String, Object> map = new HashMap<>();
         map.put("user_token", mSession.getmToken());

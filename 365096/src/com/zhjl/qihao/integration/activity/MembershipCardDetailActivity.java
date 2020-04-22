@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
 import android.view.Gravity;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -54,7 +55,9 @@ public class MembershipCardDetailActivity extends VolleyBaseActivity {
     private PopupWindow removePop;
     private String cardId;
     private boolean isOpen;
+    private boolean isUpdate;
     private IntegralInterface integralInterface;
+    public static final int RESULT_CARD_CODE = 0x5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,12 +72,9 @@ public class MembershipCardDetailActivity extends VolleyBaseActivity {
         }
         integralInterface = ApiHelper.getInstance().buildRetrofit(mContext).createService(IntegralInterface.class);
         initView();
-        sbDefaultCard.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked && !isOpen) {
-                    settingDefaultCard();
-                }
+        sbDefaultCard.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked && !isOpen) {
+                settingDefaultCard();
             }
         });
     }
@@ -155,6 +155,9 @@ public class MembershipCardDetailActivity extends VolleyBaseActivity {
         Intent intent = new Intent();
         switch (view.getId()) {
             case R.id.iv_back:
+                if (isUpdate){
+                    setResult(RESULT_CARD_CODE, getIntent());
+                }
                 finish();
                 break;
             case R.id.btn_update:
@@ -182,9 +185,6 @@ public class MembershipCardDetailActivity extends VolleyBaseActivity {
                 intent.putExtra("cardId", cardId);
                 startActivity(intent);
                 break;
-            case R.id.sb_default_card:
-
-                break;
         }
     }
 
@@ -197,6 +197,7 @@ public class MembershipCardDetailActivity extends VolleyBaseActivity {
                 boolean status = object.optBoolean("status");
                 if (status) {
                     isOpen = true;
+                    isUpdate = true;
                     sbDefaultCard.setEnabled(false);
                     Toast.makeText(mContext, object.optString("message"), Toast.LENGTH_SHORT).show();
                 } else {
@@ -249,8 +250,10 @@ public class MembershipCardDetailActivity extends VolleyBaseActivity {
             @Override
             public void success(Object result, String message) throws Exception {
                 JSONObject object = new JSONObject((String) result);
+                isUpdate = true;
                 if (object.optBoolean("status")) {
                     Toast.makeText(mContext, object.optString("message"), Toast.LENGTH_SHORT).show();
+                    setResult(RESULT_CARD_CODE, getIntent());
                     finish();
                 } else {
                     Utils.phpIsLogin(MembershipCardDetailActivity.this, object.optInt("type"), object.optString("message"));
@@ -262,5 +265,17 @@ public class MembershipCardDetailActivity extends VolleyBaseActivity {
 
             }
         });
+    }
+
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode==KeyEvent.KEYCODE_BACK){
+            if (isUpdate){
+                setResult(RESULT_CARD_CODE, getIntent());
+            }
+        }
+        finish();
+        return super.onKeyDown(keyCode, event);
     }
 }

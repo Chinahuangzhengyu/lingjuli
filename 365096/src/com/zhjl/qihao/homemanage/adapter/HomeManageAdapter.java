@@ -42,28 +42,29 @@ public class HomeManageAdapter extends RecyclerView.Adapter<HomeManageAdapter.Vi
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int i) {
         holder.tvCityName.setText(data.get(i).getSmallCommunityName() + data.get(i).getRoomName());
+        holder.tvName.setText(data.get(i).getName());
         if (data.get(i).getResidentType().equals("1")) {
             holder.tvType.setText("业主");
         } else if (data.get(i).getResidentType().equals("2")) {
-            holder.tvType.setText("家庭成员");
+            holder.tvType.setText("家人");
         } else {
-            holder.tvType.setText("租户");
+            holder.tvType.setText("租客");
         }
         if (data.get(i).getStatus() == 0) {
-            holder.tvStatus.setText("待审核");
+            holder.tvStatus.setText("住所绑定审核中");
             holder.imgDelete.setVisibility(View.GONE);
         } else if (data.get(i).getStatus() == 1) {
-            holder.tvStatus.setText("通过");
+            holder.tvStatus.setText("住所绑定成功");
             holder.imgDelete.setVisibility(View.VISIBLE);
         } else {
-            holder.tvStatus.setText("未通过");
+            holder.tvStatus.setText("住所绑定审核未通过");
             holder.imgDelete.setVisibility(View.VISIBLE);
         }
         holder.clItem.setOnClickListener(v -> {
             Intent intent = new Intent(mContext, HomeManageDetailActivity.class);
-            intent.putExtra("data",data.get(i));
-            intent.putExtra("position",i);
-            mContext.startActivityForResult(intent,REQUEST_HOME_AGREE_CODE);
+            intent.putExtra("data", data.get(i));
+            intent.putExtra("position", i);
+            mContext.startActivityForResult(intent, REQUEST_HOME_AGREE_CODE);
         });
     }
 
@@ -81,6 +82,8 @@ public class HomeManageAdapter extends RecyclerView.Adapter<HomeManageAdapter.Vi
 
         @BindView(R.id.tv_city_name)
         TextView tvCityName;
+        @BindView(R.id.tv_name)
+        TextView tvName;
         @BindView(R.id.tv_type)
         TextView tvType;
         @BindView(R.id.tv_status)

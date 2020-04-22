@@ -171,6 +171,7 @@
                     android:layout_below="@+id/tv_order_send_status"
                     android:layout_marginLeft="16dp"
                     android:layout_marginTop="4dp"
+                    android:layout_marginBottom="16dp"
                     android:layout_marginRight="14dp"
                     android:layout_toLeftOf="@+id/img_phone"
                     android:layout_toRightOf="@+id/img_shop_car"
